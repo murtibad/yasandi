@@ -68,7 +68,7 @@
       typing = typing.then(() => {
         skip = false;
         const p = document.createElement("p");
-        p.className = group.player ? "cmd said" : className || "say";
+        p.className = group.player ? "said" : className || "say";
         log.appendChild(p);
         return typeInto(p, group.lines.join("\n"));
       });

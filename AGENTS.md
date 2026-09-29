@@ -27,6 +27,7 @@ tests/validate.js                   checks scenarios for broken links
 Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example of every feature.
 
 - `nodes.start.text` is the opening. Every other node is reached through `goto`.
+- A non-start node may have its own `text` (a question or new situation). It is shown right after the reply of the intent that leads there, so do not repeat it in that reply.
 - Each intent: `{ id, keywords, text, goto? , ending?, hint? }`. Never both `goto` and `ending`.
 - **Keywords** are lowercase, without Turkish characters (`kac` not `kaç`), and match at the start of a word, so a stem covers suffixes (`kac` matches "kaçıyorum"). Keep stems long enough to avoid accidental matches (3+ letters).
 - First matching intent wins, in this order: the node's own intents, its `inherits` node, scenario `common`, then global intents (which a scenario can replace via `overrides`).
@@ -43,6 +44,8 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 
 ## Writing rules (important)
 
+- **Do not echo the player.** The engine drops a reply's first line when it starts with `»`, because the player just typed their own words. Start replies with the other character's reaction or with narration. Use `»` only for the player's words later in the scene ("» Hangi maç?").
+- **No word-for-word repeats.** When the same intent fires twice, the engine won't show the same text again; it nudges the player instead. Give intents that are easy to hit twice (refusals, "tokum", "pardon") a `text` array of 2-3 variants that escalate.
 - **Player's spoken lines start with `»`** on their own line: `"» Pardon abi.\n— Abi mi? Ben senin abin miyim lan?"`. The screen shows them dim like the player's own input. Never write `— ..., dedin.`
 - Other characters speak with `— ` at line start. Narration is plain text.
 - Never put words in the player's mouth that contradict what they typed. If unsure, narrate the action instead of quoting them.

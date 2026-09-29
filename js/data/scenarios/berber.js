@@ -10,8 +10,8 @@ window.Yasandi.scenarios.push({
     yangin: { title: "Kulak Yangını", tag: "YANDIN" },
     kacis: { title: "Yarım Saçla Kaçış", tag: "FİRAR" },
     yakisikli: { title: "Usta Haklıymış", tag: "YAKIŞIKLI" },
-    borc: { title: "Çırağa Borçlandın", tag: "FAKİRLİK" },
-    kolonya: { title: "Gözde Yanma", tag: "KÖRLÜK" },
+    borc: { title: "Çırağa Borçlandın", tag: "BORÇLANDIN" },
+    kolonya: { title: "Limon Kolonyası", tag: "GÖZÜN YANDI" },
     hikaye: { title: "Başka Bir Hikaye", tag: "GİZEM" },
     kel: { title: "Tamamen Kel", tag: "PARLAK" },
     cay: { title: "Sıcak Çay", tag: "YANDIN" },
@@ -23,7 +23,8 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      hint: "Ustanın sorusuna cevap ver. Kime benzemek istiyorsun?",
+      hint: "Usta kime benzemek istediğini soruyor. Bir isim söyle ya da en baştan uyar.",
+      inherits: "cutting-1",
       text:
         "Mahalle berberi Remzi usta. Oturdun, boynuna havluyu bağladı.\n" +
         "— Hoş geldin abim. Nasıl yapalım?\n" +
@@ -54,10 +55,10 @@ window.Yasandi.scenarios.push({
           id: "kisa-olmasin",
           positive: true,
           keywords: ["kisa", "olmasin", "uzun", "birak", "kesme", "ucundan", "cok kestin", "kestin", "sadece uclar", "uclarindan"],
-          text:
-            "» Abi kısa olmasın dedik, yanlar çok gitti sanki!\n" +
-            "— Tabi abim, kısa olmasın, için rahat olsun. \n" +
-            "Deyip makineyi 2 numaraya taktı ve kafanın diğer yanını da kazıdı.",
+          text: [
+            "— Tabi abim, kısa olmasın, için rahat olsun.\nMakineyi 2 numaraya taktı, kafanın diğer yanını da kazıdı.",
+            "— Anladım abim anladım. Kısa olmasın.\nUsta tarağı saçına daldırdı. Tarak boşlukta dolaşıp geri geldi.",
+          ],
           goto: "service-offer-1",
         },
         {
@@ -65,7 +66,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["aynaya", "bakmak", "bakayim", "nasil", "olmus"],
           text:
-            "» Aynaya dikkatlice baktın. Saçının yarısı yok. Yüzün düştü.\n" +
+            "Aynaya dikkatlice baktın. Saçının yarısı yok. Yüzün düştü.\n" +
             "Bekleyen yaşlı müşteri gazeteden başını kaldırıp:\n" +
             "— Gençlere de hiç yakışmıyor bu yeni modeller, dedi.",
           goto: "service-offer-1",
@@ -83,7 +84,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kacmak",
           positive: true,
-          keywords: ["kalkayim", "kalkmak", "kaciyorum", "kacmak", "gidiyorum", "birak", "yeter", "dur"],
+          keywords: ["kalkayim", "kalkiyorum", "kaciyorum", "kacmak", "gidiyorum", "yeter"],
           text:
             "» Abi yeter, ben kalkayım!\n" +
             "Ayağa fırladın. Kafanın yarısı uzun, yarısı 2 numara.\n" +
@@ -106,7 +107,7 @@ window.Yasandi.scenarios.push({
         {
           id: "yes-ense",
           positive: true,
-          keywords: ["olur", "al abi", "yap", "yapalim", "enseyi", "temizle"],
+          keywords: ["olur", "al abi", "alabilirsin", "yapalim", "yap abi", "enseyi al", "temizle"],
           text:
             "» Olur abi, alıver.\n" +
             "Usta usturayı biledi. 'Benim jilet affetmez abim' diyerek enseni kazımaya başladı.\n" +
@@ -115,7 +116,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "no-ense",
-          keywords: ["kalsin", "istemem", "gerek yok", "alma", "dokunma", "yapma", "sadece"],
+          keywords: ["kalsin", "istemem", "gerek yok", "alma", "dokunma", "yapma", "sadece", "hayir"],
           text:
             "» Yok abi kalsın, öyle kalsın.\n" +
             "— Ne demek kalsın abim, ayıp ediyorsun.\n" +
@@ -204,7 +205,7 @@ window.Yasandi.scenarios.push({
         {
           id: "yes-fire",
           positive: true,
-          keywords: ["yak", "atesle", "olur", "yap", "temizle", "yapalim"],
+          keywords: ["yak abi", "atesle", "olur", "yap abi", "temizle", "yapalim"],
           text:
             "» Al abi, tam olsun.\n" +
             "Usta yanan pamuğu kulağına yaklaştırdı ama aynı anda çırak dükkanın kapısını açınca cereyan yaptı.\n" +
@@ -213,7 +214,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "no-fire",
-          keywords: ["kalsin", "istemem", "gerek yok", "yapma", "ates", "korkarim"],
+          keywords: ["kalsin", "istemem", "gerek yok", "yapma", "ates", "korkarim", "hayir"],
           text:
             "» Yok abi ateşe falan gerek yok, kalsın.\n" +
             "— Sen bilirsin abim, zorla güzellik olmaz.\n" +
@@ -231,7 +232,7 @@ window.Yasandi.scenarios.push({
       hint: "Usta askerlik anısına başladı. Dinle veya böl.",
       text:
         "Usta aynayı boynunun arkasına tutup enseni gösterdi, ama sen bakamadan geri çekti.\n" +
-        "— Bak abim, sene 94. Biz Şırnak'ta askeriz. Komutan beni çağırdı, dedi ki 'Remzi...'",
+        "— Bak abim, sene 94. Biz Erzurum'da askeriz, eksi otuz. Komutan beni çağırdı, dedi ki 'Remzi...'",
       intents: [
         {
           id: "listen",
@@ -333,7 +334,7 @@ window.Yasandi.scenarios.push({
       id: "sigh",
       positive: true,
       keywords: ["ofla", "ic cek", "nefes", "ofluyorum", "off", "ulan"],
-      text: "» Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
+      text: "Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
     }
   ],
 
@@ -345,7 +346,7 @@ window.Yasandi.scenarios.push({
     police: {
       text:
         "155'i aradın.\n— 155, buyrun.\n» Memur bey, saçımı çok kısa kesti!\n" +
-        "— Kardeşim kelaj olmaya mı niyetin var, kapat.",
+        "— Kardeşim saç uzar, sen kapat telefonu.",
     }
   },
 

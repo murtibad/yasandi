@@ -5,6 +5,18 @@
   const STORAGE_ENDINGS = "yasandi.endings.";
   const STORAGE_UNMATCHED = "yasandi.unmatched";
 
+  const texts = (t) => (Array.isArray(t) ? t : [t]);
+
+  const REPEAT_REPLIES = ["Bunu zaten söyledin.", "Aynı şeyi bir daha denedin. Aynı yere çıktı.", "İkinci kez söyleyince daha inandırıcı olmadı."];
+
+  // A reply that opens with the player's own words ("» Pardon abi.") would repeat, in different words,
+  // what the player just typed. Drop that first line; later » lines (mid-scene speech) stay.
+  function stripOpeningEcho(text) {
+    const lines = String(text).split("\n");
+    if (lines.length > 1 && lines[0].startsWith("»")) lines.shift();
+    return lines.join("\n");
+  }
+
   const FILLER = ["abi", "abicim", "gardas", "gardasim", "kardes", "kardesim", "kanka", "lan", "ya", "valla", "vallahi", "ben", "benim", "bizim", "reis", "hocam", "dayi"];
 
   // "arka mahalle abi" -> "Arka mahalle". Drops filler words at both ends, caps length.
@@ -18,8 +30,8 @@
   }
 
   const NEGATION_WORDS = new Set(["hayir", "yok", "asla", "olmaz", "istemem", "degilim"]);
-  // vermiyorum, kalkmıyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, kalkmicam
-  const NEGATION_ENDING = /(m[ai]yor(um|uz)?|miyom|mem|mam|meyecegim|mayacagim|micem|micam)$/;
+  // vermiyorum, kalkmıyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, yemiycem
+  const NEGATION_ENDING = /(m[ai]yor(um|uz)?|miyom|mem|mam|meyecegim|mayacagim|micem|micam|miycem|miycam|m[ai]ycag[ai]m)$/;
 
   function isNegated(normalized) {
     return normalized.trim().split(" ").some((t) => NEGATION_WORDS.has(t) || NEGATION_ENDING.test(t));
@@ -61,6 +73,7 @@
       this.misses = 0;
       this.lastFallback = null;
       this.ended = null;
+      this.seenTexts = new Set();
     }
 
     intro() {
@@ -83,8 +96,9 @@
       if (node.inherits) list.push(...(this.scenario.nodes[node.inherits].intents || []));
       list.push(...(this.scenario.common || []));
       const overrides = this.scenario.overrides || {};
-      for (const g of this.globalIntents) list.push(overrides[g.id] ? { ...g, ...overrides[g.id] } : g);
-      return list;
+      const globals = this.globalIntents.map((g) => (overrides[g.id] ? { ...g, ...overrides[g.id] } : g));
+      // Intents marked `first` (swearing) win over everything: "tokum amk" is swearing, not a polite refusal.
+      return [...globals.filter((g) => g.first), ...list, ...globals.filter((g) => !g.first)];
     }
 
     // Returns { text, ending?: { id, title, tag, isNew } }
@@ -105,9 +119,12 @@
       const intent = this.candidates().find((i) => !(negated && i.positive) && i.keywords.some((k) => hits(i, k)));
 
       if (intent) {
+        // Same move again with nothing new to say: don't repeat the text word for word, push the player instead.
+        const fresh = texts(intent.text).filter((t) => !this.seenTexts.has(t));
+        if (!fresh.length && !intent.ending) return this.miss(input, true);
         this.misses = 0;
         if (intent.goto) this.nodeId = intent.goto;
-        return this.resolve(intent);
+        return this.resolve({ ...intent, text: pick(fresh.length ? fresh : texts(intent.text)) });
       }
 
       const node = this.scenario.nodes[this.nodeId];
@@ -123,13 +140,21 @@
         }
       }
 
-      this.logUnmatched(input);
+      return this.miss(input, false);
+    }
+
+    miss(input, repeated) {
+      const node = this.scenario.nodes[this.nodeId];
+      if (!repeated) this.logUnmatched(input);
       this.misses += 1;
       const patience = node.patience || this.scenario.patience;
       if (patience && this.misses >= patience) {
         return this.resolve(node.patienceIntent || this.scenario.patienceIntent);
       }
-      const text = pick(node.fallbacks || this.scenario.fallbacks, this.lastFallback);
+      const pool = texts(node.fallbacks || this.scenario.fallbacks);
+      const text = repeated
+        ? pick(this.scenario.repeatReplies || REPEAT_REPLIES, this.lastFallback) + "\n" + pick(pool, this.lastFallback)
+        : pick(pool, this.lastFallback);
       this.lastFallback = text;
       // The narrator nudges the player after the second miss in a row.
       const hint = this.misses >= 2 ? node.hint : undefined;
@@ -137,7 +162,13 @@
     }
 
     resolve(intent) {
-      const result = { text: pick(intent.text), hint: intent.hint };
+      const raw = pick(intent.text);
+      this.seenTexts.add(raw);
+      let text = stripOpeningEcho(raw);
+      // Arriving at a step that has its own `text` (a question, a new situation) shows it after the reply.
+      const arrived = intent.goto && intent.goto !== "start" ? this.scenario.nodes[intent.goto] : null;
+      if (arrived && arrived.text) text += "\n" + arrived.text;
+      const result = { text, hint: intent.hint };
       if (intent.ending) {
         const meta = this.scenario.endings[intent.ending];
         const found = this.foundEndings();
