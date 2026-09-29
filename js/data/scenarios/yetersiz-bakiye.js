@@ -29,7 +29,10 @@ window.Yasandi.scenarios.push({
     kacis: { title: "Erken İniş", tag: "KAÇIŞ" },
     kahraman: { title: "Makine Fatihi", tag: "KAHRAMAN" },
     dondu: { title: "Sistem Çöktü", tag: "BEKLEYİŞ" },
-    linc: { title: "Amcaya Saygı", tag: "LİNÇ" }
+    linc: { title: "Amcaya Saygı", tag: "LİNÇ" },
+    atlayan: { title: "Yanlış Hedef", tag: "KAÇIŞ" },
+    sarj: { title: "Şarj Bitti", tag: "KARANLIK" },
+    kural: { title: "Kurallar Kuruldur", tag: "İNADINA" }
   },
 
   nodes: {
@@ -106,9 +109,15 @@ window.Yasandi.scenarios.push({
           id: "driver-pass",
           positive: true,
           keywords: ["sofor", "gecsin", "idare et", "kaptan", "birak gecsin", "bosver", "insaniyet"],
-          text:
+          text: [
             "Şoför el frenini çekti.\n" +
             "— Ben cebimden mi ödeyeyim kardeşim? Kurallar var, babamın malı değil bu otobüs.",
+            "— Kurallar var diyorum gardaş. Belediye bana sormayacak mı sanıyorsun?"
+          ],
+          exhausted: {
+            text: "Şoför motoru durdurdu, anahtarı aldı.\n— Madem bu kadar kural sevmiyorsunuz, otobüs de gitmiyor kardeşim! diyip arabadan indi.",
+            ending: "kural"
+          },
           goto: "driver-argue",
         },
         {
@@ -128,6 +137,16 @@ window.Yasandi.scenarios.push({
             "Dayanamayıp düğmeye bastın ve kendini dışarı attın.\n" +
             "Gideceğin yere daha yedi durak var.",
           ending: "kacis",
+        },
+        {
+          id: "shout-stop",
+          positive: true,
+          keywords: ["musait bir yerde", "musait", "kaptan"],
+          text:
+            "Utançtan kaçmak için öne doğru 'Müsait bir yerde!' diye bağırdın.\n" +
+            "Fakat şoföre değil, kapıda bekleyen kulaklıklı çocuğa bağırmışsın.\n" +
+            "Çocuk korkudan kapı tam açılmadan aşağı atladı.",
+          ending: "atlayan",
         },
       ],
     },
@@ -157,10 +176,14 @@ window.Yasandi.scenarios.push({
           id: "hit-machine",
           positive: true,
           keywords: ["cihaza", "vurmak", "makineye vur", "tokatla", "bozuk bu", "tekme", "dovmek"],
-          text:
-            "Cihaza sert bir tokat attın.\n" +
-            "Cihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\nBütün otobüs seni alkışladı.",
-          ending: "kahraman",
+          text: [
+            "Cihaza sert bir tokat attın.\nCihaz 'LÜTFEN KARTI YENİDEN OKUTUNUZ' dedi.",
+            "Bu sefer yumruk attın.\nCihazın ekranı biraz daha karardı. Şoför 'Hooop!' dedi."
+          ],
+          exhausted: {
+            text: "Cihaza son bir Osmanlı tokadı patlattın.\nCihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\nBütün otobüs seni alkışladı.",
+            ending: "kahraman"
+          }
         },
         {
           id: "hug",
@@ -178,6 +201,13 @@ window.Yasandi.scenarios.push({
           text:
             "Utançtan yerin dibine girdin. İlk açılan kapıdan fırlayıp kendini sokağa attın.\nKadın da peşinden indi. Beraber yürüyorsunuz.",
           ending: "yuruyus",
+        },
+        {
+          id: "phone-card",
+          keywords: ["telefon", "nfc", "karekod", "mobil", "uygulama"],
+          text:
+            "Telefonunu çıkardın, mobil uygulamayı açtın. Tam karekodu okutacakken telefon kapandı.\nŞarjın bitmiş. Kadın 'Nasip değilmiş yavrum' dedi.",
+          ending: "sarj",
         }
       ],
       inherits: "start",

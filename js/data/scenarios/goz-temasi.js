@@ -41,6 +41,9 @@ window.Yasandi.scenarios.push({
     bakkal: { title: "Bakkal Remzi", tag: "KURTULDUN" },
     komsu: { title: "Yeni Komşu", tag: "KURTULDUN" },
     kekoanne: { title: "Keko'nun Annesi", tag: "KURTULDUN" },
+    yasar: { title: "Yaşar Bey'in Oğlu", tag: "KURTULDUN" },
+    hediye: { title: "Hediyeleşme", tag: "KURTULDUN" },
+    deli: { title: "Deli Taklidi", tag: "KURTULDUN" },
   },
 
   nodes: {
@@ -90,6 +93,10 @@ window.Yasandi.scenarios.push({
             "— Sağır mısın gardaş? Ne bakıyon diyorum.",
             "— Hâlâ ne diyon diyor. Kaşınma istersen. Kimsin sen?"
           ],
+          exhausted: {
+            text: "Dördüncü kez sorduğunda keko bıkkınlıkla:\n— İyi misin gardaş sen? diyip alnına dokundu. Ateşini ölçtü.",
+            ending: "rezil"
+          }
         },
         {
           id: "bagir",
@@ -406,6 +413,34 @@ window.Yasandi.scenarios.push({
       id: "speaking-turkish",
       keywords: ["turkce konusuyom", "turkce konusuyorum", "turkce", "anlamiyon mu", "anlamiyor musun", "anlamadin mi"],
       text: "» Türkçe konuşuyom ya abi.\n— Bana laf mı sokuyon sen?\nKeko'nun sol eli yavaşça arka cebine gitti. Sonra geri geldi. Şimdilik.",
+    },
+    {
+      id: "benim-babam",
+      keywords: ["babam", "babamin", "sen benim", "kim oldugumu", "kiminle", "baba"],
+      text:
+        "» Sen benim babamın kim olduğunu biliyor musun lan!\n" +
+        "Keko bir an duraksadı.\n— Kimmiş lan baban?\n" +
+        "Arkasını getiremedin.\n» Emekli maliye memuru Yaşar Bey...\n" +
+        "Keko sana acıyan gözlerle baktı. Cebinden 10 lira çıkarıp eline sıkıştırdı ve sessizce gitti.",
+      ending: "yasar",
+    },
+    {
+      id: "deli",
+      keywords: ["delir", "deli taklidi", "havla", "anlasilmaz", "bagira", "cildir"],
+      text:
+        "Birden gözlerini belertip anlamsız sesler çıkararak kendi etrafında dönmeye başladın.\n" +
+        "Keko bir adım geri çekildi. 'Tövbe estağfurullah' deyip hızla uzaklaştı.",
+      ending: "deli",
+    },
+    {
+      id: "hediye",
+      positive: true,
+      keywords: ["hediye", "tespihi", "tespihini", "ver", "istiyorum", "alayim", "versene"],
+      text:
+        "» O tespih çok güzelmiş, bana versene.\n" +
+        "Keko şaşırdı. Kendi tespihine baktı.\n— Harbiden güzel ha, al senin olsun.\n" +
+        "Karşılığında ona kulaklığını verdin. Artık müzik dinleyemiyorsun ama tespihin var.",
+      ending: "hediye",
     },
   ],
 

@@ -31,7 +31,10 @@ window.Yasandi.scenarios.push({
     issiz: { title: "Heves Kırıcı", tag: "ÜZÜLDÜN" },
     evlilik: { title: "Otobüs Çöpçatanı", tag: "NİŞANLANDIN" },
     "uyku-krizi": { title: "Derin Uyku", tag: "REZİL" },
-    garip: { title: "Yanlış Meslek", tag: "DIŞLANDIN" }
+    garip: { title: "Yanlış Meslek", tag: "DIŞLANDIN" },
+    kulaklik_koptu: { title: "Kopan Kulaklık", tag: "ZARAR" },
+    durdurun: { title: "Durdurun Dünyayı", tag: "KAÇIŞ" },
+    sofor_mudahale: { title: "Şoför Müdahalesi", tag: "İNDİRİLDİN" }
   },
 
   nodes: {
@@ -75,6 +78,10 @@ window.Yasandi.scenarios.push({
             "Fısıltılar başladı otobüste.",
             "İnat ettin, kalkmadın. Teyze birden öksürük krizine girdi. Bilerek yapıyor."
           ],
+          exhausted: {
+            text: "Dördüncü kez görmezden gelince teyze 'İmdat!' diye bağırdı.\nŞoför otobüsü sağa çekip seni levyeyle indirdi.",
+            ending: "sofor_mudahale"
+          },
           goto: "gerilim",
         },
         {
@@ -108,9 +115,16 @@ window.Yasandi.scenarios.push({
           id: "headphone",
           positive: true,
           keywords: ["kulaklik", "muzik", "takiyorum", "taktim", "takarim", "dinliyorum"],
-          text:
+          text: [
             "Kulaklığını taktın. Müziğin sesini açtın.\n" +
             "Teyze eğildi, kulaklığın tekini kulağından çıkardı.\n— Ne dinliyon yavrum? Müslüm mü o?",
+            "Kulaklığını biraz daha bastırdın.\n" +
+            "Teyze omzuna dokundu: — Sağır mısın çocuğum?"
+          ],
+          exhausted: {
+            text: "Kulaklığa asıldın. Kablosu koptu.\nMüzik otobüse yayıldı: 'Oturmaya mı geldik?'\nTeyze dâhil herkes sana gülüyor.",
+            ending: "kulaklik_koptu"
+          },
           goto: "gerilim",
         },
         {
@@ -140,6 +154,15 @@ window.Yasandi.scenarios.push({
             "Teyzenin bakışlarına dayanamayıp 'Benim durağım geldi' diyerek ilk durakta kendini dışarı attın.\n" +
             "Yağmur altında 12 durak eve kadar yürürken teyzenin otobüs camından sana zaferle baktığını gördün.",
           ending: "erkeninis",
+        },
+        {
+          id: "stop-world",
+          positive: true,
+          keywords: ["durdurun", "inicek var", "kaptirmayin", "acil"],
+          text:
+            "Birden 'Durdurun otobüsü, inecek var!' diye çığlık attın.\n" +
+            "Tüm otobüs sana döndü. Kapı açıldı, dışarı fırladın. Arkandan bir sessizlik oldu.",
+          ending: "durdurun",
         },
         {
           id: "window",
