@@ -4,15 +4,7 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
-### 2. "Kısa Olmasın" (`berber.js`, branch `feature/barber`)
-
-Opening: Mahalle berberi Remzi usta. Oturdun, "Abi uçlarından alsan yeter, kısa olmasın" dedin. Makine vızıldadı.
-- Engine of the joke: **the more you say "kısa olmasın", the shorter it gets.** Remzi usta talks nonstop (siyaset değil; futbol, eski günler, askerlik anısı, "bu devirde gençler") and cuts while agreeing with you ("Tabi abim, kısa olmasın"). The mirror is the player's only source of truth.
-- Characters: Remzi usta, çırak (brings tea, burns a towel), the old customer waiting who comments on every step.
-- Must understand: kısa olmasın, dur, yeter, uzun bırak, aynaya bak, kalkmak, kaçmak, bahşiş, kolonya istememek, "sadece uçlar".
-- Running device: every few turns the usta offers a service nobody asked for (kulak kılı ateşle, kaş, yüz maskesi, "ense tıraşı da yapıyım mı").
-- Open question (acceptAny): "Nası olsun abim, kime benzesin?" → usta promises to make the player look like {input} and fails ("— {input} {mi}? Tamamdır abim.").
-- Endings (14+): asker tıraşı; sadece bir tarafı kısa; kulak kılı yangını; yarım saçla kaçış; usta haklı çıkıyor ve çok yakışıyor; bahşiş yerine çıraktan borç; kolonya gözüne kaçıyor; "bu da başka bir hikâyenin konusu" ile kesilen askerlik anısı.
+## Ready
 
 ### 3. "Niyetimiz Çalıp Çırpmak Değil" (`terk-edilmis-koy.js`, branch `feature/abandoned-village`)
 
@@ -32,6 +24,7 @@ Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır
 
 ## Done
 
+- "Kısa Olmasın" (`berber.js`, branch `feature/barber`, commit `96a1f19`)
 - "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit `7fac2e1`)
 - Write `ideas/ideas.md`: 12 new scenario ideas (branch `feature/ideas`, commit `a07f205`)
 - New scenario: "Yetersiz Bakiye" (`yetersiz-bakiye.js`, branch `feature/insufficient-balance`, commit `c677a58`)
