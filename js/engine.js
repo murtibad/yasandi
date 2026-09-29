@@ -164,7 +164,10 @@
     resolve(intent) {
       const raw = pick(intent.text);
       this.seenTexts.add(raw);
-      const text = stripOpeningEcho(raw);
+      let text = stripOpeningEcho(raw);
+      // Arriving at a step that has its own `text` (a question, a new situation) shows it after the reply.
+      const arrived = intent.goto && intent.goto !== "start" ? this.scenario.nodes[intent.goto] : null;
+      if (arrived && arrived.text) text += "\n" + arrived.text;
       const result = { text, hint: intent.hint };
       if (intent.ending) {
         const meta = this.scenario.endings[intent.ending];
