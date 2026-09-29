@@ -28,12 +28,13 @@
   const FILLER = ["abi", "abicim", "gardas", "gardasim", "kardes", "kardesim", "kanka", "lan", "ya", "valla", "vallahi", "ben", "benim", "bizim", "reis", "hocam", "dayi"];
 
   // "arka mahalle abi" -> "Arka mahalle". Drops filler words at both ends, caps length.
-  function cleanAnswer(input) {
+  function cleanAnswer(input, keepCase) {
     const words = String(input).replace(/[.!?,]+/g, " ").trim().split(/\s+/).filter(Boolean);
     const isFiller = (w) => FILLER.includes(normalize(w).trim());
     while (words.length && isFiller(words[0])) words.shift();
     while (words.length && isFiller(words[words.length - 1])) words.pop();
     const text = words.join(" ").slice(0, 40);
+    if (keepCase) return text;
     return text ? text.charAt(0).toLocaleUpperCase("tr-TR") + text.slice(1) : "";
   }
 
@@ -82,6 +83,7 @@
       this.lastFallback = null;
       this.ended = null;
       this.seenTexts = new Set();
+      this.vars = {};
     }
 
     intro() {
@@ -119,7 +121,7 @@
       const here = this.scenario.nodes[this.nodeId];
       if (isNarratorQuestion(normalized)) {
         const look = here.look || this.scenario.nodes.start.look || here.hint;
-        if (look) return { narrator: look };
+        if (look) return { narrator: this.fill(look) };
       }
       // `whole: true` intents only fire when the keyword is (almost) the entire input:
       // "kanka" or "tamam kanka" (a listed phrase) triggers it, "Yıldırım kanka" (an answer that mentions kanka) does not.
@@ -153,6 +155,10 @@
         if (answer) {
           this.misses = 0;
           const chosen = pick(node.acceptAny);
+          // `save: "crush"` remembers the answer; later texts use {crush}.
+          const saveAs = chosen.save || node.save;
+          // Keep what the player typed as-is ("Murat" stays capital, "sarışın bir kız" stays lower).
+          if (saveAs) this.vars[saveAs] = cleanAnswer(input, true);
           if (chosen.goto) this.nodeId = chosen.goto;
           return this.resolve({ ...chosen, text: fillAnswer(pick(chosen.text), answer) });
         }
@@ -170,25 +176,27 @@
         return this.resolve(node.patienceIntent || this.scenario.patienceIntent);
       }
       const pool = texts(node.fallbacks || this.scenario.fallbacks);
-      const text = repeated
+      let text = repeated
         ? pick(this.scenario.repeatReplies || REPEAT_REPLIES, this.lastFallback) + "\n" + pick(pool, this.lastFallback)
         : pick(pool, this.lastFallback);
       this.lastFallback = text;
+      text = this.fill(text);
       // The narrator nudges the player after the second miss in a row.
       let hint = this.misses >= 2 ? node.hint : undefined;
       if (hint && hint === this.lastHint) hint = undefined;
       if (hint) this.lastHint = hint;
+      if (hint) hint = this.fill(hint);
       return { text, hint };
     }
 
     resolve(intent) {
       const raw = pick(intent.text);
       this.seenTexts.add(raw);
-      let text = stripOpeningEcho(raw);
+      let text = this.fill(stripOpeningEcho(raw));
       // Arriving at a step that has its own `text` (a question, a new situation) shows it after the reply.
       const arrived = intent.goto && intent.goto !== "start" ? this.scenario.nodes[intent.goto] : null;
-      if (arrived && arrived.text) text += "\n" + arrived.text;
-      const result = { text, hint: intent.hint };
+      if (arrived && arrived.text) text += "\n" + this.fill(arrived.text);
+      const result = { text, hint: intent.hint && this.fill(intent.hint) };
       if (intent.ending) {
         const meta = this.scenario.endings[intent.ending];
         const found = this.foundEndings();
@@ -198,6 +206,16 @@
         result.ending = { id: intent.ending, title: meta.title, tag: meta.tag, isNew };
       }
       return result;
+    }
+
+    // {crush}, {name}... from saved answers, as the player typed them; capitalized at the start of a sentence.
+    fill(text) {
+      return String(text).replace(/\{(\w+)\}/g, (m, key, offset, all) => {
+        if (!(key in this.vars)) return m;
+        const v = this.vars[key];
+        const atStart = offset === 0 || all[offset - 1] === "\n" || /[.!?]\s$/.test(all.slice(Math.max(0, offset - 2), offset));
+        return atStart ? v.charAt(0).toLocaleUpperCase("tr-TR") + v.slice(1) : v;
+      });
     }
 
     // Kept locally for now. Later this can post to a free database so new keywords can be added.

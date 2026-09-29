@@ -20,8 +20,8 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Ne yapacağını bilemedin.",
-    "Böyle boş boş duracak mısın?"
+    "{crush} sana bakıyor. Bir şey diyecek misin?",
+    "Şoför aynadan bakıyor: — Karar verin gençler, kalkıyoruz."
   ],
 
   nodes: {
@@ -30,24 +30,24 @@ window.Yasandi.scenarios.push({
       look: "Otobüs hıncahınç dolu. Herkes yorgun, yüzler asık. Kapıda duran kişi ise buraya hiç ait değilmiş gibi parlak.",
       text:
         "Sabahın körü. Tıklım tıklım otobüste en önde, kart cihazının yanındasın. Kulağında müzik var.\n" +
-        "Kapılar açıldı ve Hani şu hep hayal ettiğin...",
+        "Kapılar açıldı. Tam senin kaleminde biri bindi.\n" +
+        "Hani şu hep hayal ettiğin...",
       acceptAny: [
-        { text: "{input}. Evet, tam o.", goto: "rol-pasi" }
+        { text: "{input}. Evet, tam o.", save: "crush", goto: "rol-pasi" }
       ],
       fallbacks: [
-        "Kim olduğunu tarif et."
+        "Hani şu hep hayal ettiğin... Kim bindi?"
       ],
-      goto: "rol-pasi",
     },
 
     "rol-pasi": {
       hint: "Sana bakıyor. Kartını verecek misin?",
-      look: "Otobüs kalabalık. {input} tam önünde bekliyor. Arkanda spor çantalı, kaslı bir genç dikiliyor.",
+      look: "Otobüs kalabalık. {crush} tam önünde bekliyor. Arkanda spor çantalı, kaslı bir genç dikiliyor.",
       text:
-        "{input} kartını okutmak için cihaza yaklaştırdı.\n" +
+        "Kartını okutmak için cihaza yaklaştırdı.\n" +
         "Cihaz otobüsü inleterek bağırdı: 'YETERSİZ BAKİYE'.\n" +
         "Yüzü düştü, mahcup bir şekilde bir daha okuttu: 'YETERSİZ BAKİYE'.\n" +
-        "Şoför dikiz aynasından derin bir iç çekti. {input} sana doğru döndü:\n" +
+        "Şoför dikiz aynasından derin bir iç çekti. Sana doğru döndü:\n" +
         "— Senin kartın var mı?",
       intents: [
         {
@@ -55,9 +55,9 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kartimi", "kartim var", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "basayim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan", "evet", "var"],
           text: [
-            "Havalı bir şekilde kartını uzattın. {input} teşekkür edip kartını cihaza okuttu.\n" +
+            "Havalı bir şekilde kartını uzattın. Teşekkür edip kartını cihaza okuttu.\n" +
             "Cihaz yankılandı: 'YETERSİZ BAKİYE'.\n" +
-            "Otobüste buz gibi bir sessizlik oldu. {input} sana acıyarak bakıyor."
+            "Otobüste buz gibi bir sessizlik oldu. Sana acıyarak bakıyor."
           ],
           goto: "no-balance",
         },
@@ -65,9 +65,8 @@ window.Yasandi.scenarios.push({
           id: "ignore",
           keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye", "vermiyorum", "vermem", "yardim edemem", "etmiyorum", "edemem", "etmem", "yok", "bende", "sessiz", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam"],
           text: [
-            "» Yok, dedin soğukça.\n" +
-            "Arkandaki spor çantalı kaslı genç hemen öne atıldı: — Buyrun, ben basayım.\n" +
-            "{input} ona minnetle gülümsedi. Genç numarasını veriyor, sense otobüs camından dışarı bakıyorsun.",
+                        "Arkandaki spor çantalı kaslı genç hemen öne atıldı: — Buyrun, ben basayım.\n" +
+            "{crush} ona minnetle gülümsedi. Genç numarasını veriyor, sense otobüs camından dışarı bakıyorsun.",
           ],
           ending: "gymbro",
         },
@@ -77,7 +76,7 @@ window.Yasandi.scenarios.push({
           keywords: ["uyumak", "uyuyor", "uyku", "gozumu", "kapat", "kestir", "uyurum", "uyuma", "horla"],
           text:
             "Gözlerini sıkıca kapattın. Uyuyor numarası yapıyorsun.\n" +
-            "Şoför 'Kardeş yolu aç!' diye bağırdı. Gözünü açtığında {input} otobüsten inmişti bile.",
+            "Şoför 'Kardeş yolu aç!' diye bağırdı. Gözünü açtığında {crush} otobüsten inmişti bile.",
           ending: "kapi",
         },
         {
@@ -86,12 +85,12 @@ window.Yasandi.scenarios.push({
           keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme", "basarim", "musait", "kaptan"],
           text:
             "Panikle 'İnecek var!' diye bağırdın ve ilk açılan kapıdan kendini dışarı attın.\n" +
-            "{input} otobüste kaldı. Gideceğin yere daha yedi durak var.",
+            "{crush} otobüste kaldı. Gideceğin yere daha yedi durak var.",
           ending: "indin",
         }
       ],
       fallbacks: [
-        "{input} bekliyor: — Kartın var mı, yok mu?",
+        "{crush} bekliyor: — Kartın var mı, yok mu?",
         "Arkandaki kaslı genç sabırsızlanıyor. Kartını verecek misin?",
         "Cihaz kırmızı kırmızı yanıyor. Ne yapacaksın?"
       ],
@@ -99,25 +98,25 @@ window.Yasandi.scenarios.push({
       patienceIntent: {
         text:
           "Sen öyle donup kalınca arkandaki kaslı genç 'Kardeş müsaade et' deyip kendi kartını bastı.\n" +
-          "{input} ona dönüp kocaman gülümsedi. Senin şansın bitti.",
+          "{crush} ona dönüp kocaman gülümsedi. Senin şansın bitti.",
         ending: "gymbro",
       }
     },
 
     "no-balance": {
       hint: "Senin kartın da boş çıktı. Utancı nasıl kurtaracaksın?",
-      look: "{input} elinde senin boş kartınla sana bakıyor. Şoför dikiz aynasından size ters ters bakıyor.",
+      look: "{crush} elinde senin boş kartınla sana bakıyor. Şoför dikiz aynasından size ters ters bakıyor.",
       intents: [
         {
           id: "hit-machine",
           positive: true,
           keywords: ["cihaza", "vurmak", "makineye", "tokatla", "bozuk bu", "tekme", "dovmek", "vururum", "tokat"],
           text: [
-            "» Cihaz bozuk galiba, diyerek makineye sert bir tokat attın.\nCihaz 'LÜTFEN KARTI YENİDEN OKUTUNUZ' dedi.",
+            "Makineye sert bir tokat attın.\nCihaz 'LÜTFEN KARTI YENİDEN OKUTUNUZ' dedi.",
             "Bu sefer yumruk attın.\nCihazın ekranı biraz daha karardı. Şoför 'Hooop!' dedi."
           ],
           exhausted: {
-            text: "Cihaza son bir Osmanlı tokadı patlattın.\nCihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\n{input} sana hayranlıkla baktı. Şoför ise polisi aradı.",
+            text: "Cihaza son bir Osmanlı tokadı patlattın.\nCihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\n{crush} sana hayranlıkla baktı. Şoför ise polisi aradı.",
             ending: "makine"
           }
         },
@@ -135,7 +134,7 @@ window.Yasandi.scenarios.push({
           keywords: ["dusur", "yuvarlan", "bozuk para", "para dustu", "bozukluk dustu", "kacir", "kaydi"],
           text:
             "Şoföre uzatmak için bozuk para çıkardın ama elinden kayıp tıngır tıngır yuvarlandı.\n" +
-            "Otobüsteki 40 kişi ve {input} nefesini tutup o 1 liranın yuvarlanışını izledi.",
+            "Otobüsteki 40 kişi ve {crush} nefesini tutup o 1 liranın yuvarlanışını izledi.",
           ending: "rezil",
         },
         {
@@ -143,7 +142,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["saril", "agla", "kader", "fakirlik", "biz de", "teselli"],
           text:
-            "{input} ile göz göze geldiniz. İkinizin de kartında para yok.\n" +
+            "{crush} ile göz göze geldiniz. İkinizin de kartında para yok.\n" +
             "Gözleriniz doldu. 'Zor hayatlar' diyerek sarıldınız. Şoför bile duygulanıp 'Geçin arkaya' dedi.",
           ending: "dram",
         },
@@ -152,33 +151,30 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["inmek", "inecek", "kac", "kapi", "disari", "iniyorum", "uzaklas", "yuru"],
           text:
-            "Utançtan yerin dibine girdin. İlk açılan kapıdan fırlayıp kendini sokağa attın.\n{input} da peşinden indi. 'Benim yüzümden oldu' dedi. Beraber yürüyorsunuz.",
+            "Utançtan yerin dibine girdin. İlk açılan kapıdan fırlayıp kendini sokağa attın.\n{crush} da peşinden indi. 'Benim yüzümden oldu' dedi. Beraber yürüyorsunuz.",
           ending: "yuruyus",
         },
         {
           id: "apologize",
           keywords: ["kusura", "ozur", "pardon", "yanlislik", "affedersin"],
           text:
-            "» Kusura bakma, içinde var sanıyordum...\n" +
-            "{input} gülümsedi: — Önemli değil ya, olur öyle. Benim adım da...",
-          acceptAny: [
-            { text: "— {input}, dedi. Memnun oldum. Seninki ne?", goto: "name-exchange" }
-          ],
+            "{crush} gülümsedi: — Önemli değil ya, olur öyle. Bu arada ben...\n" +
+            "Adını söyledi ama tam o an cihaz yine 'YETERSİZ BAKİYE' diye bağırdı. Duyamadın.\n" +
+            "— Senin adın ne?",
           goto: "name-exchange",
         },
         {
           id: "ignore",
           keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye", "vermiyorum", "vermem", "yardim edemem", "etmiyorum", "edemem", "etmem", "yok", "bende yok", "sessiz", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam"],
           text: [
-            "» Yok, dedin soğukça.\n" +
-            "Şoför 'İn o zaman!' dedi ve seni indirdi.",
+                        "Şoför 'İn o zaman!' dedi ve seni indirdi.",
           ],
           ending: "atildin"
         }
       ],
       fallbacks: [
         "Cihaz kırmızı ışıkla sana bakıyor. Bir şey yapacak mısın?",
-        "{input} boş kartı sana geri uzattı. Alacak mısın?",
+        "{crush} boş kartı sana geri uzattı. Alacak mısın?",
         "Şoför 'Eee, ne yapıyoruz gençler?' dedi. Ne diyeceksin?",
       ],
       patience: 3,
@@ -193,44 +189,38 @@ window.Yasandi.scenarios.push({
 
     "name-exchange": {
       hint: "Adını söyle. Dürüst olabilir veya havalı bir isim uydurabilirsin.",
-      look: "Otobüs ilerliyor. {input} ilgiyle senin cevabını bekliyor.",
+      look: "Otobüs ilerliyor. {crush} ilgiyle senin cevabını bekliyor.",
       intents: [
         {
           id: "sessiz",
           keywords: ["sus", "konusma", "sessiz", "soylemem", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam"],
-          text: "Sessiz kaldın. {input} garipseyip önüne döndü. Bir daha hiç konuşmadınız.",
+          text: "Sessiz kaldın. {crush} garipseyip önüne döndü. Bir daha hiç konuşmadınız.",
           ending: "reddedildi"
         }
       ],
       acceptAny: [
-        { text: "» {input}\n— Ne güzel isim, dedi. Ben son durağa gidiyorum, sen nerede iniyorsun?", goto: "stop-exchange" }
+        { text: "— {input} {mi}? Ne güzel. Ben son durağa gidiyorum, sen nerede iniyorsun?", save: "name", goto: "stop-exchange" }
       ],
       fallbacks: [
-        "— İsmin ne, diyordum?",
-        "Sana adını sordu."
-      ],
-      goto: "stop-exchange"
+        "— İsmin ne, diyordum?"
+      ]
     },
 
     "stop-exchange": {
       hint: "Nerede indiğini söyle. (Örn: merkezde, son durakta, şurada)",
-      look: "{input} gülümsüyor. Artık her şey senin elinde.",
+      look: "{crush} gülümsüyor. Artık her şey senin elinde.",
       intents: [
         {
           id: "sessiz",
           keywords: ["sus", "sessiz", "bilmiyorum", "soylemem", "hayir", "hicbir", "yapmiyorum", "yapmam"],
-          text: "Yine sessiz kaldın. {input} senden sıkılıp kulaklığını taktı.",
+          text: "Yine sessiz kaldın. {crush} senden sıkılıp kulaklığını taktı.",
           ending: "reddedildi"
         }
       ],
       acceptAny: [
-        { text: "» {input}\n— Oradan otobüs geçmiyor ki? diyip sana şüpheyle baktı.\nYalanın ortaya çıktı.", ending: "yalanci" },
-        { text: "» {input}\n— Tesadüfe bak, ben de oraya kadar gidiyorum! dedi.\nBütün otobüs bedava aşk filmi izliyor.", ending: "ask" }
+        { text: "— {input} {mi}? Oradan bu otobüs geçmiyor ki {name}.\nŞüpheyle baktı. Yalanın ortaya çıktı. Cihaz bile sustu.", ending: "yalanci" },
+        { text: "— {input} {mi}? Tesadüfe bak, ben de oraya kadar gidiyorum!\nBütün otobüs bedava aşk filmi izliyor. Cihaz bu sefer 'İYİ YOLCULUKLAR' dedi.", ending: "ask" }
       ],
-      exhausted: {
-        text: "Artık ineceğin durak kalmadı. {input} seninle evlenmeye karar verdi.",
-        ending: "ask"
-      },
       fallbacks: [
         "— Nerede iniyorsun, dedin?",
         "Cevap verecek misin?"
