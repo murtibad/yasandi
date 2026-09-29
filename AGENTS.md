@@ -37,6 +37,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - `exhausted: { text, ending?/goto? }` on an intent with a `text` array: what happens when the player does it again after every variant was shown (third "Tuncay arkanda!" and he finally sees the cin).
 - `first: true` on a `common` intent makes it win over node intents (a specific phrase like "topallayarak iniyorum" must beat the general "iniyorum").
 - `whole: true` on an intent means it only fires when the keyword is the whole input.
+- **Remembering answers:** an `acceptAny` item with `save: "crush"` stores the player's answer; any later text, look, hint or fallback can use `{crush}`. `{input}` only exists inside the `acceptAny` text itself. Mention a saved description once or twice per scene, then use "o" or no subject; repeating "uzun boylu kıvırcık saçlı bir kız" in every sentence gets old.
 - `acceptAny: [...]` on a node accepts any answer to an open question. `{input}` is replaced by the player's words, `{mi}` by the right question particle (mı/mi/mu/mü).
 - `fallbacks`: replies when nothing matches. **Every fallback must end with pressure or a question** so the player knows what to answer. Never write "X yazdığını anlamadı".
 - `look` on a node: what the narrator describes when the player asks a question instead of acting ("nereye saklayabilirim?", "ne yapabilirim?", "neler var?"). Describe the room and the people concretely (where things are, who is watching), never list commands. Falls back to `hint`. Every node where the player may feel stuck should have one.
