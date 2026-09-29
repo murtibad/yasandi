@@ -8,12 +8,9 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Research (do after the tasks above)
 
-### 4. `ideas/memes.md`: Turkish meme bank, patterns only
-
-Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır" moments from sources like Ekşi Sözlük, Twitter/X, YouTube comments. For each: the **pattern** in one line (not the person or channel it came from), where it could be used in a scenario, and one example line of in-game dialogue in natural spoken Turkish. Follow "Memes and trends" in `AGENTS.md`: skip anything tied to a real person, a stereotype or a tragedy. Do not write scenario files.
-
 ## Done
 
+- `ideas/memes.md`: Turkish meme bank, patterns only (branch `feature/memes`)
 - "Niyetimiz Çalıp Çırpmak Değil" (`terk-edilmis-koy.js`, branch `feature/abandoned-village`)
 - Refresh all scenarios (`content/refresh`, branch `content/refresh`, commit `51f2c0b`)
 - "Kısa Olmasın" (`berber.js`, branch `feature/barber`, commit `96a1f19`)
