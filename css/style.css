@@ -7,6 +7,7 @@
   --line: #24211e;
   --stamp-bg: #ece7df;
   --stamp-fg: #0f0e0d;
+  --you: #9fb3c8;
   --font-story: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
   --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --step: clamp(15px, 1.1vw + 11px, 18px);
@@ -91,7 +92,9 @@ body {
 }
 .cmd::before { content: "››"; position: absolute; left: 0; color: var(--faint); }
 
-.cmd.said { margin-block: -12px; }
+/* The player's words inside the story: same voice as other speech, but in their own color. */
+.said { color: var(--you); }
+.said::before { content: "— "; }
 
 .ending {
   display: flex;

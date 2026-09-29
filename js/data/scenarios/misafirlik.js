@@ -79,7 +79,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "refuse",
-          keywords: ["tokum", "yeter", "doydum", "yiyemem", "yemiyorum", "istemiyorum", "sag ol", "sagol", "tesekkur", "istemem", "kalsin", "yok"],
+          keywords: ["tokum", "yeter", "doydum", "yiyemem", "yemiyorum", "yemiycem", "yemicem", "yemem", "istemiyorum", "sag ol", "sagol", "tesekkur", "istemem", "kalsin", "yok"],
           text:
             "» Teyze gerçekten çok tokum, ellerine sağlık.\n" +
             "Nebahat teyze gözlerini kıstı:\n" +
@@ -215,6 +215,14 @@ window.Yasandi.scenarios.push({
             "Nebahat teyze hemen yumuşadı, gözleri parladı:\n" +
             "— Madem öyle söyle bakalım, en çok hangi yemeğimi seviyon sen?",
           goto: "favorite-food",
+        },
+        {
+          id: "mom-feeds",
+          keywords: ["yediriyo", "yediriyor", "annem iyi", "annem cok", "evde yiyorum"],
+          text: [
+            "— Yediriyosa niye böyle çöp gibisin? Dur bi soralım.\nNebahat teyze telefonu kaptı, hoparlörü açtı.\n— Ayten, bu çocuk bizde bi şey yemiyo. Evde de mi böyle?\nAnnenin sesi salonda yankılandı: — Ye oğlum! Rezil etme beni!",
+          ],
+          ending: "anne",
         },
         {
           id: "cry",
