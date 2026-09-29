@@ -73,10 +73,11 @@ The game lives or dies on whether it sounds like real Turkish people talking. Te
 
 ## Memes and trends
 
-Build scenarios around moments and memes Turkish internet already knows, not around long stories. Take the **pattern**, never the **person**:
+Build scenarios around moments and memes Turkish internet already knows, not around long stories.
 
-- Never name or depict real people, real YouTubers/channels, real athletes, real brands or real teams, even if a meme started with them. Recreate the pattern with an invented character (an invented ghost-hunting YouTuber, an invented halı saha teammate).
-- No memes built on stereotypes about women, regions, ethnicities, religions or disabled people. No memes about real news victims or private people.
+- **Public figures:** a well-known, harmless meme about a public figure's public work (a footballer's shots flying over the bar, a presenter's catchphrase) may be used with a **parody name** that everyone recognizes (e.g. "Başır Alpler"). Keep it affectionate and limited to the meme itself: no invented quotes about their private life, politics, family or health, no insults, nothing that could read as a real claim about them.
+- **Channels and brands:** parody names only, same rules.
+- **Never:** private people or relatives of public figures, victims of real news, memes built on stereotypes about women, regions, ethnicities, religions or disabled people.
 - Songs and artists may appear only as a background detail ("kulağında Manifest çalıyor"). Never quote lyrics.
 - Running gags that may appear in any scenario: the narrator saying "Ama bu başka bir hikâyenin konusu." when something interesting is skipped; a password that keeps getting stolen ("şifren yine isim123'müş"); a shot that "füze gibi çıktı, kalenin üstünden gitti".
 
