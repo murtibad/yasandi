@@ -51,9 +51,20 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "polite",
-          keywords: ["efendim", "ne oldu", "bisey mi", "bir sey mi", "konussana", "ne dedin", "ne diyon", "ne diyorsun", "anlamadim", "duymadim abi"],
-          text: "— Efendim abi? dedin.\n— Efendim mi? Öğretmen miyim lan ben? Hangi mahallesin sen?",
+          keywords: ["efendim", "duymadim abi"],
+          text: "— Efendim mi? Öğretmen miyim lan ben? Hangi mahallesin sen?",
           goto: "abi",
+        },
+        {
+          id: "wasnt-looking",
+          keywords: ["bakmiyordum", "bakmiyodum", "bakmadim", "hicbir seye", "hic bir seye", "dalmisim", "daldim", "bosluga", "kimseye", "sana degil", "arkana"],
+          text: "— Hiçbir şeye bakmıyodum abi, dalmışım.\n— Dalmışsın. Bana mı daldın?\nKeko seni baştan aşağı süzdü.\n— Hangi mahallesin sen?",
+          goto: "abi",
+        },
+        {
+          id: "what-do-you-want",
+          keywords: ["ne oldu", "bisey mi", "bir sey mi", "konussana", "ne dedin", "ne diyon", "ne diyorsun", "ne istiyon", "ne istiyorsun", "anlamadim", "derdin ne"],
+          text: "— Konuşuyom ya işte, dedi keko. Hayırdır dedim.\nBir adım yaklaştı.\n— Sen neye bakıyodun asıl?",
         },
         {
           id: "talk-back",
@@ -134,6 +145,11 @@ window.Yasandi.scenarios.push({
         },
       ],
       inherits: "start",
+      fallbacks: [
+        "— Soruma cevap ver gardaş. Hangi mahallesin?",
+        "Keko başını yana eğdi.\n— Buralı mısın, değil misin? Basit soru.",
+        "— Lafı dolandırma. Nerelisin sen?",
+      ],
     },
 
     chase: {
@@ -170,6 +186,11 @@ window.Yasandi.scenarios.push({
           ending: "bakiye",
         },
       ],
+      fallbacks: [
+        "Terlik sesi yaklaşıyor.\n— Dur lan! Koşacak mısın, duracak mısın?",
+        "Nefesin daralıyor. Köşede bir bakkal var, durakta bir otobüs.\nArkadan: — Dur dedim!",
+        "Keko'nun terliğinin biri çıktı. Tek terlikle devam ediyor. Hâlâ yetişiyor.",
+      ],
     },
 
     insist: {
@@ -196,6 +217,12 @@ window.Yasandi.scenarios.push({
   },
 
   common: [
+    {
+      id: "keep-distance",
+      keywords: ["yaklasma", "ote dur", "uzak dur", "geri cekil", "geri dur", "mesafe", "cekil", "dokunma"],
+      text: "— Abi öte dur, dedin.\n— Öte mi? Burası senin mahallen mi lan?\nKeko yarım adım geri çekildi. Sonra bir adım yaklaştı. Net kâr: yarım adım.\n— Hangi mahallesin sen?",
+      goto: "abi",
+    },
     {
       id: "speaking-turkish",
       keywords: ["turkce konusuyom", "turkce konusuyorum", "turkce", "anlamiyon mu", "anlamiyor musun", "anlamadin mi"],
@@ -244,14 +271,14 @@ window.Yasandi.scenarios.push({
     },
   },
 
+  // Every fallback ends with pressure or a question, so the player always knows the ball is in their court.
   fallbacks: [
-    "Keko yazdığını anlamadı. Kaşları çatıldı.",
-    "— Ne diyon lan sen? dedi keko.",
-    "Keko bir adım yaklaştı. Sigara kokuyor.",
-    "Keko ağzındaki çekirdeği tükürdü. Bekliyor.",
-    "— Gardaş Türkçe konuş, dedi.",
-    "Arkadan bir motor geçti. Keko gözünü senden ayırmadı.",
-    "Keko bir sana baktı, bir ayakkabılarına. Ayakkabıların pahalı değil. Rahatladın mı? Bilmiyorsun.",
+    "Keko kaşlarını çattı.\n— Ne diyon lan sen? Hayırdır dedim, cevap ver.",
+    "Keko bir adım yaklaştı. Sigara kokuyor.\n— Gardaş, bi soru sordum. Hayırdır?",
+    "Keko ağzındaki çekirdeği tükürdü.\n— Dilini mi yuttun? Neye bakıyodun?",
+    "— Gardaş Türkçe konuş, dedi keko. Ne bakıyon?",
+    "Arkadan bir motor geçti. Keko gözünü senden ayırmadı.\n— Bekliyom gardaş.",
+    "Keko bir sana baktı, bir ayakkabılarına. Ayakkabıların pahalı değil.\n— Eee? Ne olacak şimdi?",
   ],
   patience: 5,
   patienceIntent: {
