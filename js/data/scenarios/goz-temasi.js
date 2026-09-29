@@ -27,6 +27,7 @@ window.Yasandi.scenarios.push({
     sulale: { title: "Bayramda Gel", tag: "KURTULDUN" },
     bakiye: { title: "Bakiye Yetersiz", tag: "ÖLDÜN" },
     terlik: { title: "Terlik Füzesi", tag: "BAYILDIN" },
+    rezil: { title: "Rezil Oldun", tag: "UTANÇ" },
     kedi: { title: "Paşa", tag: "KURTULDUN" },
     omuz: { title: "Omuz", tag: "ÖLDÜN" },
     vesikalik: { title: "Vesikalık", tag: "SOYULDUN" },
@@ -89,6 +90,15 @@ window.Yasandi.scenarios.push({
             "— Sağır mısın gardaş? Ne bakıyon diyorum.",
             "— Hâlâ ne diyon diyor. Kaşınma istersen. Kimsin sen?"
           ],
+        },
+        {
+          id: "bagir",
+          positive: true,
+          keywords: ["bagir", "sesini yukselt", "sen kimsin", "lan"],
+          text:
+            "Göğsünü kabartıp 'Sen kime bakıyorsun lan!' diye kükreyecekken sesin bülbül gibi incelip çatladı.\n" +
+            "Keko bir an duraksadı, sonra sokağın ortasında kahkaha krizine girdi. Utançtan yüzün kızardı ve oradan hızla kaçtın.",
+          ending: "rezil",
         },
         {
           id: "talk-back",
