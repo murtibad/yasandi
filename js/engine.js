@@ -7,6 +7,14 @@
 
   const texts = (t) => (Array.isArray(t) ? t : [t]);
 
+  // Questions to the narrator ("nereye saklayabilirim?", "ne yapabilirim?") are not actions.
+  const NARRATOR_WORDS = ["nereye", "nerede", "neresi", "neler var", "ne yapabilirim", "ne yapmaliyim", "ne yapsam", "ne yapayim", "secenek", "etrafa bak", "etrafima bak", "nasil yani"];
+  const CAN_I = /(abilir|ebilir)(im|miyim|mi)$/;
+  function isNarratorQuestion(normalized) {
+    const words = normalized.trim().split(" ");
+    return NARRATOR_WORDS.some((w) => normalized.includes(" " + w + " ") || normalized.includes(" " + w)) || words.some((w) => CAN_I.test(w));
+  }
+
   const REPEAT_REPLIES = ["Bunu zaten söyledin.", "Aynı şeyi bir daha denedin. Aynı yere çıktı.", "İkinci kez söyleyince daha inandırıcı olmadı."];
 
   // A reply that opens with the player's own words ("» Pardon abi.") would repeat, in different words,
@@ -106,6 +114,11 @@
       if (this.ended) return { text: "Bu hikâye bitti. Tekrar oynamak için \"tekrar\" yaz." };
 
       const normalized = normalize(input);
+      const here = this.scenario.nodes[this.nodeId];
+      if (isNarratorQuestion(normalized)) {
+        const look = here.look || this.scenario.nodes.start.look || here.hint;
+        if (look) return { narrator: look };
+      }
       // `whole: true` intents only fire when the keyword is (almost) the entire input:
       // "kanka" or "tamam kanka" (a listed phrase) triggers it, "Yıldırım kanka" (an answer that mentions kanka) does not.
       const hits = (i, k) => {
@@ -157,7 +170,9 @@
         : pick(pool, this.lastFallback);
       this.lastFallback = text;
       // The narrator nudges the player after the second miss in a row.
-      const hint = this.misses >= 2 ? node.hint : undefined;
+      let hint = this.misses >= 2 ? node.hint : undefined;
+      if (hint && hint === this.lastHint) hint = undefined;
+      if (hint) this.lastHint = hint;
       return { text, hint };
     }
 

@@ -36,6 +36,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - `whole: true` on an intent means it only fires when the keyword is the whole input.
 - `acceptAny: [...]` on a node accepts any answer to an open question. `{input}` is replaced by the player's words, `{mi}` by the right question particle (mı/mi/mu/mü).
 - `fallbacks`: replies when nothing matches. **Every fallback must end with pressure or a question** so the player knows what to answer. Never write "X yazdığını anlamadı".
+- `look` on a node: what the narrator describes when the player asks a question instead of acting ("nereye saklayabilirim?", "ne yapabilirim?", "neler var?"). Describe the room and the people concretely (where things are, who is watching), never list commands. Falls back to `hint`. Every node where the player may feel stuck should have one.
 - `hint` on a node: the narrator's nudge, shown after two misses. It suggests directions, it never lists all options.
 - **Endings must match their outcome.** An ending's `title` and `tag` describe what the text of the intent that leads there says. Do not reuse an ending for a different outcome just because it exists: add a new one. Every ending is reached by at least one intent and reads well on its own.
 - After `{input}` always use `{mi}`, never a fixed "mi" (the validator warns).

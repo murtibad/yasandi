@@ -29,6 +29,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      look: "Salonun köşesinde koca bir saksı var. Masanın altında bir kedi dolaşıyor. Önünde peçete, cebin boş. Mutfağın kapısı aralık, çöp kovası orada. Kapı ise çok uzakta.",
       hint: "Tabak kendi kendine boşalmayacak. Yemek de bir yol, yememek de. Bu evde saklanacak yer de çok.",
       text:
         "Bayram ziyareti, Nebahat teyzenin evi.\n" +
@@ -70,7 +71,7 @@ window.Yasandi.scenarios.push({
         {
           id: "eat",
           positive: true,
-          keywords: ["yemek", "yiyorum", "yerim", "basla", "atistir", "yiyecegim", "catal", "kasik", "agzima", "isir", "bi sarma", "bir sarma"],
+          keywords: ["yemek", "yiyorum", "yerim", "yicem", "yiyecem", "yiyicem", "tamam yiyorum", "basla", "atistir", "yiyecegim", "catal", "kasik", "agzima", "isir", "bi sarma", "bir sarma"],
           text:
             "Çatalı alıp zorla bir sarma attın ağzına.\n" +
             "Sen yutkunmaya çalışırken Nebahat teyze sevinçle mutfaktan döndü:\n" +
