@@ -32,7 +32,7 @@ Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır
 
 ## Done
 
-- "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit to be added)
+- "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit `7fac2e1`)
 - Write `ideas/ideas.md`: 12 new scenario ideas (branch `feature/ideas`, commit `a07f205`)
 - New scenario: "Yetersiz Bakiye" (`yetersiz-bakiye.js`, branch `feature/insufficient-balance`, commit `c677a58`)
 - Bus scenario "Yer Ver" (`otobus-teyzesi.js`), deepened with tension and 24 endings (main, `0f45ffe`)
