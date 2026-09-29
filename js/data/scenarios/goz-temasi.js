@@ -247,7 +247,7 @@ window.Yasandi.scenarios.push({
           text:
             "— Kimsem yok abi, dedin.\nKeko bir an durdu. Gözleri doldu.\n" +
             "Telefonundan Müslüm Gürses açtı. Hoparlör cızırdıyor. Kaldırıma oturdunuz, beraber dinlediniz.\n" +
-            "Sana simit aldı. Bir de ayran.",
+            "Bakkala gidip bir paket çekirdek, iki kola aldı. Kolanın birini sana uzattı.\nÇekirdek kabukları ayağınızın dibinde tepe oldu. Müslüm çalmaya devam ediyor.",
           ending: "muslum",
         },
         {
