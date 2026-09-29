@@ -213,8 +213,8 @@ window.Yasandi.scenarios.push({
           id: "polite-again",
           keywords: ["buyur", "buyrun", "efendim", "emret"],
           text:
-            "» Efendim abi, buyur abi.\nBaşka bir şey gelmedi aklına.\n" +
-            "Keko derin bir nefes aldı.\n— Madem garsonsun, iki çay söyle o zaman.\n" +
+            "Keko derin bir nefes aldı.\n— Efendim, buyur... Başka kelime bilmiyon mu sen?\n" +
+            "Bir süre düşündü.\n— Madem garsonsun, iki çay söyle o zaman.\n" +
             "Kahveye oturdunuz. Dört çay içtiniz. Hesabı sen ödedin.",
           ending: "garson",
         },
