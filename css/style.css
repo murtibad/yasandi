@@ -41,6 +41,7 @@ body {
   font-size: var(--step);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .app {
@@ -237,3 +238,78 @@ body.hit::after {
 @media (max-width: 480px) {
   .settings { width: 100%; margin-left: 0; }
 }
+
+/* Header Icon Buttons */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--dim);
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+}
+.btn-icon:hover {
+  color: var(--fg);
+  background-color: var(--line);
+}
+.btn-icon svg {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sound Toggle */
+.sound-wave {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform-origin: left center;
+}
+[aria-pressed="false"] .sound-wave {
+  opacity: 0;
+  transform: scaleX(0.5);
+}
+
+/* Theme Toggle */
+.icon-theme .icon-sun, .icon-theme .icon-moon {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform-origin: center;
+}
+/* Default (Dark Theme) */
+.icon-theme .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+.icon-theme .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
+
+/* Light Theme overrides */
+:root[data-theme="light"] .icon-theme .icon-sun {
+  opacity: 1; transform: rotate(0) scale(1);
+}
+:root[data-theme="light"] .icon-theme .icon-moon {
+  opacity: 0; transform: rotate(90deg) scale(0.5);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .icon-theme .icon-sun {
+    opacity: 1; transform: rotate(0) scale(1);
+  }
+  :root:not([data-theme="dark"]) .icon-theme .icon-moon {
+    opacity: 0; transform: rotate(90deg) scale(0.5);
+  }
+}
+
+/* Pulse animation on first visit */
+@keyframes pulse-icon {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 var(--fg); }
+  50% { transform: scale(1.1); box-shadow: 0 0 0 8px transparent; }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+}
+.pulse-once {
+  animation: pulse-icon 1s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+  .btn-icon svg { transition: none; }
+  .sound-wave { transition: none; }
+  .icon-theme .icon-sun, .icon-theme .icon-moon { transition: none; }
+  .pulse-once { animation: none; }
+}
+

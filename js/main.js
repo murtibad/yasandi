@@ -146,7 +146,15 @@
     scenarioLabel.textContent = scenario.title;
     updateCounter();
     typing = Promise.resolve();
-    say(game.intro());
+    say(game.intro()).then(() => {
+      try {
+        if (!localStorage.getItem("yasandi.pulsed")) {
+          localStorage.setItem("yasandi.pulsed", "1");
+          soundBtn.classList.add("pulse-once");
+          themeBtn.classList.add("pulse-once");
+        }
+      } catch (e) {}
+    });
     input.value = "";
     input.focus({ preventScroll: true });
   }
@@ -196,7 +204,7 @@
 
   // Sound toggle.
   const paintSound = () => {
-    soundBtn.textContent = sound.isOn() ? "Ses açık" : "Ses kapalı";
+    soundBtn.setAttribute("aria-label", sound.isOn() ? "Ses açık" : "Ses kapalı");
     soundBtn.setAttribute("aria-pressed", String(sound.isOn()));
   };
   soundBtn.addEventListener("click", () => { sound.toggle(); paintSound(); });
@@ -207,7 +215,7 @@
   const THEME_KEY = "yasandi.theme";
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
   const currentTheme = () => document.documentElement.dataset.theme || (systemDark.matches ? "dark" : "light");
-  const paintTheme = () => (themeBtn.textContent = currentTheme() === "dark" ? "Açık mod" : "Koyu mod");
+  const paintTheme = () => themeBtn.setAttribute("aria-label", currentTheme() === "dark" ? "Açık mod" : "Koyu mod");
   try { const saved = localStorage.getItem(THEME_KEY); if (saved) document.documentElement.dataset.theme = saved; } catch (e) { /* storage blocked */ }
   themeBtn.addEventListener("click", () => {
     const next = currentTheme() === "dark" ? "light" : "dark";
