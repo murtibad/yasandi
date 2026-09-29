@@ -4,17 +4,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
-### 0. Refresh all scenarios (`content/refresh`, do this first)
-
-New engine features (read the updated "Scenario format" and "Writing rules" in `AGENTS.md`): the narrator answers questions through `look`, the engine drops a reply's opening `»` line, and repeated intents no longer repeat text.
-- Add a `look` to the `start` node of every scenario (goz-temasi, otobus-teyzesi, yetersiz-bakiye, berber) and to any node that introduces a new place or new people. Concrete scene description, no command lists. Example in `misafirlik.js`.
-- In every scenario, for intents a player is likely to hit twice (refusals, apologies, "pardon", "efendim", "kısa olmasın", "tokum"), turn `text` into an array of 2-3 variants where each one escalates the situation.
-- Keko (`goz-temasi.js`) feels repetitive: give its most common intents (polite, apologize, talk-back, ignore, what-do-you-want) at least 3 escalating variants each.
-- Remove opening `»` lines that just restate the player's input; start with the other person's reaction.
-- Do not change engine files. Validate, play each scenario once with 10 natural inputs, push the branch.
-
-## Ready
-
 ### 3. "Niyetimiz Çalıp Çırpmak Değil" (`terk-edilmis-koy.js`, branch `feature/abandoned-village`)
 
 Parody of the Turkish ghost-hunting YouTube genre. Invented channel, invented host. Never name or imitate a real channel.
@@ -33,6 +22,7 @@ Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır
 
 ## Done
 
+- Refresh all scenarios (`content/refresh`, branch `content/refresh`, commit `51f2c0b`)
 - "Kısa Olmasın" (`berber.js`, branch `feature/barber`, commit `96a1f19`)
 - "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit `7fac2e1`)
 - Write `ideas/ideas.md`: 12 new scenario ideas (branch `feature/ideas`, commit `a07f205`)

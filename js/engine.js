@@ -137,7 +137,8 @@
         if (!fresh.length && !intent.ending) return this.miss(input, true);
         this.misses = 0;
         if (intent.goto) this.nodeId = intent.goto;
-        return this.resolve({ ...intent, text: pick(fresh.length ? fresh : texts(intent.text)) });
+        // Variants are written to escalate, so they are shown in order: first time the first, then the next.
+        return this.resolve({ ...intent, text: fresh.length ? fresh[0] : pick(texts(intent.text)) });
       }
 
       const node = this.scenario.nodes[this.nodeId];
