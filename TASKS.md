@@ -24,7 +24,7 @@ Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır
 
 ## Done
 
-- "Kısa Olmasın" (`berber.js`, branch `feature/barber`, commit to be added)
+- "Kısa Olmasın" (`berber.js`, branch `feature/barber`, commit `96a1f19`)
 - "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit `7fac2e1`)
 - Write `ideas/ideas.md`: 12 new scenario ideas (branch `feature/ideas`, commit `a07f205`)
 - New scenario: "Yetersiz Bakiye" (`yetersiz-bakiye.js`, branch `feature/insufficient-balance`, commit `c677a58`)
