@@ -12,6 +12,7 @@ const scenarioDir = path.join(root, "js/data/scenarios");
 const files = fs.readdirSync(scenarioDir).filter((f) => f.endsWith(".js"));
 files.forEach((f) => require(path.join(scenarioDir, f)));
 
+require(path.join(root, "js/engine.js"));
 const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const errors = [];
 const warnings = [];
@@ -73,6 +74,24 @@ for (const s of scenarios) {
   if (!s.fallbacks || !s.fallbacks.length) err(where("no fallbacks"));
 
   for (const e of Object.keys(s.endings)) if (!usedEndings.has(e)) warnings.push(where(`ending "${e}" is never reached`));
+
+  // Role-pass check: in every step, a refusal or "doing nothing" is a real choice and must move the scene,
+  // not bounce off a fallback.
+  if (window.Yasandi.Game) {
+    const DEAD_END_INPUTS = ["hayır", "hiçbir şey yapmıyorum", "bilmiyorum"];
+    for (const nodeId of Object.keys(s.nodes)) {
+      for (const input of DEAD_END_INPUTS) {
+        const g = new window.Yasandi.Game(s, globalIntents);
+        g.nodeId = nodeId;
+        const fallbackPool = [].concat(s.nodes[nodeId].fallbacks || s.fallbacks || []);
+        const r = g.handle(input);
+        const text = r.text || "";
+        if (!r.narrator && fallbackPool.some((f) => text === f || text.endsWith(f))) {
+          warnings.push(where(`${nodeId}: "${input}" only gets a fallback; make it a choice with a consequence`));
+        }
+      }
+    }
+  }
   console.log(`${s.id}: ${Object.keys(s.nodes).length} steps, ${Object.keys(s.endings).length} endings`);
 }
 
