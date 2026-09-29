@@ -36,6 +36,7 @@ window.Yasandi.scenarios.push({
       inherits: "cutting-1",
       text:
         "Mahalle berberi Remzi usta. Oturdun, boynuna havluyu bağladı.\n" +
+        "Yarın hayatının en önemli buluşması var. Saçın buna hazır olmalı.\n" +
         "— Hoş geldin abim. Nasıl yapalım?\n" +
         "» Abi uçlarından alsan yeter, kısa olmasın.\n" +
         "— Tabi abim, merak etme sen.\n" +

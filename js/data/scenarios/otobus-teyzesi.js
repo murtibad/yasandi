@@ -42,7 +42,8 @@ window.Yasandi.scenarios.push({
       hint: "Teyze tepene dikildi. Yer verebilir, görmezden gelebilir, uyuma numarası yapabilir, telefonu çıkarabilir veya mızmızlanabilirsin.",
       look: "Otobüs hıncahınç dolu. Ayaktakiler demirlere tutunmuş, yorgun argın sallanıyor. Yanda lise öğrencisi telefonda oyun oynuyor. Teyze tam karşında, elinde pazar çantası, sana kilitlenmiş.",
       text:
-        "Akşam saati. Otobüs tıklım tıklım. Çok yorgunsun, sonunda bir koltuk bulup oturdun.\n" +
+        "Akşam saati. Otobüs tıklım tıklım. İşten çıktın, ayakların zonkluyor, eve daha 40 durak var.\n" +
+        "Sonunda bir koltuk buldun, oturdun.\n" +
         "Bir durakta yaşlı, sevimli ama kararlı bir teyze bindi. Geldi, tam tepene dikildi.\n" +
         "Hiçbir şey demiyor. Sadece gözlerinin içine bakıyor.",
       intents: [

@@ -52,6 +52,7 @@ window.Yasandi.scenarios.push({
       look: "Mahalle ıssız. Karşı kaldırımda tekir bir kedi var. Köşedeki bakkal Remzi abi kepengi yarıya indirmiş. Keko tam önünü kesmiş, siyah eşofmanlı, elinde tespih var.",
       text:
         "Akşam üstü. Mahallede yürüyorsun. Kulaklık takılı ama müzik yok, öylesine takılı.\n" +
+        "Cebinde maaştan kalan son 500 lira var. Ay sonuna dokuz gün.\n" +
         "Karşıdan biri geliyor. Yanlışlıkla göz göze geldiniz. Bir saniye. Belki iki.\n" +
         "Durdu.\n" +
         "— Hayırdır la gardaş?",

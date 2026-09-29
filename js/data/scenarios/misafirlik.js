@@ -38,7 +38,7 @@ window.Yasandi.scenarios.push({
       look: "Salonun köşesinde koca bir saksı var. Masanın altında bir kedi dolaşıyor. Önünde peçete, cebin boş. Mutfağın kapısı aralık, çöp kovası orada. Kapı ise çok uzakta.",
       hint: "Tabak kendi kendine boşalmayacak. Yemek de bir yol, yememek de. Bu evde saklanacak yer de çok.",
       text:
-        "Bayram ziyareti, Nebahat teyzenin evi.\n" +
+        "Bayram ziyareti, Nebahat teyzenin evi. Annen kapıda tembihledi: 'Rezil etme beni.'\n" +
         "Öğlen sağlam yedin, üstüne iki çay içtin. 'Tokum teyze' dedikçe önündeki tabak doldu.\n" +
         "Şu an önünde kocaman bir tabak sarma, üç koca dilim börek ve kenarda kısır var.\n" +
         "Cemil amca televizyon karşısında uyukluyor.\n" +

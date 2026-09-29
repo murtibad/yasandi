@@ -36,7 +36,7 @@ window.Yasandi.scenarios.push({
       look: "Zifiri karanlık. Tuncay'ın fenerinin sarı ışığı eski kerpiç evin aralık kapısına vuruyor. Kapının önünde bir çift terlik duruyor. Temiz. Yeni gibi.",
       hint: "Tuncay kapıda. İçeri girmenin de bir adabı var.",
       text:
-        "Gece, terk edilmiş bir dağ köyü. Arkadaşın Tuncay kamerayı açtı, fenerin pili yarım. Kanalın 312 abonesi var.\n" +
+        "Gece, terk edilmiş bir dağ köyü. Arkadaşın Tuncay kamerayı açtı, fenerin pili yarım. Kanalın 312 abonesi var. Bu video da tutmazsa kanalı kapatıyorsunuz.\n" +
         "Tuncay ilk eve girmeden önce kapıya dönüp fısıldıyor:\n" +
         "— Selamünaleyküm. Niyetimiz çalıp çırpmak değil, döküp kırmak değil. Sadece çekim yapıp gideceğiz.",
       intents: [

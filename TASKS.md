@@ -19,6 +19,8 @@ Owner played it and felt nothing: "why should I care that a stranger's card is e
 
 ### 9. Rol pası pass on the other five scenarios (`content/role-pass`)
 
+**Do not** add one catch-all "sessiz" intent per scenario that ends the game (a first attempt did this; it made "oturmaya devam" end the bus scenario). Each step needs its own consequence that fits that moment: in the bus, freezing means the teyze leans closer; in the barber, the usta takes silence as a yes. Most of them should move to another step, not end the game. The stake lines in the openings are already done.
+
 Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir şey yapmıyorum" or "bilmiyorum" only get a fallback. Fix every one of those with an intent that moves the scene, following the "Rol pası" section. Also check that each scenario's first three lines give the player a personal stake; strengthen the opening where they don't (one or two sentences, keep what works). 0 warnings.
 
 ## Later (owner's ideas, not for agents yet)
