@@ -1,0 +1,392 @@
+window.Yasandi = window.Yasandi || {};
+window.Yasandi.scenarios = window.Yasandi.scenarios || [];
+window.Yasandi.scenarios.push({
+  id: "yetersiz-bakiye",
+  title: "Yetersiz Bakiye",
+
+  endings: {
+    zarar: { title: "Tam Bilet Kesildi", tag: "ZARAR" },
+    uzuldun: { title: "Aktarma Yandı", tag: "ÜZÜLDÜN" },
+    atildin: { title: "Nakit Geçmiyor", tag: "ATILDIN" },
+    mutlu: { title: "Şoför Jesti", tag: "MUTLU SON" },
+    yuruyus: { title: "Beraber Yürüdük", tag: "YÜRÜYÜŞ" },
+    nostalji: { title: "Delikli Bilet", tag: "NOSTALJİ" },
+    viral: { title: "Cimri Genç", tag: "VİRAL" },
+    rehine: { title: "Otobüs Rehin", tag: "REHİNE" },
+    dram: { title: "Fakir Dayanışması", tag: "DRAM" },
+    kurtuldun: { title: "Doldur Gel", tag: "KURTULDUN" },
+    uyudun: { title: "Sağır Sultan", tag: "UYUDUN" },
+    zengin: { title: "Kârlı Ticaret", tag: "ZENGİN" },
+    kacis: { title: "Erken İniş", tag: "KAÇIŞ" },
+    kahraman: { title: "Makine Fatihi", tag: "KAHRAMAN" },
+    dondu: { title: "Sistem Çöktü", tag: "BEKLEYİŞ" },
+    linc: { title: "Amcaya Saygı", tag: "LİNÇ" }
+  },
+
+  nodes: {
+    start: {
+      hint: "Kendi kartını verebilir, duymazdan gelebilir, şoförle konuşabilir, nakit teklif edebilir veya cihazı gösterebilirsin.",
+      text:
+        "Sabahın körü. Tıklım tıklım bir otobüs, en önde ayaktasın. Kulağında müzik çalıyor.\n" +
+        "Güleryüzlü, orta yaşlı bir kadın otobüse bindi. Kartını okutmak için cihaza yaklaştırdı.\n" +
+        "Cihaz otobüsü inleterek bağırdı: 'YETERSİZ BAKİYE'.\n" +
+        "Kadın mahcup bir şekilde bir daha okuttu: 'YETERSİZ BAKİYE'.\n" +
+        "Şoför dikiz aynasından derin bir iç çekti. Kadın çaresizce yolculara döndü:\n" +
+        "— Fazladan kartı olan var mı acaba?",
+      intents: [
+        {
+          id: "offer-card",
+          positive: true,
+          keywords: ["kartimi", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan"],
+          text:
+            "» Bende var abla, buyrun.\nKartını uzattın. Kadın teşekkür edip kartını cihaza okuttu.\n" +
+            "Cihaz yankılandı: 'YETERSİZ BAKİYE'.\n" +
+            "Otobüste buz gibi bir sessizlik oldu. Kadın sana acıyarak bakıyor.",
+          goto: "no-balance",
+        },
+        {
+          id: "sleep",
+          positive: true,
+          keywords: ["uyumak", "uyuyor", "uyku", "gozumu", "kapat", "kestir", "uyurum", "uyuma", "horla"],
+          text:
+            "Gözlerini sıkıca kapattın. Dünyayla bağını kopardın.\n" +
+            "Gözünü açtığında otobüs son duraktaydı. Herkes inmiş. Şoför sana bakıp 'Günaydın' dedi.",
+          ending: "uyudun",
+        },
+        {
+          id: "ignore",
+          keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami cevir", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye devam", "vermiyorum", "vermem", "yok", "bende yok", "yokmus gibi", "sessiz"],
+          text:
+            "Hiçbir şey duymamış gibi müziğine devam ettin, camdan dışarı bakıyorsun.\n" +
+            "Arka koltuktaki teyze 'Cık cık cık' diye söylenmeye başladı. Amca bastonunu yere vurdu:\n" +
+            "— Bizim zamanımızda yardımlaşma vardı! Gençlik bitmiş.\n" +
+            "Yandaki lise öğrencisi telefonunu çıkarıp seni videoya çekmeye başladı.",
+          goto: "tension",
+        },
+        {
+          id: "cash",
+          positive: true,
+          keywords: ["nakit", "para vereyim", "bozukluk", "bozuk para", "para ustu"],
+          text:
+            "» Abla bende bozukluk var, nakit vereyim.\n" +
+            "Şoför anında araya girdi: — Nakit geçmiyor kardeşim!\n" +
+            "Kadın elinde parayla ortada kaldı.",
+          goto: "driver-argue",
+        },
+        {
+          id: "driver-pass",
+          positive: true,
+          keywords: ["sofor", "gecsin", "idare et", "kaptan", "birak gecsin", "bosver", "insaniyet"],
+          text:
+            "» Kaptan idare ediver, geçsin arkaya.\n" +
+            "Şoför el frenini çekti.\n" +
+            "— Ben cebimden mi ödeyeyim kardeşim? Kurallar var, babamın malı değil bu otobüs.",
+          goto: "driver-argue",
+        },
+        {
+          id: "top-up",
+          positive: true,
+          keywords: ["makine", "doldur", "yukle", "yukleme", "in de", "disarida"],
+          text:
+            "» Abla durakta yükleme cihazı var, oradan doldursan?\n" +
+            "Kadın haklısın der gibi başını salladı, otobüsten indi.\n" +
+            "Kapılar kapandı, sen vicdan azabıyla baş başa kaldın.",
+          ending: "kurtuldun",
+        },
+        {
+          id: "get-off",
+          positive: true,
+          keywords: ["inmek", "iniyorum", "inecek var", "kapi", "durak", "dugme", "inilir"],
+          text:
+            "» İnecek var!\nDayanamayıp düğmeye bastın ve kendini dışarı attın.\n" +
+            "Gideceğin yere daha yedi durak var.",
+          ending: "kacis",
+        },
+      ],
+    },
+
+    "no-balance": {
+      hint: "Senin kartın da boş çıktı! Nakit verebilir, makineyi dövebilir, inebilir veya utanabilirsin.",
+      intents: [
+        {
+          id: "cash-try",
+          positive: true,
+          keywords: ["nakit", "para vereyim", "bozukluk", "cuzdan"],
+          text:
+            "Hemen cüzdana davrandın. » Nakit vereyim abla...\n" +
+            "Şoför bağırdı: — Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
+          ending: "atildin",
+        },
+        {
+          id: "hit-machine",
+          positive: true,
+          keywords: ["cihaza", "vurmak", "makineye vur", "tokatla", "bozuk bu", "tekme", "dovmek"],
+          text:
+            "» Kesin cihaz bozuk!\nDeyip cihaza sert bir tokat attın.\n" +
+            "Cihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\nBütün otobüs seni alkışladı.",
+          ending: "kahraman",
+        },
+        {
+          id: "hug",
+          positive: true,
+          keywords: ["saril", "agla", "kader", "fakirlik", "biz de", "teselli"],
+          text:
+            "Kadınla göz göze geldiniz. İkinizin de kartında para yok.\n" +
+            "Gözleriniz doldu. Sarıldınız. Şoför bile duygulanıp 'Geçin arkaya' dedi.",
+          ending: "dram",
+        },
+        {
+          id: "run-away",
+          positive: true,
+          keywords: ["inmek", "inecek", "kac", "kapi", "disari", "iniyorum"],
+          text:
+            "Utançtan yerin dibine girdin. İlk açılan kapıdan fırlayıp kendini sokağa attın.\nKadın da peşinden indi. Beraber yürüyorsunuz.",
+          ending: "yuruyus",
+        }
+      ],
+      inherits: "start",
+      fallbacks: [
+        "Cihaz kırmızı ışıkla sana bakıyor. Bir şey yapacak mısın?",
+        "Kadın kartı sana geri uzattı. Alacak mısın?",
+        "Şoför 'Eee, basan yok mu?' dedi. Ne diyeceksin?",
+      ],
+      patience: 3,
+      patienceIntent: {
+        text:
+          "Sen şokta beklerken arka koltuktan bir amca kalktı.\n" +
+          "— Verin şunu, dedi. Kendi kartını okuttu: 'TAM BİLET'.\n" +
+          "Sonra sana dönüp: 'İşe yaramaz gençlik,' diye mırıldandı.",
+        ending: "viral",
+      },
+    },
+
+    "tension": {
+      hint: "Baskı altındasın. Amcaya cevap ver, videoyu engelle veya kadına sorusunu sor.",
+      intents: [
+        {
+          id: "uncle-reply",
+          positive: true,
+          keywords: ["amcaya", "amca", "bizim zamanimiz", "dayi", "sen bas", "sen ver", "cok biliyorsan"],
+          text:
+            "» Amca çok biliyorsan sen bas kartı!\n" +
+            "Amca ayaklandı. Cebine uzandı.",
+          goto: "amca-time",
+        },
+        {
+          id: "video-kid",
+          positive: true,
+          keywords: ["video", "kamera", "cekme", "telefon", "engelle", "cocuga", "gence"],
+          text:
+            "» Çekme kardeşim ne çekiyorsun!\n" +
+            "Çocuk 'Abi rahat ol' dedi ama akşama 'Otobüste kart basmayan cimri' olarak TikTok'a düştün.",
+          ending: "viral",
+        },
+        {
+          id: "what-music",
+          positive: true,
+          keywords: ["dinliyorum", "muzik dinliyorum", "sarki", "kulaklikta"],
+          text:
+            "Kadın sana doğru eğildi, kulaklığının tekini çıkardı.\n" +
+            "— Ne dinliyorsun ki bu kadar daldın evladım? diye sordu.",
+          goto: "ask-music",
+        },
+      ],
+      inherits: "start",
+      fallbacks: [
+        "Telefonun kamerası yüzüne dönük. Amca söylenmeye devam ediyor. Ne yapacaksın?",
+        "Kadın hâlâ kart arıyor. Sessiz mi kalacaksın?",
+        "Otobüste uğultu arttı. Bir şey demeyecek misin?",
+      ],
+      patience: 3,
+      patienceIntent: {
+        text:
+          "Sen tepki vermeyince kadın 'Neyse ben ineyim bari' dedi.\n" +
+          "Tam o sırada cihaz bağırdı: 'SİSTEM GÜNCELLENİYOR. LÜTFEN BEKLEYİNİZ.'\n" +
+          "Kapılar kilitlendi. Otobüs dondu kaldı.",
+        ending: "dondu",
+      },
+    },
+
+    "amca-time": {
+      hint: "Amca anılarına girdi. Dinleyebilir ya da lafını kesebilirsin.",
+      intents: [
+        {
+          id: "listen-amca",
+          positive: true,
+          keywords: ["dinlemek", "dinliyorum", "anlat", "haklisin", "evet amca", "susmak", "susuyorum"],
+          text:
+            "Amca cebinden 1995 yılından kalma delikli bir kağıt bilet çıkardı.\n" +
+            "— Bizim zamanımızda buydu evladım. Şoför delerdi. Herkesin bileti kendine yeterdi...\n" +
+            "Amca 20 dakika boyunca 90'lar Türkiye'sini anlattı. Kadın çoktan inmişti.",
+          ending: "nostalji",
+        },
+        {
+          id: "stop-amca",
+          positive: true,
+          keywords: ["sus amca", "yeter", "sus artik", "kes sesini", "kapat", "kapa ceneni", "isine bak"],
+          text:
+            "» Amca sen de ne uzattın ya, sus artık!\n" +
+            "Teyze elindeki çantasını kafana geçirdi. 'Büyüğünle nasıl konuşuyorsun terbiyesiz!'\n" +
+            "Otobüsteki herkes teyzeye katıldı.",
+          ending: "linc",
+        }
+      ],
+      inherits: "tension",
+      fallbacks: [
+        "Amca eski biletini sallayarak sana bakıyor. Bir şey de.",
+        "Amcanın gözleri maziye daldı. Orada öyle bekleyecek misin?",
+        "Teyze sana ters ters bakıyor. Susacak mısın?",
+      ]
+    },
+
+    "ask-music": {
+      hint: "Ne dinlediğini söyle. Bir şarkı ya da tür yaz.",
+      acceptAny: [
+        {
+          text:
+            "— {input} mi dinliyorsun? Ben de gençliğimde çok dinlerdim.\n" +
+            "Kadın cebinden altın kaplama bir İstanbulkart çıkardı, kendisi için okuttu. Sesi duydun: 'ABONMAN'.\n" +
+            "Sonra senin için okuttu: 'TAM BİLET'. Bakiyen bitmiş. İyi ki müzik dinliyorsun.",
+          ending: "zengin",
+        },
+      ],
+      inherits: "tension",
+      fallbacks: [
+        "— Sorumdan kaçma evladım, ne dinliyorsun?",
+        "— Sesin çıkmıyor, ne çalıyor o kulaklıkta?",
+        "— Cevap versene yavrum, ne o kulağındaki?",
+      ],
+    },
+
+    "driver-argue": {
+      hint: "Şoför huysuz. Ona laf anlat, cihazı suçla ya da kaçak geçmeye çalış.",
+      intents: [
+        {
+          id: "argue",
+          positive: true,
+          keywords: ["kavga", "insanlik", "yardim", "ayip", "ayiptir", "kurallar"],
+          text:
+            "» İnsanlık da mı kalmadı kaptan, bırak geçsin!\n" +
+            "Şoför iyice sinirlendi. Motoru durdurdu, anahtarı cebine attı.\n" +
+            "— Madem öyle, kart basılmadan bu otobüs hareket etmez! Otobüsü rehin aldı.",
+          ending: "rehine",
+        },
+        {
+          id: "sneak",
+          positive: true,
+          keywords: ["kacak", "arkaya", "gizlice", "gormez", "hizlica", "gec abla", "bosver", "ilerle"],
+          text:
+            "» Abla sen yavaştan geç arkaya, görmez o.\n" +
+            "Şoför aynadan izliyordu. Kapıları kilitledi ve polisi aradı.\n" +
+            "Son durak: Karakol.",
+          ending: "atildin",
+        },
+        {
+          id: "complain",
+          positive: true,
+          keywords: ["sikayet", "belediye", "cimere", "baskan", "yaziklar olsun", "dilekce"],
+          text:
+            "» Kaptan ayıp ediyorsun, seni belediyeye şikayet edeceğim!\n" +
+            "Şoför kapıyı açtı, 'Git nereye ediyorsan et' dedi ve seni dışarı itti.\n" +
+            "Otobüs gitti, aktarman yandı. Çok üzüldün.",
+          ending: "uzuldun",
+        },
+        {
+          id: "tap-own-late",
+          positive: true,
+          keywords: ["tamam ben", "ben basarim", "kartimi", "benimkini", "veririm", "buyrun"],
+          text:
+            "» Tamam uzatmayın, ben basıyorum!\nKartını okuttun. 'İNDİRİM HAKKINIZ BULUNMAMAKTADIR.'\n" +
+            "Kartından tam bilet çekildi. Öğrenci kartın iptal mi oldu?",
+          ending: "zarar",
+        },
+      ],
+      inherits: "start",
+      fallbacks: [
+        "Şoför 'Bekliyorum!' diyor. Ne yapacaksın?",
+        "Kadın kapıda mahcup duruyor. Bir hamle yapacak mısın?",
+        "Arkadakiler 'Hadi kaptan!' diye bağırıyor. Karar ver!",
+      ],
+      patience: 3,
+      patienceIntent: {
+        text:
+          "Sen karar veremeden cihaz kendi kendine konuştu:\n" +
+          "'AKTARMA SÜRESİ DOLMUŞTUR.'\n" +
+          "Şoför güldü: — Hadi geç abla geç, benden olsun.\nHerkes rahatladı.",
+        ending: "mutlu",
+      },
+    },
+  },
+
+  common: [
+    {
+      id: "smile",
+      positive: true,
+      keywords: ["gulumse", "siritiyor", "sirittim", "gulmek", "siritmak", "tebessum", "gulumsedim", "gulerek"],
+      text: "» Yüzüne karşı gülümsedin.\nKadın bu zor anında senin gülümsemenden cesaret aldı, 'Sağ ol evladım' dedi.",
+    },
+    {
+      id: "ask-why",
+      positive: true,
+      keywords: ["neden bende", "baskasi", "neden ben", "baskasindan", "niye bana"],
+      text: "» Abla otobüs dolu, niye sadece bana bakıyorsun?\n— Yüzün çok güven verici yavrum, dedi.\nBuna kızamadın.",
+    },
+  ],
+
+  overrides: {
+    swear: {
+      text: "Ağzına geleni saydın.\nŞoför levyeyi kaptığı gibi geldi. Müzik durdu.",
+      ending: "atildin",
+    },
+    police: {
+      text:
+        "155'i aradın.\n— 155, buyrun.\n» Otobüste birinin kartında bakiye yetersiz!\n— ...Kardeşim işine bak.\nHat kapandı.",
+    },
+    mom: {
+      text:
+        "Anneni aradın.\n» Anne, otobüste birinin kartı boş çıktı.\n" +
+        "— Hemen bas kadının yerine, ayıp! Benim evladım olduğun belli olsun!\nZorunda kaldın, bastın.",
+      goto: "no-balance",
+    },
+    dance: {
+      text:
+        "Otobüsün ortasında ayağa kalkıp oynamaya başladın.\n" +
+        "Cihaz ritmik bir şekilde 'YETERSİZ BAKİYE, YETERSİZ BAKİYE' diye tempo tuttu.",
+      ending: "viral",
+    },
+    faint: {
+      text:
+        "Bayılma taklidi yapıp yere yığıldın.\n" +
+        "Yolcular paniğe kapıldı. Şoför kapıları açtı. Kadın bu kargaşada bilet basmadan içeri sızdı.",
+      ending: "kurtuldun",
+    },
+    money: {
+      text:
+        "Cüzdanını çıkarıp kadına 50 lira uzattın.\n" +
+        "Kadın parayı aldı. — Sağ ol yavrum, dedi. Sonra inip taksiye bindi.",
+      ending: "zengin",
+    },
+    weapon: {
+      text:
+        "Arka cebine davrandın.\n" +
+        "Şoför dikiz aynasından gördü, direksiyonu kırıp karakola çekti.",
+      ending: "rehine",
+    }
+  },
+
+  fallbacks: [
+    "Kadın elinde kartıyla sana bakıyor. Bir şey yapacak mısın?",
+    "Cihaz inatla sessiz. Şoför bekliyor. Karar ver!",
+    "Arkadakiler homurdanmaya başladı. Ne yapacaksın?",
+    "Bir sessizlik oldu. Kimse kartını çıkarmıyor. Sen çıkaracak mısın?",
+    "Şoför 'Geçecek misin abla?' dedi. Bir tepki verecek misin?"
+  ],
+  patience: 6,
+  patienceIntent: {
+    text:
+      "Sen inat ettin, şoför inat etti, kadın inat etti.\n" +
+      "Cihaz sonunda dayanamayıp kendi kendine bağırdı: 'SİSTEM ARIZASI. ÜCRETSİZ GEÇİŞ.'\n" +
+      "Otobüs alkışlarla yola devam etti.",
+    ending: "kahraman",
+  },
+});
