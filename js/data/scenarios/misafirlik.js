@@ -5,6 +5,8 @@ window.Yasandi.scenarios.push({
   title: "Bi Tabak Daha",
 
   endings: {
+    tepsi: { title: "Nebahat Teyze İlk Defa Sustu", tag: "BÜTÜN TEPSİ" },
+    kumanda: { title: "Kumandayı Bulan Çocuk", tag: "KAHRAMAN" },
     saksi: { title: "Saksı Cinayeti", tag: "ZİYAN" },
     kedi: { title: "Kedinin İhaneti", tag: "YAKALANDIN" },
     kilo: { title: "Gözde Misafir", tag: "ŞİŞTİN" },
@@ -370,6 +372,28 @@ window.Yasandi.scenarios.push({
 
   common: [
     {
+      id: "whole-tray",
+      positive: true,
+      keywords: ["hepsini al", "tepsiyi al", "tabagi al", "hepsini yerim", "tamamini al", "tepsiyi kucagima"],
+      text:
+        "Nebahat teyze baklava tepsisini Cemil amcaya götürürken önünde durdu: — Bi tane al güzüm.\n" +
+        "Tepsiyi elinden aldın. Dizine koydun. Hepsini yedin.\n" +
+        "Salonda kimse konuşmadı. Nebahat teyze, hayatında ilk defa, sustu. Cemil amca gözünü açtı, tepsiye baktı, gözünü kapattı.\n" +
+        "Bu hikâye sonraki beş bayramda bütün sülaleye anlatıldı. Her seferinde tepsi biraz daha büyüdü.",
+      ending: "tepsi",
+    },
+    {
+      id: "remote",
+      positive: true,
+      keywords: ["kumanda", "minderin alti", "minderin altina", "oturdugum yer", "sert bir sey", "altimdaki"],
+      text:
+        "Minderin altından kumanda çıktı. Bütün akşam onun üstünde oturmuşsun.\n" +
+        "Cemil amca uyandı: — Kumanda nerde lan! Bütün ev aramaya başladı.\n" +
+        "Çaktırmadan kumandayı sehpanın altına ittin. Beş dakika sonra eğilip 'Buldum!' dedin.\n" +
+        "Cemil amca seni alnından öptü. O günden beri bütün bayramlarda kumanda sende. Tabağın da hâlâ dolu.",
+      ending: "kumanda",
+    },
+    {
       id: "sweet",
       positive: true,
       keywords: ["tatli", "tatliya", "baklava", "cay", "cay var mi", "meyve", "karpuz"],
@@ -412,7 +436,8 @@ window.Yasandi.scenarios.push({
     "Tabağındaki sarmalar sana bakıyor. Bir lokma alacak mısın?",
     "Nebahat teyze nefes almadan seni izliyor. Ne yapacaksın?",
     "Cemil amca uykusunda 'Yesene...' diye mırıldandı. Yiyecek misin?",
-    "Zaman geçiyor, tabak küçülmüyor. Bir karar ver."
+    "Zaman geçiyor, tabak küçülmüyor. Bir karar ver.",
+    "Cemil amca uykusunda 'kumanda nerde' diye mırıldandı. Oturduğun minderin altında sert bir şey var. Ne yapacaksın?"
   ],
   patience: 6,
   patienceIntent: {

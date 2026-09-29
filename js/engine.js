@@ -102,7 +102,9 @@
       const node = this.scenario.nodes[this.nodeId];
       const list = [...(node.intents || [])];
       if (node.inherits) list.push(...(this.scenario.nodes[node.inherits].intents || []));
-      list.push(...(this.scenario.common || []));
+      const common = this.scenario.common || [];
+      list.unshift(...common.filter((i) => i.first));
+      list.push(...common.filter((i) => !i.first));
       const overrides = this.scenario.overrides || {};
       const globals = this.globalIntents.map((g) => (overrides[g.id] ? { ...g, ...overrides[g.id] } : g));
       // Intents marked `first` (swearing) win over everything: "tokum amk" is swearing, not a polite refusal.

@@ -5,6 +5,7 @@ window.Yasandi.scenarios.push({
   title: "Kısa Olmasın",
 
   endings: {
+    baskasi: { title: "Başkasının Saçı", tag: "ÇAKTIRMADIN" },
     asker: { title: "3 Numara", tag: "ASKERLİK" },
     yarim: { title: "Asimetrik Kesim", tag: "MODA DEĞİL" },
     yangin: { title: "Kulak Yangını", tag: "YANDIN" },
@@ -51,7 +52,18 @@ window.Yasandi.scenarios.push({
 
     "cutting-1": {
       hint: "Saçının çok kesilmemesi için uyar, aynaya bak veya maça yorum yap.",
+      look: "Usta kesmeden önce aynanın köşesine sıkıştırılmış bir fotoğrafa bakıyor. Fotoğraftaki adam sen değilsin. Çırak çay demliyor, bekleyen amca gazetenin spor sayfasında.",
       intents: [
+        {
+          id: "photo",
+          keywords: ["fotograf", "resim", "aynadaki", "o kim", "bu kim", "kimin fotografi"],
+          text:
+            "— O mu abim? Senden önceki müşterinin. Sen de aynısını istemedin mi?\n" +
+            "Usta sana baktı. Çırak sana baktı. Bekleyen amca gazeteyi indirdi.\n" +
+            "Başını salladın. Evet, aynısını istemiştin. Hep istiyordun zaten.\n" +
+            "Dükkandan başkasının saçıyla çıktın. Bir hafta boyunca herkes 'ne değişti sende' dedi. Sen de 'hiç' dedin.",
+          ending: "baskasi",
+        },
         {
           id: "kisa-olmasin",
           positive: true,

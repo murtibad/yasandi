@@ -5,6 +5,8 @@ window.Yasandi.scenarios.push({
   title: "Yer Ver",
 
   endings: {
+    topal: { title: "Rol Kesilmez", tag: "EVE KADAR TOPALLADIN" },
+    laf: { title: "Beynine Kan Gitsin", tag: "LAF YEDİN" },
     firsatci: { title: "Fırsatçı Pusu", tag: "AYAKTASIN" },
     pilates: { title: "Pilatesçi Teyze", tag: "EZİLDİN" },
     uyku: { title: "Son Durak", tag: "UYUDUN" },
@@ -414,6 +416,28 @@ window.Yasandi.scenarios.push({
   },
 
   common: [
+    {
+      id: "fake-limp",
+      first: true,
+      positive: true,
+      keywords: ["topalla", "topal", "aksayarak", "sakatmis gibi", "ayagim agriyormus gibi", "bacagim sakat", "ayagim sakat"],
+      text:
+        "Durakta inerken ayağını sürüdün. Topallayarak. Arkanda kalan bütün otobüs mahcup oldu, teyze elini ağzına kapattı.\n" +
+        "Otobüs gitti. Sen topallamayı bırakamadın: ya biri görürse?\n" +
+        "Markete topallayarak girdin. Bakkal çırağı kapıyı tuttu. Eve kadar topalladın.\n" +
+        "Kapıyı annen açtı: — Ne oldu ayağına? Şimdi evde de topallıyorsun. Üç gündür.",
+      ending: "topal",
+    },
+    {
+      id: "mock-teyze",
+      keywords: ["ayakta dur", "spor olur", "kaslarina", "zayiflarsin", "yuru biraz", "bacaklarina iyi", "saglikli", "egzersiz", "bastonuna"],
+      text:
+        "Teyze sana döndü. Bütün otobüs sustu.\n" +
+        "— Haklısın yavrum. Sen de bi kalk istersen, beynine kan gitsin.\n" +
+        "Arka koltuktaki amca kahkahadan tespihini düşürdü. Şoför kornaya bastı. Bir çocuk alkışladı.\n" +
+        "Sonraki durakta kendi isteğinle indin. İnerken bile arkandan gülüyorlardı.",
+      ending: "laf",
+    },
     {
       id: "smile",
       positive: true,

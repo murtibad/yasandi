@@ -6,7 +6,17 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
-## Research (do after the tasks above)
+### 5. Ekşi Sözlük pattern mining (`content/eksi-patterns`)
+
+AI-written jokes all sound the same. Real people's stories don't. This task brings real Turkish humor into the six existing scenarios. **No new scenarios.**
+
+Why it works (read this first): in real "yaşanmış komik olaylar" stories, the humor almost never comes from someone else doing something funny. It comes from **the narrator's own small mistake and their refusal to admit it**: taking the whole cookie plate when offered one cookie, limping off the bus so the ladies who shamed you feel guilty and then limping all the way home, finishing a stranger's gym program because you didn't want to look stupid, secretly putting the lost TV remote back and becoming the family hero. Also: the elder's one-line comeback that makes the whole bus laugh; two people talking on the phone while sitting two meters apart. Claude already added some of these (search for `fake-limp`, `mock-teyze`, `whole-tray`, `remote`, `photo`), use them as examples.
+
+1. Read the Ekşi Sözlük entries for "yaşanmış komik olaylar" and similar threads (e.g. "otobüste yaşanan komik olaylar", "misafirlikte yaşanan komik olaylar", "berberde yaşanan komik olaylar", "başa gelen en utanç verici olay"). Read at least 60 entries.
+2. Write `ideas/eksi-patterns.md`: 20 patterns. For each: the pattern in one line (the mechanism, not the story), which existing scenario it fits and at which step, and the in-game beat **retold in your own words** with our characters (Nebahat teyze, Remzi usta, keko, Hüsnü, Tuncay...).
+3. Implement the 10 best in the existing scenarios: as new intents, `exhausted` payoffs, `first: true` common intents, `look` details that seed them (the remote under the cushion is seeded by a fallback line), or new endings. Each needs keywords a real player would type.
+4. Rules: never copy a sentence, username or real name from Ekşi; skip anything about sex, disability, ethnicity, LGBT people, violence against children, or real people. Keep the Turkish voice rules.
+5. Validate (0 warnings), play every changed path, push the branch.
 
 ## Done
 
