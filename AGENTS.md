@@ -93,7 +93,8 @@ Build scenarios around moments and memes Turkish internet already knows, not aro
 1. `git pull`, then open `TASKS.md` and take the first item under **Ready**.
 2. **Never push to `main`.** `main` is the live site. Create a branch named `feature/<short-name>`, `content/<short-name>` or `fix/<short-name>` and push that branch.
 3. Before the last push: `node tests/validate.js` must show 0 errors and 0 warnings, and you must play the scenario yourself with the checks in "Adding a scenario".
-4. When done, move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
+4. If Claude's review lists problems in `REVIEW.md` for your branch, fix exactly those on the same branch before starting anything new.
+5. When done, move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
 
 ## Git
 
