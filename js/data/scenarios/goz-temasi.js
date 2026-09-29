@@ -19,7 +19,12 @@ window.Yasandi.scenarios.push({
     istanbulkart: { title: "İstanbulkart", tag: "ÖLDÜN" },
     kelime: { title: "Kelime Oyunu", tag: "ÖLDÜN" },
     hitap: { title: "Hitap Krizi", tag: "ÖLDÜN" },
-    teyze: { title: "Teyzenin Evi", tag: "ÖLDÜN" },
+    hasim: { title: "Hasım", tag: "ÖLDÜN" },
+    borc: { title: "Aile Borcu", tag: "SOYULDUN" },
+    selam: { title: "Selam Söyle", tag: "KURTULDUN" },
+    kirve: { title: "Kirve", tag: "KURTULDUN" },
+    muslum: { title: "Müslüm Babanın Oğlu", tag: "KURTULDUN" },
+    sulale: { title: "Bayramda Gel", tag: "KURTULDUN" },
     bakiye: { title: "Bakiye Yetersiz", tag: "ÖLDÜN" },
     terlik: { title: "Terlik Füzesi", tag: "BAYILDIN" },
     kedi: { title: "Paşa", tag: "KURTULDUN" },
@@ -189,9 +194,18 @@ window.Yasandi.scenarios.push({
           id: "lie-local",
           keywords: ["buraliyim", "bu mahalle", "senin mahalle", "buradan", "burdan", "buranin", "burda oturuyorum", "burada oturuyorum"],
           text:
-            "— Buralıyım abi, dedin.\n— Hangi apartman?\nRastgele bir binayı gösterdin.\n" +
-            "— O benim teyzemin evi, dedi keko. Teyzesini aradı. Teyze seni tanımadı.",
-          ending: "teyze",
+            "— Buralı mısın? dedi keko. Gözlerini kıstı.\n— Ben 28 yıldır buradayım. Seni hiç görmedim.\n" +
+            "Tespihini iki kez çevirdi.\n— Kimlerdensin sen?",
+          goto: "kimlerden",
+        },
+        {
+          id: "rival-neighborhood",
+          keywords: ["arka mahalle", "asagi mahalle", "yukari mahalle", "karsi mahalle", "ust mahalle", "alt mahalle", "yan mahalle"],
+          text:
+            "Keko'nun tespihi durdu.\n— Oralı mısın sen?\nBir süre sessizlik. Uzaklarda bir köpek havladı.\n" +
+            "— O mahalleyle aramız limonidir gardaş. 2009'daki maçtan beri.\n— Hangi maç?\n— Sen bilmezsin.\n" +
+            "Bir adım yaklaştı.\n— Kimlerdensin sen oralarda?",
+          goto: "kimlerden",
         },
         {
           id: "stranger",
@@ -203,7 +217,8 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "other-title",
-          keywords: ["kanka", "kardes", "gardas", "hocam", "reis", "dayi", "bro", "birader", "kral"],
+          whole: true,
+          keywords: ["tamam kanka", "tamam kardes", "tamam gardas", "kanka", "kardes", "kardesim", "gardas", "hocam", "reis", "dayi", "bro", "birader", "kral"],
           text:
             "— Tamam kardeş, dedin.\n— Kardeş mi? Abi olmadı kardeş mi oldum şimdi?\n" +
             "Hitap konusunda uzlaşamadınız. Sallama çıktı.",
@@ -211,11 +226,68 @@ window.Yasandi.scenarios.push({
         },
       ],
       inherits: "start",
+      acceptAny: [
+        { text: "— {input} {mi}? dedi keko. Orayı bilirim.\nÇekirdeğini tükürdü.\n— Kimlerdensin sen oralarda?", goto: "kimlerden" },
+        { text: "— {input}... Orası neresi lan? Haritada yok öyle bi yer.\nTespih hızlandı.\n— Neyse. Kimlerdensin sen?", goto: "kimlerden" },
+      ],
       fallbacks: [
         "— Soruma cevap ver gardaş. Hangi mahallesin?",
         "Keko başını yana eğdi.\n— Buralı mısın, değil misin? Basit soru.",
         "— Lafı dolandırma. Nerelisin sen?",
       ],
+    },
+
+    // "Kimlerdensin?" Whatever name the player gives, keko reacts to it.
+    kimlerden: {
+      hint: "Bir isim söyle. Uydurabilirsin de. Ya da kimsen olmadığını...",
+      intents: [
+        {
+          id: "nobody",
+          keywords: ["kimseden", "kimsem yok", "hic kimse", "kimse", "yalnizim", "yetim", "kimsesiz"],
+          text:
+            "— Kimsem yok abi, dedin.\nKeko bir an durdu. Gözleri doldu.\n" +
+            "Telefonundan Müslüm Gürses açtı. Hoparlör cızırdıyor. Kaldırıma oturdunuz, beraber dinlediniz.\n" +
+            "Sana simit aldı. Bir de ayran.",
+          ending: "muslum",
+        },
+        {
+          id: "keko-family",
+          keywords: ["senin annen", "senin kuzen", "senin abin", "sizdenim", "senin akraban", "akrabayiz"],
+          text:
+            "— Sizdenim abi, akrabayız ya, dedin.\nKeko düşündü. Uzun uzun düşündü. Annesini aradı.\n" +
+            "— Anne, bizim sülalede böyle biri var mı? ... Var mıymış. Kimin oğluymuş? ... Tamam.\n" +
+            "Telefonu kapattı. Sana sarıldı.\n— Bayramda gel eli öpmeye. Annem kızıyo gelmiyon diye.",
+          ending: "sulale",
+        },
+      ],
+      inherits: "start",
+      acceptAny: [
+        {
+          text:
+            "— {input} {mi}?\nKeko'nun yüzü kızardı.\n— {input} bana 200 lira borçlu! 2017'den beri!\n" +
+            "Cüzdanını çıkardın. Aile borcu aileye kalır. İçinde 180 lira vardı. Keko 20'sini de veresiye yazdı.",
+          ending: "borc",
+        },
+        {
+          text:
+            "— {input}...\nKeko gözlerini kıstı. Belli ki tanımıyor. Tanımadığını da belli etmek istemiyor.\n" +
+            "— Haaa, {input}. Tabii tabii. Selam söyle.\nİkiniz de {input} diye birini tanımıyorsunuz. Selam gidecek.",
+          ending: "selam",
+        },
+        {
+          text:
+            "— {input} {mi}?! Oğlum {input} benim kirvem lan!\nKeko sana sarıldı. Tespihini hediye etti.\n" +
+            "Niye baştan söylemediğini sordu. Cevap veremedin. Belki de {input} diye birini sen az önce uydurdun.",
+          ending: "kirve",
+        },
+        {
+          text:
+            "— {input}...\nKeko'nun tespihi yere düştü. Eğilip almadı.\n— {input} bizim hasımdır.\n" +
+            "Telefonu çıkardı, sesli mesaj attı: — Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.",
+          ending: "hasim",
+        },
+      ],
+      fallbacks: ["— Kimlerdensin dedim, gardaş. Bi isim ver."],
     },
 
     chase: {

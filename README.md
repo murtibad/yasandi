@@ -33,6 +33,18 @@ js/data/scenarios/goz-temasi.js    senaryo: Göz Teması
 
 Anahtar kelimeleri Türkçe karaktersiz ve kök halinde yazman yeterli: `kac` yazarsan "kaç", "kaçıyorum", "kaçtım" hepsi eşleşir.
 
+## Açık uçlu sorular
+
+Keko "Kimlerdensin?" gibi açık bir soru sorduğunda oyun her cevabı kabul eder. Senaryoda `acceptAny` ile yazılır:
+
+```js
+acceptAny: [
+  { text: "— {input} {mi}? Onun bana 200 lira borcu var!", ending: "borc" },
+]
+```
+
+`{input}` oyuncunun yazdığıyla, `{mi}` ise ünlü uyumuna göre mı/mi/mu/mü ile değişir: "Kel Mahmut mu?", "Ayşe mi?", "Gül mü?"
+
 ## Anlaşılmayan komutlar
 
 Oyunun anlamadığı her yazı tarayıcıda `yasandi.unmatched` anahtarıyla saklanır ve konsola yazılır. İleride bunlar ücretsiz bir veritabanına gönderilip en çok yazılanlar senaryolara eklenecek.

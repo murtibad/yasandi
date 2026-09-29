@@ -5,6 +5,29 @@
   const STORAGE_ENDINGS = "yasandi.endings.";
   const STORAGE_UNMATCHED = "yasandi.unmatched";
 
+  const FILLER = ["abi", "abicim", "gardas", "gardasim", "kardes", "kardesim", "kanka", "lan", "ya", "valla", "vallahi", "ben", "benim", "bizim", "reis", "hocam", "dayi"];
+
+  // "arka mahalle abi" -> "Arka mahalle". Drops filler words at both ends, caps length.
+  function cleanAnswer(input) {
+    const words = String(input).replace(/[.!?,]+/g, " ").trim().split(/\s+/).filter(Boolean);
+    const isFiller = (w) => FILLER.includes(normalize(w).trim());
+    while (words.length && isFiller(words[0])) words.shift();
+    while (words.length && isFiller(words[words.length - 1])) words.pop();
+    const text = words.join(" ").slice(0, 40);
+    return text ? text.charAt(0).toLocaleUpperCase("tr-TR") + text.slice(1) : "";
+  }
+
+  // Turkish question particle by vowel harmony: Ahmet mi, Ayşe mi, Mahmut mu, Ali mi, Hasan mı, Gül mü.
+  function questionParticle(word) {
+    const vowels = word.toLocaleLowerCase("tr-TR").match(/[aeıioöuü]/g);
+    const last = vowels ? vowels[vowels.length - 1] : "e";
+    return { a: "mı", ı: "mı", e: "mi", i: "mi", o: "mu", u: "mu", ö: "mü", ü: "mü" }[last];
+  }
+
+  function fillAnswer(text, answer) {
+    return text.replace(/\{input\}/g, answer).replace(/\{mi\}/g, questionParticle(answer));
+  }
+
   function readJson(key, fallback) {
     try {
       const raw = localStorage.getItem(key);
@@ -37,7 +60,8 @@
     }
 
     foundEndings() {
-      return readJson(STORAGE_ENDINGS + this.scenario.id, []);
+      const found = readJson(STORAGE_ENDINGS + this.scenario.id, []);
+      return found.filter((id) => id in this.scenario.endings);
     }
 
     totalEndings() {
@@ -60,7 +84,15 @@
       if (this.ended) return { text: "Bu hikâye bitti. Tekrar oynamak için \"tekrar\" yaz." };
 
       const normalized = normalize(input);
-      const intent = this.candidates().find((i) => i.keywords.some((k) => matches(normalized, k)));
+      // `whole: true` intents only fire when the keyword is (almost) the entire input:
+      // "kanka" or "tamam kanka" (a listed phrase) triggers it, "Yıldırım kanka" (an answer that mentions kanka) does not.
+      const hits = (i, k) => {
+        if (!matches(normalized, k)) return false;
+        if (!i.whole) return true;
+        const extra = normalized.trim().split(" ").length - normalize(k).trim().split(" ").length;
+        return extra <= 0;
+      };
+      const intent = this.candidates().find((i) => i.keywords.some((k) => hits(i, k)));
 
       if (intent) {
         this.misses = 0;
@@ -68,9 +100,21 @@
         return this.resolve(intent);
       }
 
+      const node = this.scenario.nodes[this.nodeId];
+
+      // Open questions ("Kimlerdensin?") accept any answer and echo it back.
+      if (node.acceptAny) {
+        const answer = cleanAnswer(input);
+        if (answer) {
+          this.misses = 0;
+          const chosen = pick(node.acceptAny);
+          if (chosen.goto) this.nodeId = chosen.goto;
+          return this.resolve({ ...chosen, text: fillAnswer(pick(chosen.text), answer) });
+        }
+      }
+
       this.logUnmatched(input);
       this.misses += 1;
-      const node = this.scenario.nodes[this.nodeId];
       const patience = node.patience || this.scenario.patience;
       if (patience && this.misses >= patience) {
         return this.resolve(node.patienceIntent || this.scenario.patienceIntent);
