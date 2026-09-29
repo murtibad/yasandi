@@ -322,3 +322,20 @@ body.hit::after {
   .pulse-once { animation: none; }
 }
 
+
+/* Title card before a story. */
+.title-card { display: flex; flex-direction: column; gap: 6px; padding-block: 18vh 0; text-align: center; transition: opacity 300ms ease; }
+.title-card.leaving { opacity: 0; }
+.title-brand { font-family: var(--font-ui); font-weight: 600; font-size: clamp(28px, 7vw, 44px); letter-spacing: 0.35em; margin: 0; }
+.title-name { font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin: 0; }
+
+/* Endings counter opens the gallery. */
+.endings-count { text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 4px; }
+
+.gallery { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: color-mix(in srgb, var(--bg) 70%, transparent); z-index: 10; }
+.gallery-panel { width: min(460px, 100%); max-height: 80vh; overflow-y: auto; background: var(--bg); border: 1px solid var(--faint); padding: 18px 20px 20px; }
+.gallery-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.gallery-list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+.gallery-list li { display: flex; align-items: baseline; gap: 10px; }
+.gallery-list li.missing { color: var(--faint); letter-spacing: 0.2em; }
+.gallery-tag { flex: none; font-family: var(--font-ui); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; background: var(--stamp-bg); color: var(--stamp-fg); padding: 1px 7px; }

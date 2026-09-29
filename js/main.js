@@ -33,7 +33,7 @@
     log.scrollTop = log.scrollHeight;
   }
 
-  function typeInto(el, text) {
+  function typeInto(el, text, charDelay) {
     return new Promise((resolve) => {
       // Phones with "reduce motion" or battery saver still get the typewriter, just faster.
       const speed = reduceMotion ? 0.4 : 1;
@@ -60,7 +60,7 @@
         }
         if (i % 2 === 0 && /[a-zA-ZçğıöşüÇĞİÖŞÜ]/.test(ch)) sound.blip(voice);
         const pause = ch === "\n" ? 260 : ".?!".includes(ch) ? 180 : CHAR_DELAY;
-        setTimeout(tick, pause * speed);
+        setTimeout(tick, (charDelay && ch !== "\n" ? charDelay : pause) * speed);
       };
       tick();
     });
@@ -136,7 +136,36 @@
     endingsLabel.textContent = game.foundEndings().length + "/" + game.totalEndings() + " son";
   }
 
-  function start(scenario) {
+  // A title card before the story: "YAŞANDI" + scenario name on first load, only the name afterwards.
+  function titleCard(scenario, withBrand) {
+    const gen = generation;
+    typing = typing.then(async () => {
+      if (gen !== generation) return;
+      const card = document.createElement("div");
+      card.className = "title-card";
+      log.appendChild(card);
+      const wait = (ms) => new Promise((r) => setTimeout(r, reduceMotion ? Math.min(ms, 150) : ms));
+      skip = false;
+      if (withBrand) {
+        const brand = document.createElement("p");
+        brand.className = "title-brand";
+        card.appendChild(brand);
+        await typeInto(brand, "YAŞANDI", 90);
+        await wait(250);
+      }
+      const name = document.createElement("p");
+      name.className = "title-name";
+      card.appendChild(name);
+      await typeInto(name, scenario.title, 45);
+      await wait(withBrand ? 900 : 550);
+      if (gen !== generation) return;
+      card.classList.add("leaving");
+      await wait(300);
+      card.remove();
+    });
+  }
+
+  function start(scenario, opts = {}) {
     generation += 1;
     skip = true; // finish whatever is still typing, it will be dropped
     game = new Game(scenario, globalIntents);
@@ -146,6 +175,7 @@
     scenarioLabel.textContent = scenario.title;
     updateCounter();
     typing = Promise.resolve();
+    titleCard(scenario, !!opts.firstLoad);
     say(game.intro()).then(() => {
       try {
         if (!localStorage.getItem("yasandi.pulsed")) {
@@ -164,9 +194,23 @@
     return pool[Math.floor(Math.random() * pool.length)];
   }
 
+  // Up/down arrows bring back earlier commands, like a terminal.
+  const history = [];
+  let historyIndex = 0;
+  input.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
+    if (!history.length) return;
+    e.preventDefault();
+    historyIndex = Math.max(0, Math.min(history.length, historyIndex + (e.key === "ArrowUp" ? -1 : 1)));
+    input.value = history[historyIndex] || "";
+    requestAnimationFrame(() => input.setSelectionRange(input.value.length, input.value.length));
+  });
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const command = input.value.trim();
+    if (command && history[history.length - 1] !== command) history.push(command);
+    historyIndex = history.length;
     input.value = "";
     skip = true; // finish the current line instantly
     if (!command) return;
@@ -184,7 +228,9 @@
   });
 
   // Tap anywhere on the story to skip the typing and focus the input.
+  let ignoreNextClick = false;
   log.addEventListener("click", () => {
+    if (ignoreNextClick) { ignoreNextClick = false; return; }
     skip = true;
     input.focus({ preventScroll: true });
   });
@@ -224,6 +270,39 @@
   });
   paintTheme();
 
+  // Endings gallery: found endings by name, the rest stay a mystery.
+  const gallery = document.getElementById("gallery");
+  const galleryList = document.getElementById("gallery-list");
+  const galleryTitle = document.getElementById("gallery-title");
+  function openGallery() {
+    if (!game) return;
+    const found = new Set(game.foundEndings());
+    galleryTitle.textContent = game.scenario.title + " · " + found.size + "/" + game.totalEndings();
+    galleryList.innerHTML = "";
+    for (const [id, meta] of Object.entries(game.scenario.endings)) {
+      const li = document.createElement("li");
+      if (found.has(id)) {
+        const tag = document.createElement("span");
+        tag.className = "gallery-tag";
+        tag.textContent = meta.tag;
+        const name = document.createElement("span");
+        name.textContent = meta.title;
+        li.append(tag, name);
+      } else {
+        li.className = "missing";
+        li.textContent = "???";
+      }
+      galleryList.appendChild(li);
+    }
+    gallery.hidden = false;
+    document.getElementById("gallery-close").focus();
+  }
+  const closeGallery = () => { gallery.hidden = true; input.focus({ preventScroll: true }); };
+  endingsLabel.addEventListener("click", openGallery);
+  document.getElementById("gallery-close").addEventListener("click", closeGallery);
+  gallery.addEventListener("click", (e) => { if (e.target === gallery) closeGallery(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !gallery.hidden) closeGallery(); });
+
   if (STORY_FORM_URL) { storyLink.href = STORY_FORM_URL; storyLink.hidden = false; }
 
   replayBtn.addEventListener("click", () => start(game.scenario));
@@ -239,10 +318,11 @@
     if (ev.type === "keydown" && ev.key !== "Tab") {
       ev.preventDefault();
     }
+    if (ev.type === "pointerdown") ignoreNextClick = true;
     sound.unlock();
     document.removeEventListener("keydown", onFirstInteraction);
     document.removeEventListener("pointerdown", onFirstInteraction);
-    start(randomScenario());
+    start(randomScenario(), { firstLoad: true });
   };
   document.addEventListener("keydown", onFirstInteraction);
   document.addEventListener("pointerdown", onFirstInteraction);

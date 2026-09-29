@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
   <script>try { var t = localStorage.getItem("yasandi.theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
-  <link rel="stylesheet" href="css/style.css?v=26">
+  <link rel="stylesheet" href="css/style.css?v=27">
 </head>
 <body>
   <div class="app">
@@ -17,7 +17,7 @@
       <span class="brand">Yaşandı</span>
       <span class="meta">
         <span id="scenario-title"></span>
-        <span id="endings-count"></span>
+        <button class="link endings-count" id="endings-count" type="button" title="Bulduğun sonlar"></button>
       </span>
       <span class="settings">
         <button class="link btn-icon" id="toggle-sound" type="button" aria-pressed="true" aria-label="Ses açık">
@@ -50,6 +50,16 @@
 
     <main class="log" id="log" aria-live="polite"></main>
 
+    <div class="gallery" id="gallery" hidden>
+      <div class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+        <div class="gallery-head">
+          <span id="gallery-title"></span>
+          <button class="link" id="gallery-close" type="button">Kapat</button>
+        </div>
+        <ul class="gallery-list" id="gallery-list"></ul>
+      </div>
+    </div>
+
     <footer class="dock">
       <div class="end-actions" id="end-actions" hidden>
         <button class="btn" id="replay" type="button">Tekrar oyna</button>
@@ -66,16 +76,16 @@
     </footer>
   </div>
 
-  <script src="js/text.js?v=26"></script>
-  <script src="js/data/global-intents.js?v=26"></script>
-  <script src="js/data/scenarios/goz-temasi.js?v=26"></script>
-  <script src="js/data/scenarios/otobus-teyzesi.js?v=26"></script>
-  <script src="js/data/scenarios/yetersiz-bakiye.js?v=26"></script>
-  <script src="js/data/scenarios/misafirlik.js?v=26"></script>
-  <script src="js/data/scenarios/berber.js?v=26"></script>
-  <script src="js/data/scenarios/terk-edilmis-koy.js?v=26"></script>
-  <script src="js/sound.js?v=26"></script>
-  <script src="js/engine.js?v=26"></script>
-  <script src="js/main.js?v=26"></script>
+  <script src="js/text.js?v=27"></script>
+  <script src="js/data/global-intents.js?v=27"></script>
+  <script src="js/data/scenarios/goz-temasi.js?v=27"></script>
+  <script src="js/data/scenarios/otobus-teyzesi.js?v=27"></script>
+  <script src="js/data/scenarios/yetersiz-bakiye.js?v=27"></script>
+  <script src="js/data/scenarios/misafirlik.js?v=27"></script>
+  <script src="js/data/scenarios/berber.js?v=27"></script>
+  <script src="js/data/scenarios/terk-edilmis-koy.js?v=27"></script>
+  <script src="js/sound.js?v=27"></script>
+  <script src="js/engine.js?v=27"></script>
+  <script src="js/main.js?v=27"></script>
 </body>
 </html>
