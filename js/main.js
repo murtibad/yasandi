@@ -35,8 +35,9 @@
 
   function typeInto(el, text, charDelay) {
     return new Promise((resolve) => {
-      // Phones with "reduce motion" or battery saver still get the typewriter, just faster.
-      const speed = reduceMotion ? 0.4 : 1;
+      // Typing is not motion, so it runs at the same speed with "reduce motion" on;
+      // that setting only turns off the screen shake and the stamp animation.
+      const speed = 1;
       const gen = generation;
       let i = 0;
       let voice = el.classList.contains("said") ? "player" : "narrator";
@@ -144,7 +145,7 @@
       const card = document.createElement("div");
       card.className = "title-card";
       log.appendChild(card);
-      const wait = (ms) => new Promise((r) => setTimeout(r, reduceMotion ? Math.min(ms, 150) : ms));
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
       skip = false;
       if (withBrand) {
         const brand = document.createElement("p");
