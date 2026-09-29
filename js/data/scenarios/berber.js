@@ -25,8 +25,8 @@ window.Yasandi.scenarios.push({
     felc: { title: "Önlük Krizi", tag: "YANLIŞ ANLAMA" },
     kovuldun: { title: "Saygısız Müşteri", tag: "KOVULDUN" },
     yalan_sifir: { title: "Dürüstlük Kaybetti", tag: "AYNA" },
-    deli_berber: { title: "Deli Berber", tag: "HASTANELİK" },
-    sir: { title: "Devlet Sırrı", tag: "KURTULDUN" }
+    niye_geldin: { title: "Niye Berbere Geldin", tag: "KOVULDUN" },
+    sir: { title: "Kolonya Sırrı", tag: "KURTULDUN" }
   },
 
   nodes: {
@@ -82,7 +82,7 @@ window.Yasandi.scenarios.push({
           ],
           exhausted: {
             text: "Sen dördüncü kez 'kısa olmasın' deyince usta delirdi:\n— Madem kestirmeyecektin niye berbere geldin lan! diyerek seni dükkandan kovdu.",
-            ending: "deli_berber"
+            ending: "niye_geldin"
           },
           goto: "service-offer-1",
         },
@@ -239,8 +239,9 @@ window.Yasandi.scenarios.push({
           id: "sir",
           keywords: ["sussa", "sus", "anlatma", "sirrimi", "devlet sirri"],
           text:
-            "Usta kulağına eğilip 'Sana bir devlet sırrı vereyim abim' diye fısıldadı.\n" +
-            "O an içeri siyah giyimli adamlar girdi. İkinizi de bir daha gören olmadı.",
+            "Usta kulağına eğilip 'Sana bir sır vereyim abim' diye fısıldadı.\n" +
+            "— Bizim kolonyanın sırrı... içine çay demliyoruz, dedi.\n" +
+            "Kokladın. Gerçekten de bergamot kokuyordu.",
           ending: "sir",
         },
         {

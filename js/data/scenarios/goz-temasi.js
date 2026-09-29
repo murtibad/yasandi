@@ -43,7 +43,7 @@ window.Yasandi.scenarios.push({
     kekoanne: { title: "Keko'nun Annesi", tag: "KURTULDUN" },
     yasar: { title: "Yaşar Bey'in Oğlu", tag: "KURTULDUN" },
     hediye: { title: "Hediyeleşme", tag: "KURTULDUN" },
-    deli: { title: "Deli Taklidi", tag: "KURTULDUN" },
+    deli: { title: "Kafayı Yemiş Numarası", tag: "KURTULDUN" },
   },
 
   nodes: {
@@ -429,7 +429,7 @@ window.Yasandi.scenarios.push({
       keywords: ["delir", "deli taklidi", "havla", "anlasilmaz", "bagira", "cildir"],
       text:
         "Birden gözlerini belertip anlamsız sesler çıkararak kendi etrafında dönmeye başladın.\n" +
-        "Keko bir adım geri çekildi. 'Tövbe estağfurullah' deyip hızla uzaklaştı.",
+        "Keko 'Oğlum bu da oyunculuk mu' deyip sana acıyarak uzaklaştı.",
       ending: "deli",
     },
     {
