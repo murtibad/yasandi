@@ -21,7 +21,7 @@ window.Yasandi.globalIntents = [
   {
     id: "mom",
     keywords: ["anne", "annemi ara"],
-    text: "Anneni aradın.\n— Oğlum neredesin, ekmek aldın mı?\n— Anne şu an...\n— Gelirken ekmek al.\nKapattı.",
+    text: "Anneni aradın.\n— Oğlum neredesin, ekmek aldın mı?\n» Anne şu an...\n— Gelirken ekmek al.\nKapattı.",
   },
   {
     id: "dance",

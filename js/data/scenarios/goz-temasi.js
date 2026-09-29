@@ -54,7 +54,7 @@ window.Yasandi.scenarios.push({
         {
           id: "polite-buyur",
           keywords: ["buyur", "buyrun", "emret"],
-          text: "— Buyur abi? dedin.\n— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
+          text: "» Buyur abi?\n— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
           goto: "abi",
         },
         {
@@ -66,7 +66,7 @@ window.Yasandi.scenarios.push({
         {
           id: "wasnt-looking",
           keywords: ["bakmiyordum", "bakmiyodum", "bakmadim", "hicbir seye", "hic bir seye", "dalmisim", "daldim", "bosluga", "kimseye", "sana degil", "arkana"],
-          text: "— Hiçbir şeye bakmıyodum abi, dalmışım.\n— Dalmışsın. Bana mı daldın?\nKeko seni baştan aşağı süzdü.\n— Hangi mahallesin sen?",
+          text: "» Hiçbir şeye bakmıyodum abi, dalmışım.\n— Dalmışsın. Bana mı daldın?\nKeko seni baştan aşağı süzdü.\n— Hangi mahallesin sen?",
           goto: "abi",
         },
         {
@@ -78,7 +78,7 @@ window.Yasandi.scenarios.push({
           id: "talk-back",
           keywords: ["hayirdir", "sana ne", "ne bakiyon", "ne bakiyorsun", "asil sen", "sensin", "ne var", "bakarim", "ne olmus", "karsilik ver", "kafa tut", "kafana gore"],
           text:
-            "— Asıl sen hayırdır? dedin. Kendi sesine sen de şaşırdın.\n" +
+            "» Asıl sen hayırdır?\nKendi sesine sen de şaşırdın.\n" +
             "Keko hiçbir şey demedi. Sol eli yavaşça arka cebine gitti.\n" +
             "Zaman yavaşladı. Karşı kaldırımda bir kedi durup size baktı. Bakkal Remzi abi kepengi yarıya indirdi.",
           hint: "Belki sen de arka cebine davranmalısın? Ya da koşmalısın. Ya da o kedi...",
@@ -87,7 +87,7 @@ window.Yasandi.scenarios.push({
         {
           id: "apologize",
           keywords: ["pardon", "kusura bakma", "ozur", "affedersin", "yanlis anladin", "kusura", "sorry", "ozur dilerim"],
-          text: "— Pardon abi, dedin.\n— Abi mi? Ben senin abin miyim lan? Hangi mahallesin sen?",
+          text: "» Pardon abi.\n— Abi mi? Ben senin abin miyim lan? Hangi mahallesin sen?",
           goto: "abi",
         },
         {
@@ -102,8 +102,8 @@ window.Yasandi.scenarios.push({
           id: "pretend-to-know",
           keywords: ["tanisiyoz", "tanisiyoruz", "taniyorum", "degil misin", "kuzen", "okuldan", "askerden", "mahalleden", "bi yerden"],
           text:
-            "— Abi biz bi yerden tanışıyoz ya, dedin.\n" +
-            "Keko gözlerini kıstı.\n— ...Sen Hüseyin'in kuzeni misin?\n— Evet, dedin. Hüseyin'i tanımıyorsun.\n" +
+            "» Abi biz bi yerden tanışıyoz ya.\n" +
+            "Keko gözlerini kıstı.\n— ...Sen Hüseyin'in kuzeni misin?\n» Evet.\nHüseyin'i tanımıyorsun.\n" +
             "Kırk dakika sonra kahvedesin, üçüncü çaydasın. Hüseyin'in düğününe davetlisin. Takı da takacaksın.",
           ending: "kuzen",
         },
@@ -131,7 +131,7 @@ window.Yasandi.scenarios.push({
           id: "cat",
           keywords: ["kedi", "pisi", "pisipisi", "kediye"],
           text:
-            "— Pisi pisi, dedin, kediye dönerek.\nKeko'nun eli cepte dondu. Kediye baktı.\n— Pisi pisi, dedi o da.\n" +
+            "» Pisi pisi.\nKeko'nun eli cepte dondu. Kediye baktı.\n— Pisi pisi, dedi o da.\n" +
             "Kedi ikinizi de umursamadı. Keko cebinden sallama yerine bir poşet mama çıkardı.\nOn dakikadır birlikte kedi besliyorsunuz. Adı Paşa'ymış.",
           ending: "kedi",
         },
@@ -146,7 +146,7 @@ window.Yasandi.scenarios.push({
           id: "back-down",
           keywords: ["tamam", "ozur", "pardon", "kusura bakma", "sakin", "yanlis anladin", "sakin ol", "abi dur"],
           text:
-            "— Tamam abi tamam, sakin, dedin. Ellerini kaldırdın.\nKeko'nun eli cepte durdu. Çıkmadı. Girmedi de.\n— Şimdi oldu. Hangi mahallesin sen?",
+            "» Tamam abi tamam, sakin.\nEllerini kaldırdın.\nKeko'nun eli cepte durdu. Çıkmadı. Girmedi de.\n— Şimdi oldu. Hangi mahallesin sen?",
           goto: "abi",
         },
         {
@@ -161,7 +161,7 @@ window.Yasandi.scenarios.push({
           id: "call-remzi",
           keywords: ["remzi", "bakkal", "kepenk", "yardim"],
           text:
-            "— Remzi abi! diye bağırdın.\nKepenk tamamen indi. Remzi abi bu mahallede 30 yıldır bakkal. Hayatta kalmayı biliyor.",
+            "» Remzi abi!\nKepenk tamamen indi. Remzi abi bu mahallede 30 yıldır bakkal. Hayatta kalmayı biliyor.",
         },
       ],
       fallbacks: [
@@ -185,7 +185,7 @@ window.Yasandi.scenarios.push({
           id: "polite-again",
           keywords: ["buyur", "buyrun", "efendim", "emret"],
           text:
-            "— Efendim abi, buyur abi, dedin. Başka bir şey gelmedi aklına.\n" +
+            "» Efendim abi, buyur abi.\nBaşka bir şey gelmedi aklına.\n" +
             "Keko derin bir nefes aldı.\n— Madem garsonsun, iki çay söyle o zaman.\n" +
             "Kahveye oturdunuz. Dört çay içtiniz. Hesabı sen ödedin.",
           ending: "garson",
@@ -203,7 +203,7 @@ window.Yasandi.scenarios.push({
           keywords: ["arka mahalle", "asagi mahalle", "yukari mahalle", "karsi mahalle", "ust mahalle", "alt mahalle", "yan mahalle"],
           text:
             "Keko'nun tespihi durdu.\n— Oralı mısın sen?\nBir süre sessizlik. Uzaklarda bir köpek havladı.\n" +
-            "— O mahalleyle aramız limonidir gardaş. 2009'daki maçtan beri.\n— Hangi maç?\n— Sen bilmezsin.\n" +
+            "— O mahalleyle aramız limonidir gardaş. 2009'daki maçtan beri.\n» Hangi maç?\n— Sen bilmezsin.\n" +
             "Bir adım yaklaştı.\n— Kimlerdensin sen oralarda?",
           goto: "kimlerden",
         },
@@ -211,7 +211,7 @@ window.Yasandi.scenarios.push({
           id: "stranger",
           keywords: ["misafir", "disaridan", "uzaktan", "yolumu kaybettim", "kayboldum", "gecerken", "buralı degilim", "burali degilim", "baska mahalle"],
           text:
-            "— Misafirim abi, geçiyordum.\nKekonun yüzü bir anda yumuşadı.\n— Misafir başımızın tacıdır gardaş. Nereye gidiyon?\n" +
+            "» Misafirim abi, geçiyordum.\nKekonun yüzü bir anda yumuşadı.\n— Misafir başımızın tacıdır gardaş. Nereye gidiyon?\n" +
             "Seni durağa kadar götürdü. Otobüse bindirdi. Kartı da o bastı.",
           ending: "rehber",
         },
@@ -220,7 +220,7 @@ window.Yasandi.scenarios.push({
           whole: true,
           keywords: ["tamam kanka", "tamam kardes", "tamam gardas", "kanka", "kardes", "kardesim", "gardas", "hocam", "reis", "dayi", "bro", "birader", "kral"],
           text:
-            "— Tamam kardeş, dedin.\n— Kardeş mi? Abi olmadı kardeş mi oldum şimdi?\n" +
+            "» Tamam kardeş.\n— Kardeş mi? Abi olmadı kardeş mi oldum şimdi?\n" +
             "Hitap konusunda uzlaşamadınız. Sallama çıktı.",
           ending: "hitap",
         },
@@ -245,7 +245,7 @@ window.Yasandi.scenarios.push({
           id: "nobody",
           keywords: ["kimseden", "kimsem yok", "hic kimse", "kimse", "yalnizim", "yetim", "kimsesiz"],
           text:
-            "— Kimsem yok abi, dedin.\nKeko bir an durdu. Gözleri doldu.\n" +
+            "» Kimsem yok abi.\nKeko bir an durdu. Gözleri doldu.\n" +
             "Telefonundan Müslüm Gürses açtı. Hoparlör cızırdıyor. Kaldırıma oturdunuz, beraber dinlediniz.\n" +
             "Bakkala gidip bir paket çekirdek, iki kola aldı. Kolanın birini sana uzattı.\nÇekirdek kabukları ayağınızın dibinde tepe oldu. Müslüm çalmaya devam ediyor.",
           ending: "muslum",
@@ -254,7 +254,7 @@ window.Yasandi.scenarios.push({
           id: "keko-family",
           keywords: ["senin annen", "senin kuzen", "senin abin", "sizdenim", "senin akraban", "akrabayiz"],
           text:
-            "— Sizdenim abi, akrabayız ya, dedin.\nKeko düşündü. Uzun uzun düşündü. Annesini aradı.\n" +
+            "» Sizdenim abi, akrabayız ya.\nKeko düşündü. Uzun uzun düşündü. Annesini aradı.\n" +
             "— Anne, bizim sülalede böyle biri var mı? ... Var mıymış. Kimin oğluymuş? ... Tamam.\n" +
             "Telefonu kapattı. Sana sarıldı.\n— Bayramda gel eli öpmeye. Annem kızıyo gelmiyon diye.",
           ending: "sulale",
@@ -347,7 +347,7 @@ window.Yasandi.scenarios.push({
           id: "headphones",
           keywords: ["duymadim", "kulaklik", "muzik", "duymuyorum"],
           text:
-            "Kulaklığı gösterdin.\n— Duymadım abi.\nKeko kulaklığı aldı, kulağına taktı. Müzik yok.\n" +
+            "Kulaklığı gösterdin.\n» Duymadım abi.\nKeko kulaklığı aldı, kulağına taktı. Müzik yok.\n" +
             "Bir süre bakıştınız. Keko kulaklığı geri vermedi. Ama gitti.",
           ending: "kulaklik",
         },
@@ -360,13 +360,13 @@ window.Yasandi.scenarios.push({
     {
       id: "keep-distance",
       keywords: ["yaklasma", "ote dur", "uzak dur", "geri cekil", "geri dur", "mesafe", "cekil", "dokunma"],
-      text: "— Abi öte dur, dedin.\n— Öte mi? Burası senin mahallen mi lan?\nKeko yarım adım geri çekildi. Sonra bir adım yaklaştı. Net kâr: yarım adım.\n— Hangi mahallesin sen?",
+      text: "» Abi öte dur.\n— Öte mi? Burası senin mahallen mi lan?\nKeko yarım adım geri çekildi. Sonra bir adım yaklaştı. Net kâr: yarım adım.\n— Hangi mahallesin sen?",
       goto: "abi",
     },
     {
       id: "speaking-turkish",
       keywords: ["turkce konusuyom", "turkce konusuyorum", "turkce", "anlamiyon mu", "anlamiyor musun", "anlamadin mi"],
-      text: "— Türkçe konuşuyom ya abi, dedin.\n— Bana laf mı sokuyon sen?\nKeko'nun sol eli yavaşça arka cebine gitti. Sonra geri geldi. Şimdilik.",
+      text: "» Türkçe konuşuyom ya abi.\n— Bana laf mı sokuyon sen?\nKeko'nun sol eli yavaşça arka cebine gitti. Sonra geri geldi. Şimdilik.",
     },
   ],
 
@@ -401,12 +401,12 @@ window.Yasandi.scenarios.push({
     },
     police: {
       text:
-        "155'i aradın.\n— 155, buyrun.\n— Biri bana hayırdır dedi.\nHat kapandı.\n" +
+        "155'i aradın.\n— 155, buyrun.\n» Biri bana hayırdır dedi.\nHat kapandı.\n" +
         "Keko her şeyi duydu. Bir adım daha yaklaştı.",
     },
     mom: {
       text:
-        "Anneni aradın, keko duysun diye yüksek sesle.\n— Anne! Ben şimdi mahalledeyim!\n" +
+        "Anneni aradın, keko duysun diye yüksek sesle.\n» Anne! Ben şimdi mahalledeyim!\n" +
         "— Ekmek aldın mı?\nKapattı. Keko hâlâ orada. Biraz da acıyarak bakıyor.",
     },
   },

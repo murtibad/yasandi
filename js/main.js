@@ -49,15 +49,30 @@
     });
   }
 
+  // Lines starting with "»" are the player's own words: shown dim with ›› like typed commands.
+  function splitSpeakers(text) {
+    const groups = [];
+    for (const line of text.split("\n")) {
+      const player = line.startsWith("»");
+      const content = player ? line.replace(/^»\s*/, "") : line;
+      const last = groups[groups.length - 1];
+      if (last && last.player === player && !player) last.lines.push(content);
+      else groups.push({ player, lines: [content] });
+    }
+    return groups;
+  }
+
   // Queue output so lines never type over each other.
   function say(text, className) {
-    typing = typing.then(() => {
-      skip = false;
-      const p = document.createElement("p");
-      p.className = className || "say";
-      log.appendChild(p);
-      return typeInto(p, text);
-    });
+    for (const group of splitSpeakers(text)) {
+      typing = typing.then(() => {
+        skip = false;
+        const p = document.createElement("p");
+        p.className = group.player ? "cmd said" : className || "say";
+        log.appendChild(p);
+        return typeInto(p, group.lines.join("\n"));
+      });
+    }
     return typing;
   }
 

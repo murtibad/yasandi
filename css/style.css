@@ -91,6 +91,8 @@ body {
 }
 .cmd::before { content: "››"; position: absolute; left: 0; color: var(--faint); }
 
+.cmd.said { margin-block: -12px; }
+
 .ending {
   display: flex;
   flex-wrap: wrap;
