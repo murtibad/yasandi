@@ -36,6 +36,11 @@ for (const s of scenarios) {
   const usedEndings = new Set();
   const checkIntent = (intent, label, needsKeywords) => {
     if (needsKeywords && (!Array.isArray(intent.keywords) || !intent.keywords.length)) err(where(`${label}: no keywords`));
+    // Keywords match at the start of any word, so very short ones fire by accident ("in" matches "insan", "inat").
+    for (const k of intent.keywords || []) {
+      const n = window.Yasandi.text.normalize(k).trim();
+      if (n !== "?" && n.length < 3) warnings.push(where(`${label}: keyword "${k}" is shorter than 3 letters and will match by accident`));
+    }
     if (!intent.text) err(where(`${label}: no text`));
     if (intent.goto && !s.nodes[intent.goto]) err(where(`${label}: goto "${intent.goto}" does not exist`));
     if (intent.ending) {
@@ -61,7 +66,7 @@ for (const s of scenarios) {
   if (s.patienceIntent) checkIntent(s.patienceIntent, "patienceIntent", false);
   for (const [gid, o] of Object.entries(s.overrides || {})) {
     if (!globalIntents.some((g) => g.id === gid)) err(where(`overrides.${gid}: no global intent with that id`));
-    checkIntent({ keywords: ["x"], text: "x", ...o }, `overrides.${gid}`, false);
+    checkIntent({ keywords: ["xxx"], text: "x", ...o }, `overrides.${gid}`, false);
   }
   if (!s.fallbacks || !s.fallbacks.length) err(where("no fallbacks"));
 

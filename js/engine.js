@@ -17,6 +17,14 @@
     return text ? text.charAt(0).toLocaleUpperCase("tr-TR") + text.slice(1) : "";
   }
 
+  const NEGATION_WORDS = new Set(["hayir", "yok", "asla", "olmaz", "istemem", "degilim"]);
+  // vermiyorum, kalkmıyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, kalkmicam
+  const NEGATION_ENDING = /(m[ai]yor(um|uz)?|miyom|mem|mam|meyecegim|mayacagim|micem|micam)$/;
+
+  function isNegated(normalized) {
+    return normalized.trim().split(" ").some((t) => NEGATION_WORDS.has(t) || NEGATION_ENDING.test(t));
+  }
+
   // Turkish question particle by vowel harmony: Ahmet mi, Ayşe mi, Mahmut mu, Ali mi, Hasan mı, Gül mü.
   function questionParticle(word) {
     const vowels = word.toLocaleLowerCase("tr-TR").match(/[aeıioöuü]/g);
@@ -92,7 +100,9 @@
         const extra = normalized.trim().split(" ").length - normalize(k).trim().split(" ").length;
         return extra <= 0;
       };
-      const intent = this.candidates().find((i) => i.keywords.some((k) => hits(i, k)));
+      // "yer vermiyorum" must not count as "yer ver": intents marked `positive` are skipped when the input is negated.
+      const negated = isNegated(normalized);
+      const intent = this.candidates().find((i) => !(negated && i.positive) && i.keywords.some((k) => hits(i, k)));
 
       if (intent) {
         this.misses = 0;

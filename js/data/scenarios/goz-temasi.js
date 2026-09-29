@@ -92,6 +92,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "run",
+          positive: true,
           keywords: ["kac", "kos", "arkami don", "arkani don", "uzaklas", "hizlan", "tabana kuvvet", "geri don"],
           text:
             "Arkanı döndün, adımlarını hızlandırdın.\n" +
@@ -137,6 +138,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "run",
+          positive: true,
           keywords: ["kac", "kos", "arkami don", "tabana kuvvet", "hizlan"],
           text:
             "Arkanı dönüp koşmaya başladın.\nKeko'nun eli cebinden çıktı: tespih. Tespihi sallayarak peşine düştü.\n— Dur lan!",
@@ -295,6 +297,7 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "run-faster",
+          positive: true,
           keywords: ["kos", "hizlan", "kac", "daha hizli", "depar"],
           text:
             "Daha hızlı koştun. Terlik sesi de hızlandı.\nBir terlik yanından uçup geçti. İkincisi geçmedi.\n" +

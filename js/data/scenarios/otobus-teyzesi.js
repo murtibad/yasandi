@@ -25,7 +25,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      hint: "Teyze tam başında dikiliyor. Yer verebilir, görmezden gelebilir, uyuyor numarası yapabilir, telefonu kurcalayabilir veya 'ben de yorgunum' diyebilirsin.",
+      hint: "Teyze hâlâ bakıyor. Bir şey yapmalısın. Ya da hiçbir şey yapmamalısın.",
       text:
         "Akşam saati. Otobüs tıklım tıklım. Çok yorgunsun, sonunda bir koltuk bulup oturdun.\n" +
         "Bir durakta yaşlı, sevimli ama kararlı bir teyze bindi. Geldi, tam tepene dikildi.\n" +
@@ -33,7 +33,8 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "give-seat",
-          keywords: ["kalk", "buyur teyze", "otur", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "buyur", "kalktim", "ayaga kalk"],
+          positive: true,
+          keywords: ["kalk", "buyur", "otur teyze", "teyze otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk"],
           text:
             "» Buyur teyze, otur.\nAyağa kalktın. Teyze tam oturacakken arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa oturdu.\n" +
             "— Hop kardeşim, dedi adam. Ben de yorgunum.\n" +
@@ -51,7 +52,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "ignore",
-          keywords: ["gormezden gel", "bakma", "kafami cevir", "yuzune bakma", "hicbir sey", "hic bir sey", "oturmaya devam", "devam et"],
+          keywords: ["gormezden gel", "bakma", "kafami cevir", "yuzune bakma", "hicbir sey", "hic bir sey", "oturmaya", "oturuyorum", "devam et", "vermiyorum", "vermem", "vermeyecegim", "kalkmiyorum", "kalkmam", "kalkmayacagim"],
           text:
             "Görmezden geldin. Oturmaya devam ettin.\n" +
             "Teyzenin bakışları ağırlaşıyor. Ağırlığı fiziksel olarak hissedebiliyorsun.\n" +
@@ -60,6 +61,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "sleep",
+          positive: true,
           keywords: ["uyu", "uyuyor", "uyku", "gozumu kapat", "horla", "uyumus gibi", "uyuma", "kestir", "uyuma numarasi"],
           text:
             "Gözlerini kapattın. Uyuyor numarası yapıyorsun.\n" +
@@ -68,7 +70,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "tired",
-          keywords: ["yorgunum", "hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben de yorgunum", "ben de"],
+          keywords: ["yorgunum", "hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben de yorgunum"],
           text:
             "» Teyze ben de çok yorgunum, işten çıktım.\n" +
             "Teyzenin yüzü bir anda şefkatle doldu.\n" +
@@ -78,10 +80,18 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "headphone",
-          keywords: ["kulaklik", "muzik", "tak"],
+          keywords: ["kulaklik", "muzik", "takiyorum", "taktim", "takarim"],
           text:
             "Kulaklığını taktın. Müziğin sesini açtın.\n" +
             "Teyze eğildi, kulaklığın tekini kulağından çıkardı.\n— Ne dinliyon yavrum? Müslüm mü o?",
+          goto: "stare-level-2",
+        },
+        {
+          id: "ask-early",
+          keywords: ["efendim", "ne var", "ne bakiyorsun", "hayirdir", "niye bakiyorsun", "nedir", "bir sey mi"],
+          text:
+            "Teyzeye bir şey söyledin. Teyze cevap vermedi. Bakışı bir kat ağırlaştı.\n" +
+            "Yandaki yolcu gazetesini indirip sizi izlemeye başladı.",
           goto: "stare-level-2",
         },
         {
@@ -94,7 +104,8 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "get-off",
-          keywords: ["in", "inmek", "kapi", "inecek var", "durak", "dugme", "kapiya", "iniyorum", "inecegim"],
+          positive: true,
+          keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme"],
           text:
             "» İnecek var!\nDüğmeye bastın ve ilk durakta kendini dışarı attın.\n" +
             "Evin daha 12 durak ileride. Yürümek zorundasın ama vicdanın rahat.",
@@ -117,7 +128,8 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "give-seat-late",
-          keywords: ["kalk", "buyur", "otur", "yer ver", "tamam teyze", "pes", "dayanamadim"],
+          positive: true,
+          keywords: ["kalk", "buyur", "otur teyze", "teyze otur", "otursana", "yer ver", "tamam teyze", "pes", "dayanamadim"],
           text:
             "» Tamam teyze buyur geç.\nArtık çok geç.\n" +
             "Arka koltuktaki amca bağırdı: — Yarım saattir dikiyorsun kadını tepende! Gençlik bitmiş!\n" +
@@ -126,7 +138,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "ignore-harder",
-          keywords: ["bakma", "devam", "gormezden", "sus", "hicbir sey", "yine", "hala", "otur", "cevap verme"],
+          keywords: ["bakma", "devam", "gormezden", "sus", "hicbir sey", "yine", "hala", "oturmaya", "oturuyorum", "cevap verme", "vermiyorum", "vermem", "kalkmiyorum", "kalkmam"],
           text:
             "Israrla önüne bakıyorsun.\n" +
             "Şoför dikiz aynasından sana ters ters bakmaya başladı. Arka koltuktaki amca boğazını temizledi, yüksek sesle 'Tüüüh' dedi.\n" +
@@ -138,7 +150,7 @@ window.Yasandi.scenarios.push({
           keywords: ["amca", "tuh", "dayi", "sana ne", "sen kalk", "sen yer ver", "amcaya", "arkadaki", "amcasi"],
           text:
             "» Amca çok istiyorsan sen kalk yer ver!\nAmca şok oldu. \n" +
-            "— Ben 65 yaşındayım lann! diye ayağa kalktı.\nAmca kalkınca teyze anında amcanın yerine oturdu. Amca ayakta kaldı.",
+            "— Ben 65 yaşındayım lan! diye ayağa kalktı.\nAmca kalkınca teyze anında amcanın yerine oturdu. Amca ayakta kaldı.",
           ending: "amca",
         },
         {
@@ -159,6 +171,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "sleep-again",
+          positive: true,
           keywords: ["uyu", "uyku", "gozumu kapat", "uyumaya", "kestir", "horla"],
           text:
             "Tekrar gözlerini kapattın ve bu sefer gerçekten uykuya daldın.\n" +
