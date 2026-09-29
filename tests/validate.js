@@ -60,6 +60,7 @@ for (const s of scenarios) {
     (node.acceptAny || []).forEach((i, n) => checkIntent(i, `${nodeId}.acceptAny[${n}]`, false));
     if (node.inherits && !s.nodes[node.inherits]) err(where(`${nodeId}: inherits "${node.inherits}" does not exist`));
     if (node.patienceIntent) checkIntent(node.patienceIntent, `${nodeId}.patienceIntent`, false);
+    (node.intents || []).forEach((i) => i.exhausted && checkIntent(i.exhausted, `${nodeId}.${i.id}.exhausted`, false));
     if (node.patience && !node.patienceIntent && !s.patienceIntent) err(where(`${nodeId}: patience set but no patienceIntent`));
     if (nodeId !== "start" && !node.intents && !node.acceptAny) err(where(`${nodeId}: no intents and no acceptAny`));
   }

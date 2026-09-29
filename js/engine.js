@@ -134,6 +134,8 @@
       if (intent) {
         // Same move again with nothing new to say: don't repeat the text word for word, push the player instead.
         const fresh = texts(intent.text).filter((t) => !this.seenTexts.has(t));
+        // `exhausted`: what happens once every variant has been shown (the third "Tuncay arkanda!").
+        if (!fresh.length && intent.exhausted) return this.resolve(intent.exhausted);
         if (!fresh.length && !intent.ending) return this.miss(input, true);
         this.misses = 0;
         if (intent.goto) this.nodeId = intent.goto;

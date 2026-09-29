@@ -33,6 +33,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - First matching intent wins, in this order: the node's own intents, its `inherits` node, scenario `common`, then global intents (which a scenario can replace via `overrides`).
 - **Negation.** The matcher does not read grammar: "yer vermiyorum" contains "yer ver". Mark every intent that means the player *does* something (give the seat, run, sleep, get off, attack) with `positive: true`. When the input is negated (vermiyorum, kalkmam, hayır, olmaz...), those intents are skipped, so add the refusal words ("vermiyorum", "kalkmiyorum", "oturuyorum") to the matching "ignore/stay" intent.
 - **Keyword length.** Keywords match at the start of any word. Never use keywords under 3 letters ("in" matches "insan", "inat"; "tak" matches "takılıyorum"). `node tests/validate.js` warns about them.
+- `exhausted: { text, ending?/goto? }` on an intent with a `text` array: what happens when the player does it again after every variant was shown (third "Tuncay arkanda!" and he finally sees the cin).
 - `whole: true` on an intent means it only fires when the keyword is the whole input.
 - `acceptAny: [...]` on a node accepts any answer to an open question. `{input}` is replaced by the player's words, `{mi}` by the right question particle (mı/mi/mu/mü).
 - `fallbacks`: replies when nothing matches. **Every fallback must end with pressure or a question** so the player knows what to answer. Never write "X yazdığını anlamadı".
