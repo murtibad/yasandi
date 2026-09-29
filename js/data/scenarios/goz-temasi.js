@@ -15,6 +15,8 @@ window.Yasandi.scenarios.push({
   title: "Göz Teması",
 
   endings: {
+    sessiz_yuruyus: { title: "Sessiz Yürüyüş", tag: "KANKA OLDUNUZ" },
+    cay_ocagi: { title: "Çay Ocağında Mola", tag: "KURTULDUN" },
     sallama: { title: "Arka Cep", tag: "ÖLDÜN" },
     istanbulkart: { title: "İstanbulkart", tag: "ÖLDÜN" },
     kelime: { title: "Kelime Oyunu", tag: "ÖLDÜN" },
@@ -48,6 +50,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Cevap vermedin. Keko bekledi. Sen de bekledin.\nİkiniz de kıpırdamadan durunca arkadan geçen bir teyze durdu, ikinize baktı:\n— Oğlum küs müsünüz? Barışın hadi.\nKeko teyzeye 'Tamam teyze' dedi, sonra sana döndü:\n— Hangi mahallesin sen?", goto: "abi" },
       hint: "Keko cevap bekliyor. Kafa tutabilir, kaçabilir, özür dileyebilir, onu tanıyormuş gibi yapabilirsin.",
       look: "Mahalle ıssız. Karşı kaldırımda tekir bir kedi var. Köşedeki bakkal Remzi abi kepengi yarıya indirmiş. Keko tam önünü kesmiş, siyah eşofmanlı, elinde tespih var.",
       text:
@@ -163,6 +166,7 @@ window.Yasandi.scenarios.push({
 
     // The slow-motion second when keko reaches for his back pocket. Two misses and it's over.
     standoff: {
+      freeze: { text: "Dondun kaldın. Kedi de dondu. Keko donmadı.\nSallama. Olaylar çok hızlı gelişti. Kıçından bıçaklandın.\nKedi hâlâ bakıyordu.", ending: "sallama" },
       intents: [
         {
           id: "draw-card",
@@ -337,6 +341,7 @@ window.Yasandi.scenarios.push({
     },
 
     chase: {
+      freeze: { text: "Ne yapacağını bilemedin, o yüzden koşmaya devam ettin. Keko da.\nYirmi dakika sonra ikiniz de bir çay ocağının önüne yığıldınız.\n— İki çay, dedi keko nefes nefese. Neden kovaladığını unutmuştu. Sen de sormadın.", ending: "cay_ocagi" },
       hint: "Koşmaya devam mı, durmak mı? Köşedeki bakkal ya da duraktaki otobüs de bir seçenek.",
       intents: [
         {
@@ -380,6 +385,7 @@ window.Yasandi.scenarios.push({
     },
 
     insist: {
+      freeze: { text: "Yine sesini çıkarmadın. Keko kolunu omzuna attı.\n— Tamam gardaş, konuşmuyosan yürüyelim o zaman.\nÜç sokak yan yana, tek kelime etmeden yürüdünüz. Bir kapının önünde durdu.\n— İyi sohbetti gardaş. Yine bekleriz.", ending: "sessiz_yuruyus" },
       hint: "Görmezden gelmeye devam edebilir ya da kulaklığını bahane edebilirsin.",
       intents: [
         {

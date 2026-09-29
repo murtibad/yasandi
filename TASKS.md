@@ -17,11 +17,9 @@ Owner played it and felt nothing: "why should I care that a stranger's card is e
 - 6+ steps, 15+ endings, earned by the player's moves. Absurd turns welcome (the card reader develops opinions about your love life).
 - 0 validator warnings for this scenario, including the new dead-end check.
 
-### 9. Rol pası pass on the other five scenarios (`content/role-pass`)
+### 9. Grow "Yetersiz Bakiye" to 15+ endings (`content/yetersiz-bakiye-more`)
 
-**Do not** add one catch-all "sessiz" intent per scenario that ends the game (a first attempt did this; it made "oturmaya devam" end the bus scenario). Each step needs its own consequence that fits that moment: in the bus, freezing means the teyze leans closer; in the barber, the usta takes silence as a yes. Most of them should move to another step, not end the game. The stake lines in the openings are already done.
-
-Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir şey yapmıyorum" or "bilmiyorum" only get a fallback. Fix every one of those with an intent that moves the scene, following the "Rol pası" section. Also check that each scenario's first three lines give the player a personal stake; strengthen the opening where they don't (one or two sentences, keep what works). 0 warnings.
+It has 12 endings and 5 steps. Add 3+ endings and at least one step between the card and the name exchange (for example: the card reader starts commenting on the conversation; the driver asks the crush's stop too). Use `{crush}` and `{name}` (see "Remembering answers" in `AGENTS.md`), give the new steps a `freeze` and a `look`. 0 warnings.
 
 ## Later (owner's ideas, not for agents yet)
 
@@ -30,6 +28,8 @@ Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir �
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+
+- Rol pası: every step now has a `freeze` (what happens when the player refuses or does nothing); validator dead-end warnings 67 → 0 (Claude, main)
 
 - Comedy pass on all six scenarios (`content/comedy-pass`, branch `content/comedy-pass`)
 - Header controls: visible and animated (`feature/header-controls`, branch `feature/header-controls`)

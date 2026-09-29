@@ -7,6 +7,7 @@ window.Yasandi.scenarios.push({
   title: "Niyetimiz Çalıp Çırpmak Değil",
 
   endings: {
+    not: { title: "Konuşmasanız da Olur", tag: "HÜSNÜ KÜSTÜ" },
     kangal: { title: "Kangal Kurtarışı", tag: "KAYBOLDUN" },
     "views-47": { title: "Sıkıcı Video", tag: "47 İZLENME" },
     kavga: { title: "Ekip İçi Çatışma", tag: "KAVGA" },
@@ -33,6 +34,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Kıpırdamadın. Tuncay da kıpırdamadı. Kapı kendi kendine açıldı.\nİçeriden bir ses geldi: — Girecek misiniz, çıkacak mısınız? Cereyan yapıyo.\nTuncay seni içeri itti.", goto: "dark-room" },
       look: "Zifiri karanlık. Tuncay'ın fenerinin sarı ışığı eski kerpiç evin aralık kapısına vuruyor. Kapının önünde bir çift terlik duruyor. Temiz. Yeni gibi.",
       hint: "Tuncay kapıda. İçeri girmenin de bir adabı var.",
       text:
@@ -114,6 +116,7 @@ window.Yasandi.scenarios.push({
     },
 
     "dark-room": {
+      freeze: { text: "Hiçbir şey demedin. Karanlık da demedi. Bir dakika. İki dakika.\nSonunda karanlık pes etti: — Tamam, ben başlıyorum.", goto: "cin" },
       look: "Eski bir köy odası. Yer sedirleri, duvarda 1987 takvimi, köşede bir çaydanlık. Karanlığın içinde, sedirin orada, biri çekirdek çitliyor. Çıt. Çıt.",
       hint: "Karanlıkta biri var. Onunla konuşabilirsin. Ya da ışığı oraya tutabilirsin.",
       text:
@@ -186,6 +189,7 @@ window.Yasandi.scenarios.push({
     },
 
     cin: {
+      freeze: { text: ["Hüsnü'ye cevap vermedin. Hüsnü içini çekti.\n— Sen de mi konuşmuyosun? Torunlar da böyle. Telefonla konuşuyolar, benle değil.\nDumanı biraz inceldi. Tuncay 'Abi hava birden ısındı' dedi.", "Yine sustun. Hüsnü çekirdeğini bıraktı.\n— Üç yüz yıl bekledim, bi 'merhaba' için. Neyse.\nDuvardaki takvime baktı. 1987'den beri kimse sayfasını çevirmemiş."], exhausted: { text: "Üçüncü sessizliğinde Hüsnü bir şey demeden duvarın içine çekildi.\nSedirde bir not kaldı: 'Gelin yine. Konuşmasanız da olur.'\nTuncay notu kameraya tuttu. Video 'Cin bize not bıraktı' adıyla yüklendi. 312 izlenme. Hepsi Hüsnü.", ending: "not" } },
       text:
         "Fenerin ışığında sedirde bağdaş kurmuş biri belirdi. Yarısı duman, yarısı amca. Elinde bir avuç çekirdek.\n" +
         "— Hüsnü, dedi. Üç yüz kırk yedi yaşındayım. Köy İstanbul'a göçtü, bir ben kaldım.\n" +

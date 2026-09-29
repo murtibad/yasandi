@@ -7,6 +7,13 @@
 
   const texts = (t) => (Array.isArray(t) ? t : [t]);
 
+  const FREEZE_WORDS = ["hayir", "yok", "hicbir", "hic bir", "bilmiyorum", "bilmem", "sus", "susuyorum", "sustum", "sessiz", "bekliyorum", "bekle", "dondum", "donakal", "kipirdamiyorum", "oylece", "hmm", "iii", "ee", "..."];
+  function isFreeze(normalized) {
+    const t = normalized.trim();
+    if (!t || /^[.\s]+$/.test(t)) return true;
+    return FREEZE_WORDS.some((w) => t === w || t.startsWith(w + " ") || normalized.includes(" " + w + " "));
+  }
+
   // Questions to the narrator ("nereye saklayabilirim?", "ne yapabilirim?") are not actions.
   const NARRATOR_WORDS = ["nereye", "nerede", "neresi", "neler var", "ne yapabilirim", "ne yapmaliyim", "ne yapsam", "ne yapayim", "secenek", "etrafa bak", "etrafima bak", "nasil yani"];
   const CAN_I = /(abilir|ebilir)(im|miyim|mi)$/;
@@ -42,8 +49,10 @@
   // vermiyorum, kalkmıyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, yemiycem
   const NEGATION_ENDING = /(m[ai]yor(um|uz)?|miyom|mem|mam|meyecegim|mayacagim|micem|micam|miycem|miycam|m[ai]ycag[ai]m)$/;
 
+  // Words that only look negative: "tamam" ends like "kalkmam" but means yes.
+  const NOT_NEGATION = new Set(["tamam", "hamam", "imam", "madam", "sistem", "ekmem"]);
   function isNegated(normalized) {
-    return normalized.trim().split(" ").some((t) => NEGATION_WORDS.has(t) || NEGATION_ENDING.test(t));
+    return normalized.trim().split(" ").some((t) => NEGATION_WORDS.has(t) || (NEGATION_ENDING.test(t) && !NOT_NEGATION.has(t)));
   }
 
   // Turkish question particle by vowel harmony: Ahmet mi, Ayşe mi, Mahmut mu, Ali mi, Hasan mı, Gül mü.
@@ -133,7 +142,11 @@
       };
       // "yer vermiyorum" must not count as "yer ver": intents marked `positive` are skipped when the input is negated.
       const negated = isNegated(normalized);
-      const intent = this.candidates().find((i) => !(negated && i.positive) && i.keywords.some((k) => hits(i, k)));
+      let intent = this.candidates().find((i) => !(negated && i.positive) && i.keywords.some((k) => hits(i, k)));
+
+      // Freezing ("hayır", "hiçbir şey", "bilmiyorum", or any refusal nothing else caught) is a choice too:
+      // a step's `freeze` says what the world does when the player does nothing.
+      if (!intent && here.freeze && (isFreeze(normalized) || negated)) intent = { id: "__freeze", keywords: [], ...here.freeze };
 
       if (intent) {
         // Same move again with nothing new to say: don't repeat the text word for word, push the player instead.

@@ -5,6 +5,7 @@ window.Yasandi.scenarios.push({
   title: "Yer Ver",
 
   endings: {
+    yastik: { title: "Teyzenin Yastığı", tag: "YASTIK OLDUN" },
     topal: { title: "Rol Kesilmez", tag: "EVE KADAR TOPALLADIN" },
     laf: { title: "Beynine Kan Gitsin", tag: "LAF YEDİN" },
     firsatci: { title: "Fırsatçı Pusu", tag: "AYAKTASIN" },
@@ -39,6 +40,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Hiçbir şey yapmadın. Teyze de yapmadı. Otobüs iki durak böyle gitti.\nTeyze bir adım daha yaklaştı. Artık dizin onun çantasına değiyor.\nYandaki genç telefonunu çıkardı, kamerayı açtı.", goto: "gerilim" },
       hint: "Teyze tepene dikildi. Yer verebilir, görmezden gelebilir, uyuma numarası yapabilir, telefonu çıkarabilir veya mızmızlanabilirsin.",
       look: "Otobüs hıncahınç dolu. Ayaktakiler demirlere tutunmuş, yorgun argın sallanıyor. Yanda lise öğrencisi telefonda oyun oynuyor. Teyze tam karşında, elinde pazar çantası, sana kilitlenmiş.",
       text:
@@ -178,6 +180,7 @@ window.Yasandi.scenarios.push({
     },
 
     "seat-stolen": {
+      freeze: { text: "Hiçbir şey yapmadın. Kel adam rahatça oturdu, gazetesini açtı.\nTeyze sana baktı. Sen kalktın, koltuk gitti, ikiniz de ayaktasınız.\nTeyze 'Hiç olmazsa denedin yavrum' dedi. Teselli değildi.", ending: "firsatci" },
       hint: "Adam koltuğa yerleşmek üzere. Onu it, çantanı at, teyzeyi oturt ya da adama laf at.",
       look: "Kel adamın kıllı kolu çoktan koltuğun kenarına değdi. Teyze havada asılı kalmış, seninle adam arasında bir yere bakıyor.",
       intents: [
@@ -234,6 +237,7 @@ window.Yasandi.scenarios.push({
     },
 
     "gerilim": {
+      freeze: { text: "Yine hiçbir şey yapmadın. Teyze de. Genç kaydı kapattı, sıkıldı.\nDördüncü durakta teyze elini senin omzuna koydu, destek aldı, sonra başını da koydu. Uyudu.\nSen yer vermedin, o da seni yastık yaptı. 36 durak kıpırdayamadın.", ending: "yastik" },
       hint: "Baskı artıyor. Videoya çeken gence laf atabilir, şoföre müziği kapattırabilir ya da pes edip yer verebilirsin.",
       look: "Müzik açık. Yandaki çocuk telefonu kaldırmış seni çekiyor. Teyzenin gözleri artık lazer gibi.",
       intents: [
@@ -287,6 +291,7 @@ window.Yasandi.scenarios.push({
     },
 
     "stare-level-2": {
+      freeze: { text: "Hiç ses etmedin. Arka koltuktaki amca 'Tüh' dedi. Teyze 'Tüh' dedi. Sonra bütün otobüs sırayla 'Tüh' dedi. Şoför de.\nTeyze sana doğru eğildi:\n— Sen kimin oğlusun bakayım?", goto: "kimin-oglusu" },
       hint: "Artık işler çığrından çıkıyor. Amcaya laf yetiştir, teyzeye kim olduğunu sor ya da mesleğini falan anlat.",
       intents: [
         {

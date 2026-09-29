@@ -5,6 +5,8 @@ window.Yasandi.scenarios.push({
   title: "Kısa Olmasın",
 
   endings: {
+    yarin_bitiririz: { title: "Yarın Bitiririz", tag: "YARIM KALDI" },
+    lavabo: { title: "Ya Sıcak Ya Soğuk", tag: "YIKANDIN" },
     baskasi: { title: "Başkasının Saçı", tag: "ÇAKTIRMADIN" },
     asker: { title: "3 Numara", tag: "ASKERLİK" },
     yarim: { title: "Asimetrik Kesim", tag: "MODA DEĞİL" },
@@ -59,6 +61,7 @@ window.Yasandi.scenarios.push({
     },
 
     "cutting-1": {
+      freeze: { text: "Sesini çıkarmadın. Remzi usta bunu onay saydı.\n— Sustun, demek istediğim gibi abim.\nMakineyi bir numaraya taktı.", goto: "service-offer-1" },
       hint: "Saçının çok kesilmemesi için uyar, aynaya bak veya maça yorum yap.",
       look: "Usta kesmeden önce aynanın köşesine sıkıştırılmış bir fotoğrafa bakıyor. Fotoğraftaki adam sen değilsin. Çırak çay demliyor, bekleyen amca gazetenin spor sayfasında.",
       intents: [
@@ -138,6 +141,7 @@ window.Yasandi.scenarios.push({
     },
 
     "service-offer-1": {
+      freeze: { text: "Cevap vermedin.\n— Susan onaylar abim, dedi usta. Ense de gitti.", goto: "cutting-2" },
       hint: "Usta ekstra hizmet teklif ediyor. Kabul et veya reddet.",
       text:
         "Remzi usta sprey şişesiyle yüzüne biraz su sıktı.\n" +
@@ -178,6 +182,7 @@ window.Yasandi.scenarios.push({
     },
 
     "cutting-2": {
+      freeze: { text: "Hiç ses etmedin. Usta anlatmaya devam etti. Anlattıkça kesti, kestikçe anlattı.\nBekleyen amca gazetenin üstünden sana acıyarak baktı.", goto: "service-offer-2" },
       hint: "Yine çok kısa kesti! İsyan et, sabret veya ağla.",
       text:
         "Remzi usta tarağı saçına daldırıp çekiyor, bir yandan da anlatıyor:\n" +
@@ -269,6 +274,7 @@ window.Yasandi.scenarios.push({
     },
     
     "service-offer-2": {
+      freeze: { text: "Cevap vermedin. Usta çakmağı çaktı.\n— Susan onaylar, dedi. Cereyan yok, kapı kapalı.\nPamuk kulağının etrafında bir tur attı. Pırıl pırıl oldun. Kimse yanmadı. Sen bile şaşırdın.", goto: "cutting-3" },
       hint: "Usta ateşle kulak kılı almayı teklif ediyor.",
       text:
         "Tıraş bitmek üzere. Usta ucunda pamuk olan ince bir şiş çıkardı. Çakmağı çaktı.\n" +
@@ -301,6 +307,7 @@ window.Yasandi.scenarios.push({
     },
 
     "cutting-3": {
+      freeze: { text: "Sesini çıkarmadın. Usta anlattı. Kırk dakika anlattı. Komutan, kar, bir katır.\nBitirdiğinde dışarısı kararmış, kepenk inmişti.\n— Saçı yarın bitiririz abim, dedi. Buluşman yarın sabah.", ending: "yarin_bitiririz" },
       hint: "Usta askerlik anısına başladı. Dinle veya böl.",
       text:
         "Usta aynayı boynunun arkasına tutup enseni gösterdi, ama sen bakamadan geri çekti.\n" +
@@ -342,6 +349,7 @@ window.Yasandi.scenarios.push({
     },
 
     "finishing": {
+      freeze: { text: "Bir şey demedin. Usta 'yıkayalım' anladı.\nBaşını lavaboya eğdi. Su ya çok sıcak ya çok soğuk, ortası yok.\n— Nasıl abim, iyi mi? diye sordu. Ağzın suyla dolu olduğu için yine cevap veremedin.", ending: "lavabo" },
       hint: "Tıraş bitti. Aynaya bak, bahşiş ver veya kolonya sürdür.",
       text:
         "Üzerindeki önlüğü çırptı. Elini devasa bir bidon limon kolonyasına daldırdı.\n" +

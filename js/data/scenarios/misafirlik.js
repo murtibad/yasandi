@@ -5,6 +5,9 @@ window.Yasandi.scenarios.push({
   title: "Bi Tabak Daha",
 
   endings: {
+    sesli_bulasik: { title: "Sesli Bulaşık", tag: "KÜSTÜ" },
+    seyirci: { title: "Kuzenle Kıyaslanan", tag: "SEYİRCİ" },
+    uc_kisilik: { title: "Üç Kişilik Porsiyon", tag: "ŞİŞTİN" },
     tepsi: { title: "Nebahat Teyze İlk Defa Sustu", tag: "BÜTÜN TEPSİ" },
     kumanda: { title: "Kumandayı Bulan Çocuk", tag: "KAHRAMAN" },
     saksi: { title: "Saksı Cinayeti", tag: "ZİYAN" },
@@ -35,6 +38,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Bir şey demedin. Tabağa baktın.\nNebahat teyze sessizliği onay saydı: — Bak, sesi çıkmıyo, demek ki beğendi.\nTabağına bir kepçe pilav daha koydu.", goto: "more-food" },
       look: "Salonun köşesinde koca bir saksı var. Masanın altında bir kedi dolaşıyor. Önünde peçete, cebin boş. Mutfağın kapısı aralık, çöp kovası orada. Kapı ise çok uzakta.",
       hint: "Tabak kendi kendine boşalmayacak. Yemek de bir yol, yememek de. Bu evde saklanacak yer de çok.",
       text:
@@ -198,6 +202,7 @@ window.Yasandi.scenarios.push({
     },
 
     "more-food": {
+      freeze: { text: "Sessizce pilav tepesine baktın. Tepe de sana baktı.\nKuzen masanın öbür ucundan seslendi: — Yemiyosan ben yerim!\nNebahat teyze kuzene gururla, sana kırgın baktı.", goto: "cousin-competition" },
       hint: "Pilav tepesi büyüyor. Salonda sana yardım edebilecek biri var mı?",
       intents: [
         {
@@ -246,6 +251,7 @@ window.Yasandi.scenarios.push({
     },
 
     "escalation-1": {
+      freeze: { text: "Cevap vermedin. Nebahat teyze bunu 'evet' saydı.\n— Bak dedim ben! Hasta bu çocuk!\nNane limon, üç kase çorba, alnına sirkeli bez. Tabak da hâlâ duruyor.", ending: "corba" },
       hint: "Teyze hasta olduğuna emin. İkna et ya da oyna.",
       intents: [
         {
@@ -275,6 +281,7 @@ window.Yasandi.scenarios.push({
     },
 
     "escalation-2": {
+      freeze: { text: "Sustun. Nebahat teyze de sustu. Bu evde teyzenin sustuğu ikinci an bu.\nMutfağa gitti, bulaşıkları yıkamaya başladı. Bulaşıkları çok sesli yıkıyor.\nCemil amca tek gözünü açtı: — Kırdın kadını oğlum.", ending: "sesli_bulasik" },
       hint: "Teyze darılmak üzere. Gönlünü almanın bir yolu olmalı.",
       intents: [
         {
@@ -313,6 +320,7 @@ window.Yasandi.scenarios.push({
     },
 
     "cousin-competition": {
+      freeze: { text: "Hiçbir şey yapmadan izledin. Kuzen altıncı tabağı bitirdi, yedinciye başladı.\nNebahat teyze sana döndü: — Bak, onun annesi sevinir.\nO günden beri bütün bayramlarda seni kuzenle kıyaslıyorlar.", ending: "seyirci" },
       hint: "Kuzen rekor peşinde. Rakip mi olacaksın, müttefik mi?",
       intents: [
         {
@@ -360,6 +368,7 @@ window.Yasandi.scenarios.push({
     },
 
     "waiting-food": {
+      freeze: { text: "Hiçbir şey yapmadın. Fırsat geldi, geçti.\nNebahat teyze mutfaktan tepsiyle döndü. En sevdiğin yemek. Üç kişilik.\n— Hepsi senin güzüm. Kuzene bile vermedim.", ending: "uc_kisilik" },
       hint: "Teyze mutfakta. Salonda yalnızsın. Fırsat bu fırsat.",
       intents: [
         {
@@ -396,6 +405,7 @@ window.Yasandi.scenarios.push({
     },
 
     "escape-attempt": {
+      freeze: { text: "Bir şey demedin. Nebahat teyze susmayı kabul saydı.\nBir poşet geldi. Sonra ikinci poşet. Sonra bir tencere, 'geri getirirsin' diye.\nTencereyi geri götürmek için gelecek bayram yine geleceksin. Plan buydu.", ending: "paket" },
       hint: "Paketi kabul edebilir veya reddedebilirsin.",
       intents: [
         {
