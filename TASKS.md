@@ -4,15 +4,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
-### 1. "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`)
-
-Opening: Bayram ziyareti, Nebahat teyzenin evi. Sen "tokum teyze" dedikçe tabağın doluyor. Öğlen yemeği yedin, üstüne çay içtin, şimdi önünde bir tabak sarma, üç dilim börek, kenarda kısır var.
-- Engine of the joke: **the plate never empties.** Every time the player eats, hides food or refuses, Nebahat teyze adds something ("Bi kaşık pilav koydum, onu da yiyiver güzüm"). Her insistence escalates: "hasta mısın", "annen yedirmiyo mu sana", "beğenmedin herhalde", finally she calls the player's mother.
-- Characters: Nebahat teyze (warm, unstoppable), her husband Cemil amca (dozing in front of the TV, occasionally "yesene oğlum"), the cousin who ate four plates and wins every comparison.
-- Must understand: tokum, yiyemem, yeter, sağ ol, diyetteyim, midem ağrıyor, yemeği saklamak (saksıya, peçeteye, cebe, kediye), kalkmak, gitmek zorundayım, "bi tabak daha".
-- Open question (acceptAny): "En çok hangi yemeğimi seviyon sen?" → teyze answers based on {input} ("— {input} {mi}? Dur hemen yapıyım, yarım saatlik iş.").
-- Endings (write at least these, 14+ total): saksıdaki sarma bitki öldürür; kedi sarmayı yemez, teyze görür; sen yedikçe teyze mutlu olur, tartıda 3 kilo; annene telefon edilir; kuzenle yeme yarışı; "diyetteyim" denince teyze diyet sarması yapar; kaçmaya çalışırken kapıda paket yapılmış yemek elinde kalırsın; teyze senin için ayrıca tatlı getirmiş, "tatlıya yer var ama".
-
 ### 2. "Kısa Olmasın" (`berber.js`, branch `feature/barber`)
 
 Opening: Mahalle berberi Remzi usta. Oturdun, "Abi uçlarından alsan yeter, kısa olmasın" dedin. Makine vızıldadı.
@@ -41,6 +32,7 @@ Collect 25 well-known Turkish internet memes and everyday "herkes yaşamıştır
 
 ## Done
 
+- "Bi Tabak Daha" (`misafirlik.js`, branch `feature/guest-visit`, commit `7fac2e1`)
 - Write `ideas/ideas.md`: 12 new scenario ideas (branch `feature/ideas`, commit `a07f205`)
 - New scenario: "Yetersiz Bakiye" (`yetersiz-bakiye.js`, branch `feature/insufficient-balance`, commit `c677a58`)
 - Bus scenario "Yer Ver" (`otobus-teyzesi.js`), deepened with tension and 24 endings (main, `0f45ffe`)
