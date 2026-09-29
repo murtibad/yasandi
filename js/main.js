@@ -209,7 +209,6 @@
   };
   soundBtn.addEventListener("click", () => { sound.toggle(); paintSound(); });
   paintSound();
-  ["keydown", "pointerdown"].forEach((ev) => document.addEventListener(ev, () => sound.unlock(), { once: true }));
 
   // Light / dark. Follows the phone's setting until the player picks one.
   const THEME_KEY = "yasandi.theme";
@@ -231,5 +230,20 @@
   nextBtn.addEventListener("click", () => start(randomScenario(game.scenario.id)));
   nextBtn.hidden = scenarios.length < 2;
 
-  start(randomScenario());
+  const p = document.createElement("p");
+  p.className = "say is-typing";
+  p.textContent = "Başlamak için bir tuşa bas ya da dokun_";
+  log.appendChild(p);
+
+  const onFirstInteraction = (ev) => {
+    if (ev.type === "keydown" && ev.key !== "Tab") {
+      ev.preventDefault();
+    }
+    sound.unlock();
+    document.removeEventListener("keydown", onFirstInteraction);
+    document.removeEventListener("pointerdown", onFirstInteraction);
+    start(randomScenario());
+  };
+  document.addEventListener("keydown", onFirstInteraction);
+  document.addEventListener("pointerdown", onFirstInteraction);
 })();
