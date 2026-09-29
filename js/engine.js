@@ -70,17 +70,20 @@
 
       this.logUnmatched(input);
       this.misses += 1;
-      if (this.scenario.patience && this.misses >= this.scenario.patience) {
-        return this.resolve(this.scenario.patienceIntent);
-      }
       const node = this.scenario.nodes[this.nodeId];
+      const patience = node.patience || this.scenario.patience;
+      if (patience && this.misses >= patience) {
+        return this.resolve(node.patienceIntent || this.scenario.patienceIntent);
+      }
       const text = pick(node.fallbacks || this.scenario.fallbacks, this.lastFallback);
       this.lastFallback = text;
-      return { text };
+      // The narrator nudges the player after the second miss in a row.
+      const hint = this.misses >= 2 ? node.hint : undefined;
+      return { text, hint };
     }
 
     resolve(intent) {
-      const result = { text: pick(intent.text) };
+      const result = { text: pick(intent.text), hint: intent.hint };
       if (intent.ending) {
         const meta = this.scenario.endings[intent.ending];
         const found = this.foundEndings();

@@ -122,6 +122,7 @@
     echo(command);
     const result = game.handle(command);
     say(result.text);
+    if (result.hint) say(result.hint, "say narrator");
     if (result.ending) showEnding(result.ending);
   });
 

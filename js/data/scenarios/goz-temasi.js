@@ -22,6 +22,8 @@ window.Yasandi.scenarios.push({
     teyze: { title: "Teyzenin Evi", tag: "ÖLDÜN" },
     bakiye: { title: "Bakiye Yetersiz", tag: "ÖLDÜN" },
     terlik: { title: "Terlik Füzesi", tag: "BAYILDIN" },
+    kedi: { title: "Paşa", tag: "KURTULDUN" },
+    omuz: { title: "Omuz", tag: "ÖLDÜN" },
     vesikalik: { title: "Vesikalık", tag: "SOYULDUN" },
     garson: { title: "Garson", tag: "SOYULDUN" },
     eskimodel: { title: "Eski Model", tag: "KURTULDUN" },
@@ -37,6 +39,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      hint: "Keko cevap bekliyor. Kafa tutabilir, kaçabilir, özür dileyebilir, onu tanıyormuş gibi yapabilirsin.",
       text:
         "Akşam üstü. Mahallede yürüyorsun. Kulaklık takılı ama müzik yok, öylesine takılı.\n" +
         "Karşıdan biri geliyor. Yanlışlıkla göz göze geldiniz. Bir saniye. Belki iki.\n" +
@@ -71,10 +74,10 @@ window.Yasandi.scenarios.push({
           keywords: ["hayirdir", "sana ne", "ne bakiyon", "ne bakiyorsun", "asil sen", "sensin", "ne var", "bakarim", "ne olmus", "karsilik ver", "kafa tut", "kafana gore"],
           text:
             "— Asıl sen hayırdır? dedin. Kendi sesine sen de şaşırdın.\n" +
-            "Keko hiçbir şey demedi. Sol arka cebine uzandı. Sallama.\n" +
-            "Olaylar çok hızlı gelişti. Kıçından bıçaklandın. Keko kaçtı.\n" +
-            "Ambulans kırk dakikada geldi.",
-          ending: "sallama",
+            "Keko hiçbir şey demedi. Sol eli yavaşça arka cebine gitti.\n" +
+            "Zaman yavaşladı. Karşı kaldırımda bir kedi durup size baktı. Bakkal Remzi abi kepengi yarıya indirdi.",
+          hint: "Belki sen de arka cebine davranmalısın? Ya da koşmalısın. Ya da o kedi...",
+          goto: "standoff",
         },
         {
           id: "apologize",
@@ -108,7 +111,70 @@ window.Yasandi.scenarios.push({
       ],
     },
 
+    // The slow-motion second when keko reaches for his back pocket. Two misses and it's over.
+    standoff: {
+      intents: [
+        {
+          id: "draw-card",
+          keywords: ["cebime", "cebine", "davran", "arka cep", "bicak", "sallama", "silah", "caki"],
+          text:
+            "Sen de arka cebine davrandın. İkiniz aynı anda çektiniz.\n" +
+            "Senin elinde İstanbulkart. Bakiye 3,50.\nKeko'nun elinde İstanbulkart değil.",
+          ending: "istanbulkart",
+        },
+        {
+          id: "cat",
+          keywords: ["kedi", "pisi", "pisipisi", "kediye"],
+          text:
+            "— Pisi pisi, dedin, kediye dönerek.\nKeko'nun eli cepte dondu. Kediye baktı.\n— Pisi pisi, dedi o da.\n" +
+            "Kedi ikinizi de umursamadı. Keko cebinden sallama yerine bir poşet mama çıkardı.\nOn dakikadır birlikte kedi besliyorsunuz. Adı Paşa'ymış.",
+          ending: "kedi",
+        },
+        {
+          id: "run",
+          keywords: ["kac", "kos", "arkami don", "tabana kuvvet", "hizlan"],
+          text:
+            "Arkanı dönüp koşmaya başladın.\nKeko'nun eli cebinden çıktı: tespih. Tespihi sallayarak peşine düştü.\n— Dur lan!",
+          goto: "chase",
+        },
+        {
+          id: "back-down",
+          keywords: ["tamam", "ozur", "pardon", "kusura bakma", "sakin", "yanlis anladin", "sakin ol", "abi dur"],
+          text:
+            "— Tamam abi tamam, sakin, dedin. Ellerini kaldırdın.\nKeko'nun eli cepte durdu. Çıkmadı. Girmedi de.\n— Şimdi oldu. Hangi mahallesin sen?",
+          goto: "abi",
+        },
+        {
+          id: "attack",
+          keywords: ["vur", "yumruk", "tokat", "kafa at", "saldir", "tekme"],
+          text:
+            "Önce sen davrandın. Yumruğun keko'nun omzuna değdi. Hafifçe.\n" +
+            "Keko omzuna baktı. Sonra sana. Sonra tekrar omzuna.\nKedi gözlerini kapattı.",
+          ending: "omuz",
+        },
+        {
+          id: "call-remzi",
+          keywords: ["remzi", "bakkal", "kepenk", "yardim"],
+          text:
+            "— Remzi abi! diye bağırdın.\nKepenk tamamen indi. Remzi abi bu mahallede 30 yıldır bakkal. Hayatta kalmayı biliyor.",
+        },
+      ],
+      fallbacks: [
+        "Keko'nun eli hâlâ cebinde. Bir şeyi kavradı.",
+        "Kedi esnedi. Keko esnemedi.",
+      ],
+      patience: 2,
+      patienceIntent: {
+        text:
+          "Çok düşündün. Keko düşünmedi.\nSallama. Olaylar çok hızlı gelişti. Kıçından bıçaklandın. Keko kaçtı.\n" +
+          "Ambulans kırk dakikada geldi. Kedi hâlâ bakıyordu.",
+        ending: "sallama",
+      },
+      hint: "Hızlı ol. Cebine davran, kaç, özür dile... ya da kediye bir bak.",
+    },
+
     abi: {
+      hint: "Buralı mısın, misafir misin? Yalan da söyleyebilirsin. Ya da ona abi dememenin bir yolunu bul.",
       intents: [
         {
           id: "polite-again",
@@ -153,6 +219,7 @@ window.Yasandi.scenarios.push({
     },
 
     chase: {
+      hint: "Koşmaya devam mı, durmak mı? Köşedeki bakkal ya da duraktaki otobüs de bir seçenek.",
       intents: [
         {
           id: "run-faster",
@@ -194,6 +261,7 @@ window.Yasandi.scenarios.push({
     },
 
     insist: {
+      hint: "Görmezden gelmeye devam edebilir ya da kulaklığını bahane edebilirsin.",
       intents: [
         {
           id: "keep-walking",

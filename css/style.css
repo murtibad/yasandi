@@ -77,6 +77,13 @@ body {
   animation: blink 1s steps(1) infinite;
 }
 
+.narrator {
+  color: var(--dim);
+  font-style: italic;
+  padding-left: 1.6em;
+  border-left: 1px solid var(--faint);
+}
+
 .cmd {
   color: var(--dim);
   padding-left: 1.6em;
