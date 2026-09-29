@@ -23,6 +23,7 @@ window.Yasandi.scenarios.push({
     bakiye: { title: "Bakiye Yetersiz", tag: "ÖLDÜN" },
     terlik: { title: "Terlik Füzesi", tag: "BAYILDIN" },
     vesikalik: { title: "Vesikalık", tag: "SOYULDUN" },
+    garson: { title: "Garson", tag: "SOYULDUN" },
     eskimodel: { title: "Eski Model", tag: "KURTULDUN" },
     kulaklik: { title: "Sessiz Müzik", tag: "KURTULDUN" },
     kuzen: { title: "Hüseyin'in Kuzeni", tag: "KURTULDUN" },
@@ -42,6 +43,18 @@ window.Yasandi.scenarios.push({
         "Durdu.\n" +
         "— Hayırdır la gardaş?",
       intents: [
+        {
+          id: "polite-buyur",
+          keywords: ["buyur", "buyrun", "emret"],
+          text: "— Buyur abi? dedin.\n— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
+          goto: "abi",
+        },
+        {
+          id: "polite",
+          keywords: ["efendim", "ne oldu", "bisey mi", "bir sey mi", "konussana", "ne dedin", "ne diyon", "ne diyorsun", "anlamadim", "duymadim abi"],
+          text: "— Efendim abi? dedin.\n— Efendim mi? Öğretmen miyim lan ben? Hangi mahallesin sen?",
+          goto: "abi",
+        },
         {
           id: "talk-back",
           keywords: ["hayirdir", "sana ne", "ne bakiyon", "ne bakiyorsun", "asil sen", "sensin", "ne var", "bakarim", "ne olmus", "karsilik ver", "kafa tut", "kafana gore"],
@@ -86,6 +99,15 @@ window.Yasandi.scenarios.push({
 
     abi: {
       intents: [
+        {
+          id: "polite-again",
+          keywords: ["buyur", "buyrun", "efendim", "emret"],
+          text:
+            "— Efendim abi, buyur abi, dedin. Başka bir şey gelmedi aklına.\n" +
+            "Keko derin bir nefes aldı.\n— Madem garsonsun, iki çay söyle o zaman.\n" +
+            "Kahveye oturdunuz. Dört çay içtiniz. Hesabı sen ödedin.",
+          ending: "garson",
+        },
         {
           id: "lie-local",
           keywords: ["buraliyim", "bu mahalle", "senin mahalle", "buradan", "burdan", "buranin", "burda oturuyorum", "burada oturuyorum"],
@@ -173,6 +195,14 @@ window.Yasandi.scenarios.push({
     },
   },
 
+  common: [
+    {
+      id: "speaking-turkish",
+      keywords: ["turkce konusuyom", "turkce konusuyorum", "turkce", "anlamiyon mu", "anlamiyor musun", "anlamadin mi"],
+      text: "— Türkçe konuşuyom ya abi, dedin.\n— Bana laf mı sokuyon sen?\nKeko'nun sol eli yavaşça arka cebine gitti. Sonra geri geldi. Şimdilik.",
+    },
+  ],
+
   overrides: {
     weapon: {
       text:
@@ -223,7 +253,7 @@ window.Yasandi.scenarios.push({
     "Arkadan bir motor geçti. Keko gözünü senden ayırmadı.",
     "Keko bir sana baktı, bir ayakkabılarına. Ayakkabıların pahalı değil. Rahatladın mı? Bilmiyorsun.",
   ],
-  patience: 4,
+  patience: 5,
   patienceIntent: {
     text:
       "Keko'nun telefonu çaldı. Açtı.\n— Efendim anne? ... Tamam anne. ... Tamam aldım, aldım.\n" +
