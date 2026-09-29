@@ -15,17 +15,6 @@ Goal: every common player action gets a funnier, more surprising answer. Read `i
 - Add at least 3 more beats from real Ekşi Sözlük "yaşanmış komik olaylar" style stories (retold in your own words, same rules as task 5).
 - Do not touch engine files. 0 validator warnings. Push the branch.
 
-### 8. Rework "Yetersiz Bakiye" around a crush (`content/yetersiz-bakiye-crush`)
-
-Owner played it and felt nothing: "why should I care that a stranger's card is empty, mine is empty too". Rebuild the scenario with the "Rol pası" rules in `AGENTS.md`. Keep the id and file, you may rewrite everything inside; keep the good endings that still fit (the reader shouting "YETERSİZ BAKİYE" at the worst moment is the core gag).
-- Opening: packed bus, you are near the front, headphones on. Doors open and **tam senin kaleminde biri** boards. The narrator stops mid-sentence: "Hani şu hep hayal ettiğin..." and the game waits. `start` has `acceptAny`: whatever the player types becomes that person ("{input}. Evet, tam o."). Refer back to the player's words later where it is funny. Never describe the person's body yourself.
-- They tap their card: "YETERSİZ BAKİYE". They look around the bus. They look at **you**. "— Senin kartın var mı?" This is the rol pası.
-- Your own card: you are not sure it has money. That is the tension. Offering it can win the moment or humiliate you in front of them when the reader shouts at you too.
-- Every refusal or freeze has a consequence: the guy behind you (a confident "bro" with a full card and a gym bag) steps in and gets the thank-you smile; or the doors close and they get off; or they sit next to someone else. Show what the player lost.
-- Open moments where the player types words that come back: what they say to start a conversation, the name they give, the stop they claim to get off at.
-- 6+ steps, 15+ endings, earned by the player's moves. Absurd turns welcome (the card reader develops opinions about your love life).
-- 0 validator warnings for this scenario, including the new dead-end check.
-
 ### 9. Rol pası pass on the other five scenarios (`content/role-pass`)
 
 Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir şey yapmıyorum" or "bilmiyorum" only get a fallback. Fix every one of those with an intent that moves the scene, following the "Rol pası" section. Also check that each scenario's first three lines give the player a personal stake; strengthen the opening where they don't (one or two sentences, keep what works). 0 warnings.
@@ -37,7 +26,7 @@ Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir �
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
-
+- Yetersiz Bakiye crush rework (`content/yetersiz-bakiye-crush`, branch `content/yetersiz-bakiye-crush`)
 - Header controls: visible and animated (`feature/header-controls`, branch `feature/header-controls`)
 - Ekşi Sözlük pattern mining (`content/eksi-patterns`, branch `content/eksi-patterns`)
 - `ideas/memes.md`: Turkish meme bank, patterns only (branch `feature/memes`)
