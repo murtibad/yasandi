@@ -17,11 +17,12 @@ window.Yasandi.scenarios.push({
     "amca-sopali": { title: "Kovuldunuz", tag: "SOPA YEDİN" },
     "cay-videosu": { title: "Çay Saati", tag: "ÇAY VLOGU" },
     "camdan-atlayis": { title: "Tuncay'ın Kaçışı", tag: "FİRAR" },
-    "tuncay-alarm": { title: "Sabah Namazı Alarmı", tag: "FİYASKO" },
+    "tuncay-alarm": { title: "Tuncay'ın Alarmı", tag: "FİYASKO" },
     "tripod-attack": { title: "Muhtara Tripod", tag: "KARAKOL" },
     "sponsor": { title: "Araya Reklam Aldı", tag: "SPONSORLU" },
     "ruzgar": { title: "Rüzgarın Sesi", tag: "KORKAKTINIZ" },
-    "ruined-equipment": { title: "Kamera Kırıldı", tag: "MASRAF" }
+    "ruined-equipment": { title: "Kamera Kırıldı", tag: "MASRAF" },
+    "annem": { title: "Zıbar Yat", tag: "EVE DÖNDÜN" }
   },
 
   nodes: {
@@ -38,19 +39,17 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["selam", "aleykum", "biz de", "merhaba", "aleykumselam", "selamun"],
           text:
-            "Sen de yüksek sesle 'Selamünaleyküm!' dedin.\n" +
-            "İçeriden kalın ve tok bir ses cevap verdi: — Aleykümselam gençler.\n" +
-            "Tuncay'la göz göze geldiniz ve kamerayı bırakıp ters yönlere doğru koşmaya başladınız.",
-          ending: "karsi-selam",
+            "Tuncay sana onaylar gibi baktı.\n— Adabı bilen adamsın, dedi. Sayın seyirciler, izin alındı.\nKapıyı gıcırdatarak açtınız.",
+          goto: "dark-room",
         },
         {
           id: "gir-direkt",
           positive: true,
           keywords: ["gir", "girelim", "iceri", "kapiyi", "dal", "hadi gir", "ilerle"],
           text:
-            "Hiçbir şey demeden direkt içeri daldın.\n" +
-            "Tuncay peşinden gelirken: — Abi destursuz daldın, çarpılacağız! dedi.\n" +
-            "O sırada içeriden TAK TUK diye bir ses geldi.",
+            "Selam vermeden içeri daldın. Arkandan kapı kendi kendine çarptı.\n" +
+            "— Abi destursuz daldın, çarpılacağız! dedi Tuncay.\n" +
+            "İçeriden TAK TUK diye bir ses geldi.",
           goto: "dark-room",
         },
         {
@@ -58,7 +57,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kac", "kacalim", "git", "gidelim", "donelim", "korktum"],
           text:
-            "Ben dönüyorum! deyip karanlığa doğru koşmaya başladın.\n" +
+            "Arkanı dönüp karanlığa doğru koşmaya başladın.\n" +
             "Tuncay arkandan 'Abi nereye, kayıttayız!' diye bağırdı ama sen çoktan ormanda kaybolmuştun.\n" +
             "Sabaha karşı seni bir çoban köpeği buldu.",
           ending: "kangal",
@@ -66,7 +65,7 @@ window.Yasandi.scenarios.push({
         {
           id: "dua",
           positive: true,
-          keywords: ["dua", "besmele", "bismillah", "nas", "felak", "ayetel"],
+          keywords: ["dua", "besmele", "bismillah", "ayetel"],
           text:
             "Besmele çekip dualar okuyarak içeri adım attın.\n" +
             "Tuncay kameraya dönüp: — Arkadaşım inançlıdır sayın seyirciler, dualarla korunuyor, dedi.\n" +
@@ -78,8 +77,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kapat", "kamerayi", "cekme", "kaydi", "sonlandir"],
           text:
-            "Tuncay kapat şu kamerayı! dedin.\n" +
-            "Tuncay oflayarak kapattı. Bütün gece sessiz sessiz gezip döndünüz.\n" +
+            "Tuncay oflayarak kamerayı kapattı. Bütün gece sessiz sessiz gezip döndünüz.\n" +
             "Videonun yarısı kesik olduğu için sadece 47 izlenme aldı.",
           ending: "views-47",
         },
@@ -88,7 +86,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["sacmalama", "abartma", "ne diyorsun", "yalan", "kurgu", "tiyatro", "oyunculuk"],
           text:
-            "Tuncay ne saçmalıyorsun, alt tarafı eski ev! dedin.\n" +
             "Tuncay sinirlendi: — Abi prodüksiyon yapıyoruz şurda, niye bozuyorsun!\n" +
             "Kavga etmeye başladınız. Video Youtube'a 'Hayalet ararken arkadaşımla birbirimize girdik' diye yüklendi.",
           ending: "kavga",
@@ -121,10 +118,10 @@ window.Yasandi.scenarios.push({
         {
           id: "kim-var",
           positive: true,
-          keywords: ["kim", "kim var", "kim o", "ses ver", "cik ortaya", "goster", "hey"],
+          keywords: ["kim var", "kim o", "kimse var", "ses ver", "cik ortaya", "kimsin"],
           text: [
-            "Kim var orda! diye bağırdın.\nSes kesildi. Ardından 'Meeeee' diye bir ses yankılandı.\nAhırdan kaçan köyün keçisiymiş.",
-            "Kimsin sen, çık ortaya! diye bağırdın.\nYine 'Meeeee' sesi geldi. Tuncay kameraya dönüp: — Cinler keçi kılığına girdi sayın seyirciler! dedi."
+            "Sesin karanlıkta yankılandı. Tıkırtı kesildi. Ardından 'Meeeee' diye bir ses yankılandı.\nAhırdan kaçan köyün keçisiymiş.",
+            "Yine 'Meeeee' sesi geldi. Tuncay kameraya dönüp: — Cinler keçi kılığına girdi sayın seyirciler! dedi."
           ],
           ending: "goat",
         },
@@ -142,7 +139,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["bagir", "ciglik", "aaaa", "imdat", "yardim", "kork", "korkuyorum"],
           text:
-            "Aaaaa! diye çığlık attın. Sesin odada yankılandı.\n" +
+            "Çığlığın odada yankılandı.\n" +
             "Tuncay 'İşte paranormal bir frekans!' dedi.\n" +
             "Eve gidip izlediklerinde fark ettiler ki Tuncay bütün gece kameranın kapağını açmayı unutmuş.",
           ending: "lens-cap",
@@ -152,7 +149,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["fener", "feneri", "isik", "tut", "oraya", "aydinlat", "goster"],
           text:
-            "Tuncay, feneri şu köşeye tut! dedin.\n" +
             "Tuncay feneri tam köşeye çevirdiği an ışık 'pıt' diye söndü. Pil bitti.\n" +
             "Zifiri karanlıkta birbirinize sarılıp sabahı beklediniz.",
           ending: "fener-bitti",
@@ -162,8 +158,8 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["ilerle", "devam", "yuru", "odaya", "korkma", "bisi yok", "bir sey yok", "kedi"],
           text:
-            "Korkma Tuncay, fare falandır, yürü, dedin.\n" +
-            "Arka odaya geçtiniz.",
+            "— Fare falandır, dedi Tuncay, ama sesi titriyordu.\n" +
+            "Parmaklarınızın ucuna basarak ilerlediniz.",
           goto: "shadow-room",
         },
         {
@@ -179,7 +175,7 @@ window.Yasandi.scenarios.push({
         {
           id: "dusur",
           positive: true,
-          keywords: ["dusur", "kir", "firlat", "kamera", "kamerayi", "yere cal"],
+          keywords: ["dusur", "kamerayi at", "kamerayi kir", "firlat", "yere cal"],
           text:
             "Korkudan elindeki kamerayı yere fırlattın.\n" +
             "Kamera paramparça oldu. Tuncay çığlık attı: — 10.000 TL masraf çıkardın abi!",
@@ -210,12 +206,11 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "sus",
-          positive: true,
-          keywords: ["sus", "sessiz", "cevap", "konusma", "bekle", "dinle"],
+          keywords: ["sus", "sessiz", "cevap vermiyorum", "cevap vermem", "konusmuyorum", "bekle", "dinle"],
           text:
             "Sesini çıkarmayıp bekledin.\n" +
             "O gergin sessizlikte aniden 'Dıııt dıııt' diye bir ses koptu.\n" +
-            "Tuncay utana sıkıla: — Abi benim sabah namazı alarmı çalıyor, tüh korkuyu bozduk, dedi.",
+            "Tuncay utana sıkıla: — Abi benim alarm, sabah servise yetişicem. Tüh, korkuyu bozduk.",
           ending: "tuncay-alarm",
         },
         {
@@ -231,7 +226,7 @@ window.Yasandi.scenarios.push({
         {
           id: "tripod",
           positive: true,
-          keywords: ["vur", "saldir", "tripod", "kamera", "dov", "sopayla", "dal"],
+          keywords: ["vur", "saldir", "tripod", "dov", "sopayla"],
           text:
             "Eline geçen tripodu karanlıktaki gölgeye var gücünle indirdin.\n" +
             "— Ah kafam! diye bağırdı ses.\n" +
@@ -244,7 +239,7 @@ window.Yasandi.scenarios.push({
           keywords: ["telefon", "arama", "alo", "polis"],
           text:
             "Polisi aramak için telefonu çıkardın.\n" +
-            "Tuncay kameraya dönüp: — İşte sayın seyirciler, bu gerilim anında araya kısa bir reklam alıyoruz. Raid: Shadow Legends...\n" +
+            "Tuncay kameraya dönüp: — İşte sayın seyirciler, bu gerilim anında araya kısa bir reklam alıyoruz. Klan Savaşları, şimdi indirin, ilk 100 kişiye 500 elmas...\n" +
             "Cinler bile bu sponsorluğa şaşırıp mekanı terk etti.",
           ending: "sponsor",
         }
@@ -289,6 +284,17 @@ window.Yasandi.scenarios.push({
 
   common: [
     {
+      id: "selam-inside",
+      positive: true,
+      keywords: ["selam", "aleykum", "selamun", "merhaba"],
+      text:
+        "Karanlığa doğru bir selam verdin.\n" +
+        "Bir süre hiçbir şey olmadı. Sonra dibinden, kalın ve tok bir ses geldi:\n" +
+        "— Aleykümselam gençler.\n" +
+        "Tuncay'la göz göze geldiniz. Kamerayı bırakıp ters yönlere koştunuz. Kamera hâlâ kayıtta.",
+      ending: "karsi-selam",
+    },
+    {
       id: "gulme",
       positive: true,
       keywords: ["gul", "guluyorum", "kahkaha", "komik", "guldum", "guler", "haha"],
@@ -303,15 +309,14 @@ window.Yasandi.scenarios.push({
     police: {
       text:
         "155'i aradın.\n— 155, buyrun.\nMemur bey evde cin var!\n" +
-        "— Kardeşim adres verin, biz de hocayla geliyoruz.",
-      ending: "kangal", 
+        "— Kardeşim adres verin, biz de hocayla geliyoruz.\nTuncay kameraya fısıldadı: — Hoca geliyor sayın seyirciler, abone olmayı unutmayın.",
     },
     mom: {
       text:
         "Anneni aradın.\nAnne terk edilmiş köydeyiz, garip sesler var.\n" +
         "— Zıbar yat saat kaç oldu! Cinler de uyusun, rahatsız etme milleti!\n" +
-        "Annenden korkup eve döndünüz.",
-      ending: "ruzgar",
+        "Annenden cinlerden daha çok korkup eve döndünüz.",
+      ending: "annem",
     }
   },
 
