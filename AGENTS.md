@@ -13,10 +13,11 @@ Rules for any AI agent (Gemini, Claude, others) working on this repo. Read this 
 
 ```
 index.html                          page; loads every script with ?v=N cache-busting
-css/style.css                       dark look, white text; do not restyle without being asked
+css/style.css                       dark and light themes as tokens; do not restyle without being asked
 js/text.js                          Turkish normalize/match helpers
 js/engine.js                        game logic (no DOM)
 js/main.js                          screen: typewriter, input, endings counter
+js/sound.js                         typing blips and ending stings (Web Audio, no files)
 js/data/global-intents.js           intents valid in every scenario (police, mom, dance...)
 js/data/scenarios/<id>.js           one file per scenario, content only
 tests/validate.js                   checks scenarios for broken links

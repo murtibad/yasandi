@@ -6,6 +6,12 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
+## Later (owner's ideas, not for agents yet)
+
+- Anonymous story submissions: a "Hikâyeni anlat" link already exists in the page, hidden until `STORY_FORM_URL` in `js/main.js` is set (e.g. a Google Form). Later: collect them, turn the best into scenario beats.
+- Unmatched inputs: send `yasandi.unmatched` to a free database so we can see what players type.
+- Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
+
 ## Done
 
 - Ekşi Sözlük pattern mining (`content/eksi-patterns`, branch `content/eksi-patterns`)

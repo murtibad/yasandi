@@ -10,6 +10,14 @@
   const actions = document.getElementById("end-actions");
   const replayBtn = document.getElementById("replay");
   const nextBtn = document.getElementById("next-scenario");
+  const shareBtn = document.getElementById("share");
+  const soundBtn = document.getElementById("toggle-sound");
+  const themeBtn = document.getElementById("toggle-theme");
+  const storyLink = document.getElementById("story-link");
+  const sound = window.Yasandi.sound;
+
+  // Where people send their own stories. Leave empty to hide the link.
+  const STORY_FORM_URL = "";
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const CHAR_DELAY = 22;
@@ -17,6 +25,9 @@
   let game = null;
   let typing = Promise.resolve();
   let skip = false;
+  let lastEnding = null;
+  // Every new game bumps this; queued output from an older game is dropped instead of leaking in.
+  let generation = 0;
 
   function scrollDown() {
     log.scrollTop = log.scrollHeight;
@@ -24,14 +35,14 @@
 
   function typeInto(el, text) {
     return new Promise((resolve) => {
-      if (reduceMotion) {
-        el.textContent = text;
-        scrollDown();
-        return resolve();
-      }
+      // Phones with "reduce motion" or battery saver still get the typewriter, just faster.
+      const speed = reduceMotion ? 0.4 : 1;
+      const gen = generation;
       let i = 0;
+      let voice = el.classList.contains("said") ? "player" : "narrator";
       el.classList.add("is-typing");
       const tick = () => {
+        if (gen !== generation) return resolve();
         if (skip || i >= text.length) {
           el.textContent = text;
           el.classList.remove("is-typing");
@@ -42,8 +53,14 @@
         el.textContent = text.slice(0, i);
         scrollDown();
         const ch = text[i - 1];
+        // Lines that start with "—" are someone else talking: different blip pitch.
+        if (ch === "\n" || i === 1) {
+          const lineStart = text.slice(i === 1 ? 0 : i);
+          if (!el.classList.contains("said")) voice = lineStart.startsWith("—") ? "other" : "narrator";
+        }
+        if (i % 2 === 0 && /[a-zA-ZçğıöşüÇĞİÖŞÜ]/.test(ch)) sound.blip(voice);
         const pause = ch === "\n" ? 260 : ".?!".includes(ch) ? 180 : CHAR_DELAY;
-        setTimeout(tick, pause);
+        setTimeout(tick, pause * speed);
       };
       tick();
     });
@@ -64,8 +81,10 @@
 
   // Queue output so lines never type over each other.
   function say(text, className) {
+    const gen = generation;
     for (const group of splitSpeakers(text)) {
       typing = typing.then(() => {
+        if (gen !== generation) return;
         skip = false;
         const p = document.createElement("p");
         p.className = group.player ? "said" : className || "say";
@@ -85,7 +104,9 @@
   }
 
   function showEnding(ending) {
+    const gen = generation;
     typing = typing.then(() => {
+      if (gen !== generation) return;
       const box = document.createElement("div");
       box.className = "ending";
       const tag = document.createElement("span");
@@ -95,7 +116,16 @@
       title.className = "ending-title";
       title.textContent = "Son: " + ending.title + (ending.isNew ? " · yeni" : "");
       box.append(tag, title);
+      const kind = ending.tag === "ÖLDÜN" ? "death" : /KURTULDUN|KAHRAMAN|ÜNLÜ/.test(ending.tag) ? "good" : "other";
+      box.classList.add("ending--" + kind);
       log.appendChild(box);
+      sound.sting(kind);
+      if (kind === "death" && !reduceMotion) {
+        document.body.classList.remove("hit");
+        void document.body.offsetWidth; // restart the animation
+        document.body.classList.add("hit");
+      }
+      lastEnding = ending;
       updateCounter();
       actions.hidden = false;
       scrollDown();
@@ -107,9 +137,12 @@
   }
 
   function start(scenario) {
+    generation += 1;
+    skip = true; // finish whatever is still typing, it will be dropped
     game = new Game(scenario, globalIntents);
     log.innerHTML = "";
     actions.hidden = true;
+    lastEnding = null;
     scenarioLabel.textContent = scenario.title;
     updateCounter();
     typing = Promise.resolve();
@@ -147,6 +180,44 @@
     skip = true;
     input.focus({ preventScroll: true });
   });
+
+  // Share: copy a one-line brag to the clipboard.
+  shareBtn.addEventListener("click", async () => {
+    if (!lastEnding) return;
+    const line = "Yaşandı · " + game.scenario.title + " → " + lastEnding.title + " (" + lastEnding.tag + ") · " + game.foundEndings().length + "/" + game.totalEndings() + " son\n" + location.href.split("#")[0];
+    try {
+      await navigator.clipboard.writeText(line);
+      shareBtn.textContent = "Kopyalandı";
+    } catch (e) {
+      shareBtn.textContent = "Kopyalanamadı";
+    }
+    setTimeout(() => (shareBtn.textContent = "Paylaş"), 1600);
+  });
+
+  // Sound toggle.
+  const paintSound = () => {
+    soundBtn.textContent = sound.isOn() ? "Ses açık" : "Ses kapalı";
+    soundBtn.setAttribute("aria-pressed", String(sound.isOn()));
+  };
+  soundBtn.addEventListener("click", () => { sound.toggle(); paintSound(); });
+  paintSound();
+  ["keydown", "pointerdown"].forEach((ev) => document.addEventListener(ev, () => sound.unlock(), { once: true }));
+
+  // Light / dark. Follows the phone's setting until the player picks one.
+  const THEME_KEY = "yasandi.theme";
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const currentTheme = () => document.documentElement.dataset.theme || (systemDark.matches ? "dark" : "light");
+  const paintTheme = () => (themeBtn.textContent = currentTheme() === "dark" ? "Açık mod" : "Koyu mod");
+  try { const saved = localStorage.getItem(THEME_KEY); if (saved) document.documentElement.dataset.theme = saved; } catch (e) { /* storage blocked */ }
+  themeBtn.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage blocked */ }
+    paintTheme();
+  });
+  paintTheme();
+
+  if (STORY_FORM_URL) { storyLink.href = STORY_FORM_URL; storyLink.hidden = false; }
 
   replayBtn.addEventListener("click", () => start(game.scenario));
   nextBtn.addEventListener("click", () => start(randomScenario(game.scenario.id)));

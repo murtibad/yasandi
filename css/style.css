@@ -1,4 +1,5 @@
-/* Layout: one reading column, story scrolls in the middle, prompt pinned at the bottom. Single dark look. */
+/* Layout: one reading column, story scrolls in the middle, prompt pinned at the bottom. */
+/* Dark is the home look; light is warm paper. Both are token sets, components only use tokens. */
 :root {
   --bg: #0f0e0d;
   --fg: #ece7df;
@@ -8,10 +9,24 @@
   --stamp-bg: #ece7df;
   --stamp-fg: #0f0e0d;
   --you: #9fb3c8;
+  --death: #d8433a;
+  --good: #7fb069;
   --font-story: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
   --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --step: clamp(15px, 1.1vw + 11px, 18px);
   color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f1ea; --fg: #1d1b18; --dim: #6b655c; --faint: #b3ab9f; --line: #ddd6ca;
+    --stamp-bg: #1d1b18; --stamp-fg: #f4f1ea; --you: #3f6184; --death: #b3261e; --good: #3f7a2b;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f4f1ea; --fg: #1d1b18; --dim: #6b655c; --faint: #b3ab9f; --line: #ddd6ca;
+  --stamp-bg: #1d1b18; --stamp-fg: #f4f1ea; --you: #3f6184; --death: #b3261e; --good: #3f7a2b;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -168,4 +183,57 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .say.is-typing::after { animation: none; }
+}
+
+/* Header settings: plain text buttons, quiet until hovered. */
+.settings { display: flex; gap: 14px; margin-left: auto; }
+.link {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--dim);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+.link:hover { color: var(--fg); }
+.link:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.hint .link { text-transform: none; letter-spacing: 0; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Endings: the stamp slams down. Deaths are red and shake the screen. */
+.ending-tag { display: inline-block; transform-origin: center; animation: stamp 420ms cubic-bezier(.2,1.6,.4,1) both; }
+.ending--death .ending-tag { background: var(--death); color: #fff; letter-spacing: 0.3em; }
+.ending--good .ending-tag { background: var(--good); color: #fff; }
+.ending--death .ending-title { color: var(--death); }
+body.hit .app { animation: shake 380ms cubic-bezier(.36,.07,.19,.97) both; }
+body.hit::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--death);
+  pointer-events: none;
+  animation: flash 600ms ease-out both;
+}
+
+@keyframes stamp {
+  0% { transform: scale(2.6) rotate(-8deg); opacity: 0; }
+  60% { transform: scale(0.94) rotate(-2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+}
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+@keyframes flash { 0% { opacity: 0.35; } 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ending-tag { animation: none; transform: rotate(-2deg); }
+}
+
+@media (max-width: 480px) {
+  .settings { width: 100%; margin-left: 0; }
 }
