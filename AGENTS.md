@@ -66,6 +66,17 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 5. Play it in a browser: try the obvious answers a real person would type first ("efendim", "pardon", "ne var") and make sure each one is understood.
    Also try refusals ("yer vermiyorum", "kaçmıyorum") and sentences that merely contain your keywords ("insanlar bana bakıyor"). None of them may trigger an ending by accident.
 
+## Rol pası: the game plays with the player (as important as the Turkish voice)
+
+Players stopped caring in scenes where things happen *near* them instead of *to* them. Every scene must pass the ball to the player.
+
+- **A personal stake in the first three lines.** Why should the player care right now? Someone they like is watching, their own money or pride is on the line, their mother will hear about it, they are hungry, they are late. "A stranger has a problem" is not a stake.
+- **Let the player fill the gap.** The best hook is one the player completes: "Tam senin kaleminde biri bindi. Hani şu hep hayal ettiğin..." and the player types who. Then the game uses their words (`acceptAny` + `{input}`) for the rest of the scene. Never describe a person's body; the player's own words do that.
+- **Characters talk to the player, by name of role, with concrete questions.** Not "Bir şey yapacak mısın?" but "— Senin kartın var mı? Sana bakıyorum bak." A question the player can answer in two words.
+- **Every answer moves the scene, including "hayır", "yok", "hiçbir şey", "bilmiyorum".** Refusing or freezing is a choice with a consequence (someone else steps in, the moment passes, the crush looks at the next person). Fallbacks are for gibberish only. `node tests/validate.js` warns when these inputs hit a fallback.
+- **Endings are earned.** An ending must follow from what the player did in the last two moves. No random machine malfunction saving the day after three "hayır"s.
+- **Push, but quietly.** When the player stalls, the world moves: the bus reaches the stop, the person turns to someone else, the tea gets cold. The hint is the last resort, not the first.
+
 ## Turkish voice (the most important section)
 
 The game lives or dies on whether it sounds like real Turkish people talking. Textbook Turkish kills the joke.
