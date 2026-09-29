@@ -8,6 +8,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md`. Ne
 
 ## Done
 
-- Write `ideas/ideas.md`: 12 new scenario ideas, not implementations (branch `feature/ideas`, commit to be added)
+- Write `ideas/ideas.md`: 12 new scenario ideas, not implementations (branch `feature/ideas`, commit `a07f205`)
 - New scenario: "Yetersiz Bakiye" (`js/data/scenarios/yetersiz-bakiye.js`, branch `feature/insufficient-balance`, commit `c677a58`)
 - Bus scenario "Yer Ver" (`otobus-teyzesi.js`), deepened with tension and 24 endings. (main, 0f45ffe)
