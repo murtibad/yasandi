@@ -33,6 +33,7 @@ window.Yasandi.scenarios.push({
   nodes: {
     start: {
       hint: "Kadın hâlâ sana bakıyor. Yardım etmek de bir seçenek, etmemek de. İkisinin de bir bedeli var.",
+      look: "Otobüs koridoru daracık. Şoför dikiz aynasından size bakıyor, elini direksiyona vuruyor. Yanda liseli bir çocuk telefonla meşgul. Kadın hemen önünde, cihaz kırmızı kırmızı yanıp sönüyor.",
       text:
         "Sabahın körü. Tıklım tıklım bir otobüs, en önde ayaktasın. Kulağında müzik çalıyor.\n" +
         "Güleryüzlü, orta yaşlı bir kadın otobüse bindi. Kartını okutmak için cihaza yaklaştırdı.\n" +
@@ -45,29 +46,39 @@ window.Yasandi.scenarios.push({
           id: "offer-card",
           positive: true,
           keywords: ["kartimi", "kartim var", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "basayim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan"],
-          text:
-            "» Bende var abla, buyrun.\nKartını uzattın. Kadın teşekkür edip kartını cihaza okuttu.\n" +
+          text: [
+            "Kartını uzattın. Kadın teşekkür edip kartını cihaza okuttu.\n" +
             "Cihaz yankılandı: 'YETERSİZ BAKİYE'.\n" +
             "Otobüste buz gibi bir sessizlik oldu. Kadın sana acıyarak bakıyor.",
+            "Yine uzattın kartı. Kadın tereddütle bastı: 'YETERSİZ BAKİYE'.\n" +
+            "Şoför güldü: — Kendi kartında yok, millete hava atıyon genç.",
+            "Kartını zorla eline tutuşturdun. Makine yine 'YETERSİZ BAKİYE' dedi.\n" +
+            "Şoför artık sinirli: — Dalga mı geçiyonuz lan benle?"
+          ],
           goto: "no-balance",
         },
         {
           id: "sleep",
           positive: true,
           keywords: ["uyumak", "uyuyor", "uyku", "gozumu", "kapat", "kestir", "uyurum", "uyuma", "horla"],
-          text:
+          text: [
             "Gözlerini sıkıca kapattın. Dünyayla bağını kopardın.\n" +
             "Gözünü açtığında otobüs son duraktaydı. Herkes inmiş. Şoför sana bakıp 'Günaydın' dedi.",
+            "Uyumaya devam ediyorsun. Kadının sesi rüyana giriyor: 'Fazladan kart...'"
+          ],
           ending: "uyudun",
         },
         {
           id: "ignore",
           keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami cevir", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye devam", "vermiyorum", "vermem", "yardim edemem", "yardim etmiyorum", "edemem", "etmem", "yok", "bende yok", "yokmus gibi", "sessiz"],
-          text:
+          text: [
             "Hiçbir şey duymamış gibi müziğine devam ettin, camdan dışarı bakıyorsun.\n" +
             "Arka koltuktaki teyze 'Cık cık cık' diye söylenmeye başladı. Amca bastonunu yere vurdu:\n" +
             "— Bizim zamanımızda yardımlaşma vardı! Gençlik bitmiş.\n" +
             "Yandaki lise öğrencisi telefonunu çıkarıp seni videoya çekmeye başladı.",
+            "Israrla önüne bakıyorsun ama bütün otobüs seni izliyor. Kadın kartını hâlâ havada tutuyor.",
+            "Sessizliğini korudun. Şoför kontak kapattı: — Biri basana kadar gitmiyom."
+          ],
           goto: "tension",
         },
         {
@@ -75,7 +86,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["nakit", "para vereyim", "bozukluk", "bozuk para", "para ustu"],
           text:
-            "» Abla bende bozukluk var, nakit vereyim.\n" +
             "Şoför anında araya girdi: — Nakit geçmiyor kardeşim!\n" +
             "Kadın elinde parayla ortada kaldı.",
           goto: "driver-argue",
@@ -85,7 +95,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["sofor", "gecsin", "idare et", "kaptan", "birak gecsin", "bosver", "insaniyet"],
           text:
-            "» Kaptan idare ediver, geçsin arkaya.\n" +
             "Şoför el frenini çekti.\n" +
             "— Ben cebimden mi ödeyeyim kardeşim? Kurallar var, babamın malı değil bu otobüs.",
           goto: "driver-argue",
@@ -95,7 +104,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["makine", "doldur", "yukle", "yukleme", "in de", "disarida"],
           text:
-            "» Abla durakta yükleme cihazı var, oradan doldursan?\n" +
             "Kadın haklısın der gibi başını salladı, otobüsten indi.\n" +
             "Kapılar kapandı, sen vicdan azabıyla baş başa kaldın.",
           ending: "kurtuldun",
@@ -105,7 +113,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["inmek", "iniyorum", "inecek var", "kapi", "durak", "dugme", "inilir"],
           text:
-            "» İnecek var!\nDayanamayıp düğmeye bastın ve kendini dışarı attın.\n" +
+            "Dayanamayıp düğmeye bastın ve kendini dışarı attın.\n" +
             "Gideceğin yere daha yedi durak var.",
           ending: "kacis",
         },
@@ -120,8 +128,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["nakit", "para vereyim", "bozukluk", "cuzdan"],
           text:
-            "Hemen cüzdana davrandın. » Nakit vereyim abla...\n" +
-            "Şoför bağırdı: — Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
+            "Hemen cüzdana davrandın. Şoför bağırdı:\n— Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
           ending: "atildin",
         },
         {
@@ -129,7 +136,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["cihaza", "vurmak", "makineye vur", "tokatla", "bozuk bu", "tekme", "dovmek"],
           text:
-            "» Kesin cihaz bozuk!\nDeyip cihaza sert bir tokat attın.\n" +
+            "Cihaza sert bir tokat attın.\n" +
             "Cihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\nBütün otobüs seni alkışladı.",
           ending: "kahraman",
         },
@@ -169,13 +176,13 @@ window.Yasandi.scenarios.push({
 
     "tension": {
       hint: "Baskı altındasın. Amcaya cevap ver, videoyu engelle veya kadına sorusunu sor.",
+      look: "Otobüsün ön tarafı sana kilitlendi. Arkadan boynunu uzatanlar var. Teyze elinde kartıyla bekliyor.",
       intents: [
         {
           id: "uncle-reply",
           positive: true,
           keywords: ["amcaya", "amca", "bizim zamanimiz", "dayi", "sen bas", "sen ver", "cok biliyorsan"],
           text:
-            "» Amca çok biliyorsan sen bas kartı!\n" +
             "Amca ayaklandı. Cebine uzandı.",
           goto: "amca-time",
         },
@@ -184,7 +191,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["video", "kamera", "cekme", "telefon", "engelle", "cocuga", "gence"],
           text:
-            "» Çekme kardeşim ne çekiyorsun!\n" +
             "Çocuk 'Abi rahat ol' dedi ama akşama 'Otobüste kart basmayan cimri' olarak TikTok'a düştün.",
           ending: "viral",
         },
@@ -232,7 +238,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["sus amca", "yeter", "sus artik", "kes sesini", "kapat", "kapa ceneni", "isine bak"],
           text:
-            "» Amca sen de ne uzattın ya, sus artık!\n" +
             "Teyze elindeki çantasını kafana geçirdi. 'Büyüğünle nasıl konuşuyorsun terbiyesiz!'\n" +
             "Otobüsteki herkes teyzeye katıldı.",
           ending: "linc",
@@ -287,7 +292,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kavga", "insanlik", "yardim", "ayip", "ayiptir", "kurallar"],
           text:
-            "» İnsanlık da mı kalmadı kaptan, bırak geçsin!\n" +
             "Şoför iyice sinirlendi. Motoru durdurdu, anahtarı cebine attı.\n" +
             "— Madem öyle, kart basılmadan bu otobüs hareket etmez! Otobüsü rehin aldı.",
           ending: "rehine",
@@ -297,7 +301,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kacak", "arkaya", "gizlice", "gormez", "hizlica", "gec abla", "bosver", "ilerle"],
           text:
-            "» Abla sen yavaştan geç arkaya, görmez o.\n" +
             "Şoför aynadan izliyordu. Kapıları kilitledi ve polisi aradı.\n" +
             "Son durak: Karakol.",
           ending: "karakol",
@@ -307,7 +310,6 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["sikayet", "belediye", "cimere", "baskan", "yaziklar olsun", "dilekce"],
           text:
-            "» Kaptan ayıp ediyorsun, seni belediyeye şikayet edeceğim!\n" +
             "Şoför kapıyı açtı, 'Git nereye ediyorsan et' dedi ve seni dışarı itti.\n" +
             "Otobüs gitti, aktarman yandı. Çok üzüldün.",
           ending: "uzuldun",
@@ -317,7 +319,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["tamam ben", "ben basarim", "kartimi", "benimkini", "veririm", "buyrun"],
           text:
-            "» Tamam uzatmayın, ben basıyorum!\nKartını okuttun. 'İNDİRİM HAKKINIZ BULUNMAMAKTADIR.'\n" +
+            "Kartını okuttun. 'İNDİRİM HAKKINIZ BULUNMAMAKTADIR.'\n" +
             "Kartından tam bilet çekildi. Öğrenci kartın iptal mi oldu?",
           ending: "zarar",
         },

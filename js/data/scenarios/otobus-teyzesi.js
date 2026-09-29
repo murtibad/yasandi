@@ -34,6 +34,7 @@ window.Yasandi.scenarios.push({
   nodes: {
     start: {
       hint: "Teyze tepene dikildi. Yer verebilir, görmezden gelebilir, uyuma numarası yapabilir, telefonu çıkarabilir veya mızmızlanabilirsin.",
+      look: "Otobüs hıncahınç dolu. Ayaktakiler demirlere tutunmuş, yorgun argın sallanıyor. Yanda lise öğrencisi telefonda oyun oynuyor. Teyze tam karşında, elinde pazar çantası, sana kilitlenmiş.",
       text:
         "Akşam saati. Otobüs tıklım tıklım. Çok yorgunsun, sonunda bir koltuk bulup oturdun.\n" +
         "Bir durakta yaşlı, sevimli ama kararlı bir teyze bindi. Geldi, tam tepene dikildi.\n" +
@@ -42,9 +43,12 @@ window.Yasandi.scenarios.push({
         {
           id: "give-seat",
           positive: true,
-          keywords: ["kalk", "buyur teyze", "otur teyze", "teyze otur", "sen otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk"],
-          text:
-            "» Buyur teyze, otur.\nAyağa kalktın. Teyze tam oturacakken arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa doğru hamle yaptı.\nAdam koltuğa oturmak üzere.",
+          keywords: ["kalk", "buyur teyze", "otur teyze", "teyze otur", "sen otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk", "buyur"],
+          text: [
+            "Ayağa kalktın. Teyze tam oturacakken arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa doğru hamle yaptı.\nAdam koltuğa oturmak üzere.",
+            "Zar zor doğruldun. Sen kalkar kalkmaz o kel adam yine belirdi, koltuğa nişan aldı.",
+            "Bıkkınlıkla kalktın. Kel adam ışınlanmış gibi koltuğa pike yaptı."
+          ],
           goto: "seat-stolen",
         },
         {
@@ -52,7 +56,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["lutfen", "rica ederim", "teyzecigim", "teyzecim"],
           text:
-            "» Teyzeciğim lütfen buyur, sen otur.\nAyağa kalktın. Teyze gülümsedi.\n" +
+            "Ayağa kalktın. Teyze gülümsedi.\n" +
             "— Sağ ol yavrum ama ben bir durak sonra inecem. Hem pilates yapıyorum, ayakta durmak iyi geliyor.\n" +
             "Teyze inmedi. On beş durak tek ayak üstünde durdu. Sen ayakta süründün.",
           ending: "pilates",
@@ -60,10 +64,14 @@ window.Yasandi.scenarios.push({
         {
           id: "ignore",
           keywords: ["gormezden", "bakmam", "kafami cevir", "yuzune bakma", "hicbir sey", "hic bir sey", "oturmaya", "oturuyorum", "devam et", "vermiyorum", "vermem", "vermeyecegim", "kalkmiyorum", "kalkmam", "kalkmayacagim", "umursamiyorum"],
-          text:
+          text: [
             "Görmezden geldin. Oturmaya devam ettin.\n" +
             "Teyzenin bakışları ağırlaşıyor. Ağırlığı fiziksel olarak hissedebiliyorsun.\n" +
             "Etraftaki yolcular da sana bakmaya başladı.",
+            "Kafanı çevirdin ama teyzenin nefesini ensende hissediyorsun.\n" +
+            "Fısıltılar başladı otobüste.",
+            "İnat ettin, kalkmadın. Teyze birden öksürük krizine girdi. Bilerek yapıyor."
+          ],
           goto: "gerilim",
         },
         {
@@ -78,11 +86,12 @@ window.Yasandi.scenarios.push({
         {
           id: "tired",
           keywords: ["yorgunum", "hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben de yorgunum"],
-          text:
-            "» Teyze ben de çok yorgunum, işten çıktım.\n" +
+          text: [
             "Teyzenin yüzü bir anda şefkatle doldu.\n" +
             "— Oy kıyamam, dedi. Çantasından tuhaf kokulu bir merhem çıkardı.\n" +
             "Otobüsün ortasında boynuna ve beline biberiye kremi sürmeye başladı. Herkes sizi izliyor. Felaket kokuyorsun ama ağrıların geçti.",
+            "Teyze acıyarak baktı sana.\n— Vah vah, gençlik de kalmamış sizde, dedi. Otur yavrum otur."
+          ],
           ending: "krem",
         },
         {
@@ -97,9 +106,11 @@ window.Yasandi.scenarios.push({
         {
           id: "ask-early",
           keywords: ["efendim", "ne var", "ne bakiyorsun", "hayirdir", "niye bakiyorsun", "nedir", "bir sey mi", "ne istiyorsun", "bakma oyle"],
-          text:
-            "Teyzeye bir şey söyledin. Teyze cevap vermedi. Bakışı bir kat ağırlaştı.\n" +
+          text: [
+            "Teyze cevap vermedi. Bakışı bir kat ağırlaştı.\n" +
             "Yandaki yolcu gazetesini indirip sizi izlemeye başladı.",
+            "Teyze duymazlıktan geldi. Daha da dibine girdi."
+          ],
           goto: "gerilim",
         },
         {
@@ -116,7 +127,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme", "basarim"],
           text:
-            "» İnecek var!\nDüğmeye bastın ve ilk durakta kendini dışarı attın.\n" +
+            "Düğmeye bastın ve ilk durakta kendini dışarı attın.\n" +
             "Evin daha 12 durak ileride. Yürümek zorundasın ama vicdanın rahat.",
           ending: "erkeninis",
         },
@@ -134,13 +145,14 @@ window.Yasandi.scenarios.push({
 
     "seat-stolen": {
       hint: "Adam koltuğa yerleşmek üzere. Onu it, çantanı at, teyzeyi oturt ya da adama laf at.",
+      look: "Kel adamın kıllı kolu çoktan koltuğun kenarına değdi. Teyze havada asılı kalmış, seninle adam arasında bir yere bakıyor.",
       intents: [
         {
           id: "block-man",
           positive: true,
           keywords: ["engelle", "adami it", "itmek", "dur de", "onune gec", "adami durdur", "ittir", "adama hamle"],
           text:
-            "» Hop bilader, teyze oturacak!\nAdamı omuzlayıp engelledin. Adam dengesini kaybedip düştü. Otobüs karıştı.\n" +
+            "Adamı omuzlayıp engelledin. Adam dengesini kaybedip düştü. Otobüs karıştı.\n" +
             "Teyze sana sarıldı. Herkes seni alkışlıyor. Kahraman oldun ama gideceğin yeri kaçırdın.",
           ending: "kahraman",
         },
@@ -149,7 +161,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["teyze otur", "otur teyze", "sen otur", "teyzeyi", "yonlendir", "teyzenin kolundan", "teyzeyi oturt"],
           text:
-            "» Teyze çabuk otur!\nTeyzeyi kolundan tutup koltuğa çektin. Kel adam aynı anda koltuğa çöktü.\n" +
+            "Teyzeyi kolundan tutup koltuğa çektin. Kel adam aynı anda koltuğa çöktü.\n" +
             "Teyze adamın kucağına oturdu. Otobüste ölüm sessizliği oldu.",
           ending: "kucak",
         },
@@ -167,7 +179,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["teyzenin", "bu koltuk teyzenin", "teyzenin yeri", "teyze icin", "adama laf"],
           text:
-            "» O koltuk teyzenin!\nAdam oralı olmadı, oturdu.\n" +
+            "Adam oralı olmadı, oturdu.\n" +
             "Teyze adama döndü ve bastonuyla adamın kafasına vurmaya başladı. Sen aradan sıyrıldın.",
           ending: "baston",
         },
@@ -188,6 +200,7 @@ window.Yasandi.scenarios.push({
 
     "gerilim": {
       hint: "Baskı artıyor. Videoya çeken gence laf atabilir, şoföre müziği kapattırabilir ya da pes edip yer verebilirsin.",
+      look: "Müzik açık. Yandaki çocuk telefonu kaldırmış seni çekiyor. Teyzenin gözleri artık lazer gibi.",
       intents: [
         {
           id: "block-video",

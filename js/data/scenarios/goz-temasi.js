@@ -45,6 +45,7 @@ window.Yasandi.scenarios.push({
   nodes: {
     start: {
       hint: "Keko cevap bekliyor. Kafa tutabilir, kaçabilir, özür dileyebilir, onu tanıyormuş gibi yapabilirsin.",
+      look: "Mahalle ıssız. Karşı kaldırımda tekir bir kedi var. Köşedeki bakkal Remzi abi kepengi yarıya indirmiş. Keko tam önünü kesmiş, siyah eşofmanlı, elinde tespih var.",
       text:
         "Akşam üstü. Mahallede yürüyorsun. Kulaklık takılı ama müzik yok, öylesine takılı.\n" +
         "Karşıdan biri geliyor. Yanlışlıkla göz göze geldiniz. Bir saniye. Belki iki.\n" +
@@ -54,40 +55,62 @@ window.Yasandi.scenarios.push({
         {
           id: "polite-buyur",
           keywords: ["buyur", "buyrun", "emret"],
-          text: "» Buyur abi?\n— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
+          text: [
+            "— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
+            "— Hâlâ buyur diyor. Dalga mı geçiyon lan benimle?",
+            "Keko tespihi sertçe sıktı. — Senin o kibar ağzını yırtarım. Kimsin sen?"
+          ],
           goto: "abi",
         },
         {
           id: "polite",
-          keywords: ["efendim", "duymadim abi"],
-          text: "— Efendim mi? Öğretmen miyim lan ben? Hangi mahallesin sen?",
+          keywords: ["efendim", "duymadim abi", "anlamadim"],
+          text: [
+            "— Efendim mi? Öğretmen miyim lan ben? Hangi mahallesin sen?",
+            "— Sağır mısın gardaş? Efendim diyor hâlâ. Kimlerdensin sen?",
+            "— Ulan efendim diye diye delirteceksin adamı! Nerelisin sen?"
+          ],
           goto: "abi",
         },
         {
           id: "wasnt-looking",
           keywords: ["bakmiyordum", "bakmiyodum", "bakmadim", "hicbir seye", "hic bir seye", "dalmisim", "daldim", "bosluga", "kimseye", "sana degil", "arkana"],
-          text: "» Hiçbir şeye bakmıyodum abi, dalmışım.\n— Dalmışsın. Bana mı daldın?\nKeko seni baştan aşağı süzdü.\n— Hangi mahallesin sen?",
+          text: [
+            "— Dalmışsın. Bana mı daldın?\nKeko seni baştan aşağı süzdü.\n— Hangi mahallesin sen?",
+            "— Arkama bakıyormuş... Arkamda ne var lan? Kimi kandırıyon sen?"
+          ],
           goto: "abi",
         },
         {
           id: "what-do-you-want",
-          keywords: ["ne oldu", "bisey mi", "bir sey mi", "konussana", "ne dedin", "ne diyon", "ne diyorsun", "ne istiyon", "ne istiyorsun", "anlamadim", "derdin ne"],
-          text: "— Konuşuyom ya işte, dedi keko. Hayırdır dedim.\nBir adım yaklaştı.\n— Sen neye bakıyodun asıl?",
+          keywords: ["ne oldu", "bisey mi", "bir sey mi", "konussana", "ne dedin", "ne diyon", "ne diyorsun", "ne istiyon", "ne istiyorsun", "derdin ne"],
+          text: [
+            "— Konuşuyom ya işte, dedi keko. Hayırdır dedim.\nBir adım yaklaştı.\n— Sen neye bakıyodun asıl?",
+            "— Sağır mısın gardaş? Ne bakıyon diyorum.",
+            "— Hâlâ ne diyon diyor. Kaşınma istersen. Kimsin sen?"
+          ],
         },
         {
           id: "talk-back",
           keywords: ["hayirdir", "sana ne", "ne bakiyon", "ne bakiyorsun", "asil sen", "sensin", "ne var", "bakarim", "ne olmus", "karsilik ver", "kafa tut", "kafana gore"],
-          text:
-            "» Asıl sen hayırdır?\nKendi sesine sen de şaşırdın.\n" +
+          text: [
+            "Kendi sesine sen de şaşırdın.\n" +
             "Keko hiçbir şey demedi. Sol eli yavaşça arka cebine gitti.\n" +
             "Zaman yavaşladı. Karşı kaldırımda bir kedi durup size baktı. Bakkal Remzi abi kepengi yarıya indirdi.",
+            "Keko'nun yüzü seğirdi. Sol eli hâlâ cebinde.\n— Artistliğin kime lan senin?",
+            "— Sen bittin oğlum. Buraların ağası mısın sen?"
+          ],
           hint: "Belki sen de arka cebine davranmalısın? Ya da koşmalısın. Ya da o kedi...",
           goto: "standoff",
         },
         {
           id: "apologize",
           keywords: ["pardon", "kusura bakma", "ozur", "affedersin", "yanlis anladin", "kusura", "sorry", "ozur dilerim"],
-          text: "» Pardon abi.\n— Abi mi? Ben senin abin miyim lan? Hangi mahallesin sen?",
+          text: [
+            "— Abi mi? Ben senin abin miyim lan? Hangi mahallesin sen?",
+            "— Yemezler o özürü. Bana kim olduğunu söyle sen.",
+            "— Çok pardonmuş. Benim sinirlerimi bozma, nerelisin?"
+          ],
           goto: "abi",
         },
         {
@@ -103,7 +126,6 @@ window.Yasandi.scenarios.push({
           id: "pretend-to-know",
           keywords: ["tanisiyoz", "tanisiyoruz", "taniyorum", "degil misin", "kuzen", "okuldan", "askerden", "mahalleden", "bi yerden"],
           text:
-            "» Abi biz bi yerden tanışıyoz ya.\n" +
             "Keko gözlerini kıstı.\n— ...Sen Hüseyin'in kuzeni misin?\n» Evet.\nHüseyin'i tanımıyorsun.\n" +
             "Kırk dakika sonra kahvedesin, üçüncü çaydasın. Hüseyin'in düğününe davetlisin. Takı da takacaksın.",
           ending: "kuzen",
@@ -111,7 +133,11 @@ window.Yasandi.scenarios.push({
         {
           id: "ignore",
           keywords: ["gormezden gel", "cevap verme", "yurumeye devam", "devam et", "bakma", "telefona bak", "sus", "yuru", "gec git"],
-          text: "Hiçbir şey olmamış gibi yürümeye devam ettin.\nKeko yanına geldi, adımını uydurdu.\n— Duymadın mı gardaş? Hayırdır dedim.",
+          text: [
+            "Hiçbir şey olmamış gibi yürümeye devam ettin.\nKeko yanına geldi, adımını uydurdu.\n— Duymadın mı gardaş? Hayırdır dedim.",
+            "— Sağır taklidi mi yapıyon lan? Dur diyorum!",
+            "Keko kolundan tutup seni durdurdu.\n— Bana bak lan, kimsin sen?"
+          ],
           goto: "insist",
         },
       ],
