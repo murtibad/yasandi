@@ -12,7 +12,6 @@ window.Yasandi.scenarios.push({
     kilo: { title: "Gözde Misafir", tag: "ŞİŞTİN" },
     anne: { title: "Anneye Şikayet", tag: "AZAR" },
     kuzen: { title: "Yeme Yarışı", tag: "REKOR" },
-    diyet: { title: "Diyet Menüsü", tag: "KALORİ" },
     paket: { title: "Zorunlu Yolluk", tag: "PAKETLENDİN" },
     tatli: { title: "Daha Tatlı Vardı", tag: "TATLI KRİZİ" },
     corba: { title: "Şifa Niyetine", tag: "ÇORBA" },
@@ -29,6 +28,9 @@ window.Yasandi.scenarios.push({
     kirik_kalp: { title: "Yolluk Reddedilmez", tag: "DARILDI" },
     baston: { title: "Bastonlu Amca", tag: "KOVALANDIN" },
     gobek: { title: "Göbek Havası", tag: "ŞİŞTİN" },
+    yalan: { title: "Dürüst Olmamak", tag: "AYIP" },
+    kisir: { title: "Kısır Döngüsü", tag: "ŞİŞTİN" },
+    terlik2: { title: "Misafir Terliği", tag: "GİYİLDİ" }
   },
 
   nodes: {
@@ -132,17 +134,38 @@ window.Yasandi.scenarios.push({
             "Teyze cidden yiyemem artık, nefes alamıyorum.\n" +
             "— Aşk olsun, benim sarmamı beğenmedin mi yoksa?"
           ],
+          exhausted: {
+            text: "Karnın ağrıya ağrıya son bir tane daha yedin. Teyze zaferle gülümsedi:\n— Ha şöyle! Kısır da vereyim mi?",
+            ending: "kisir"
+          },
           goto: "escalation-1",
+        },
+        {
+          id: "terlik",
+          positive: true,
+          keywords: ["terlik", "giy", "terligi", "cikart"],
+          text:
+            "Teyzenin zorla giydirdiği o kalın, çiçekli misafir terliğinin içinde ayakların yanıyor.\n" +
+            "Çaktırmadan birini ayağından attın. Teyze anında şahin gibi sana döndü:\n" +
+            "— Ayaklarını niye üşütüyorsun evladım, giy onu!",
+          ending: "terlik2"
         },
         {
           id: "diet",
           positive: true,
           keywords: ["diyet", "diyetteyim", "kilo", "zayiflama", "rejim"],
-          text:
+          text: [
             "Teyze ben diyetteyim, vallahi yiyemem.\n" +
             "Nebahat teyze güldü: — Ne diyeti yavrum bayram günü! Dur sana zeytinyağlı diyet sarması getireyim.\n" +
             "Önüne yarım kilo daha sarma koydu.",
-          ending: "diyet",
+            "— Diyet mi? Hastalık o hastalık! Zayıflayacağım diye kurudun kaldın.",
+          ],
+          exhausted: {
+            text: "Daha fazla dayanamayıp yalan söyledin: 'Teyze midem bulanıyor!'\n" +
+            "Teyze elindeki sarmayla dondu. 'Ayıp denen bir şey var' diyip sana küstü.",
+            ending: "yalan"
+          },
+          goto: "escalation-1",
         },
         {
           id: "stomach",
