@@ -21,7 +21,7 @@ window.Yasandi.scenarios.push({
     bekleyis: { title: "Mutfak Nöbeti", tag: "AÇLIK" },
     cop: { title: "Çöp Operasyonu", tag: "GÜNAH" },
     pes_ettin: { title: "Beyaz Bayrak", tag: "PES ETTİN" },
-    dede: { title: "Yanlış Oda", tag: "KORKTUN" },
+    dede: { title: "Hasan Sanıldın", tag: "YANLIŞ ODA" },
     "kapidan-donus": { title: "Yolluk", tag: "DOYDUN" },
     cep: { title: "Cepte Sarma", tag: "YAKALANDIN" },
     kuzenin_payi: { title: "Kuzenin Payı", tag: "KURTULDUN" },
@@ -76,9 +76,10 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["tuvalet", "lavabo", "ellerimi", "elimi", "yikayayim", "kalk"],
           text:
-            "— Teyze ben bir lavaboya gideyim, deyip masadan kalktın.\n" +
-            "Yanlışlıkla ilk kapıyı açtın. İçeride uyuyan oksijen tüplü dedeyle göz göze geldiniz.\n" +
-            "Dede 'Azrail sen misin?' diye bağırınca kalp krizi tehlikesi atlattınız.",
+            "Lavabo bahanesiyle masadan kalktın.\n" +
+            "Yanlış kapıyı açtın. İçeride Nebahat teyzenin kayınpederi, 94 yaşındaki Rıza dede, televizyonla uyukluyordu. Göz göze geldiniz.\n" +
+            "— Hasan? dedi dede. Sen askerden ne zaman geldin?\n" +
+            "Hasan değilsin. Hasan'ı tanımıyorsun. Kırk dakika Hasan olarak askerlik anısı dinledin.",
           ending: "dede",
         },
         {
@@ -86,7 +87,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kac", "kacalim", "git", "evden", "kapiya", "kapi", "disari", "bahane"],
           text:
-            "— Teyze benim ocakta yemeğim kalmış, diyerek kapıya koştun.\n" +
+            "Ocakta yemek unuttuğunu söyleyip kapıya koştun.\n" +
             "Nebahat teyze peşinden elinde saklama kabıyla geldi: 'Yolda yersin evladım.'",
           ending: "kapidan-donus",
         },

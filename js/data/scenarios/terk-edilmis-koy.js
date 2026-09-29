@@ -160,15 +160,6 @@ window.Yasandi.scenarios.push({
           goto: "cin",
         },
         {
-          id: "mars",
-          positive: true,
-          keywords: ["mars", "istiklal marsi", "korkma", "sarki", "sarki soyle", "marsi", "genclige hitabe"],
-          text:
-            "Karanlıktaki silüetin üzerine yürürken panikle Felak Nas okumak istedin ama ağzından 'Korkma, sönmez bu şafaklarda yüzen al sancak!' döküldü.\n" +
-            "Tuncay 'Abi cinleri milli mücadeleyle mi kovacaksın?' dedi.",
-          goto: "cin",
-        },
-        {
           id: "yansima",
           positive: true,
           keywords: ["siluet", "karalti", "ayna", "kendi yansimam", "yansima", "aynaya", "karanliga firlat"],
