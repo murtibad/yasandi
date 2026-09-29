@@ -46,7 +46,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 ## Writing rules (important)
 
 - **Do not echo the player.** The engine drops a reply's first line when it starts with `»`, because the player just typed their own words. Start replies with the other character's reaction or with narration. Use `»` only for the player's words later in the scene ("» Hangi maç?").
-- **No word-for-word repeats.** When the same intent fires twice, the engine won't show the same text again; it nudges the player instead. Give intents that are easy to hit twice (refusals, "tokum", "pardon") a `text` array of 2-3 variants that escalate.
+- **No word-for-word repeats.** When the same intent fires twice, the engine won't show the same text again; it nudges the player instead. Give intents that are easy to hit twice (refusals, "tokum", "pardon") a `text` array of 2-3 variants that escalate. Variants are shown **in order** (first time the first one), so the first variant must work on its own and set up anything later steps rely on.
 - **Player's spoken lines start with `»`** on their own line: `"» Pardon abi.\n— Abi mi? Ben senin abin miyim lan?"`. The screen shows them dim like the player's own input. Never write `— ..., dedin.`
 - Other characters speak with `— ` at line start. Narration is plain text.
 - Never put words in the player's mouth that contradict what they typed. If unsure, narrate the action instead of quoting them.
