@@ -42,7 +42,7 @@ window.Yasandi.scenarios.push({
         {
           id: "give-seat",
           positive: true,
-          keywords: ["kalkmak", "buyur teyze", "otur teyze", "teyze otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk"],
+          keywords: ["kalk", "buyur teyze", "otur teyze", "teyze otur", "sen otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk"],
           text:
             "» Buyur teyze, otur.\nAyağa kalktın. Teyze tam oturacakken arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa doğru hamle yaptı.\nAdam koltuğa oturmak üzere.",
           goto: "seat-stolen",
@@ -218,7 +218,7 @@ window.Yasandi.scenarios.push({
         {
           id: "give-up",
           positive: true,
-          keywords: ["kalkmak", "buyur", "otur", "yer ver", "ayaga kalk", "gec otur", "pes etmek", "dayanamadim", "tamam teyze"],
+          keywords: ["kalk", "buyur", "otur teyze", "teyze otur", "sen otur", "yer ver", "ayaga kalk", "gec otur", "pes etmek", "dayanamadim", "tamam teyze"],
           text:
             "Dayanamayıp kalktın.\n» Buyur teyze, otur.\nSen kalkar kalkmaz arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa doğru hamle yaptı.",
           goto: "seat-stolen",

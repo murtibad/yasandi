@@ -57,9 +57,21 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 5. Play it in a browser: try the obvious answers a real person would type first ("efendim", "pardon", "ne var") and make sure each one is understood.
    Also try refusals ("yer vermiyorum", "kaçmıyorum") and sentences that merely contain your keywords ("insanlar bana bakıyor"). None of them may trigger an ending by accident.
 
+## Workflow (read this first)
+
+1. `git pull`, then open `TASKS.md` and take the first item under **Ready**.
+2. **Never push to `main`.** `main` is the live site. Create a branch named `feature/<short-name>`, `content/<short-name>` or `fix/<short-name>` and push that branch.
+3. Before the last push: `node tests/validate.js` must show 0 errors and 0 warnings, and you must play the scenario yourself with the checks in "Adding a scenario".
+4. When done, move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
+
 ## Git
 
 - Branches, commit messages and code identifiers in **English**. Game text in Turkish.
-- Commit style: `feat: add bus scenario`, `content: more keko endings`, `fix: ...`.
-- Small commits. Push to `main` only after `node tests/validate.js` passes.
+- Commit style (Conventional Commits): `feat: add bus scenario`, `content: more keko endings`, `fix: negation in bus scenario`. One logical change per commit, subject line under 72 characters.
 - Do not rewrite history, do not force-push, do not delete other scenarios or endings unless asked.
+
+## Sources and references
+
+- Ideas may come from real-life anecdotes and from sites like Ekşi Sözlük, but **only as inspiration**: never copy sentences, never use usernames, retell everything in your own words with invented, generic characters. Do not mention real people, real brands or real teams.
+- Naming a song or artist as background detail is fine ("kulağında Manifest çalıyor", "Müslüm Gürses açtı"). Never quote lyrics, never make an artist say or do something, never mock them.
+- Keep the whole site light: plain text only, no images, fonts or audio files. Total size of `js/` + `css/` should stay under 300 KB.
