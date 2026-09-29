@@ -23,7 +23,10 @@ window.Yasandi.scenarios.push({
     "beyin-sarsintisi": { title: "Sert Yıkama", tag: "ACIYI SAKLADIN" },
     sapka: { title: "Gizli Gözyaşları", tag: "ŞAPKA" },
     felc: { title: "Önlük Krizi", tag: "YANLIŞ ANLAMA" },
-    kovuldun: { title: "Saygısız Müşteri", tag: "KOVULDUN" }
+    kovuldun: { title: "Saygısız Müşteri", tag: "KOVULDUN" },
+    yalan_sifir: { title: "Dürüstlük Kaybetti", tag: "AYNA" },
+    niye_geldin: { title: "Niye Berbere Geldin", tag: "KOVULDUN" },
+    sir: { title: "Kolonya Sırrı", tag: "KURTULDUN" }
   },
 
   nodes: {
@@ -77,6 +80,10 @@ window.Yasandi.scenarios.push({
             "— Anladım abim anladım. Kısa olmasın.\nUsta tarağı saçına daldırdı. Tarak boşlukta dolaşıp geri geldi.",
             "— Abim bana bırak sen, modelini bozmam.\nBozdu. Önlerden koca bir tutam daha gitti."
           ],
+          exhausted: {
+            text: "Sen dördüncü kez 'kısa olmasın' deyince usta delirdi:\n— Madem kestirmeyecektin niye berbere geldin lan! diyerek seni dükkandan kovdu.",
+            ending: "niye_geldin"
+          },
           goto: "service-offer-1",
         },
         {
@@ -227,6 +234,24 @@ window.Yasandi.scenarios.push({
             "Çırak göz devirince kendini tutamayıp kıkırdadın.\n" +
             "Usta anısına saygısızlık edildiğini düşünüp sinirlendi ve kafanı tamamen 3 numaraya vurdu.",
           ending: "kovuldun",
+        },
+        {
+          id: "sir",
+          keywords: ["sussa", "sus", "anlatma", "sirrimi", "devlet sirri"],
+          text:
+            "Usta kulağına eğilip 'Sana bir sır vereyim abim' diye fısıldadı.\n" +
+            "— Bizim kolonyanın sırrı... içine çay demliyoruz, dedi.\n" +
+            "Kokladın. Gerçekten de bergamot kokuyordu.",
+          ending: "sir",
+        },
+        {
+          id: "yalan_sifir",
+          keywords: ["ayna tut", "aynanizi", "ayna", "arka", "ense"],
+          text:
+            "Usta ense tıraşını bitirip aynayı tuttu. 'Nasıl abim?'\n" +
+            "Gözlerin doldu. Yutkunarak 'Çok iyi oldu abi' dedin.\n" +
+            "Usta anladı. 'Dürüst değilsin abim' diyip seni sıfıra vurdu.",
+          ending: "yalan_sifir",
         }
       ],
       inherits: "cutting-1",

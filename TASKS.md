@@ -4,16 +4,7 @@
 
 Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (read "Turkish voice" and "Memes and trends" twice). Never push to `main`; push a branch. One task per branch.
 
-## Ready
-
-### 7. Comedy pass on all six scenarios (`content/comedy-pass`)
-
-Goal: every common player action gets a funnier, more surprising answer. Read `ideas/eksi-patterns.md` again first.
-- For each scenario, play it 5 times with the most natural inputs (efendim, pardon, tamam, hayır, kaçıyorum, ne var, bilmiyorum...). Write down every reply that is flat, generic or explains the joke.
-- Rewrite those replies. Add a second and third escalating variant (`text` arrays) where a player is likely to repeat themselves, and `exhausted` payoffs where the third repeat deserves a punchline.
-- Add at least 3 new endings per scenario, each built on a small absurd turn (Hüsnü-style: the most ordinary Turkish thing appearing in the most absurd place). Every ending title must match what happens.
-- Add at least 3 more beats from real Ekşi Sözlük "yaşanmış komik olaylar" style stories (retold in your own words, same rules as task 5).
-- Do not touch engine files. 0 validator warnings. Push the branch.
+### 8. (Ready for next tasks if any)
 
 ### 8. Rework "Yetersiz Bakiye" around a crush (`content/yetersiz-bakiye-crush`)
 
@@ -38,6 +29,7 @@ Run `node tests/validate.js`: it now lists every step where "hayır", "hiçbir �
 
 ## Done
 
+- Comedy pass on all six scenarios (`content/comedy-pass`, branch `content/comedy-pass`)
 - Header controls: visible and animated (`feature/header-controls`, branch `feature/header-controls`)
 - Ekşi Sözlük pattern mining (`content/eksi-patterns`, branch `content/eksi-patterns`)
 - `ideas/memes.md`: Turkish meme bank, patterns only (branch `feature/memes`)

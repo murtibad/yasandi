@@ -24,7 +24,11 @@ window.Yasandi.scenarios.push({
     torpil: { title: "Hüsnü'nün Yeğeni", tag: "TORPİL" },
     avm: { title: "Köye AVM Gelmiş", tag: "ZAMAN KAYDI" },
     annem: { title: "Zıbar Yat", tag: "EVE DÖNDÜN" },
-    ayna: { title: "Düşman Kendin", tag: "AYNA" }
+    ayna: { title: "Düşman Kendin", tag: "AYNA" },
+    satilmis: { title: "Dost Kazığı", tag: "KURTULDUN" },
+    saril: { title: "Cine Sarılmak", tag: "DUYGUSAL" },
+    dov: { title: "Cine Kafa Atmak", tag: "HASTANELİK" },
+    evlat: { title: "Cin Evlatlık", tag: "MUTLU SON" }
   },
 
   nodes: {
@@ -260,12 +264,47 @@ window.Yasandi.scenarios.push({
           ending: "tapu",
         },
         {
+          id: "kac-cin",
+          positive: true,
+          keywords: ["kac", "kacalim", "kos", "sat", "birak", "arkadasini birak", "tuncayi sat", "tuncayi kilitle", "kapiya", "disari"],
+          text:
+            "Tuncay 'Abi kamerada bir şey var!' dediği an 'O etlidir onu ye!' diyerek odadan fırladın.\n" +
+            "Kapıyı dışarıdan kilitleyip arkana bakmadan kaçtın.\n" +
+            "Tuncay sabaha karşı köye inebilmiş. Arkadaşlığınız bitti ama hayattasın.",
+          ending: "satilmis",
+        },
+        {
           id: "lonely",
           keywords: ["ne istiyorsun", "ne istiyon", "yalniz", "uzuldum", "neden burada", "niye buradasin", "iyi misin", "kimse yok mu"],
           text: [
             "— Kimse gelmiyor, dedi Hüsnü. Bayramda bile. Torunlar Almanya'da, onlar da cin değil.\nBir süre sustu.\n— Bi şarj aleti var mı sende? Telefonum üç yüz yıldır kapalı.",
             "— Sen iyi çocuksun, dedi Hüsnü. Bak, arkadaki kapı var ya. Oradan bizim tarafa geçilir. Gezdireyim mi?",
+            "— Üzülme evladım, alıştım ben.\nHüsnü sana bir bardak daha çay doldurdu."
           ],
+          exhausted: {
+            text: "Daha fazla dayanamadın.\n» Hüsnü amca, gel benimle yaşa!\nBerberde çırak olarak işe girdi. Hayatından çok memnun.",
+            ending: "evlat"
+          }
+        },
+        {
+          id: "saril",
+          positive: true,
+          keywords: ["saril", "sarilmak", "kucak", "sarilirim"],
+          text:
+            "Adamcağız 300 yıldır yalnız. Dayanamayıp sarıldın.\n" +
+            "Hüsnü ağlamaya başladı. Tuncay şok içinde 'Abi boşluğa sarıldı!' diye bağırıyor.\n" +
+            "Hüsnü'yle kanka oldunuz.",
+          ending: "saril",
+        },
+        {
+          id: "dov",
+          positive: true,
+          keywords: ["dov", "kavga", "vur", "kafa at", "yumruk", "dal"],
+          text:
+            "Korkunu yenmek için Hüsnü'ye uçan kafa attın.\n" +
+            "Kafa dumanın içinden geçti, arkadaki duvara tosladın.\n" +
+            "Hüsnü 'İyi misin evladım?' derken sen ambulanslık olmuştun.",
+          ending: "dov",
         },
         {
           id: "sarj",
