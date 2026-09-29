@@ -383,7 +383,7 @@ window.Yasandi.scenarios.push({
       acceptAny: [
         {
           text:
-            "— {input} mi? O iş parayı getirmez yavrum. Benim eltimin oğlu da onu denedi, şimdi borç içinde.\nBütün hevesin kırıldı, hayata küstün.",
+            "— {input} {mi}? O iş parayı getirmez yavrum. Benim eltimin oğlu da onu denedi, şimdi borç içinde.\nBütün hevesin kırıldı, hayata küstün.",
           ending: "issiz",
         },
         {

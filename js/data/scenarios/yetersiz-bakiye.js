@@ -16,7 +16,14 @@ window.Yasandi.scenarios.push({
     dram: { title: "Fakir Dayanışması", tag: "DRAM" },
     kurtuldun: { title: "Doldur Gel", tag: "KURTULDUN" },
     uyudun: { title: "Sağır Sultan", tag: "UYUDUN" },
-    zengin: { title: "Kârlı Ticaret", tag: "ZENGİN" },
+    karakol: { title: "Son Durak: Karakol", tag: "ALINDIN" },
+    levye: { title: "Levyeli Şoför", tag: "İNDİRİLDİN" },
+    remix: { title: "Yetersiz Bakiye Remix", tag: "VİRAL" },
+    taksi: { title: "Taksi Parası", tag: "ZARAR" },
+    kargasa: { title: "Kargaşa Fırsatı", tag: "KARGAŞA" },
+    ucretsiz: { title: "Ücretsiz Geçiş", tag: "KAHRAMAN" },
+    ortak: { title: "Ortak Kulaklık", tag: "KURTULDUN" },
+    muzikci: { title: "Müzik Zevki", tag: "İNDİRİLDİN" },
     kacis: { title: "Erken İniş", tag: "KAÇIŞ" },
     kahraman: { title: "Makine Fatihi", tag: "KAHRAMAN" },
     dondu: { title: "Sistem Çöktü", tag: "BEKLEYİŞ" },
@@ -25,7 +32,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      hint: "Kendi kartını verebilir, duymazdan gelebilir, şoförle konuşabilir, nakit teklif edebilir veya cihazı gösterebilirsin.",
+      hint: "Kadın hâlâ sana bakıyor. Yardım etmek de bir seçenek, etmemek de. İkisinin de bir bedeli var.",
       text:
         "Sabahın körü. Tıklım tıklım bir otobüs, en önde ayaktasın. Kulağında müzik çalıyor.\n" +
         "Güleryüzlü, orta yaşlı bir kadın otobüse bindi. Kartını okutmak için cihaza yaklaştırdı.\n" +
@@ -37,7 +44,7 @@ window.Yasandi.scenarios.push({
         {
           id: "offer-card",
           positive: true,
-          keywords: ["kartimi", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan"],
+          keywords: ["kartimi", "kartim var", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "basayim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan"],
           text:
             "» Bende var abla, buyrun.\nKartını uzattın. Kadın teşekkür edip kartını cihaza okuttu.\n" +
             "Cihaz yankılandı: 'YETERSİZ BAKİYE'.\n" +
@@ -55,7 +62,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "ignore",
-          keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami cevir", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye devam", "vermiyorum", "vermem", "yok", "bende yok", "yokmus gibi", "sessiz"],
+          keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami cevir", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye devam", "vermiyorum", "vermem", "yardim edemem", "yardim etmiyorum", "edemem", "etmem", "yok", "bende yok", "yokmus gibi", "sessiz"],
           text:
             "Hiçbir şey duymamış gibi müziğine devam ettin, camdan dışarı bakıyorsun.\n" +
             "Arka koltuktaki teyze 'Cık cık cık' diye söylenmeye başladı. Amca bastonunu yere vurdu:\n" +
@@ -106,7 +113,7 @@ window.Yasandi.scenarios.push({
     },
 
     "no-balance": {
-      hint: "Senin kartın da boş çıktı! Nakit verebilir, makineyi dövebilir, inebilir veya utanabilirsin.",
+      hint: "Senin kartın da boş çıktı. Cihaz bir daha bağırmadan önce bir şey yap.",
       intents: [
         {
           id: "cash-try",
@@ -244,10 +251,24 @@ window.Yasandi.scenarios.push({
       acceptAny: [
         {
           text:
-            "— {input} mi dinliyorsun? Ben de gençliğimde çok dinlerdim.\n" +
-            "Kadın cebinden altın kaplama bir İstanbulkart çıkardı, kendisi için okuttu. Sesi duydun: 'ABONMAN'.\n" +
-            "Sonra senin için okuttu: 'TAM BİLET'. Bakiyen bitmiş. İyi ki müzik dinliyorsun.",
-          ending: "zengin",
+            "— {input} {mi}? Ben de severim.\n" +
+            "Kadın kulaklığın tekini kulağına taktı. Bir şarkı boyunca kimse ses çıkarmadı.\n" +
+            "Şarkı bitince cihaz ilk kez sustu. Şoför bile kapıyı açıp 'Geç abla' dedi.",
+          ending: "ortak",
+        },
+        {
+          text:
+            "— {input}... Bu ne şimdi?\n" +
+            "Kadın anlamadı ama kibarca başını salladı. Tam nakaratta cihaz 'YETERSİZ BAKİYE' diye bağırdı.\n" +
+            "Ritme denk geldi. Bütün otobüs seni ve cihazı alkışladı.",
+          ending: "remix",
+        },
+        {
+          text:
+            "— {input} {mi}? Bizim zamanımızda böyle şeyler dinlenmezdi.\n" +
+            "Kadın o kadar şaşırdı ki kartını unutup indi. Şoför sana döndü:\n" +
+            "— Bir de müzikle zehirliyorsunuz insanı. İn aşağı.",
+          ending: "muzikci",
         },
       ],
       inherits: "tension",
@@ -279,7 +300,7 @@ window.Yasandi.scenarios.push({
             "» Abla sen yavaştan geç arkaya, görmez o.\n" +
             "Şoför aynadan izliyordu. Kapıları kilitledi ve polisi aradı.\n" +
             "Son durak: Karakol.",
-          ending: "atildin",
+          ending: "karakol",
         },
         {
           id: "complain",
@@ -336,7 +357,7 @@ window.Yasandi.scenarios.push({
   overrides: {
     swear: {
       text: "Ağzına geleni saydın.\nŞoför levyeyi kaptığı gibi geldi. Müzik durdu.",
-      ending: "atildin",
+      ending: "levye",
     },
     police: {
       text:
@@ -352,25 +373,25 @@ window.Yasandi.scenarios.push({
       text:
         "Otobüsün ortasında ayağa kalkıp oynamaya başladın.\n" +
         "Cihaz ritmik bir şekilde 'YETERSİZ BAKİYE, YETERSİZ BAKİYE' diye tempo tuttu.",
-      ending: "viral",
+      ending: "remix",
     },
     faint: {
       text:
         "Bayılma taklidi yapıp yere yığıldın.\n" +
         "Yolcular paniğe kapıldı. Şoför kapıları açtı. Kadın bu kargaşada bilet basmadan içeri sızdı.",
-      ending: "kurtuldun",
+      ending: "kargasa",
     },
     money: {
       text:
         "Cüzdanını çıkarıp kadına 50 lira uzattın.\n" +
         "Kadın parayı aldı. — Sağ ol yavrum, dedi. Sonra inip taksiye bindi.",
-      ending: "zengin",
+      ending: "taksi",
     },
     weapon: {
       text:
         "Arka cebine davrandın.\n" +
         "Şoför dikiz aynasından gördü, direksiyonu kırıp karakola çekti.",
-      ending: "rehine",
+      ending: "karakol",
     }
   },
 
@@ -387,6 +408,6 @@ window.Yasandi.scenarios.push({
       "Sen inat ettin, şoför inat etti, kadın inat etti.\n" +
       "Cihaz sonunda dayanamayıp kendi kendine bağırdı: 'SİSTEM ARIZASI. ÜCRETSİZ GEÇİŞ.'\n" +
       "Otobüs alkışlarla yola devam etti.",
-    ending: "kahraman",
+    ending: "ucretsiz",
   },
 });

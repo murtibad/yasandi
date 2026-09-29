@@ -50,6 +50,7 @@ for (const s of scenarios) {
     if (intent.goto && intent.ending) err(where(`${label}: has both goto and ending`));
     const texts = Array.isArray(intent.text) ? intent.text : [intent.text];
     for (const t of texts) {
+      if (typeof t === "string" && /\{input\}\s+(mi|m[ıu]|mü)\b/.test(t)) warnings.push(where(`${label}: use {mi} instead of a fixed "mi/mı/mu/mü" after {input}`));
       if (typeof t === "string" && /, dedin\./.test(t) && /^—/m.test(t)) warnings.push(where(`${label}: player speech should start with » instead of "— ..., dedin."`));
     }
   };
