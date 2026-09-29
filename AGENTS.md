@@ -36,6 +36,8 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - `acceptAny: [...]` on a node accepts any answer to an open question. `{input}` is replaced by the player's words, `{mi}` by the right question particle (mı/mi/mu/mü).
 - `fallbacks`: replies when nothing matches. **Every fallback must end with pressure or a question** so the player knows what to answer. Never write "X yazdığını anlamadı".
 - `hint` on a node: the narrator's nudge, shown after two misses. It suggests directions, it never lists all options.
+- **Endings must match their outcome.** An ending's `title` and `tag` describe what the text of the intent that leads there says. Do not reuse an ending for a different outcome just because it exists: add a new one. Every ending is reached by at least one intent and reads well on its own.
+- After `{input}` always use `{mi}`, never a fixed "mi" (the validator warns).
 - `patience` / `patienceIntent`: after N misses in a row, this fires (usually an ending).
 - `endings`: `{ id: { title, tag } }`. Tags: `ÖLDÜN`, `KURTULDUN`, `SOYULDUN`, `BAYILDIN`, or a new short uppercase word if it fits. Aim for 12+ endings per scenario, mixed good and bad.
 
