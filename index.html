@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Yaşandı</title>
+  <meta name="description" content="Türkiye'de yaşanabilecek gündelik anlardan oluşan, yazarak oynanan kısa bir metin oyunu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="bar">
+      <span class="brand">Yaşandı</span>
+      <span class="meta">
+        <span id="scenario-title"></span>
+        <span id="endings-count"></span>
+      </span>
+    </header>
+
+    <main class="log" id="log" aria-live="polite"></main>
+
+    <footer class="dock">
+      <div class="end-actions" id="end-actions" hidden>
+        <button class="btn" id="replay" type="button">Tekrar oyna</button>
+        <button class="btn" id="next-scenario" type="button">Başka senaryo</button>
+      </div>
+      <form class="prompt" id="prompt" autocomplete="off">
+        <span class="prompt-mark" aria-hidden="true">››</span>
+        <label for="command" class="visually-hidden" hidden>Ne yapıyorsun?</label>
+        <input class="field" id="command" name="command" type="text" placeholder="ne yapıyorsun?"
+               autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" maxlength="200">
+      </form>
+      <p class="hint">Yaz, Enter'a bas. Takılırsan "?" yaz.</p>
+    </footer>
+  </div>
+
+  <script src="js/text.js"></script>
+  <script src="js/data/global-intents.js"></script>
+  <script src="js/data/scenarios/goz-temasi.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
