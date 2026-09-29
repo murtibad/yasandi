@@ -59,6 +59,27 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 5. Play it in a browser: try the obvious answers a real person would type first ("efendim", "pardon", "ne var") and make sure each one is understood.
    Also try refusals ("yer vermiyorum", "kaçmıyorum") and sentences that merely contain your keywords ("insanlar bana bakıyor"). None of them may trigger an ending by accident.
 
+## Turkish voice (the most important section)
+
+The game lives or dies on whether it sounds like real Turkish people talking. Textbook Turkish kills the joke.
+
+- Write dialogue the way people speak, not the way a translation reads.
+  - Bad: `— Bir tabak daha yemelisin.` Good: `— Bi tabak daha yiyiver güzüm, ne olcak.`
+  - Bad: `— Saçınızı kısa mı kesmemi istersiniz?` Good: `— Nasıl olsun abim? Yanlar sıfır mı?`
+- Give people real-sounding names and titles: Nebahat teyze, Hayriye teyze, Remzi abi, Cemil usta, Sevim abla, Yakup Bey. Use "abim, güzüm, yavrum, evladım, kuzum, hocam, usta" where people really would.
+- Regional flavor is welcome in dialogue (Karadeniz, Doğu, Ege) as long as it is affectionate, never mocking a region.
+- Use the small, specific details everyone recognizes: sarma, tespih, çekirdek-kola, kolonya, "bir çay daha koyayım", İstanbulkart, WhatsApp aile grubu, "evde bulunamadınız" SMS'i, "abim bi bakayım" diyen usta.
+- The narrator is deadpan and short. One dry sentence beats three explained ones. Never explain the joke.
+
+## Memes and trends
+
+Build scenarios around moments and memes Turkish internet already knows, not around long stories. Take the **pattern**, never the **person**:
+
+- Never name or depict real people, real YouTubers/channels, real athletes, real brands or real teams, even if a meme started with them. Recreate the pattern with an invented character (an invented ghost-hunting YouTuber, an invented halı saha teammate).
+- No memes built on stereotypes about women, regions, ethnicities, religions or disabled people. No memes about real news victims or private people.
+- Songs and artists may appear only as a background detail ("kulağında Manifest çalıyor"). Never quote lyrics.
+- Running gags that may appear in any scenario: the narrator saying "Ama bu başka bir hikâyenin konusu." when something interesting is skipped; a password that keeps getting stolen ("şifren yine isim123'müş"); a shot that "füze gibi çıktı, kalenin üstünden gitti".
+
 ## Workflow (read this first)
 
 1. `git pull`, then open `TASKS.md` and take the first item under **Ready**.
