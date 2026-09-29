@@ -21,6 +21,8 @@ window.Yasandi.scenarios.push({
     bekleyis: { title: "Mutfak Nöbeti", tag: "AÇLIK" },
     cop: { title: "Çöp Operasyonu", tag: "GÜNAH" },
     pes_ettin: { title: "Beyaz Bayrak", tag: "PES ETTİN" },
+    dede: { title: "Yanlış Oda", tag: "KORKTUN" },
+    "kapidan-donus": { title: "Yolluk", tag: "DOYDUN" },
     cep: { title: "Cepte Sarma", tag: "YAKALANDIN" },
     kuzenin_payi: { title: "Kuzenin Payı", tag: "KURTULDUN" },
     gozyasi: { title: "Gözyaşı Diplomasisi", tag: "KURTULDUN" },
@@ -61,6 +63,34 @@ window.Yasandi.scenarios.push({
           ending: "kedi",
         },
         {
+          id: "dusur-sakla",
+          positive: true,
+          keywords: ["dusur", "yere dustu", "sakla", "minderin", "koltugun", "tekmeler", "halinin altina"],
+          text:
+            "Çataldan düşen ıspanaklı börek parçasını kimse görmeden çaktırmadan zigon sehpanın altına tekmelersin.\n" +
+            "Ama teyzenin kedisi bulup afiyetle yer ve seni ispitlemek için suratına pis pis bakar.",
+          ending: "kedi",
+        },
+        {
+          id: "wc",
+          positive: true,
+          keywords: ["tuvalet", "lavabo", "ellerimi", "elimi", "yikayayim", "kalk"],
+          text:
+            "— Teyze ben bir lavaboya gideyim, deyip masadan kalktın.\n" +
+            "Yanlışlıkla ilk kapıyı açtın. İçeride uyuyan oksijen tüplü dedeyle göz göze geldiniz.\n" +
+            "Dede 'Azrail sen misin?' diye bağırınca kalp krizi tehlikesi atlattınız.",
+          ending: "dede",
+        },
+        {
+          id: "wc-kacis",
+          positive: true,
+          keywords: ["kac", "kacalim", "git", "evden", "kapiya", "kapi", "disari", "bahane"],
+          text:
+            "— Teyze benim ocakta yemeğim kalmış, diyerek kapıya koştun.\n" +
+            "Nebahat teyze peşinden elinde saklama kabıyla geldi: 'Yolda yersin evladım.'",
+          ending: "kapidan-donus",
+        },
+        {
           id: "hide-pocket",
           positive: true,
           keywords: ["pecete", "peceteye", "cebime", "cebe", "cantaya", "sakla", "sakliyorum", "saklamak"],
@@ -79,6 +109,15 @@ window.Yasandi.scenarios.push({
             "Sen yutkunmaya çalışırken Nebahat teyze sevinçle mutfaktan döndü:\n" +
             "— Bak, pilav da koydum yanına, susuz gitmez o. Yiyiver güzüm.",
           goto: "more-food",
+        },
+        {
+          id: "tabagi-siyir",
+          positive: true,
+          keywords: ["siyir", "siyiririm", "ekmekle", "tabagi siyir", "epsini bitir", "epsini ye", "kalanini", "gom", "hepsini"],
+          text:
+            "'Vallahi çok iyi olur' deyip yüzsüzce kalan tüm böreği gömdün, tabağı ekmekle sıyırdın.\n" +
+            "Teyze 'Maşallah iştahlı çocuk' dedi ama içinden 'Evdeki erzak bitti, kocama ne vereceğim' diye ağladı.",
+          ending: "tepsi",
         },
         {
           id: "refuse",
@@ -442,8 +481,8 @@ window.Yasandi.scenarios.push({
   patience: 6,
   patienceIntent: {
     text:
-      "Sen hiçbir şey yapmadan öylece oturdun.\n" +
-      "Nebahat teyze 'Elin ayağın tutuldu açlıktan!' deyip sarmaları ağzına zorla tepmeye başladı.",
+      "Sen hiçbir şey yapmadan öylece oturdun, kafayı eğip salondaki halının göbek desenlerini saymaya başladın.\n" +
+      "Nebahat teyze 'Kıyamam, çocuğun uykusu geldi' deyip seni zorla misafir odasında yatırdı.",
     ending: "pes_ettin",
   },
 });

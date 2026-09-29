@@ -19,7 +19,11 @@ window.Yasandi.scenarios.push({
     gazete: { title: "Amcanın Öfkesi", tag: "DAYAK" },
     maske: { title: "Kaşlar Gitti", tag: "MASKELİ" },
     aglama: { title: "Aynadaki Yabancı", tag: "GÖZYAŞI" },
-    kavga: { title: "Makaslı Kavga", tag: "KARAKOL" }
+    kavga: { title: "Makaslı Kavga", tag: "KARAKOL" },
+    "beyin-sarsintisi": { title: "Sert Yıkama", tag: "ACIYI SAKLADIN" },
+    sapka: { title: "Gizli Gözyaşları", tag: "ŞAPKA" },
+    felc: { title: "Önlük Krizi", tag: "YANLIŞ ANLAMA" },
+    kovuldun: { title: "Saygısız Müşteri", tag: "KOVULDUN" }
   },
 
   nodes: {
@@ -87,6 +91,16 @@ window.Yasandi.scenarios.push({
             "Göz ucuyla aynaya baktın. Usta makası saklar gibi oldu."
           ],
           goto: "service-offer-1",
+        },
+        {
+          id: "kasin",
+          positive: true,
+          keywords: ["kasin", "burnumu", "burnum", "kasindim", "mimik", "yuzumu", "burustur"],
+          text:
+            "Önlüğün altındayken burnun inanılmaz derecede kaşınmaya başladı.\n" +
+            "Kollarını çıkaramadığın için yüzünü buruşturup alt dudağınla burnunu kaşımaya çalıştın.\n" +
+            "Usta 'Abi felç mi geçiriyorsun?' diyerek panikle makası bıraktı.",
+          ending: "felc",
         },
         {
           id: "mac",
@@ -203,6 +217,16 @@ window.Yasandi.scenarios.push({
             "Çırak, o çay nerede kaldı!\n" +
             "Çırak korkuyla seğirtirken elindeki sıcak çayı yanlışlıkla kucağına döktü.",
           ending: "cay",
+        },
+        {
+          id: "gul",
+          positive: true,
+          keywords: ["gul", "gulumse", "kikirdama", "kikirdarim", "goz goze", "bakis"],
+          text:
+            "Usta ciddi ciddi askerlik anısını anlatırken aynadan arkada süpürge yapan çırakla göz göze geldin.\n" +
+            "Çırak göz devirince kendini tutamayıp kıkırdadın.\n" +
+            "Usta anısına saygısızlık edildiğini düşünüp sinirlendi ve kafanı tamamen 3 numaraya vurdu.",
+          ending: "kovuldun",
         }
       ],
       inherits: "cutting-1",
@@ -334,6 +358,26 @@ window.Yasandi.scenarios.push({
             "Abi bu ne, asker tıraşı yapmışsın!\n" +
             "— Ne askeri abim, Amerikan bu, Amerikan! En moda model.",
           ending: "asker",
+        },
+        {
+          id: "yika",
+          positive: true,
+          keywords: ["yika", "yikayalim", "yikansin", "lavaboya"],
+          text:
+            "Usta saçını yıkarken kafanı sertçe mermer lavaboya çarptı.\n" +
+            "Gözünden yaş gelse de 'Acıdı mı abim?' diye sorunca 'Yok abi pamuk gibi' dedin.\n" +
+            "Hafif beyin sarsıntısıyla dükkandan çıktın.",
+          ending: "beyin-sarsintisi",
+        },
+        {
+          id: "cok-iyi",
+          positive: true,
+          keywords: ["cok iyi", "tam istedigim", "eline saglik", "super", "muthis"],
+          text:
+            "Usta kafanı adeta tavuk gibi yolmuştu.\n" +
+            "Ama arkadan aynayı tuttuğunda hipnotize olmuş gibi 'Tam istediğim gibi olmuş abi' dedin.\n" +
+            "Eve gidip şapkayla ağladın.",
+          ending: "sapka",
         }
       ],
       inherits: "cutting-1",

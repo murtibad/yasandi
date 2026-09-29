@@ -23,13 +23,14 @@ window.Yasandi.scenarios.push({
     amca: { title: "Amca Savunması", tag: "KURTULDUN" },
     halay: { title: "Otobüs Halayı", tag: "KURTULDUN" },
     inat: { title: "Keçi İnadı", tag: "KURTULDUN" },
-    kahraman: { title: "Halk Kahramanı", tag: "ALKIŞ" },
     kucak: { title: "Kucak Kucağa", tag: "REZALET" },
     laptop: { title: "Kırık Ekran", tag: "ZARAR" },
     baston: { title: "Baston Gücü", tag: "KURTULDUN" },
     video: { title: "Viral Oldun", tag: "VİRAL" },
     radyo: { title: "Damar Şoför", tag: "KURTULDUN" },
     issiz: { title: "Heves Kırıcı", tag: "ÜZÜLDÜN" },
+    evlilik: { title: "Otobüs Çöpçatanı", tag: "NİŞANLANDIN" },
+    "uyku-krizi": { title: "Derin Uyku", tag: "REZİL" },
     garip: { title: "Yanlış Meslek", tag: "DIŞLANDIN" }
   },
 
@@ -80,9 +81,16 @@ window.Yasandi.scenarios.push({
           id: "sleep",
           positive: true,
           keywords: ["uyumak", "uyuyor", "uyku", "gozumu kapat", "horla", "uyumus gibi", "uyuma numarasi", "kestir", "uyurum"],
-          text:
+          text: [
             "Gözlerini kapattın. Uyuyor numarası yapıyorsun.\n" +
-            "Teyze elindeki şemsiyeyle dizine dürttü.\n— Uyuma numarası yapma yavrum, göz kapakların titriyor.",
+            "Teyze elindeki şemsiyeyle dizine dürttü.\n— Uyuma numarası yapma yavrum, göz kapakların titriyor."
+          ],
+          exhausted: {
+            text:
+              "Uyuyor numarası yaparken gerçekten uykuya daldın. Kafan yavaşça teyzenin omzuna düştü.\n" +
+              "Teyze 'Terbiyesiz, pavyon mu burası!' diyerek seni şemsiyeyle dürtüp uyandırdı ve zorla indirdi.",
+            ending: "uyku-krizi",
+          },
           goto: "gerilim",
         },
         {
@@ -129,8 +137,8 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme", "basarim"],
           text:
-            "Düğmeye bastın ve ilk durakta kendini dışarı attın.\n" +
-            "Evin daha 12 durak ileride. Yürümek zorundasın ama vicdanın rahat.",
+            "Teyzenin bakışlarına dayanamayıp 'Benim durağım geldi' diyerek ilk durakta kendini dışarı attın.\n" +
+            "Yağmur altında 12 durak eve kadar yürürken teyzenin otobüs camından sana zaferle baktığını gördün.",
           ending: "erkeninis",
         },
         {
@@ -154,9 +162,10 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["engelle", "adami it", "itmek", "dur de", "onune gec", "adami durdur", "ittir", "adama hamle"],
           text:
-            "Adamı omuzlayıp engelledin. Adam dengesini kaybedip düştü. Otobüs karıştı.\n" +
-            "Teyze sana sarıldı. Herkes seni alkışlıyor. Kahraman oldun ama gideceğin yeri kaçırdın.",
-          ending: "kahraman",
+            "Adamı omuzlayıp engelledin. Adam geriye savruldu. Teyze huzurla koltuğa oturdu.\n" +
+            "Ama teyze susmadı: — Senin boyun da posun da yerinde, bekar mısın evladım? Bizim eltinin kızına alalım seni.\n" +
+            "Bütün yolculuk boyunca kendi düğün planını dinledin.",
+          ending: "evlilik",
         },
         {
           id: "direct-aunt",

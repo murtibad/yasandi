@@ -10,6 +10,8 @@ window.Yasandi.scenarios.push({
     atildin: { title: "Nakit Geçmiyor", tag: "ATILDIN" },
     mutlu: { title: "Şoför Jesti", tag: "MUTLU SON" },
     yuruyus: { title: "Beraber Yürüdük", tag: "YÜRÜYÜŞ" },
+    hasta: { title: "Hastalıklı", tag: "İNDİRİLDİN" },
+    rezil: { title: "Rezil Oldun", tag: "REZİL" },
     nostalji: { title: "Delikli Bilet", tag: "NOSTALJİ" },
     viral: { title: "Cimri Genç", tag: "VİRAL" },
     rehine: { title: "Otobüs Rehin", tag: "REHİNE" },
@@ -56,6 +58,16 @@ window.Yasandi.scenarios.push({
             "Şoför artık sinirli: — Dalga mı geçiyonuz lan benle?"
           ],
           goto: "no-balance",
+        },
+        {
+          id: "oksur",
+          positive: true,
+          keywords: ["oksur", "sesimi", "bastir", "öhö"],
+          text:
+            "Kartını uzattın ve makinenin 'YETERSİZ BAKİYE' diye bağıracağını bildiğin için cihazla aynı anda son gücünle öksürdün.\n" +
+            "Ama sen öksürmeden hemen önce cihaz 'BİİP' diye geçti. Kendi kısıtlı bakiye hakkın da gitti.\n" +
+            "Şoför 'Hastaysan binme kardeşim, millete bulaştıracaksın' diyerek seni yaka paça indirdi.",
+          ending: "hasta",
         },
         {
           id: "sleep",
@@ -126,10 +138,20 @@ window.Yasandi.scenarios.push({
         {
           id: "cash-try",
           positive: true,
-          keywords: ["nakit", "para vereyim", "bozukluk", "cuzdan"],
+          keywords: ["nakit", "para vereyim", "cuzdan", "bozukluk", "param", "parayla", "bende para"],
           text:
             "Hemen cüzdana davrandın. Şoför bağırdı:\n— Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
           ending: "atildin",
+        },
+        {
+          id: "dusur",
+          positive: true,
+          keywords: ["dusur", "yuvarlan", "bozuk para", "para dustu", "bozukluk dustu", "kacir", "kaydi"],
+          text:
+            "Şoföre uzatmak için bozuk para çıkardın ama elinden kayıp tıngır tıngır yuvarlandı.\n" +
+            "Otobüsteki 40 kişi nefesini tutup o 1 liranın en arkadaki tekerleğin altına girişini izledi.\n" +
+            "Parayı alabilmek için otobüsü tahliye etmen gerekti.",
+          ending: "rezil",
         },
         {
           id: "hit-machine",

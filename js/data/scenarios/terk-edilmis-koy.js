@@ -24,6 +24,7 @@ window.Yasandi.scenarios.push({
     torpil: { title: "Hüsnü'nün Yeğeni", tag: "TORPİL" },
     avm: { title: "Köye AVM Gelmiş", tag: "ZAMAN KAYDI" },
     annem: { title: "Zıbar Yat", tag: "EVE DÖNDÜN" },
+    ayna: { title: "Düşman Kendin", tag: "AYNA" }
   },
 
   nodes: {
@@ -158,6 +159,24 @@ window.Yasandi.scenarios.push({
             "Köyde kimse yok. Kimi kastettiğini sormadın.",
           goto: "cin",
         },
+        {
+          id: "mars",
+          positive: true,
+          keywords: ["mars", "istiklal marsi", "korkma", "sarki", "sarki soyle", "marsi", "genclige hitabe"],
+          text:
+            "Karanlıktaki silüetin üzerine yürürken panikle Felak Nas okumak istedin ama ağzından 'Korkma, sönmez bu şafaklarda yüzen al sancak!' döküldü.\n" +
+            "Tuncay 'Abi cinleri milli mücadeleyle mi kovacaksın?' dedi.",
+          goto: "cin",
+        },
+        {
+          id: "yansima",
+          positive: true,
+          keywords: ["siluet", "karalti", "ayna", "kendi yansimam", "yansima", "aynaya", "karanliga firlat"],
+          text:
+            "Köşedeki insana benzeyen karanlık silüete elindeki tripodu fırlattın.\n" +
+            "Büyük bir şangırtı koptu. Meğer eski bir boy aynasındaki kendi yansımanmış.",
+          ending: "ayna",
+        }
       ],
       fallbacks: [
         "Çıt. Çıt. Çekirdek sesi yaklaştı. Bir şey yapacak mısın?",
