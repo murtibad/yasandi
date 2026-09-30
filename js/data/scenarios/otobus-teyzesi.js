@@ -42,7 +42,8 @@ window.Yasandi.scenarios.push({
       hint: "Teyze tepene dikildi. Yer verebilir, görmezden gelebilir, uyuma numarası yapabilir, telefonu çıkarabilir veya mızmızlanabilirsin.",
       look: "Otobüs hıncahınç dolu. Ayaktakiler demirlere tutunmuş, yorgun argın sallanıyor. Yanda lise öğrencisi telefonda oyun oynuyor. Teyze tam karşında, elinde pazar çantası, sana kilitlenmiş.",
       text:
-        "Akşam saati. Otobüs tıklım tıklım. Çok yorgunsun, sonunda bir koltuk bulup oturdun.\n" +
+        "İşten yeni çıktın, ayakların zonkluyor ve daha 40 durak var.\n" +
+        "Akşam saati. Otobüs tıklım tıklım. Sonunda bir koltuk bulup oturdun.\n" +
         "Bir durakta yaşlı, sevimli ama kararlı bir teyze bindi. Geldi, tam tepene dikildi.\n" +
         "Hiçbir şey demiyor. Sadece gözlerinin içine bakıyor.",
       intents: [
@@ -448,6 +449,12 @@ window.Yasandi.scenarios.push({
   },
 
   common: [
+    {
+      id: "sessiz",
+      keywords: ["hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "sus", "sessiz", "bekle", "otur"],
+      text: "Öylece kaldın. Teyze cık cık diye sesli bir şekilde kınamaya başladı. İki durak sonra şoför seni indirdi.",
+      ending: "sofor_mudahale"
+    },
     {
       id: "fake-limp",
       first: true,

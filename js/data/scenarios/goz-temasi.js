@@ -51,6 +51,7 @@ window.Yasandi.scenarios.push({
       hint: "Keko cevap bekliyor. Kafa tutabilir, kaçabilir, özür dileyebilir, onu tanıyormuş gibi yapabilirsin.",
       look: "Mahalle ıssız. Karşı kaldırımda tekir bir kedi var. Köşedeki bakkal Remzi abi kepengi yarıya indirmiş. Keko tam önünü kesmiş, siyah eşofmanlı, elinde tespih var.",
       text:
+        "Cebinde son maaşından kalan son 500 lira var.\n" +
         "Akşam üstü. Mahallede yürüyorsun. Kulaklık takılı ama müzik yok, öylesine takılı.\n" +
         "Karşıdan biri geliyor. Yanlışlıkla göz göze geldiniz. Bir saniye. Belki iki.\n" +
         "Durdu.\n" +
@@ -442,6 +443,12 @@ window.Yasandi.scenarios.push({
         "Karşılığında ona kulaklığını verdin. Artık müzik dinleyemiyorsun ama tespihin var.",
       ending: "hediye",
     },
+    {
+      id: "sessiz",
+      keywords: ["hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "sus", "sessiz", "bekle", "otur"],
+      text: "Öylece kaldın.\nKeko 'Eee gardaş, ses vermiyon?' diyerek omuz attı ve uzaklaştı.",
+      ending: "omuz"
+    }
   ],
 
   overrides: {

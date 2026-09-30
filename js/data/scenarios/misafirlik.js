@@ -38,6 +38,7 @@ window.Yasandi.scenarios.push({
       look: "Salonun köşesinde koca bir saksı var. Masanın altında bir kedi dolaşıyor. Önünde peçete, cebin boş. Mutfağın kapısı aralık, çöp kovası orada. Kapı ise çok uzakta.",
       hint: "Tabak kendi kendine boşalmayacak. Yemek de bir yol, yememek de. Bu evde saklanacak yer de çok.",
       text:
+        "Aileni temsil ediyorsun, ayıp etmemen lazım.\n" +
         "Bayram ziyareti, Nebahat teyzenin evi.\n" +
         "Öğlen sağlam yedin, üstüne iki çay içtin. 'Tokum teyze' dedikçe önündeki tabak doldu.\n" +
         "Şu an önünde kocaman bir tabak sarma, üç koca dilim börek ve kenarda kısır var.\n" +
@@ -434,6 +435,12 @@ window.Yasandi.scenarios.push({
   },
 
   common: [
+    {
+      id: "sessiz",
+      keywords: ["hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "sus", "sessiz", "bekle", "otur"],
+      text: "Sen öylece oturup tabağa bakınca teyze 'Eriyip gittin' dedi ve koca bir kaşık kısır daha koydu.",
+      ending: "kisir"
+    },
     {
       id: "whole-tray",
       positive: true,

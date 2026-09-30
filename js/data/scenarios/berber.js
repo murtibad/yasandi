@@ -35,6 +35,7 @@ window.Yasandi.scenarios.push({
       look: "Dükkan küçük, duvarlarda eski jöleli manken fotoğrafları asılı. Çırak süpürgeyle yerdeki kılları topluyor. Aynada sadece kel bir adam, bir de senin endişeli yüzün var.",
       inherits: "cutting-1",
       text:
+        "Yarın hayatının en önemli buluşması var, saçını riske atamazsın.\n" +
         "Mahalle berberi Remzi usta. Oturdun, boynuna havluyu bağladı.\n" +
         "— Hoş geldin abim. Nasıl yapalım?\n" +
         "» Abi uçlarından alsan yeter, kısa olmasın.\n" +
@@ -426,6 +427,12 @@ window.Yasandi.scenarios.push({
       positive: true,
       keywords: ["ofla", "ic cek", "nefes", "ofluyorum", "off", "ulan"],
       text: "Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
+    },
+    {
+      id: "sessiz",
+      keywords: ["hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "sus", "sessiz", "bekle", "otur"],
+      text: "Öylece kaldın. Usta 'Ses çıkmıyor, demek ki halinden memnun' diye düşünüp makineyle bir kat daha aldı.",
+      ending: "kel"
     }
   ],
 
