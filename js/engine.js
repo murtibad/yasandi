@@ -51,8 +51,15 @@
 
   // Words that only look negative: "tamam" ends like "kalkmam" but means yes.
   const NOT_NEGATION = new Set(["tamam", "hamam", "imam", "madam", "sistem", "ekmem"]);
+  // "diyet yapmam lazım" / "gitmem gerek" means "I need to", not "I won't".
+  const NEED_WORDS = /^(lazim|gerek)/;
   function isNegated(normalized) {
-    return normalized.trim().split(" ").some((t) => NEGATION_WORDS.has(t) || (NEGATION_ENDING.test(t) && !NOT_NEGATION.has(t)));
+    const words = normalized.trim().split(" ");
+    return words.some((t, i) => {
+      if (NEGATION_WORDS.has(t)) return true;
+      if (!NEGATION_ENDING.test(t) || NOT_NEGATION.has(t)) return false;
+      return !(/m[ae]m$/.test(t) && NEED_WORDS.test(words[i + 1] || ""));
+    });
   }
 
   // Turkish question particle by vowel harmony: Ahmet mi, Ayşe mi, Mahmut mu, Ali mi, Hasan mı, Gül mü.
@@ -146,7 +153,10 @@
 
       // Freezing ("hayır", "hiçbir şey", "bilmiyorum", or any refusal nothing else caught) is a choice too:
       // a step's `freeze` says what the world does when the player does nothing.
-      if (!intent && here.freeze && (isFreeze(normalized) || negated)) intent = { id: "__freeze", keywords: [], ...here.freeze };
+      // A long sentence that merely contains a negative word ("kısır güzeldi ama diyet yapmam lazımdı") is not silence:
+      // it falls through to a fallback instead of a freeze that says "you said nothing".
+      const shortRefusal = negated && normalized.trim().split(" ").length <= 3;
+      if (!intent && here.freeze && (isFreeze(normalized) || shortRefusal)) intent = { id: "__freeze", keywords: [], ...here.freeze };
 
       if (intent) {
         // Same move again with nothing new to say: don't repeat the text word for word, push the player instead.
@@ -186,6 +196,7 @@
       this.misses += 1;
       const patience = node.patience || this.scenario.patience;
       if (patience && this.misses >= patience) {
+        this.misses = 0;
         return this.resolve(node.patienceIntent || this.scenario.patienceIntent);
       }
       const pool = texts(node.fallbacks || this.scenario.fallbacks);
@@ -203,6 +214,8 @@
     }
 
     resolve(intent) {
+      // Patience and `exhausted` replies move the scene too, not only matched intents.
+      if (intent.goto) this.nodeId = intent.goto;
       const raw = pick(intent.text);
       this.seenTexts.add(raw);
       let text = this.fill(stripOpeningEcho(raw));
