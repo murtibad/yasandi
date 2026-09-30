@@ -104,8 +104,17 @@ window.Yasandi.scenarios.push({
           goto: "gerilim",
         },
         {
+          id: "am-i-tired",
+          keywords: ["yorgun muyum", "yorgun miyim", "hasta miyim"],
+          text:
+            "— Bana mı soruyon evladım? Nerden bilem senin yorgunluğunu.\n" +
+            "Teyze çantasını öbür koluna aldı.\n" +
+            "— Ama ben yorgunum, onu biliyom.",
+          goto: "gerilim",
+        },
+        {
           id: "tired",
-          keywords: ["ben yorgunum", "ben hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben cok yorgunum", "cok yorgunum", "cok yoruldum"],
+          keywords: ["yorgunum", "hastayim", "yoruldum", "ben yorgunum", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben cok yorgunum", "cok yorgunum", "cok yoruldum"],
           text: [
             "Teyzenin yüzü bir anda şefkatle doldu.\n" +
             "— Oy kıyamam, dedi. Çantasından tuhaf kokulu bir merhem çıkardı.\n" +

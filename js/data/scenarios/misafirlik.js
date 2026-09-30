@@ -227,6 +227,14 @@ window.Yasandi.scenarios.push({
           goto: "cousin-competition",
         },
         {
+          id: "diet-excuse",
+          keywords: ["diyet", "rejim", "dugun", "kilo ver", "zayifla", "kilo aliyorum", "kilo aldim"],
+          text: [
+            "— Düğün mü?! Nebahat teyze tabağı unuttu.\n— Kiminle, ne zaman, kimlerden? Annen niye bi şey demedi bana?\nTelefonu kaptı bile.",
+          ],
+          goto: "escalation-2",
+        },
+        {
           id: "refuse-angry",
           keywords: ["tokum", "yeter", "doydum", "yiyemem", "bitti", "patladim", "catladim", "begenmedim", "istemiyorum"],
           text:
@@ -276,7 +284,7 @@ window.Yasandi.scenarios.push({
         {
           id: "check-temp",
           positive: true,
-          keywords: ["ates olc", "atesime bak", "atesim", "alnima", "derece"],
+          keywords: ["ates olc", "atesime bak", "atesim", "alnima", "derece", "baksin", "baksana", "bak teyze", "bakabilirsin", "tabi bak"],
           text:
             "Teyze elini alnına koydu.\n— Ateşin de var senin, yanıyorsun!\nAslında ateşin yoktu ama teyzenin elleri çok soğuktu.",
           ending: "corba",
@@ -323,7 +331,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "mom-feeds",
-          keywords: ["yediriyo", "yediriyor", "annem iyi", "annem cok", "evde yiyorum"],
+          keywords: ["yediriyo", "yediriyor", "annem iyi", "annem cok", "evde yiyorum", "evde yedim", "evdede yedim", "evde de yedim", "yedim zaten", "ne anlatiyosun", "ne anlatiyorsun"],
           text: [
             "— Yediriyosa niye böyle çöp gibisin? Dur bi soralım.\nNebahat teyze telefonu kaptı, hoparlörü açtı.\n— Ayten, bu çocuk bizde bi şey yemiyo. Evde de mi böyle?\nAnnenin sesi salonda yankılandı: — Ye oğlum! Rezil etme beni!",
           ],

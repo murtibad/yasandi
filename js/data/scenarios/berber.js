@@ -116,7 +116,7 @@ window.Yasandi.scenarios.push({
         {
           id: "mac",
           positive: true,
-          keywords: ["mac", "futbol", "oynamiyor", "haklisin", "evet usta", "izledim"],
+          keywords: ["mac", "futbol", "oynamiyor", "haklisin", "evet usta", "evet izledim", "izledim"],
           text:
             "Sorma usta, ruh yok takımda.\n" +
             "Remzi usta coştu. — Ya! Şimdikiler paraya doydu!\n" +
@@ -150,7 +150,7 @@ window.Yasandi.scenarios.push({
         {
           id: "yes-ense",
           positive: true,
-          keywords: ["olur", "al abi", "alabilirsin", "yapalim", "yap abi", "enseyi al", "temizle"],
+          keywords: ["olur", "evet", "al abi", "alabilirsin", "yapalim", "yap abi", "enseyi al", "temizle"],
           text:
             "Olur abi, alıver.\n" +
             "Usta usturayı biledi. 'Benim jilet affetmez abim' diyerek enseni kazımaya başladı.\n" +
@@ -242,6 +242,14 @@ window.Yasandi.scenarios.push({
           ending: "kovuldun",
         },
         {
+          id: "zaman",
+          keywords: ["zaman degisti", "devir degisti", "devir de", "eskide kaldi", "artik oyle degil", "o zamanlar"],
+          text:
+            "— Değişti tabi abim. Eskiden berbere gelen susardı.\n" +
+            "Usta makası iki kat hızlı çalıştırmaya başladı. Bu cevabın bedelini sağ favorin ödedi.",
+          goto: "service-offer-2",
+        },
+        {
           id: "sir",
           keywords: ["sussa", "sus", "anlatma", "sirrimi", "devlet sirri"],
           text:
@@ -316,7 +324,7 @@ window.Yasandi.scenarios.push({
         {
           id: "listen",
           positive: true,
-          keywords: ["dinliyorum", "dinle", "evet usta", "sonra", "anlat", "ne demis"],
+          keywords: ["dinliyorum", "dinle", "evet", "sonra", "anlat", "ne demis", "devam"],
           text:
             "Sesini çıkarmayıp ustanın efsanevi askerlik anısını dinledin.\n" +
             "Usta tam heyecanlı yerinde makası masaya bıraktı.\n" +
@@ -326,10 +334,19 @@ window.Yasandi.scenarios.push({
         {
           id: "interrupt",
           positive: true,
-          keywords: ["sus", "kes", "yeter", "abi yeter", "anisi", "askerlik", "banane", "uzatma", "bosver", "boluyorum", "lutfen sus"],
+          keywords: ["sus", "kes", "yeter", "abi yeter", "anisi", "askerlik", "banane", "uzatma", "bosver", "bol", "boluyorum", "lutfen sus"],
           text:
             "Abi bırak şimdi komutanı, ön taraf yamuk mu oldu biraz?\n" +
             "Usta dikkatini kaybetti, makas kaydı. Saçının bir tarafı tamamen sıfırlandı.",
+          ending: "yarim",
+        },
+        {
+          id: "wont-listen",
+          keywords: ["istemiyorum", "dinlemem", "dinlemiyorum", "dinlemek istem", "sikildim", "merak etmiyorum", "ilgilenmiyorum"],
+          text:
+            "— Dinlemiyon mu abim? diye alındı usta.\n" +
+            "Alınınca eli de kaydı. Saçının bir tarafı tamamen sıfırlandı.\n" +
+            "— Komutan da böyle yapardı, dedi. Kimse dinlemezdi onu.",
           ending: "yarim",
         },
         {
