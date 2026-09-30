@@ -16,7 +16,10 @@ window.Yasandi.scenarios.push({
     makine: { title: "Makine Kırıldı", tag: "KARAKOL" },
     ask: { title: "Büyük Aşk", tag: "ROMANTİK" },
     reddedildi: { title: "Terslendin", tag: "ÜZÜCÜ" },
-    yalanci: { title: "Yakalandın", tag: "YALANCI" }
+    yalanci: { title: "Yakalandın", tag: "YALANCI" },
+    sofor_isyan: { title: "Şoför İsyanı", tag: "KOVULDUN" },
+    kahraman: { title: "Otobüs Kahramanı", tag: "ALKIŞ" },
+    cihaz_yorum: { title: "Cihaz Aşkı Buldu", tag: "CİHAZ" }
   },
 
   fallbacks: [
@@ -158,10 +161,11 @@ window.Yasandi.scenarios.push({
           id: "apologize",
           keywords: ["kusura", "ozur", "pardon", "yanlislik", "affedersin"],
           text:
-            "{crush} gülümsedi: — Önemli değil ya, olur öyle. Bu arada ben...\n" +
-            "Adını söyledi ama tam o an cihaz yine 'YETERSİZ BAKİYE' diye bağırdı. Duyamadın.\n" +
-            "— Senin adın ne?",
-          goto: "name-exchange",
+            "{crush} gülümsedi: — Önemli değil ya, olur öyle.\n" +
+            "Tam o sırada şoför dikiz aynasından size ters ters baktı:\n" +
+            "— Para ödemiyorsunuz bari muhabbet etmeyin. Arkaya ilerle bakayım.\n" +
+            "Ne yapacaksın?",
+          goto: "driver-interrogation",
         },
         {
           id: "ignore",
@@ -185,6 +189,49 @@ window.Yasandi.scenarios.push({
           "Sonra size dönüp: 'İşe yaramaz âşıklar,' diye mırıldandı.",
         ending: "baskasi",
       }
+    },
+
+    "driver-interrogation": {
+      hint: "Şoför ters yapıyor. İteleyip geçebilir, cevap verebilir veya cihazı kırabilirsin.",
+      look: "Şoför dikiz aynasından sizi kesiyor. {crush} mahcup. Arkadakiler 'Hadi ilerleyin' diye mırıldanıyor.",
+      intents: [
+        {
+          id: "ilerle",
+          positive: true,
+          keywords: ["ilerle", "arkaya", "gec", "yuru", "kabul", "tamam"],
+          text:
+            "Kafanızı eğip arkaya ilerlediniz. Sıkışık bir köşede yan yana durdunuz.\n" +
+            "{crush}: — Çok utandım ya. Benim adım bu arada... \n(Adını söyledi ama duyamadın)\n— Senin adın ne?",
+          goto: "name-exchange"
+        },
+        {
+          id: "karsilik_ver",
+          positive: true,
+          keywords: ["karsilik", "cevap", "bagir", "insanligimizi", "paramiz", "sanane", "kizan"],
+          text:
+            "» Abi paramız yok diye insanlığımızı da mı kaybettik!\n" +
+            "Otobüs alkışlamaya başladı. Şoför utandı.",
+          ending: "kahraman"
+        },
+        {
+          id: "cihaz",
+          positive: true,
+          keywords: ["cihaza", "makineye", "kirmak", "tekme", "vur", "kir"],
+          text:
+            "Cihazın ekranına dokundun. Cihaz birden 'İKİ KALP BİR OLUNCA BAKİYE GEREKMEZ' yazdı.",
+          ending: "cihaz_yorum"
+        },
+        {
+          id: "sessiz",
+          keywords: ["sessiz", "sus", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "dur"],
+          text: "Öylece durup şoföre baktın. Şoför: — İnin lan arabamdan! diyerek kapıları açtı.",
+          ending: "sofor_isyan"
+        }
+      ],
+      fallbacks: [
+        "Şoför 'İlerlesene kardeşim' diye bağırdı. Ne yapacaksın?",
+        "{crush} sana bakıyor. Bir şey diyecek misin?"
+      ]
     },
 
     "name-exchange": {
