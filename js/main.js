@@ -117,6 +117,12 @@
       title.className = "ending-title";
       title.textContent = "Son: " + ending.title + (ending.isNew ? " · yeni" : "");
       box.append(tag, title);
+      // Friends asked "what does an ending mean, what's the goal?": say it where the ending lands.
+      const count = document.createElement("span");
+      count.className = "ending-count";
+      const found = game.foundEndings().length;
+      count.textContent = "Bulduğun sonlar: " + found + "/" + game.totalEndings() + ". Başka bir şey yazsan başka bir son çıkardı.";
+      box.append(count);
       const kind = ending.tag === "ÖLDÜN" ? "death" : /KURTULDUN|KAHRAMAN|ÜNLÜ/.test(ending.tag) ? "good" : "other";
       box.classList.add("ending--" + kind);
       log.appendChild(box);
@@ -153,6 +159,12 @@
         card.appendChild(brand);
         await typeInto(brand, "YAŞANDI", 90);
         await wait(250);
+        // First visit: one line on what this is, so nobody wonders whether it's a chat bot.
+        const note = document.createElement("p");
+        note.className = "title-note";
+        card.appendChild(note);
+        await typeInto(note, "Türkiye'de yaşanmış anlar. Ne yapacağını yaz. Her hikâyenin bir sürü sonu var.", 25);
+        await wait(700);
       }
       const name = document.createElement("p");
       name.className = "title-name";
