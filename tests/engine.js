@@ -85,6 +85,17 @@ const PLAY = [
   ["is-gorusmesi", "q-soru", "saat kaç bitiyor görüşme", "fallback"],
   ["is-gorusmesi", "q-soru", "çalışma ortamı nasıl", "fallback"],
   ["is-gorusmesi", "q-soru", "maaş ne zaman yatıyor", "ne-zaman"],
+  // 2010: the obvious answers to each question
+  ["2010-bir-gun", "msn", "kameram yok", "kamera_once"],
+  ["2010-bir-gun", "kafe_masa", "yok", "hile_yok"],
+  ["2010-bir-gun", "kafe_masa", "yok abi bende hile falan yok", "hile_yok"],
+  ["2010-bir-gun", "kafe_masa", "evet var", "hile_ver"],
+  ["2010-bir-gun", "kafe_masa", "işim var abi", "oyala"],
+  ["2010-bir-gun", "kafe_masa", "sana ne", "kov"],
+  ["2010-bir-gun", "kamera_acik", "güzel olmamış", "kotu"],
+  ["2010-bir-gun", "kamera_acik", "çok güzel olmuş", "guzel"],
+  ["2010-bir-gun", "facebook_final", "eklemem", "ekleme_red"],
+  ["2010-bir-gun", "facebook_final", "ekliyorum", "ekle"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
