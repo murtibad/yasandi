@@ -8,9 +8,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 
 
-### 8. New scenario: 2010 nostalgia (`content/nostalgia-2010`)
-
-Id `2010-bir-gun`. A day in 2010: MSN titreşim, internet kafe, tuşlu telefon, kontör, "Facebook'ta ekleyeyim". Read `AGENTS.md` first. Player fills a gap early (who they are chatting with / who they like). 6+ steps, 12+ endings.
 
 - Also later (owner's idea, notes not collected yet): "1 günlüğüne 2010'a dön" nostalgia (MSN titreşimi, internet kafe, tuşlu telefon), and a cockroach scenario (the immortal enemy of the terlik).
 
@@ -23,6 +20,7 @@ Id `2010-bir-gun`. A day in 2010: MSN titreşim, internet kafe, tuşlu telefon, 
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- New scenario: 2010 nostalgia (`content/nostalgia-2010`)
 - Barber loop at the last steps fixed (Gemini found the cause, Claude fixed it; branch `fix/barber-short`)
 - New scenario: picked for the board (`content/classroom`)
 - New scenario: health report at the devlet hastanesi (`content/hospital-report`)
