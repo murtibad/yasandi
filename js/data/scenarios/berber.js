@@ -185,7 +185,20 @@ window.Yasandi.scenarios.push({
             "— Ne demek kalsın abim, ayıp ediyorsun.\n" +
             "Deyip usturayı ensene dayadı ve yine de aldı.",
           goto: "cutting-2",
-        }
+        },
+        {
+          id: "kisa-olmasin-gec",
+          positive: true,
+          keywords: ["kisa olmasin", "kisa kesme", "uzun kalsin", "cok kestin", "kisaltma"],
+          text: [
+            "— Abim kısa olmasın dedin, kısa kesmiyorum zaten. Bak, sadece düzeltiyorum.\nMakas yine de bir şeyler kesti.",
+            "— Tamam abim, tamam. Kısa olmasın.\nUsta bunu bir kez daha duyunca makası havaya kaldırıp bir süre kafana baktı."
+          ],
+          exhausted: {
+            text: "Usta makası bıraktı:\n— Abi kaç kere diyeceksin bunu? Madem kestirmeyecektin niye geldin!\nSeni dükkandan kovdu.",
+            ending: "niye_geldin"
+          }
+        },
       ],
       inherits: "cutting-1",
       fallbacks: [
@@ -295,7 +308,20 @@ window.Yasandi.scenarios.push({
             "Gözlerin doldu. Yutkunarak 'Çok iyi oldu abi' dedin.\n" +
             "Usta anladı. 'Dürüst değilsin abim' deyip seni sıfıra vurdu.",
           ending: "yalan_sifir",
-        }
+        },
+        {
+          id: "kisa-olmasin-gec",
+          positive: true,
+          keywords: ["kisa olmasin", "kisa kesme", "uzun kalsin", "cok kestin", "kisaltma"],
+          text: [
+            "— Abim kısa olmasın dedin, kısa kesmiyorum zaten. Bak, sadece düzeltiyorum.\nMakas yine de bir şeyler kesti.",
+            "— Tamam abim, tamam. Kısa olmasın.\nUsta bunu bir kez daha duyunca makası havaya kaldırıp bir süre kafana baktı."
+          ],
+          exhausted: {
+            text: "Usta makası bıraktı:\n— Abi kaç kere diyeceksin bunu? Madem kestirmeyecektin niye geldin!\nSeni dükkandan kovdu.",
+            ending: "niye_geldin"
+          }
+        },
       ],
       inherits: "cutting-1",
       fallbacks: [
@@ -335,7 +361,20 @@ window.Yasandi.scenarios.push({
             "— Sen bilirsin abim, zorla güzellik olmaz.\n" +
             "Çakmağı cebine attı.",
           goto: "cutting-3",
-        }
+        },
+        {
+          id: "kisa-olmasin-gec",
+          positive: true,
+          keywords: ["kisa olmasin", "kisa kesme", "uzun kalsin", "cok kestin", "kisaltma"],
+          text: [
+            "— Abim kısa olmasın dedin, kısa kesmiyorum zaten. Bak, sadece düzeltiyorum.\nMakas yine de bir şeyler kesti.",
+            "— Tamam abim, tamam. Kısa olmasın.\nUsta bunu bir kez daha duyunca makası havaya kaldırıp bir süre kafana baktı."
+          ],
+          exhausted: {
+            text: "Usta makası bıraktı:\n— Abi kaç kere diyeceksin bunu? Madem kestirmeyecektin niye geldin!\nSeni dükkandan kovdu.",
+            ending: "niye_geldin"
+          }
+        },
       ],
       inherits: "cutting-1",
       fallbacks: [
@@ -386,7 +425,20 @@ window.Yasandi.scenarios.push({
             "» Abi bitsin artık şu tıraş, komutana selamlar.\n" +
             "— Bitti abim bitti, sıhhatler olsun.",
           goto: "finishing",
-        }
+        },
+        {
+          id: "kisa-olmasin-gec",
+          positive: true,
+          keywords: ["kisa olmasin", "kisa kesme", "uzun kalsin", "cok kestin", "kisaltma"],
+          text: [
+            "— Abim kısa olmasın dedin, kısa kesmiyorum zaten. Bak, sadece düzeltiyorum.\nMakas yine de bir şeyler kesti.",
+            "— Tamam abim, tamam. Kısa olmasın.\nUsta bunu bir kez daha duyunca makası havaya kaldırıp bir süre kafana baktı."
+          ],
+          exhausted: {
+            text: "Usta makası bıraktı:\n— Abi kaç kere diyeceksin bunu? Madem kestirmeyecektin niye geldin!\nSeni dükkandan kovdu.",
+            ending: "niye_geldin"
+          }
+        },
       ],
       inherits: "cutting-1",
       fallbacks: [
@@ -458,7 +510,20 @@ window.Yasandi.scenarios.push({
             "Ama arkadan aynayı tuttuğunda hipnotize olmuş gibi 'Tam istediğim gibi olmuş abi' dedin.\n" +
             "Eve gidip şapkayla ağladın.",
           ending: "sapka",
-        }
+        },
+        {
+          id: "kisa-olmasin-gec",
+          positive: true,
+          keywords: ["kisa olmasin", "kisa kesme", "uzun kalsin", "cok kestin", "kisaltma"],
+          text: [
+            "— Abim kısa olmasın dedin, kısa kesmiyorum zaten. Bak, sadece düzeltiyorum.\nMakas yine de bir şeyler kesti.",
+            "— Tamam abim, tamam. Kısa olmasın.\nUsta bunu bir kez daha duyunca makası havaya kaldırıp bir süre kafana baktı."
+          ],
+          exhausted: {
+            text: "Usta makası bıraktı:\n— Abi kaç kere diyeceksin bunu? Madem kestirmeyecektin niye geldin!\nSeni dükkandan kovdu.",
+            ending: "niye_geldin"
+          }
+        },
       ],
       inherits: "cutting-1",
       fallbacks: [
