@@ -119,6 +119,16 @@ Build scenarios around moments and memes Turkish internet already knows, not aro
 4. If Claude's review lists problems in `REVIEW.md` for your branch, fix exactly those on the same branch before starting anything new.
 5. When done, commit and **push your branch yourself** (`git push -u origin <branch>`; never `main`). Then move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
 
+## Sürümleme (only Claude does this)
+
+Version is `MAJOR.MINOR.PATCH` plus a label, shown in `index.html` (`.ver`) and written in `CHANGELOG.md`; each release gets a git tag (`v0.5.0`). Agents never change the number: they push branches, Claude bumps it when merging.
+
+- **PATCH** (0.5.1): fixes only: keyword fixes, playtest passes, typos, a bug in the engine or CSS.
+- **MINOR** (0.6.0): something players will notice: a new scenario, a new mechanic, a new screen element, a big content pass on several scenarios.
+- **MAJOR** (1.0.0): when the owner says so. Rule of thumb for 1.0: every scenario had a playtest pass and the friends' feedback list in `FEEDBACK.md` is closed.
+- **Label:** `alpha` while things break, `beta` now; no label from 1.0.
+- A release = bump `.ver` in `index.html`, add a `CHANGELOG.md` entry (3-5 short lines, Turkish), commit `release: vX.Y.Z`, `git tag vX.Y.Z`, push with `--tags`. Batch several merges into one release; not every merge needs one.
+
 ## Git
 
 - Branches, commit messages and code identifiers in **English**. Game text in Turkish.
