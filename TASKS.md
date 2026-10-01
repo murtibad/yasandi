@@ -11,6 +11,14 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework not done. The teacher opens the sınıf defteri (or says "Kağıtları çıkarın"). Early on the player fills in who they like in this class (`acceptAny` + `save: "crush"`), and that person sees everything that follows. Use the yoklama lie, the paper plane, "su içmeye gidebilir miyim", the bell cutting the teacher off. The teacher is tired, not cruel. 6+ steps, 12+ endings. 0 validator warnings.
 
+### 7. Fix: barber loop at the last steps (`fix/barber-short`)
+
+In `berber`, in the last steps, typing "kısa olmasın" sends the game back to the "ense tıraşı" question. Find why, fix it with a small content change inside `berber.js` only (an intent, a keyword or a line). Then play the whole scenario with 10 natural inputs per step. 0 validator warnings.
+
+### 8. New scenario: 2010 nostalgia (`content/nostalgia-2010`)
+
+Id `2010-bir-gun`. A day in 2010: MSN titreşim, internet kafe, tuşlu telefon, kontör, "Facebook'ta ekleyeyim". Read `AGENTS.md` first. Player fills a gap early (who they are chatting with / who they like). 6+ steps, 12+ endings.
+
 - Also later (owner's idea, notes not collected yet): "1 günlüğüne 2010'a dön" nostalgia (MSN titreşimi, internet kafe, tuşlu telefon), and a cockroach scenario (the immortal enemy of the terlik).
 
 ## Later (owner's ideas, not for agents yet)
