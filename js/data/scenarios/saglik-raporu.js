@@ -102,7 +102,7 @@ window.Yasandi.scenarios.push({
       look: "Kan alma odasının önü mahşer yeri gibi. Kolunu tutanlar, pamuk bastıranlar...",
       text: "Saat 15:30. Kan verme sırasındasın. Yanındaki amca etrafa hava atıyor:\n— O da bir şey mi, benim böbrek taşım ceviz kadar!\nHerkes saygıyla amcaya bakıyor.",
       freeze: {
-        text: "Sustun. Amcanın taşına saygı duruşunda bulundun. Sıran gelince hızlıca kanı verdin.",
+        text: "Amcanın taşına saygı duruşunda bulundun. Sıran gelince hemşire kolunu kaptı, sen daha bir şey diyemeden tüpü doldurdu.",
         goto: "kbb"
       },
       intents: [
@@ -128,8 +128,15 @@ window.Yasandi.scenarios.push({
           goto: "kbb"
         },
         {
+          id: "igneye_bakamam",
+          keywords: ["bakamam", "dayanamam", "katlanamam"],
+          text: "Hemşire elinde iğneyle yaklaşınca tansiyonun düştü, olduğun yere bayıldın. Gözünü açtığında saat 17:00 olmuştu bile.",
+          ending: "bayildin"
+        },
+        {
           id: "kandan_kork",
-          keywords: ["korkarim", "bayilirim", "igne", "bakamam", "korktum"],
+          positive: true,
+          keywords: ["korkarim", "korkuyorum", "bayilirim", "igne", "korktum"],
           text: "Hemşire elinde iğneyle yaklaşınca tansiyonun düştü, olduğun yere bayıldın. Gözünü açtığında saat 17:00 olmuştu bile.",
           ending: "bayildin"
         }
