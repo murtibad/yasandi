@@ -19,7 +19,7 @@ Kurulum, derleme ya da paket yok. Üç yoldan biri yeter:
 2. **Dosyadan:** Depoyu indir (`git clone https://github.com/murtibad/yasandi.git`) ve `index.html` dosyasını tarayıcıda aç.
 3. **Yerel sunucuyla (isteğe bağlı):** Proje klasöründe `python3 -m http.server 8000` çalıştır, tarayıcıda `http://localhost:8000` adresine git.
 
-Yazı tipi, görsel ya da ses dosyası yok; oyun internet olmadan da açılır.
+Yazı tipleri Google Fonts'tan gelir; internet yoksa oyun yine çalışır, sadece sistem yazı tipiyle görünür.
 
 ## Nasıl oynanır
 
