@@ -82,8 +82,13 @@
     return { a: "mı", ı: "mı", e: "mi", i: "mi", o: "mu", u: "mu", ö: "mü", ü: "mü" }[last];
   }
 
-  function fillAnswer(text, answer) {
-    return text.replace(/\{input\}/g, answer).replace(/\{mi\}/g, questionParticle(answer));
+  // {input}: capitalized at the start of a sentence or line, as typed in the middle ("o meyve yuvada olacak", "Murat" stays capital).
+  function fillAnswer(text, answer, typed) {
+    const filled = text.replace(/\{input\}/g, (m, offset, all) => {
+      const atStart = offset === 0 || all[offset - 1] === "\n" || /[.!?»—]\s$/.test(all.slice(Math.max(0, offset - 2), offset));
+      return atStart || !typed ? answer : typed;
+    });
+    return filled.replace(/\{mi\}/g, questionParticle(answer));
   }
 
   function readJson(key, fallback) {
@@ -227,7 +232,7 @@
           // Keep what the player typed as-is ("Murat" stays capital, "sarışın bir kız" stays lower).
           if (saveAs) this.vars[saveAs] = cleanAnswer(input, true);
           if (chosen.goto) this.nodeId = chosen.goto;
-          return this.resolve({ ...chosen, text: fillAnswer(pick(chosen.text), answer) });
+          return this.resolve({ ...chosen, text: fillAnswer(pick(chosen.text), answer, cleanAnswer(input, true)) });
         }
       }
 

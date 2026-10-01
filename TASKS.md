@@ -8,7 +8,7 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ### 9. Playtest pass, one scenario per branch (`fix/play-<id>`)
 
-Done: `is-gorusmesi`, `saglik-raporu`. Next: `tahtaya-kalk`. Only touch the scenario file of your branch, `tests/engine.js` and `tests/play/<id>.txt`. Write the txt file with an editor or node, not PowerShell `echo` (that writes UTF-16).
+Done: `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`. Next: `apartman-kedisi`. Only touch the scenario file of your branch, `tests/engine.js` and `tests/play/<id>.txt`. Write the txt file with an editor or node, not PowerShell `echo` (that writes UTF-16).
 
 Do these one at a time, in this order (newest and least tested first): `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`, `2010-bir-gun`. One scenario = one branch = one review. Do not start the next one until Claude merged the previous one.
 
@@ -18,6 +18,7 @@ For the scenario you took:
 2. Run `node tests/play.js <id>`: it plays every line of your txt file at its step and prints the game's reply. Do not write your own test script. **Read every reply.** For every input where the reply does not fit what was typed (a refusal that makes you do the thing, "korkmuyorum" that makes you faint, a freeze text saying "sustun" after the player said "hayır"): add the missing stem to the right intent, add a small new intent that answers it, or make it a `freeze` case. Never fix it by making a keyword shorter or broader.
 3. Every step gets 2-3 of its **own** `fallbacks` that mention what is happening right now and end with a question. The scenario-level `fallbacks` are the last resort.
 4. Add at least 5 lines for this scenario to `PLAY` in `tests/engine.js` (inputs that failed before your fix).
+4b. **Bare verbs and present tense.** For every intent that means *doing* something, also type the bare imperative ("geç", "koş", "atla", "bak"), the present ("geçiyorum", "koşuyorum") and a short refusal ("geçmiyorum"). Players type these far more than "gecerim". (The matcher now turns a keyword like `gecerim` into the stem `gec`, so these usually work; if one does not, add the stem as its own keyword. Keywords written only as `...arim/...erim` are a smell: add the plain stem too.) Put these inputs in your txt file.
 5. Do not add steps, endings or new mechanics. Do not rewrite texts that already work. A scene that answers what the player wrote is the goal, not a longer scene.
 
 Report: the inputs whose reply did not fit before your fix, per step, and what each one gets now (paste the lines from `node tests/play.js`). Also check `positive`: an intent that means *doing* something keeps `positive: true`; for a negative form that still means doing it ("bakamam" = I can't look = I faint), add a separate intent without `positive` instead of removing it.
@@ -31,6 +32,14 @@ After `fix/play-is-gorusmesi` is merged. `is-gorusmesi` is the only scenario wit
 ### 10. Same playtest pass for the older scenarios
 
 After 9 is done, same steps for `goz-temasi`, `otobus-teyzesi`, `misafirlik`, `berber`, `terk-edilmis-koy`, `yetersiz-bakiye`. These were played by friends already, so check `FEEDBACK.md` lines for them first.
+
+### 11. Dialogue looks different from narration (`feature/dialogue-style`)
+
+Owner's complaint: the narrator and a character's `— ` lines look the same, so long replies blur together. This task **may** touch `css/style.css`, `js/main.js` and `index.html` (for the `?v=N` bump) and nothing else.
+
+- In `js/main.js`, `say()` already splits a reply into groups (player lines `»` get class `said`). Make lines starting with `— ` a group of their own with class `say speech`, and keep narration as `say`. Consecutive `—` lines stay one group.
+- In `css/style.css`: speech is slightly brighter (or has a thin left border in the accent color) and narration is a notch dimmer. Same font, same size, no new files, no animations. Check **both** themes (dark and light) and phone width (375 px). The typewriter caret (`.is-typing::after`) must still work on both classes.
+- Do not change any scenario text. Run `node tests/validate.js` and `node tests/engine.js`, then open `index.html` and play `piknik-karincasi` and `berber` for a few turns. Report with a screenshot description of dark and light.
 
 ## Later (owner's ideas, not for agents yet)
 

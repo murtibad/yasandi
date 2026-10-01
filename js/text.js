@@ -44,6 +44,15 @@
     if (/[ae]$/.test(last)) out.push(kw.slice(0, -1) + "iyor", kw.slice(0, -1) + "uyor");
     if (/k$/.test(last)) out.push(kw.slice(0, -1) + "g");
     if (/p$/.test(last)) out.push(kw.slice(0, -1) + "b");
+    // A keyword written as "gecerim" / "kosarim" must also catch what players really type: "geç", "geçiyorum", "koş".
+    // Stem of 4+ letters matches at the start of a word; a 3-letter stem only as a whole word or before -iyor,
+    // so "gec" does not fire on "gecmis" or "bas" on "baska".
+    const aorist = last.match(/^(.{3,})(arim|erim|irim|urim)$/);
+    if (aorist) {
+      const head = kw.slice(0, kw.length - last.length) + aorist[1];
+      if (aorist[1].length >= 4) out.push(head);
+      else out.push(head + " ", head + "iyor", head + "uyor");
+    }
     return out;
   }
 

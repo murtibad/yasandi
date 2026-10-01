@@ -51,6 +51,13 @@ const MATCH = [
   // unchanged: still start-of-word only
   ["seni tanımıyorum", "taniyorum", false],
   ["kaçıyorum", "kac", true],
+  // a keyword written as aorist ("gecerim") also catches imperative and present: "geç", "geçiyorum"
+  ["geç", "gecerim", true],
+  ["geçiyorum", "gecerim", true],
+  ["geçmişim", "gecerim", false],
+  ["koş", "kosarim", true],
+  ["kalkıyorum", "kalkarim", true],
+  ["başka bir şey", "basarim", false],
 ];
 for (const [input, kw, want] of MATCH) {
   check(matches(normalize(input), kw) === want, `matches("${input}", "${kw}") should be ${want}`);
@@ -94,6 +101,8 @@ const PLAY = [
   ["saglik-raporu", "kbb", "valla biseyim yok", "rapor_icin"],
   ["saglik-raporu", "kan", "bakamam igneye", "igneye_bakamam"],
   ["saglik-raporu", "bashekim", "yarin isbasi yapcam", "yalvar"],
+  ["piknik-karincasi", "tebesir", "geç", "ustunden-atla"],
+  ["piknik-karincasi", "tebesir", "etrafından dolanıyorum", "dolan"],
   // 2010: the obvious answers to each question
   ["2010-bir-gun", "msn", "kameram yok", "kamera_once"],
   ["2010-bir-gun", "kafe_masa", "yok", "hile_yok"],
@@ -137,6 +146,11 @@ let rememberCases = 0;
   const finish = (id, ending) => { const g = fresh(id); g.resolve({ id: "t", text: "x", ending }); };
   const expect = (ok, label) => { rememberCases += 1; check(ok, "remember: " + label); };
 
+  {
+    const g = new Game(byId("piknik-karincasi"), window.Yasandi.globalIntents);
+    const r = g.handle("meyve");
+    expect(/o meyve yuvada/.test(r.text), "{input} stays lower-case in the middle of a sentence");
+  }
   expect(fresh("berber").recall() === null, "first visit with nothing finished says nothing");
   finish("goz-temasi", "sallama");
   expect(/Kıçın/.test(fresh("goz-temasi").recall()), "coming back after an ending gets that ending's own line");
