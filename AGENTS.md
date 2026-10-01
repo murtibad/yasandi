@@ -108,7 +108,7 @@ Build scenarios around moments and memes Turkish internet already knows, not aro
 3. Before the last push: `node tests/validate.js` must show 0 errors and 0 warnings, and you must play the scenario yourself with the checks in "Adding a scenario".
 3a. Stay inside the task. Do not add new game mechanics, stats, UI effects, sounds or screens, and do not delete or add scenarios, unless the task says so. A bigger, flashier game is not the goal; a funnier scene is.
 4. If Claude's review lists problems in `REVIEW.md` for your branch, fix exactly those on the same branch before starting anything new.
-5. When done, move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
+5. When done, commit and **push your branch yourself** (`git push -u origin <branch>`; never `main`). Then move the task to **Done** in `TASKS.md` (branch name + commit hash) and tell the user: branch name, number of steps/endings, validate output. Claude reviews the branch and merges it into `main`.
 
 ## Git
 

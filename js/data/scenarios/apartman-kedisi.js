@@ -23,7 +23,7 @@ window.Yasandi.scenarios.push({
     start: {
       hint: "Apartmandaki çocuklar sana ne isim taktı? (örn: Duman, Pamuk, Sarı)",
       look: "Beton merdivenler. Apartman boşluğunda yankılanan sesler ve havada asılı duran o mükemmel kızarmış balık kokusu.",
-      text: "Sen bu apartmanın yöneticisinden bile daha yetkili kişisisin: Apartman kedisi.\n" +
+      text: "Sen bu apartmanın yöneticisinden bile daha yetkili birisin: apartman kedisi.\n" +
             "Karnın çok aç. İkinci kattaki Hayriye teyze balık kızartıyor, kokusu apartman boşluğunu doldurmuş. Ayrıca kapıcı Cemal efendi az önce sabah ekmeklerini kapı önlerine bıraktı.\n" +
             "Tek derdin karnını doyurmak. Çocuklar sana genelde bir isim takar. Hani şu hep söyledikleri...",
       acceptAny: [
@@ -39,8 +39,14 @@ window.Yasandi.scenarios.push({
       hint: "Yukarı çıkıp balık isteyebilir, ekmekleri kemirebilir veya çocukla oynayabilirsin.",
       look: "Birinci katın çocuğu elinde oyuncak arabasıyla sana bakıyor. İkinci kattan balık kokusu geliyor. Üçüncü katta kapı önünde ekmek poşeti duruyor. Sokak kapısından mahallenin belalı kedisi Sarman kafasını uzatmış.",
       freeze: {
-        text: "Sen olduğun yerde patilerini yalarken yönetici Rıza bey apartmana girdi. Seni görünce yüzü düştü:\n— Yine mi girmiş bu! Şişt! Pist!\nSeni süpürgeyle kovaladı.",
-        ending: "kovuldun"
+        text: [
+          "Olduğun yerde oturup patilerini yalamaya başladın. Aşağıdan ayak sesleri geliyor. Yönetici Rıza bey postayı almaya geliyor galiba.\nBalık mı, ekmek mi, çocuk mu? Çabuk karar ver.",
+          "Hâlâ merdivende oturuyorsun. Kapı sesi geldi, Rıza beyin nefesi duyuluyor. Karnın bir daha gurulduyor.\nYukarı mı çıkıyorsun, saklanıyor musun?"
+        ],
+        exhausted: {
+          text: "Rıza bey köşeyi döndü, seni görünce yüzü düştü:\n— Yine mi girmiş bu! Şişt! Pist!\nSüpürgeyle kovalandın.",
+          ending: "kovuldun"
+        }
       },
       intents: [
         {
@@ -48,11 +54,11 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["miyav", "miyavla", "bagir", "ses cikar", "miyavliyorum", "miyavlarim", "bagiririm"],
           text: [
-            "» Miyav.\nBirinci katın çocuğu sevindi: — Anne bak, {name} bana miyavladı!\nAnnesi içeriden bağırdı: — Elleme onu, pirelidir o!",
+            "» Miyav.\nBirinci katın çocuğu sevindi:\n— Anne bak, {name} bana miyavladı!\nAnnesi içeriden bağırdı:\n— Elleme onu, pirelidir o!",
             "» Miyav!\nİkinci kattan Hayriye teyze seslendi: — Kim miyavlıyor orda? Acıkmış canım."
           ],
           exhausted: {
-            text: "Sürekli miyavlamana apartman grubundan tepki geldi. Rıza bey WhatsApp tan kedi sesi şikayeti alıyorum diyip seni kapı dışarı etti.",
+            text: "Sürekli miyavlamana apartman grubundan tepki geldi. Rıza bey telefonuna bakıp \"Apartman grubundan kedi sesi şikayeti alıyorum!\" dedi ve seni kapı dışarı etti.",
             ending: "whatsapp"
           }
         },
@@ -74,14 +80,14 @@ window.Yasandi.scenarios.push({
           id: "surun",
           positive: true,
           keywords: ["cocuga", "surun", "bacak", "yalan", "sevdir", "sirnas", "cocuk", "oyna"],
-          text: "Çocuğun bacaklarına sürtündün.\nÇocuk Anne {name} beni çok sevdi! deyip seni kucağına aldı ve eve soktu.\nSıcak bir yuvan oldu, gerçi artık dışarı çıkamıyorsun.",
+          text: "Çocuğun bacaklarına sürtündün.\n— Anne, {name} beni çok sevdi! diyerek seni kucağına aldı ve eve soktu.\nSıcak bir yuvan oldu, gerçi artık dışarı çıkamıyorsun.",
           ending: "sahiplen"
         },
         {
           id: "diger-kedi",
           positive: true,
           keywords: ["sarman", "tekir", "kavga", "dovus", "pati", "diger", "kediye", "saldir"],
-          text: "» Miyav!\nSarman a tıslayıp üzerine atladın. İkiniz merdivenlerden yuvarlana yuvarlana kavga ettiniz.\nApartman ayağa kalktı.",
+          text: "» Miyav!\nSarman'a tıslayıp üzerine atladın. İkiniz merdivenlerden yuvarlana yuvarlana kavga ettiniz.\nApartman ayağa kalktı.",
           ending: "kedi_kavgasi"
         },
         {
@@ -94,7 +100,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "» Miyav? Ne yapacaksın?",
-        "Balık kokusu burnuna buram buram geliyor. Ekmekler de orada."
+        "Balık kokusu burnuna buram buram geliyor, ekmekler de üst katta. Hangisine gidiyorsun?"
       ],
       patience: 3,
       patienceIntent: {
@@ -122,7 +128,7 @@ window.Yasandi.scenarios.push({
           id: "tirmala",
           positive: true,
           keywords: ["tirmala", "kapiyi", "esele", "vur", "vururum", "patile", "tirnak"],
-          text: "Kapıyı tırmaladın. Cırt. Cırt.\nHayriye teyze kapıyı hışımla açtı: — Boyasını yeni yaptırdım be hayvan! Pist!\nSana elindeki bezle vurdu, aşağı kaçtın.",
+          text: "Kapıyı tırmaladın. Cırt. Cırt.\nHayriye teyze kapıyı hışımla açtı:\n— Boyayı yeni yaptırdım be hayvan! Pist!\nSana elindeki bezle vurdu, aşağı kaçtın.",
           goto: "staircase"
         },
         {
@@ -134,9 +140,16 @@ window.Yasandi.scenarios.push({
             "Uyurken kapı aniden açıldı, Hayriye teyzenin ayağına takıldın.\n— Ay tövbe bismillah! dedi."
           ],
           exhausted: {
-            text: "Hayriye teyze düşmemek için kapı pervazına tutundu. Kalp krizi geçiriyordum senin yüzünden! diyip içeri kaçtı.",
+            text: "Hayriye teyze düşmemek için kapı pervazına tutundu.\n— Kalp krizi geçiriyordum senin yüzünden! diyerek içeri kaçtı. Kapıyı da kilitledi.",
             ending: "kovuldun"
           }
+        },
+        {
+          id: "surun-kapi",
+          positive: true,
+          keywords: ["surun", "surt", "dolan", "sirnas", "kapiya"],
+          text: "Kapıya sürtünüp \"mırr\" diye bir ses çıkardın. Terlik sesleri yaklaştı, kapı açıldı.\n— Aaa, {name} gelmiş! Acıktın mı sen?",
+          goto: "hayriye-teyze"
         },
         {
           id: "asansor",
@@ -147,8 +160,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "İçeriden hamsi kokusu geliyor. » Miyav?",
-        "Kapalı bir kapı ve sen. Klasik kedi problemi."
+        "İçeriden hamsi kokusu geliyor. Kapıya ne yapıyorsun?",
+        "Kapalı bir kapı ve sen. Klasik kedi problemi. Ses mi çıkarıyorsun, yoksa bekliyor musun?"
       ]
     },
 
@@ -164,14 +177,14 @@ window.Yasandi.scenarios.push({
           id: "surun-teyze",
           positive: true,
           keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yala", "yaltaklan"],
-          text: "» Miyav.\nBacaklarına dolandın, kendini sevdirdin.\n— Dur kıyamam sana, diyip mutfağa gitti. Döndüğünde elinde koca bir hamsi kuyruğu vardı.",
+          text: "» Miyav.\nBacaklarına dolandın, kendini sevdirdin.\n— Dur kıyamam sana, deyip mutfağa gitti. Döndüğünde elinde koca bir hamsi kuyruğu vardı.",
           ending: "balik"
         },
         {
           id: "iceri-gir",
           positive: true,
           keywords: ["iceri", "dal", "gir", "koc", "kosa", "firlar", "girerim", "mutfaga", "zipla"],
-          text: "Hayriye teyzenin bacaklarının arasından mutfağa daldın.\n— Ayh! Çık dışarı arsız! diye bağırdı. Seni süpürgeyle apartman boşluğuna geri kovaladı.",
+          text: "Hayriye teyzenin bacaklarının arasından mutfağa daldın.\n— Ayh! Çık dışarı arsız! diye bağırdı Hayriye teyze. Seni süpürgeyle apartman boşluğuna geri kovaladı.",
           goto: "staircase"
         },
         {
@@ -183,7 +196,7 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Hayriye teyze sana, sen ona bakıyorsun. » Miyav?",
+        "Hayriye teyze sana, sen ona bakıyorsun. Balık için ne yapıyorsun, sürtünüyor musun?",
       ]
     },
 
@@ -191,7 +204,7 @@ window.Yasandi.scenarios.push({
       hint: "Kaç, tıslayarak saldır veya masum rolü yap.",
       look: "Rıza bey takım elbiseli, sinirli bir yönetici. Elinde poşetin yarısı senin ağzında.",
       freeze: {
-        text: "Ekmek ağzında, donakaldın. Rıza bey Yine mi sen! Aidatları kedilere yediriyoruz resmen! dedi ve elindeki şemsiyeyle seni kovaladı.",
+        text: "Ekmek ağzında, donakaldın. Rıza bey ekmeğin yarısının ağzında olduğunu görünce bağırdı:\n— Yine mi sen! Aidatları kedilere yediriyoruz resmen!\nElindeki şemsiyeyle seni merdivenlerden aşağı kovaladı.",
         ending: "kovuldun"
       },
       intents: [
@@ -220,12 +233,12 @@ window.Yasandi.scenarios.push({
           id: "araba",
           positive: true,
           keywords: ["arabaya", "pencere", "disari", "saklan", "giyin", "kac"],
-          text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
+          text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof'undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
           ending: "yonetici"
         }
       ],
       fallbacks: [
-        "Rıza bey şemsiyesini havaya kaldırdı. » Miyav?!",
+        "Rıza bey şemsiyesini havaya kaldırdı. Kaçıyor musun, yoksa yalvarıyor musun?",
       ]
     }
   },
@@ -253,7 +266,7 @@ window.Yasandi.scenarios.push({
   ],
 
   fallbacks: [
-    "İnsanlar seni anlamıyor. » Miyav?",
+    "İnsanlar seni anlamıyor. Ne yapıyorsun?",
     "Kedilerin yapabileceği şeyler sınırlı. Bir şeyleri devirmek, miyavlamak, uyumak... Ne yapacaksın?"
   ]
 });
