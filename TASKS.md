@@ -42,6 +42,12 @@ Id `piknik-karincasi`. Read `ideas/karinca-notes.md` first; it has the setting, 
 
 Id `saglik-raporu`. Read `ideas/hastane-notes.md` first. You start a new job tomorrow and need an işe giriş raporu today; the hospital closes at 16:00. One step per department (danışma, göz, KBB, kan, final signature), each with its own small disaster and a clock line ("Saat 15:12. İki imza eksik."). The waiting-room illness contest, the queue screen, "selamı var", Dr. Google and the pharmacy must all appear. Doctors and nurses are tired, not evil. Freeze = the clock moves on. 6+ steps, 12+ endings (got the report with a wrong name on it, the job starts without it, ended up admitted, became the waiting room's champion...). 0 validator warnings.
 
+### 6. New scenario: picked for the board (`content/classroom`)
+
+Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework not done. The teacher opens the sınıf defteri (or says "Kağıtları çıkarın"). Early on the player fills in who they like in this class (`acceptAny` + `save: "crush"`), and that person sees everything that follows. Use the yoklama lie, the paper plane, "su içmeye gidebilir miyim", the bell cutting the teacher off. The teacher is tired, not cruel. 6+ steps, 12+ endings. 0 validator warnings.
+
+- Also later (owner's idea, notes not collected yet): "1 günlüğüne 2010'a dön" nostalgia (MSN titreşimi, internet kafe, tuşlu telefon), and a cockroach scenario (the immortal enemy of the terlik).
+
 ## Later (owner's ideas, not for agents yet)
 
 - Friends' playtest notes are in `FEEDBACK.md` (read it before content work). Open: tappable suggestions when stuck; collecting unmatched inputs is the most useful next step.
