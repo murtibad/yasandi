@@ -38,6 +38,10 @@ Esra's idea. A comedy of the interview everyone has lived, not real career advic
 
 Id `piknik-karincasi`. Read `ideas/karinca-notes.md` first; it has the setting, the stake, the real ant facts and the moves to use. Same rules as the cat task: stake in the first lines (the queen expects food before dark), the player fills one gap with `acceptAny` + `save` (what the ant brings home, or the ant's own name), humans talk about you without knowing it ("Her yer karınca olmuş!"), cartoonish deaths only. 5+ steps, 12+ endings including the ant mill, the sugar cube flag and the tebeşir wall. 0 validator warnings.
 
+### 5. New scenario: the health report at the devlet hastanesi (`content/hospital-report`)
+
+Id `saglik-raporu`. Read `ideas/hastane-notes.md` first. You start a new job tomorrow and need an işe giriş raporu today; the hospital closes at 16:00. One step per department (danışma, göz, KBB, kan, final signature), each with its own small disaster and a clock line ("Saat 15:12. İki imza eksik."). The waiting-room illness contest, the queue screen, "selamı var", Dr. Google and the pharmacy must all appear. Doctors and nurses are tired, not evil. Freeze = the clock moves on. 6+ steps, 12+ endings (got the report with a wrong name on it, the job starts without it, ended up admitted, became the waiting room's champion...). 0 validator warnings.
+
 ## Later (owner's ideas, not for agents yet)
 
 - Friends' playtest notes are in `FEEDBACK.md` (read it before content work). Open: tappable suggestions when stuck; collecting unmatched inputs is the most useful next step.
