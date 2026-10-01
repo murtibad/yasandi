@@ -7,11 +7,13 @@
 
   const texts = (t) => (Array.isArray(t) ? t : [t]);
 
-  const FREEZE_WORDS = ["hayir", "yok", "hicbir", "hic bir", "bilmiyorum", "bilmem", "sus", "susuyorum", "sustum", "sessiz", "bekliyorum", "bekle", "dondum", "donakal", "kipirdamiyorum", "oylece", "hmm", "iii", "ee", "..."];
+  const FREEZE_WORDS = ["hayir", "yok", "hic bir", "bilmiyorum", "bilmem", "bosver", "bos ver", "sus", "susuyorum", "sustum", "sessiz", "bekliyorum", "bekle", "dondum", "donakal", "kipirdamiyorum", "oylece", "hmm", "iii", "ee", "..."];
   function isFreeze(normalized) {
     const t = normalized.trim();
     if (!t || /^[.\s]+$/.test(t)) return true;
-    return FREEZE_WORDS.some((w) => t === w || t.startsWith(w + " ") || normalized.includes(" " + w + " "));
+    // In a long sentence a "yok" in the middle is not silence ("ellerine sağlık ama yerim yok artık"); only a leading one is.
+    const long = t.split(" ").length > 4;
+    return FREEZE_WORDS.some((w) => t === w || t.startsWith(w + " ") || (!long && normalized.includes(" " + w + " ")));
   }
 
   // Questions to the narrator ("nereye saklayabilirim?", "ne yapabilirim?") are not actions.

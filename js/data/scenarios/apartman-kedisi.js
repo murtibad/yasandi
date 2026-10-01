@@ -79,7 +79,7 @@ window.Yasandi.scenarios.push({
         {
           id: "surun",
           positive: true,
-          keywords: ["cocuga", "surun", "bacak", "yalan", "sevdir", "sirnas", "cocuk", "oyna"],
+          keywords: ["cocuga", "surun", "bacak", "yalan", "sevdir", "sirnas", "cocuk", "oyna", "surtun", "kafa sur"],
           text: "Çocuğun bacaklarına sürtündün.\n— Anne, {name} beni çok sevdi! diyerek seni kucağına aldı ve eve soktu.\nSıcak bir yuvan oldu, gerçi artık dışarı çıkamıyorsun.",
           ending: "sahiplen"
         },
@@ -134,7 +134,7 @@ window.Yasandi.scenarios.push({
         {
           id: "uyu-kapi",
           positive: true,
-          keywords: ["uyu", "yat", "bekle", "otur", "paspasa", "kivril"],
+          keywords: ["uyu", "yat", "otur", "paspasa", "kivril"],
           text: [
             "Paspasta uyumaya karar verdin. Balık kokusu rüyalarına girdi.",
             "Uyurken kapı aniden açıldı, Hayriye teyzenin ayağına takıldın.\n— Ay tövbe bismillah! dedi."
@@ -176,7 +176,7 @@ window.Yasandi.scenarios.push({
         {
           id: "surun-teyze",
           positive: true,
-          keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yala", "yaltaklan"],
+          keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yala", "yaltaklan", "surtun", "mirla", "mirildan", "mir mir", "kuyrugumu"],
           text: "» Miyav.\nBacaklarına dolandın, kendini sevdirdin.\n— Dur kıyamam sana, deyip mutfağa gitti. Döndüğünde elinde koca bir hamsi kuyruğu vardı.",
           ending: "balik"
         },
@@ -209,6 +209,13 @@ window.Yasandi.scenarios.push({
       },
       intents: [
         {
+          id: "araba",
+          positive: true,
+          keywords: ["arabaya", "pencere", "disari", "saklan", "giyin"],
+          text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof'undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
+          ending: "yonetici"
+        },
+        {
           id: "kac-riza",
           positive: true,
           keywords: ["kac", "uzaklas", "kos", "atla", "fiy", "kacarim", "asagi", "merdivenlerden"],
@@ -225,16 +232,9 @@ window.Yasandi.scenarios.push({
         {
           id: "masum",
           positive: true,
-          keywords: ["masum", "sevimli", "sirin", "bak", "goz", "gozlerini", "surun", "miyav"],
+          keywords: ["masum", "sevimli", "sirin", "bak", "goz", "gozlerini", "surun", "miyav", "gozlerimi kocaman", "yavru kedi"],
           text: "Ekmeği bırakıp kocaman gözlerle ona baktın ve masumca » Miyav... dedin.\nRıza beyin kalbi eridi. — Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
           ending: "sahiplen"
-        },
-        {
-          id: "araba",
-          positive: true,
-          keywords: ["arabaya", "pencere", "disari", "saklan", "giyin", "kac"],
-          text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof'undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
-          ending: "yonetici"
         }
       ],
       fallbacks: [

@@ -46,7 +46,7 @@ window.Yasandi.globalIntents = [
   {
     id: "swear",
     first: true,
-    keywords: ["amk", "aq", "siktir", "sikerim", "sikeyim", "anani", "amina", "yavsak", "serefsiz", "hassiktir"],
+    keywords: ["amk", "aq", "siktir", "sikt", "sikerim", "sikeyim", "sikim", "sikik", "anani", "amina", "amcik", "orospu", "yarrak", "pic", "kahpe", "pezevenk", "gavat", "yavsak", "serefsiz", "hassiktir", "salak", "aptal", "gerizekali", "dangalak"],
     text: "Ağzına geleni saydın. İçin rahatladı. Başka hiçbir şey değişmedi.",
   },
   {

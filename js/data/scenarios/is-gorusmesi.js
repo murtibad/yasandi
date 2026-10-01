@@ -45,28 +45,24 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "senin-koltugunda",
-          positive: true,
           keywords: ["koltugunuzda", "koltugunuz", "yerinizde", "masanizda", "patron", "ceo"],
           text: "» Sizin koltuğunuzda otururken görüyorum.\nBurcu Hanım'ın gülüşü dondu. Laptop'taki Mert Bey güldü: — Özgüvenli aday, severiz. Umarım beni de kovmazsın.",
           goto: "q-zayiflik"
         },
         {
           id: "evde",
-          positive: true,
           keywords: ["evde", "yatarak", "zengin", "emekli", "calismiyor", "calismadan"],
           text: "» Çalışmıyor olmayı umuyorum. Evde yatarak zengin olmuş şekilde.\n— Hepimizin hayali, diye mırıldandı Burcu Hanım. Mert Bey'in bebek sesi kesildi, o da iç çekti.",
           goto: "q-zayiflik"
         },
         {
           id: "burada",
-          positive: true,
-          keywords: ["burada", "sirkette", "sizinle", "kurumda", "yonetici", "basarili", "terfi"],
+          keywords: ["burada", "sirkette", "sizinle", "kurumda", "yonetici", "basarili", "terfi", "mudur", "sef", "takim lideri"],
           text: "» Bu şirkette değer katan bir yönetici olarak.\nBurcu Hanım hızla not aldı. Klasik, sıkıcı ama güvenli bir cevap.",
           goto: "q-zayiflik"
         },
         {
           id: "baska-sirket",
-          positive: true,
           keywords: ["baska", "rakip", "yurtdisinda", "avrupada", "yurt disi", "amerika", "kendi", "isimde", "sirketimde"],
           text: "» Kendi şirketimi kurmuş olurum ya da yurt dışında.\nBurcu Hanım kalemini bıraktı. — Biz sizi geçici mi alıyoruz yani? İş etiği nerede?\nToplantı buz gibi oldu.",
           goto: "q-zayiflik"
@@ -101,35 +97,30 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "mukemmeliyetci",
-          positive: true,
-          keywords: ["mukemmeliyetciyim", "mukemmel", "mukemmeliyet", "cok caliskanim", "is koligim", "detayciyim", "titizim"],
+          keywords: ["mukemmeliyetciyim", "mukemmel", "mukemmeliyet", "cok caliskanim", "is koligim", "detayciyim", "titizim", "cok calis", "fazla calis", "calismayi seviyorum"],
           text: "» Mükemmeliyetçiyim, işimi bitirmeden uyuyamam.\nBerkcan pufundan güldü: — Aga bu lafı 2012'de bıraktılar ya.\nBurcu Hanım ters ters Berkcan'a baktı ama notunu aldı.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "durust",
-          positive: true,
           keywords: ["tembelim", "uykucu", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga"],
           text: "» Biraz tembelim. Çok çabuk sıkılırım.\nMert Bey yayından konuştu: — Sonunda dürüst biri! Ama bizde köle gibi çalışman lazım.\nBurcu Hanım 'Fazla dürüst' diye not aldı.",
           ending: "fazla_durust"
         },
         {
           id: "hayir-diyemem",
-          positive: true,
           keywords: ["hayir diyemem", "yardimseverim", "diyemem", "iyi niyet"],
           text: "» İnsanlara hayır diyemiyorum, herkesin işine koşarım.\nBurcu Hanım'ın gözleri parladı: — Harika. Biz de tam her işe koşacak {job} arıyorduk.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "yok",
-          positive: true,
           keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim"],
           text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı: — Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "agresif",
-          positive: true,
           keywords: ["agresif", "bagiririm", "masaya", "vururum", "toksik", "sinirliyim"],
           text: "» Biraz agresifim. Bir şey ters giderse masaya yığıp bağırırım.\nBurcu Hanım korkuyla geri çekildi. Berkcan ayaklandı.\n— Sen tam bir CEO materyalisin amca, diye kekeledi Berkcan.",
           ending: "patron"
@@ -152,28 +143,30 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "maas-az",
-          positive: true,
           keywords: ["maas", "para", "ucret", "ekonomi", "ekonomik", "yetmiyor", "vermiyorlardi", "azdi", "parasiz", "acim", "zam"],
           text: "» Maaş yetersizdi, zam yapmadılar.\nBurcu Hanım boğazını temizledi: — Bizde de ilk 3 yıl zam olmuyor ama içeride sıcak su var, aile şirketiyiz.",
           goto: "q-neden-biz"
         },
         {
           id: "patron-kotu",
-          positive: true,
           keywords: ["patron", "yonetici", "mobbing", "toksik", "kavga", "dovdum", "anlasamadik", "kufur"],
           text: "» Yöneticim tam bir zorbadı, katlanamadım.\nMert Bey yayından atıldı: — Aynısı bizim şirkette de var! Ben de dün istifayı basacaktım, eşim durdurdu.\nBurcu Hanım Mert Bey'i yayından sessize aldı.",
           goto: "q-neden-biz"
         },
         {
           id: "kariyer",
-          positive: true,
-          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek"],
+          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek", "sikildim", "monoton", "rutin"],
           text: "» Kendimi geliştirmek ve yeni vizyonlar edinmek için ayrıldım.\nBurcu Hanım bu klasik cevabı çok beğendi, kağıdına gülen yüz çizdi.",
           goto: "q-neden-biz"
         },
         {
+          id: "sirket-batti",
+          keywords: ["batti", "kapandi", "iflas", "kucul", "isten cikar"],
+          text: "» Şirket battı.\n— Ay geçmiş olsun, dedi Burcu Hanım. Bizde de geçen ay maaşlar on gün gecikti.\nSonra ağzını kapattı. Mert Bey yayından: — Burcu Hanım, o konu gizliydi.",
+          goto: "q-neden-biz"
+        },
+        {
           id: "kovuldum",
-          positive: true,
           keywords: ["kovuldum", "attilar", "isten cikarildim", "cikis", "kovdular"],
           text: "» Kovuldum. Biraz olaylı oldu.\nBurcu Hanım kalemi düşürdü. Berkcan ayağa kalktı: — Helal lan! Ben de okuldan atıldım geçen hafta.\nOrtam biraz gerildi.",
           goto: "q-neden-biz"
@@ -196,21 +189,18 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "para-icin",
-          positive: true,
-          keywords: ["para", "maas", "paraya", "issizim", "mecbur", "ilan", "gordum", "basvurdum", "is ariyordum"],
+          keywords: ["para", "maas", "paraya", "issizim", "mecbur", "ilan", "gordum", "basvurdum", "is ariyordum", "ihtiyac", "kira", "borc", "evime yakin"],
           text: "» İş arıyordum, ilanınızı gördüm başvurdum. Ekstra bir anlamı yok.\nBurcu Hanım'ın kurumsal ruhu sarsıldı. Mert Bey (sessizde olmasına rağmen) kamerayı açıp alkışlıyor gibi yaptı.",
           goto: "q-maas"
         },
         {
           id: "prestij",
-          positive: true,
           keywords: ["vizyon", "prestij", "lider", "buyuk", "kalite", "kurumsal", "sizi", "seviyorum", "kariyerli", "deger"],
           text: "» Sektörün lider firması olduğunuz için, vizyonunuz beni etkiledi.\nBurcu Hanım gururla kabardı. Şirketin aslında merdiven altı bir pazar yeri olduğunu ikiniz de biliyorsunuz ama oyun böyle oynanıyor.",
           goto: "q-maas"
         },
         {
           id: "ik-itiraf",
-          positive: true,
           keywords: ["siz de", "siz memnunsunuz", "sizce", "sen neden", "sizi neden"],
           text: "» Asıl siz neden buradasınız Burcu Hanım? Memnun musunuz?\nBurcu Hanım bir an dondu. Sonra ağlamaya başladı.\n— Hiç memnun değilim! Dört yıldır zam yapmıyorlar, Berkcan her gün masama oturuyor!\nSana CV'sini uzattı: — Acaba siz işe girseniz, ben sizin yerinize başvursam?",
           ending: "ik_is_ariyor"
@@ -233,22 +223,19 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "asgari",
-          positive: true,
-          keywords: ["asgari", "ne verirseniz", "onemsiz", "farketmez", "para muhim degil", "tecrube", "ogrenmek"],
+          keywords: ["asgari", "ne verirseniz", "onemsiz", "farketmez", "para muhim degil", "tecrube", "ogrenmek", "fark etmez", "siz bilirsiniz", "ne uygun gorurseniz"],
           text: "» Para mühim değil, asgari ücret yeterli, ben tecrübe kazanmak istiyorum.\nBurcu Hanım gözyaşlarını tutmaya çalıştı. Şirketin hayallerindeki köleyi sonunda buldular.",
           ending: "asgari_ucret"
         },
         {
           id: "makul",
-          positive: true,
           keywords: ["makul", "pazarlik", "gorusuruz", "konusuruz", "sizce", "teklifiniz", "butce", "siz ne"],
           text: "» Sizin bütçeniz ne kadar, ona göre konuşalım.\nBurcu Hanım terledi:\n— Bütçe konusunda benim yetkim yok, o Mert Bey'de.\nMert Bey yayından: — Bende de yok, o patronda.\nKimse rakam söylemedi ama herkes rahatladı.",
           goto: "q-soru"
         },
         {
           id: "yuksek",
-          positive: true,
-          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli"],
+          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden"],
           text: [
             "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü: — Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
             "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı: — Oğlum ben o kadar almıyorum lan!"
@@ -275,29 +262,30 @@ window.Yasandi.scenarios.push({
       },
       intents: [
         {
+          id: "soru-var",
+          keywords: ["=evet", "bir sorum", "sorum var", "sorabilir miyim", "sorayim"],
+          text: "— Buyurun, sizi dinliyorum.\nBurcu Hanım saatine baktı. Mert Bey'in bebeği de sustu, o da dinliyor.",
+        },
+        {
           id: "soru-yok",
-          positive: true,
           keywords: ["hayir", "yok", "tesekkurler", "sorum yok", "her sey net", "sag olun", "yeterli", "yoktur"],
           text: "» Teşekkürler, benim için her şey net.\nBurcu Hanım tokalaşmak için elini uzattı: — Katıldığınız için teşekkürler. Biz olumlu ya da olumsuz döneriz.\nAsla dönmediler.",
           ending: "sizi_arariz"
         },
         {
           id: "ne-zaman",
-          positive: true,
           keywords: ["ne zaman", "donus", "haber", "ararsiniz", "belli olur", "sonuc", "basliyorum", "ise alindim mi"],
           text: "» Sonuç ne zaman belli olur acaba?\nBurcu Hanım yalan söylerken gözünü bile kırpmadı: — Cuma gününe kadar muhakkak ararız.\nO cuma hiç gelmedi.",
           ending: "sizi_arariz"
         },
         {
           id: "yemek",
-          positive: true,
           keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin"],
           text: "» Yemek, yol ve yan haklar nelerdir?\nBurcu Hanım: — Bizde yemekler şirketten, tabldot. Yol yok, kendin geliyorsun. Mesai de gönüllülük esasına dayanır.\nDehşet içinde masadan kalkıp kaçtın.",
           ending: "kacti"
         },
         {
           id: "farkli-is",
-          positive: true,
           keywords: ["cay", "kahve", "berkcan", "baska pozisyon", "temizlik"],
           text: "» Mert Bey'in yerine geçebilir miyim?\nBurcu Hanım güldü: — Siz {job} olarak başvurdunuz ama sizi Müşteri Hizmetleri'ne alalım. Asgari ücretle.\nİtiraz edemeden kendini çağrı merkezinde buldun.",
           ending: "baska_pozisyon"

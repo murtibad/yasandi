@@ -21,6 +21,7 @@ js/sound.js                         typing blips and ending stings (Web Audio, n
 js/data/global-intents.js           intents valid in every scenario (police, mom, dance...)
 js/data/scenarios/<id>.js           one file per scenario, content only
 tests/validate.js                   checks scenarios for broken links
+tests/engine.js                     matcher and negation cases (how real players type)
 ```
 
 ## Scenario format
@@ -38,6 +39,8 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - `exhausted: { text, ending?/goto? }` on an intent with a `text` array: what happens when the player does it again after every variant was shown (third "Tuncay arkanda!" and he finally sees the cin).
 - `first: true` on a `common` intent makes it win over node intents (a specific phrase like "topallayarak iniyorum" must beat the general "iniyorum").
 - `whole: true` on an intent means it only fires when the keyword is the whole input.
+- `"=kac"` (a keyword starting with `=`) only matches when it is the whole input ("kaç!" but not "saat kaç"). `"#"` matches any number ("50 bin", "40000").
+- The matcher already handles chat spelling and the common bends, so do not list them: "yapıyom/bakıyon/geliyo" match "yapiyorum/bakiyorsun/geliyor"; "bi, bişey, tmm, mk, slm" match "bir, bir sey, tamam, amk, selam"; "bekle" matches "bekliyorum", "agla" matches "ağlıyorum"; "balik" matches "balığa", "ekmek" matches "ekmeği". Because of that, a keyword ending in -a/-e also matches its -iyor form: "kira" would match "kırıyorum", so pick a longer stem when that would misfire.
 - **Remembering answers:** an `acceptAny` item with `save: "crush"` stores the player's answer; any later text, look, hint or fallback can use `{crush}`. `{input}` only exists inside the `acceptAny` text itself. Mention a saved description once or twice per scene, then use "o" or no subject; repeating "uzun boylu kıvırcık saçlı bir kız" in every sentence gets old.
 - `acceptAny: [...]` on a node accepts any answer to an open question. `{input}` is replaced by the player's words, `{mi}` by the right question particle (mı/mi/mu/mü).
 - `fallbacks`: replies when nothing matches. **Every fallback must end with pressure or a question** so the player knows what to answer. Never write "X yazdığını anlamadı".
@@ -65,7 +68,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 1. Create `js/data/scenarios/<id>.js` (kebab-case id, no Turkish characters).
 2. Add its `<script>` tag in `index.html` **before** `js/engine.js`.
 3. Bump `?v=N` on all script/css tags in `index.html` (so browsers load the new files).
-4. Run `node tests/validate.js`. It must print `All scenarios OK`. Fix every ERROR; read every WARN.
+4. Run `node tests/validate.js` and `node tests/engine.js`. They must print `All scenarios OK` and `All ... engine cases OK`. Fix every ERROR; read every WARN.
 5. Play it in a browser: try the obvious answers a real person would type first ("efendim", "pardon", "ne var") and make sure each one is understood.
    Also try refusals ("yer vermiyorum", "kaçmıyorum") and sentences that merely contain your keywords ("insanlar bana bakıyor"). None of them may trigger an ending by accident.
 
