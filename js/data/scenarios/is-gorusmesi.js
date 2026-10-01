@@ -31,7 +31,8 @@ window.Yasandi.scenarios.push({
         { text: "» {input} pozisyonu için.\n— Hah, evet! {input}, dedi Burcu Hanım CV'yi düzelterek.\nBu sırada masadaki laptop'tan cızırtılı bir ses geldi. Kamerası kapalı olan Takım Lideri Mert Bey yayına bağlandı.\n— Başlayabiliriz, dedi Mert Bey. Arkadan bebek ağlaması geliyor.", save: "job", goto: "q-5-yil" }
       ],
       fallbacks: [
-        "— Hangi pozisyon dediniz? CV'de tam yazmıyor da."
+        "— Hangi pozisyon dediniz? CV'de tam yazmıyor da. Ne iş yapıyorsunuz?",
+        "Burcu Hanım gözlüklerinin üstünden baktı. — Lütfen söyler misiniz, hangi ilana başvurdunuz?"
       ]
     },
 
@@ -79,7 +80,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Burcu Hanım kalemiyle ritim tutuyor. — Beş yıl sonra nerede görüyorsunuz kendinizi?",
-        "Mert Bey yayından: — Sesiniz gelmiyor galiba?"
+        "Mert Bey yayından: — Sesiniz gelmiyor galiba? Ne görüyorsunuz 5 yıl sonra?"
       ],
       patience: 3,
       patienceIntent: {
@@ -105,7 +106,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "durust",
-          keywords: ["tembelim", "uykucu", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga", "uyku", "inatci", "hizli", "yavas"],
+          keywords: ["tembelim", "uykucuyum", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga", "inatciyim", "yavasim"],
           text: "» Biraz tembelim. Çok çabuk sıkılırım.\nMert Bey yayından konuştu: — Sonunda dürüst biri! Ama bizde köle gibi çalışman lazım.\nBurcu Hanım 'Fazla dürüst' diye not aldı.",
           ending: "fazla_durust"
         },
@@ -117,7 +118,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "yok",
-          keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim", "hic", "bilmiyorum", "yok"],
+          keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim"],
           text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı: — Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
           goto: "q-neden-ayrildin"
         },
@@ -130,7 +131,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Burcu Hanım bekliyor. — Bir tane zayıflığınız olmalı?",
-        "Berkcan: — Abi bi şey salla geç işte, ben öyle işe girdim."
+        "Berkcan: — Abi bi şey salla geç işte, yok mu bir zayıflığın?"
       ]
     },
 
@@ -157,13 +158,13 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "kariyer",
-          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek", "sikildim", "monoton", "rutin", "gelistir", "istiyorum"],
+          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek", "sikildim", "monoton", "rutin", "kendimi gelistir"],
           text: "» Kendimi geliştirmek ve yeni vizyonlar edinmek için ayrıldım.\nBurcu Hanım bu klasik cevabı çok beğendi, kağıdına gülen yüz çizdi.",
           goto: "q-neden-biz"
         },
         {
           id: "ilk-is",
-          keywords: ["ilk", "mezun", "ogrenci", "calismadim", "ayrilmadim", "tecrube"],
+          keywords: ["ilk isim", "ilk is", "yeni mezun", "hic calismadim", "ayrilmadim", "tecrubem yok"],
           text: "» Bu benim ilk iş deneyimim olacak.\nBurcu Hanım gözlerini kıstı: — Harika, o zaman asgari ücretin altından başlayabiliriz.",
           goto: "q-neden-biz"
         },
@@ -203,7 +204,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "prestij",
-          keywords: ["vizyon", "prestij", "lider", "buyuk", "kalite", "kurumsal", "sizi", "seviyorum", "kariyerli", "deger", "iyi", "guzel", "deneyim", "kariyer"],
+          keywords: ["vizyon", "prestij", "lider", "buyuk", "kalite", "kurumsal", "sizi", "seviyorum", "kariyerli", "deger"],
           text: "» Sektörün lider firması olduğunuz için, vizyonunuz beni etkiledi.\nBurcu Hanım gururla kabardı. Şirketin aslında merdiven altı bir pazar yeri olduğunu ikiniz de biliyorsunuz ama oyun böyle oynanıyor.",
           goto: "q-maas"
         },
@@ -243,7 +244,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "yuksek",
-          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden", "zengin"],
+          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden"],
           text: [
             "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü: — Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
             "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı: — Oğlum ben o kadar almıyorum lan!"
@@ -288,7 +289,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "yemek",
-          keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin", "maas", "saat", "calisma"],
+          keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin", "calisma saat", "mesai saat", "maas ne zaman"],
           text: "» Yemek, yol ve yan haklar nelerdir?\nBurcu Hanım: — Bizde yemekler şirketten, tabldot. Yol yok, kendin geliyorsun. Mesai de gönüllülük esasına dayanır.\nDehşet içinde masadan kalkıp kaçtın.",
           ending: "kacti"
         },

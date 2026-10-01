@@ -63,7 +63,7 @@ window.Yasandi.scenarios.push({
         {
           id: "selam",
           positive: true,
-          keywords: ["selam", "naber", "nasil", "mesaj at", "merhaba"],
+          keywords: ["selam", "naber", "nasil", "mesaj at", "merhaba", "yaz", "yazarim", "=evet", "=tamam"],
           text: "» Selam :)\nAnında cevap geldi: 'Naber, cam açsana.'",
           goto: "kamera_sorunu"
         },
@@ -190,15 +190,14 @@ window.Yasandi.scenarios.push({
         {
           id: "hile_ver",
           positive: true,
-          keywords: ["hile", "kurayim", "goster", "yardim et"],
+          keywords: ["hile", "kurayim", "goster", "yardim et", "var", "=evet", "kur", "yapalim"],
           text: "Çocuğa hile indirmeye çalışırken bilgisayara virüs girdi. Mavi ekran verdi! Kafeci 'Format atıcam kalk!' diye bağırdı.",
           ending: "virus"
         },
         {
           id: "oyala",
-          positive: true,
-          keywords: ["isim var", "bekle", "oyala", "sonra", "simdi degil"],
-          text: "» Şimdi işim var abicim, sonra bakarız.\nÇocuk usulca yan masaya döndü. Sen de hemen kamerayı açtın.",
+          keywords: ["isim var", "bekle", "oyala", "sonra", "simdi degil", "yok", "=hayir"],
+          text: "» Yok abicim bende hile falan, işim var.\nÇocuk usulca yan masaya döndü. Sen de hemen kamerayı açtın.",
           goto: "kamera_acik"
         },
         {
