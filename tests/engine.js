@@ -130,6 +130,11 @@ const PLAY = [
   ["apartman-kedisi", "hayriye-teyze", "yalanirim", "yala"],
   ["apartman-kedisi", "riza-bey", "patimi yalarim", "yala"],
   ["apartman-kedisi", "start", "sana ne", "anlamaz"],
+  ["piknik-karincasi", "seker", "isir", "isir"],
+  ["piknik-karincasi", "ortu", "vur", "kavga"],
+  ["piknik-karincasi", "tebesir", "tebesiri yalarim", "yala"],
+  ["piknik-karincasi", "ant-mill", "donmeye devam", "donmeye-devam"],
+  ["piknik-karincasi", "cay-seli", "eve gidiyorum", "ev-don"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
