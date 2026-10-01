@@ -6,15 +6,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ## Ready
 
-### 1. One fourth-wall moment per scenario (`content/fourth-wall`)
-
-A character (or the narrator) suddenly talks to the player as the person holding the phone. It works because it is rare and earned. Add **exactly one** to each of the six scenarios, hand-written for that scene, using features that already exist (an intent, an `exhausted`, a `patienceIntent`, a `freeze` variant). No new engine code, no stats, no screen effects.
-- Trigger it with something the player does, never with a counter: typing the same thing a third time, asking the narrator a question, a very specific action. Examples of the tone:
-  - Keko, third identical move: "— Sen de mi bana bakıyon? Hayır, sen. Ekrandaki." Then the scene goes on.
-  - Hüsnü: "— Tuncay beni göremiyor. Sen görüyorsun ama, değil mi? Telefondan bakan." He waves.
-  - Nebahat teyze: "— Telefonu bırak da ye artık! Evet, sana diyorum, ekrana bakan."
-- It must not punish, end the game by itself, or mock the player. One or two lines, then back to the scene.
-- In the task's final message list where each one lives (scenario, step, intent id) and the input that triggers it.
 
 ### 2. New scenario: you are the apartment cat (`content/apartment-cat`)
 
@@ -57,6 +48,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- One fourth-wall moment per scenario (`content/fourth-wall`, commit `10a316c`)
 - Scenario-specific "?" (hint, then look) and rotating example moves in the empty input (Claude, main)
 - Friends' feedback batch, see `FEEDBACK.md` (Claude, main)
 - Grow "Yetersiz Bakiye" to 15+ endings (`content/yetersiz-bakiye-more`)
