@@ -116,7 +116,8 @@ window.Yasandi.scenarios.push({
           keywords: ["cihaza", "vurmak", "makineye", "tokatla", "bozuk bu", "tekme", "dovmek", "vururum", "tokat"],
           text: [
             "Makineye sert bir tokat attın.\nCihaz 'LÜTFEN KARTI YENİDEN OKUTUNUZ' dedi.",
-            "Bu sefer yumruk attın.\nCihazın ekranı biraz daha karardı. Şoför 'Hooop!' dedi."
+            "Bu sefer yumruk attın.\nCihazın ekranı biraz daha karardı. Şoför 'Hooop!' dedi.",
+            "Üçüncü kez vurmak için elini kaldırdığında şoför dikiz aynasından doğrudan sana, dışarıya baktı:\n— Ekrana baka baka cihaza vurması kolay. Kıracaksın makineyi. Oyna da bitsin şu oyun."
           ],
           exhausted: {
             text: "Cihaza son bir Osmanlı tokadı patlattın.\nCihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\n{crush} sana hayranlıkla baktı. Şoför ise polisi aradı.",

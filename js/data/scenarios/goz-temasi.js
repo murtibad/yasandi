@@ -413,7 +413,14 @@ window.Yasandi.scenarios.push({
     {
       id: "keep-distance",
       keywords: ["yaklasma", "ote dur", "uzak dur", "geri cekil", "geri dur", "mesafe", "cekil", "dokunma"],
-      text: "» Abi öte dur.\n— Öte mi? Burası senin mahallen mi lan?\nKeko yarım adım geri çekildi. Sonra bir adım yaklaştı. Net kâr: yarım adım.\n— Hangi mahallesin sen?",
+      text: [
+        "» Abi öte dur.\n— Öte mi? Burası senin mahallen mi lan?\nKeko yarım adım geri çekildi. Sonra bir adım yaklaştı. Net kâr: yarım adım.\n— Hangi mahallesin sen?",
+        "» Yaklaşma diyorum.\n— Sen kime şekil yapıyon lan? diye bağırdı keko."
+      ],
+      exhausted: {
+        text: "Keko birden durdu. Sana değil, doğrudan ekranın dışına baktı:\n— Sen de mi bana bakıyon? Hayır, sen. Ekrandaki. Neyse gardaş, hangi mahallesin sen?",
+        goto: "abi"
+      },
       goto: "abi",
     },
     {

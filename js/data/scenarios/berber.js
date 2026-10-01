@@ -451,7 +451,13 @@ window.Yasandi.scenarios.push({
       id: "sigh",
       positive: true,
       keywords: ["ofla", "ic cek", "nefes", "ofluyorum", "off", "ulan"],
-      text: "Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
+      text: [
+        "Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
+        "Bir kez daha ofladın.\nUsta takmadı: — Sinek mi vızıldıyor içerde, çırak kapıyı kapa."
+      ],
+      exhausted: {
+        text: "Üçüncü oflayışında usta makası bıraktı, doğrudan ekrandan sana baktı:\n— Sen de mi ofluyon orda? Telefondan yazmakla uzamıyor o saç. Neyse, nerede kalmıştık..."
+      }
     }
   ],
 

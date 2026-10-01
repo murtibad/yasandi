@@ -163,6 +163,7 @@ window.Yasandi.scenarios.push({
             "Nebahat teyze güldü: — Ne diyeti yavrum bayram günü! Dur sana zeytinyağlı diyet sarması getireyim.\n" +
             "Önüne yarım kilo daha sarma koydu.",
             "— Diyet mi? Hastalık o hastalık! Zayıflayacağım diye kurudun kaldın.",
+            "Üçüncü kez diyet deyince Nebahat teyze doğrudan ekrana baktı:\n— Telefonu bırak da ye artık! Evet, sana diyorum, ekrana bakan."
           ],
           exhausted: {
             text: "Daha fazla dayanamayıp yalan söyledin: 'Teyze midem bulanıyor!'\n" +
