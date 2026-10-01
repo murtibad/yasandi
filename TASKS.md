@@ -8,9 +8,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 
 
-### 7. Fix: barber loop at the last steps (`fix/barber-short`)
-
-In `berber`, in the last steps, typing "kısa olmasın" sends the game back to the "ense tıraşı" question. Find why, fix it with a small content change inside `berber.js` only (an intent, a keyword or a line). Then play the whole scenario with 10 natural inputs per step. 0 validator warnings.
 
 ### 8. New scenario: 2010 nostalgia (`content/nostalgia-2010`)
 
@@ -27,6 +24,7 @@ Id `2010-bir-gun`. A day in 2010: MSN titreşim, internet kafe, tuşlu telefon, 
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- Fix: barber loop at the last steps (`fix/barber-short`)
 - New scenario: picked for the board (`content/classroom`)
 - New scenario: health report at the devlet hastanesi (`content/hospital-report`)
 - New scenario: you are an ant at a family picnic (`content/ant-picnic`, commit `5704da7`)

@@ -36,7 +36,7 @@ window.Yasandi.scenarios.push({
       freeze: { text: "Bir şey demedin. Usta omuz silkti: — Bana bıraktın ya abim, ben bilirim.\nMakineyi kafanın yanlarına daldırdı. Aynadaki görüntün hızla değişiyor. Usta birden futboldan açtı:\n— Dünkü maçı izledin mi abim? Bizim gençler koşmuyor artık.", goto: "cutting-1" },
       hint: "Usta kime benzemek istediğini soruyor. Bir isim söyle ya da en baştan uyar.",
       look: "Dükkan küçük, duvarlarda eski jöleli manken fotoğrafları asılı. Çırak süpürgeyle yerdeki kılları topluyor. Aynada sadece kel bir adam, bir de senin endişeli yüzün var.",
-      inherits: "cutting-1",
+
       intents: [
         {
           id: "you-decide",
@@ -187,7 +187,7 @@ window.Yasandi.scenarios.push({
           goto: "cutting-2",
         }
       ],
-      inherits: "cutting-1",
+
       fallbacks: [
         "Usta elinde jiletle cevabını bekliyor. Enseyi alsın mı?",
       ],
@@ -297,7 +297,7 @@ window.Yasandi.scenarios.push({
           ending: "yalan_sifir",
         }
       ],
-      inherits: "cutting-1",
+
       fallbacks: [
         "Usta eski günleri anlatmaya devam ediyor. Saçın tükenmek üzere. Bir şey de.",
       ],
@@ -337,7 +337,7 @@ window.Yasandi.scenarios.push({
           goto: "cutting-3",
         }
       ],
-      inherits: "cutting-1",
+
       fallbacks: [
         "Ustanın elindeki alevli pamuk yüzüne yaklaşıyor. Ne diyeceksin?",
       ]
@@ -388,7 +388,7 @@ window.Yasandi.scenarios.push({
           goto: "finishing",
         }
       ],
-      inherits: "cutting-1",
+
       fallbacks: [
         "Usta heyecanla askerlik anısını anlatıyor. Ses çıkaracak mısın?",
       ]
@@ -460,7 +460,7 @@ window.Yasandi.scenarios.push({
           ending: "sapka",
         }
       ],
-      inherits: "cutting-1",
+
       fallbacks: [
         "Hadi kalk bakalım. Hesabı ödeyecek misin?",
         "Aynadaki yeni haline bak. Ne düşünüyorsun?",
