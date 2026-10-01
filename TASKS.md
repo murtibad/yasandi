@@ -1,20 +1,50 @@
 # TASKS
 
-**Owner decision (2026-09-29): no new scenarios for now.** Improve the existing six: more absurd turns, more reply variants, better endings. Scenario ideas stay in `ideas/` for later.
+**Owner decision (2026-10-01): new scenarios are allowed again, one per task, only the ones listed under Ready.** Read `FEEDBACK.md` first: friends' main complaint is "the game answered something unrelated to what I wrote". Every task below is judged on that.
 
-Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (read "Turkish voice" and "Memes and trends" twice). Never push to `main`; push a branch. One task per branch.
+Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (read "Turkish voice", "Rol pası" and Workflow step 3a twice). Never push to `main`; push a branch. One task per branch. Do not touch `js/engine.js`, `js/main.js`, `css/` or `index.html` unless the task says so (a new scenario still gets its `<script>` tag and the `?v=N` bump from "Adding a scenario" in `AGENTS.md`).
 
+## Ready
 
+### 1. One fourth-wall moment per scenario (`content/fourth-wall`)
+
+A character (or the narrator) suddenly talks to the player as the person holding the phone. It works because it is rare and earned. Add **exactly one** to each of the six scenarios, hand-written for that scene, using features that already exist (an intent, an `exhausted`, a `patienceIntent`, a `freeze` variant). No new engine code, no stats, no screen effects.
+- Trigger it with something the player does, never with a counter: typing the same thing a third time, asking the narrator a question, a very specific action. Examples of the tone:
+  - Keko, third identical move: "— Sen de mi bana bakıyon? Hayır, sen. Ekrandaki." Then the scene goes on.
+  - Hüsnü: "— Tuncay beni göremiyor. Sen görüyorsun ama, değil mi? Telefondan bakan." He waves.
+  - Nebahat teyze: "— Telefonu bırak da ye artık! Evet, sana diyorum, ekrana bakan."
+- It must not punish, end the game by itself, or mock the player. One or two lines, then back to the scene.
+- In the task's final message list where each one lives (scenario, step, intent id) and the input that triggers it.
+
+### 2. New scenario: you are the apartment cat (`content/apartment-cat`)
+
+The player is not human. Same rules, same voice, seen from below. Id `apartman-kedisi`, title of your choice (short, Turkish).
+- Stake in the first three lines: you are hungry, and the kapıcı Cemal efendi just put the bread bags on the stairs. Or Hayriye teyze on the 2nd floor is frying fish. You choose; it must be food or territory.
+- The cat cannot speak Turkish. When the player "says" something, narrate it as a meow and show how humans misread it ("» Miyav.\n— Aaa acıkmış, dedi Hayriye teyze, ve sana diyet mama verdi."). Keep that joke alive in several replies.
+- Humans talk about the cat in front of it: the WhatsApp apartman grubu, "kim besliyo bunu", the child who wants to adopt it, the yönetici who wants it gone.
+- An open question the player fills: the cat's name the kids gave it, or what the cat thinks it really is. Use `acceptAny` + `save`.
+- 5+ steps, 12+ endings (mix: fed, chased with a terlik, adopted, became the apartment's boss, locked in the asansör, ended up in the yönetici's car...). 0 validator warnings.
+
+### 3. New scenario: job interview (`content/job-interview`)
+
+Esra's idea. A comedy of the interview everyone has lived, not real career advice. Id `is-gorusmesi`.
+- Opening: the HR person reads your CV upside down. "— Hangi pozisyon için başvurmuştunuz?" `acceptAny` with `save: "job"`; every later question uses `{job}` so it feels personal ("— {job} olarak beş yıl sonra kendinizi nerede görüyorsunuz?").
+- The classic questions, each its own step with a `freeze` and a `look`: beş yıl sonra nerede, en büyük zayıflığınız, neden ayrıldınız, maaş beklentiniz, "bizi neden seçmeliyiz", "sorunuz var mı?".
+- Characters: the HR person, the team lead who joins on a laptop with the camera off, the CEO's nephew who walks in. Generic invented names, no real companies.
+- Endings must follow the answers: hired for a different job, hired at minimum wage with "aile şirketiyiz", "sizi ararız" (they never call), salary negotiation won by accident, the interviewer ends up applying to your company...
+- 6+ steps, 12+ endings, 0 validator warnings.
 
 ## Later (owner's ideas, not for agents yet)
 
 - Friends' playtest notes are in `FEEDBACK.md` (read it before content work). Open: tappable suggestions when stuck; collecting unmatched inputs is the most useful next step.
 
 - Anonymous story submissions: a "Hikâyeni anlat" link already exists in the page, hidden until `STORY_FORM_URL` in `js/main.js` is set (e.g. a Google Form). Later: collect them, turn the best into scenario beats.
-- Unmatched inputs: send `yasandi.unmatched` to a free database so we can see what players type.
+- **Unmatched inputs (owner builds this, his backend project):** a small API that receives the sentences the game did not understand (`logUnmatched` in `js/engine.js`), stores them, and a page that lists the most common ones per scenario and step. The game sends them with one `fetch`, fire-and-forget, no personal data. Then agents use that list to add the missing replies.
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- Scenario-specific "?" (hint, then look) and rotating example moves in the empty input (Claude, main)
+- Friends' feedback batch, see `FEEDBACK.md` (Claude, main)
 - Grow "Yetersiz Bakiye" to 15+ endings (`content/yetersiz-bakiye-more`)
 - Rework "Yetersiz Bakiye" around a crush (`content/yetersiz-bakiye-crush`)
 
