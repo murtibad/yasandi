@@ -53,7 +53,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      freeze: { text: "Kıpırdamadın. Tuncay da kıpırdamadı. Kapı kendi kendine açıldı.\nİçeriden bir ses geldi: — Girecek misiniz, çıkacak mısınız? Cereyan yapıyo.\nTuncay seni içeri itti.", goto: "dark-room" },
+      freeze: { text: "Kıpırdamadın. Tuncay da kıpırdamadı. Kapı kendi kendine açıldı.\nİçeriden bir ses geldi:\n— Girecek misiniz, çıkacak mısınız? Cereyan yapıyo.\nTuncay seni içeri itti.", goto: "dark-room" },
       look: "Zifiri karanlık. Tuncay'ın fenerinin sarı ışığı eski kerpiç evin aralık kapısına vuruyor. Kapının önünde bir çift terlik duruyor. Temiz. Yeni gibi.",
       hint: "Tuncay kapıda. İçeri girmenin de bir adabı var.",
       text:
@@ -68,7 +68,7 @@ window.Yasandi.scenarios.push({
           text:
             "Kapı kendiliğinden açıldı. İçeriden tok bir ses geldi:\n" +
             "— Aleykümselam. Ayakkabıları çıkarın, halı yeni.\n" +
-            "Tuncay kameraya döndü: — Rüzgâr, sayın seyirciler. Rüzgâr.",
+            "Tuncay kameraya döndü:\n— Rüzgâr, sayın seyirciler. Rüzgâr.",
           goto: "dark-room",
         },
         {
@@ -76,8 +76,8 @@ window.Yasandi.scenarios.push({
           keywords: ["kapiyi cal", "kapiya vur", "tiklat", "tik tik", "kapiyi tik", "zile bas", "ses ver"],
           text:
             "Kapıyı iki kere tıklattın.\n" +
-            "İçeriden tok bir ses geldi: — Açık, açık. Ayakkabıları çıkarın, halı yeni.\n" +
-            "Tuncay kameraya döndü: — Rüzgâr, sayın seyirciler. Rüzgâr.",
+            "İçeriden tok bir ses geldi:\n— Açık, açık. Ayakkabıları çıkarın, halı yeni.\n" +
+            "Tuncay kameraya döndü:\n— Rüzgâr, sayın seyirciler. Rüzgâr.",
           goto: "dark-room",
         },
         {
@@ -85,7 +85,7 @@ window.Yasandi.scenarios.push({
           keywords: ["ayakkabi", "terlikleri giy", "terlik giy", "ayakkabilarimizi"],
           text:
             "Ayakkabılarını çıkarıp eşiğe dizdin. Tuncay da çıkardı, çorabı delik.\n" +
-            "Karanlıktan memnun bir ses geldi: — Hah, şöyle. Terbiyeli çocuklarmış. Girin.",
+            "Karanlıktan memnun bir ses geldi:\n— Hah, şöyle. Terbiyeli çocuklarmış. Girin.",
           goto: "dark-room",
         },
         {
@@ -95,7 +95,7 @@ window.Yasandi.scenarios.push({
           text:
             "Selam vermeden içeri daldın. Arkandan kapı kendi kendine çarptı.\n" +
             "— Abi destursuz daldın, çarpılacağız! dedi Tuncay.\n" +
-            "Karanlıktan biri boğazını temizledi: — Öhöm. Ayakkabı.",
+            "Karanlıktan biri boğazını temizledi:\n— Öhöm. Ayakkabı.",
           goto: "dark-room",
         },
         {
@@ -114,7 +114,7 @@ window.Yasandi.scenarios.push({
           keywords: ["dua", "besmele", "bismillah", "ayetel"],
           text:
             "Besmele çekip eşikten adım attın.\n" +
-            "Karanlıktan saygılı bir ses geldi: — Kabul olsun. Ayakkabıları da çıkarırsanız tamam.",
+            "Karanlıktan saygılı bir ses geldi:\n— Kabul olsun. Ayakkabıları da çıkarırsanız tamam.",
           goto: "dark-room",
         },
         {
@@ -138,9 +138,9 @@ window.Yasandi.scenarios.push({
         },
       ],
       fallbacks: [
-        "Tuncay kapıda bekliyor. — Abi bi şey de, kayıttayız.",
+        "Tuncay kapıda bekliyor.\n— Abi bi şey de, kayıttayız.",
         "Rüzgâr esti. Kapı biraz daha aralandı. Girecek misin?",
-        "Tuncay feneri yüzüne tuttu. — Korktun mu yoksa?",
+        "Tuncay feneri yüzüne tuttu.\n— Korktun mu yoksa?",
       ],
       patience: 3,
       patienceIntent: {
@@ -153,7 +153,7 @@ window.Yasandi.scenarios.push({
     },
 
     "dark-room": {
-      freeze: { text: "Hiçbir şey demedin. Karanlık da demedi. Bir dakika. İki dakika.\nSonunda karanlık pes etti: — Tamam, ben başlıyorum.", goto: "cin" },
+      freeze: { text: "Hiçbir şey demedin. Karanlık da demedi. Bir dakika. İki dakika.\nSonunda karanlık pes etti:\n— Tamam, ben başlıyorum.", goto: "cin" },
       look: "Eski bir köy odası. Yer sedirleri, duvarda 1987 takvimi, köşede bir çaydanlık. Karanlığın içinde, sedirin orada, biri çekirdek çitliyor. Çıt. Çıt.",
       hint: "Karanlıkta biri var. Onunla konuşabilirsin. Ya da ışığı oraya tutabilirsin.",
       text:
@@ -180,7 +180,7 @@ window.Yasandi.scenarios.push({
           keywords: ["bekle", "sus", "sessiz", "dinle", "hic ses", "kipirdama", "durdum"],
           text:
             "Nefesinizi tutup beklediniz. Bir dakika. İki dakika.\n" +
-            "Karanlıktan biri dayanamadı: — Ya bir şey deyin, üç yüz yıldır kimse gelmedi buraya.",
+            "Karanlıktan biri dayanamadı:\n— Ya bir şey deyin, üç yüz yıldır kimse gelmedi buraya.",
           goto: "cin",
         },
         {
@@ -195,7 +195,7 @@ window.Yasandi.scenarios.push({
           keywords: ["fener", "isik", "isigi", "aydinlat", "oraya tut", "koseye tut", "flas", "tut"],
           text:
             "Tuncay feneri sedire çevirdi. Işıkta bir keçi belirdi. Keçi size baktı.\n" +
-            "Keçinin arkasındaki karanlıktan bir ses: — O benim keçim. Adı Mesut.",
+            "Keçinin arkasındaki karanlıktan bir ses:\n— O benim keçim. Adı Mesut.",
           goto: "cin",
         },
         {
@@ -229,7 +229,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Çıt. Çıt. Çekirdek sesi yaklaştı. Bir şey yapacak mısın?",
-        "Tuncay titreyerek kamerayı sana çevirdi. — Abi konuş bi şey, sessizlik iyi değil.",
+        "Tuncay titreyerek kamerayı sana çevirdi.\n— Abi konuş bi şey, sessizlik iyi değil.",
         "Karanlıktan biri kabuk tükürdü. Tam ayağının dibine. Ne yapacaksın?",
       ],
       patience: 3,
@@ -244,7 +244,7 @@ window.Yasandi.scenarios.push({
       text:
         "Fenerin ışığında sedirde bağdaş kurmuş biri belirdi. Yarısı duman, yarısı amca. Elinde bir avuç çekirdek.\n" +
         "— Hüsnü, dedi. Üç yüz kırk yedi yaşındayım. Köy İstanbul'a göçtü, bir ben kaldım.\n" +
-        "Tuncay kameraya döndü: — Sayın seyirciler, burada hiçbir şey yok. Enerji sıfır.\n" +
+        "Tuncay kameraya döndü:\n— Sayın seyirciler, burada hiçbir şey yok. Enerji sıfır.\n" +
         "Hüsnü, Tuncay'ın arkasından kameraya el salladı.",
       look: "Hüsnü sedirde oturuyor, çekirdek çitliyor. Köşedeki çaydanlığın altında ateş yok ama kaynıyor. Tuncay hâlâ kimseyi göremiyor, kamera ise Hüsnü'yü gayet net çekiyor. Hüsnü'nün arkasındaki duvarda, az önce orada olmayan bir kapı var.",
       hint: "Hüsnü konuşmak istiyor. Üç yüz yıldır kimse ona bir şey sormadı.",
@@ -339,7 +339,7 @@ window.Yasandi.scenarios.push({
           keywords: ["cekirdek", "ben de alayim", "bana da ver", "cekirdek ver", "citle"],
           text:
             "Hüsnü avucuna bir avuç çekirdek döktü. Çitledin, kabukları yere attın.\n" +
-            "Hüsnü dondu. — Ne yapıyorsun lan! Bu halı 1802'den! Müze bu!\n" +
+            "Hüsnü dondu.\n— Ne yapıyorsun lan! Bu halı 1802'den! Müze bu!\n" +
             "Seni evden kovdu. Üç yüz yıllık halıya kabuk atmak cinler âleminde de suçmuş.",
           ending: "kabuk",
         },
@@ -431,20 +431,20 @@ window.Yasandi.scenarios.push({
           keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kacalim", "gidelim", "kos", "kapiya", "disari", "tabana kuvvet", "korktum"],
           text:
             "Kapıya koştun. Bu sefer açıldı. Tuncay da arkandan.\n" +
-            "Hüsnü kapıdan seslendi: — Çekirdek alsaydın bari!\n" +
+            "Hüsnü kapıdan seslendi:\n— Çekirdek alsaydın bari!\n" +
             "Video çıktı: iki kişinin çığlığı ve bir amcanın 'Çekirdek alsaydın bari' sesi. 4 milyon izlenme. Kimse neden viral olduğunu anlamadı.",
           ending: "cekirdek",
         },
       ],
       fallbacks: [
-        "Hüsnü çekirdeğini çitleyip seni bekledi. — Eee? Anlat bakalım, İstanbul nasıl?",
+        "Hüsnü çekirdeğini çitleyip seni bekledi.\n— Eee? Anlat bakalım, İstanbul nasıl?",
         "— Sessiz çocukmuşsun, dedi Hüsnü. Bi şey sor bana. Üç yüz yıldır kimse sormadı.",
-        "Hüsnü kabuğu tam Tuncay'ın ensesine attı. Tuncay irkildi. — Abi sinek var. Sen ne diyorsun?",
+        "Hüsnü kabuğu tam Tuncay'ın ensesine attı. Tuncay irkildi.\n— Abi sinek var. Sen ne diyorsun?",
       ],
       patience: 4,
       patienceIntent: {
         text:
-          "Hüsnü sıkıldı. — Tamam, sen konuşmuyorsan ben gezdiririm, dedi.\n" +
+          "Hüsnü sıkıldı.\n— Tamam, sen konuşmuyorsan ben gezdiririm, dedi.\n" +
           "Kolundan tutup duvardaki kapıya götürdü.",
         goto: "daire",
       },
@@ -453,7 +453,7 @@ window.Yasandi.scenarios.push({
     // The other side is a government office.
     daire: {
       freeze: {
-        text: "Bir şey diyemedin. Memur 'Sıradaki!' diye bağırdı. Numaran yandı.\nYeni numara aldın: 348. Ekranda 13 yazıyor. Memur yine sordu: — Hangi işlem?",
+        text: "Bir şey diyemedin. Memur 'Sıradaki!' diye bağırdı. Numaran yandı.\nYeni numara aldın: 348. Ekranda 13 yazıyor. Memur yine sordu:\n— Hangi işlem?",
         exhausted: {
           text: "Yine bir şey diyemedin. Yeni numara aldın, plastik sandalyeye oturdun, uyuyakaldın.\nCinler âleminde bir öğleden sonra, bizim tarafta kırk yıl sürüyor. Döndüğünde Tuncay'ın kanalı hâlâ 312 aboneydi.",
           ending: "kirkyil",
@@ -482,7 +482,7 @@ window.Yasandi.scenarios.push({
           keywords: ["geri don", "geri gidelim", "cikalim", "kaci", "kaca", "kacm", "kact", "kac lan", "donelim", "burada kalmam", "gidelim"],
           text:
             "Kapıdan geri çıktın. Beş dakika geçmişti.\n" +
-            "Köy kalabalıktı. Köyün ortasında bir AVM vardı. Bir çocuk sana baktı: — Amca, sen Tuncay'ın arkadaşı mısın? Ondan beri kırk yıl geçti.\n" +
+            "Köy kalabalıktı. Köyün ortasında bir AVM vardı. Bir çocuk sana baktı:\n— Amca, sen Tuncay'ın arkadaşı mısın? Ondan beri kırk yıl geçti.\n" +
             "Tuncay'ın kanalının 312 abonesi hâlâ duruyor.",
           ending: "avm",
         },
@@ -495,7 +495,7 @@ window.Yasandi.scenarios.push({
         {
           text:
             "— {input} için bir fotokopi eksik. Kimliğinizin, arkalı önlü.\nBir de muhtarlıktan, dedenizin cin olmadığına dair yazı.\n" +
-            "Hüsnü kulağına eğildi: — Muhtar da cin. Uğraşma.",
+            "Hüsnü kulağına eğildi:\n— Muhtar da cin. Uğraşma.",
           ending: "fotokopi",
         },
         {
@@ -507,7 +507,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "— Hangi işlem? Arkada bekleyen var.",
-        "Memur saatine baktı. — Öğle arasına iki dakika var. İşlem ne?",
+        "Memur saatine baktı.\n— Öğle arasına iki dakika var. İşlem ne?",
       ],
     },
   },
@@ -519,7 +519,7 @@ window.Yasandi.scenarios.push({
       keywords: ["gul", "guluyorum", "kahkaha", "komik", "guldum", "haha"],
       text: [
         "Kendini tutamayıp kıkırdadın.\n— Abi gülme, ambiyansı bozuyorsun! dedi Tuncay.",
-        "Kahkaha attın. Tuncay kameraya döndü: — Cinler arkadaşımın aklıyla oynuyor sayın seyirciler!",
+        "Kahkaha attın. Tuncay kameraya döndü:\n— Cinler arkadaşımın aklıyla oynuyor sayın seyirciler!",
         "Üçüncü kıkırdayışında Tuncay kamerayı indirip doğrudan ekrana, sana baktı:\n— Sen de mi gülüyon? Hayır, sen. Telefondan. Bak, ben ciddiyim, kayıttayız. Hadi, ne yapıyoruz?"
       ],
     },
@@ -529,7 +529,7 @@ window.Yasandi.scenarios.push({
     police: {
       text:
         "155'i aradın.\n— 155, buyrun.\n» Memur bey, burada cin var.\n" +
-        "— Kardeşim adres verin, biz de hocayla geliyoruz.\nTuncay kameraya fısıldadı: — Hoca geliyor sayın seyirciler, abone olmayı unutmayın.",
+        "— Kardeşim adres verin, biz de hocayla geliyoruz.\nTuncay kameraya fısıldadı:\n— Hoca geliyor sayın seyirciler, abone olmayı unutmayın.",
     },
     mom: {
       text:
@@ -541,7 +541,7 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Tuncay kamerasını sana doğrulttu. — Abi bi şey yap, video boş gidiyor.",
+    "Tuncay kamerasını sana doğrulttu.\n— Abi bi şey yap, video boş gidiyor.",
     "Rüzgâr uğulduyor. Tuncay sana bakıyor. Ne yapacaksın?",
   ],
   patience: 6,

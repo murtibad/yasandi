@@ -103,6 +103,11 @@ const PLAY = [
   ["saglik-raporu", "bashekim", "yarin isbasi yapcam", "yalvar"],
   ["piknik-karincasi", "tebesir", "geç", "ustunden-atla"],
   ["piknik-karincasi", "tebesir", "etrafından dolanıyorum", "dolan"],
+  // an open question takes any answer; freezing still freezes
+  ["is-gorusmesi", "q-5-yil", "çulsuz", "any"],
+  ["is-gorusmesi", "q-5-yil", "sokaklarda", "any"],
+  ["is-gorusmesi", "q-5-yil", "hiçbir yerde", "freeze"],
+  ["is-gorusmesi", "q-5-yil", "sizin koltuğunuzda", "senin-koltugunda"],
   // 2010: the obvious answers to each question
   ["2010-bir-gun", "msn", "kameram yok", "kamera_once"],
   ["2010-bir-gun", "kafe_masa", "yok", "hile_yok"],

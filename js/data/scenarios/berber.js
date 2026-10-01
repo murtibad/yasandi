@@ -54,7 +54,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      freeze: { text: "Bir şey demedin. Usta omuz silkti: — Bana bıraktın ya abim, ben bilirim.\nMakineyi kafanın yanlarına daldırdı. Aynadaki görüntün hızla değişiyor. Usta birden futboldan açtı:\n— Dünkü maçı izledin mi abim? Bizim gençler koşmuyor artık.", goto: "cutting-1" },
+      freeze: { text: "Bir şey demedin. Usta omuz silkti:\n— Bana bıraktın ya abim, ben bilirim.\nMakineyi kafanın yanlarına daldırdı. Aynadaki görüntün hızla değişiyor. Usta birden futboldan açtı:\n— Dünkü maçı izledin mi abim? Bizim gençler koşmuyor artık.", goto: "cutting-1" },
       hint: "Usta kime benzemek istediğini soruyor. Bir isim söyle ya da en baştan uyar.",
       look: "Dükkan küçük, duvarlarda eski jöleli manken fotoğrafları asılı. Çırak süpürgeyle yerdeki kılları topluyor. Aynada sadece kel bir adam, bir de senin endişeli yüzün var.",
       inherits: "cutting-1",
@@ -152,7 +152,7 @@ window.Yasandi.scenarios.push({
           keywords: ["mac", "futbol", "oynamiyor", "haklisin", "evet usta", "evet izledim", "izledim", "=evet", "evet izledim"],
           text:
             "» Sorma usta, ruh yok takımda.\n" +
-            "Remzi usta coştu. — Ya! Şimdikiler paraya doydu!\n" +
+            "Remzi usta coştu.\n— Ya! Şimdikiler paraya doydu!\n" +
             "Makası heyecanla havada sallarken yanlışlıkla saçının tepe kısmından koca bir tutam kesti.",
           goto: "service-offer-1",
         },
@@ -293,7 +293,7 @@ window.Yasandi.scenarios.push({
             "Usta ciddi ciddi askerlik anısını anlatırken aynadan arkada süpürge yapan çırakla göz göze geldin.\n" +
             "Çırak göz devirince kendini tutamayıp kıkırdadın.\n" +
             "Usta anısına saygısızlık edildiğini düşünüp sinirlendi ve kafanı tamamen 3 numaraya vurdu.\n" +
-            "Sonra önlüğü çekip kapıyı gösterdi: — Saygısız müşteriye hizmet yok abim.",
+            "Sonra önlüğü çekip kapıyı gösterdi:\n— Saygısız müşteriye hizmet yok abim.",
           ending: "kovuldun",
         },
         {
@@ -567,8 +567,8 @@ window.Yasandi.scenarios.push({
       positive: true,
       keywords: ["ofla", "ic cek", "nefes", "ofluyorum", "off", "ulan"],
       text: [
-        "Derin bir iç çektin.\nRemzi usta: — Sıkma canını abim, kökü sende, yine uzar.",
-        "Bir kez daha ofladın.\nUsta takmadı: — Sinek mi vızıldıyor içerde, çırak kapıyı kapa."
+        "Derin bir iç çektin.\nRemzi usta:\n— Sıkma canını abim, kökü sende, yine uzar.",
+        "Bir kez daha ofladın.\nUsta takmadı:\n— Sinek mi vızıldıyor içerde, çırak kapıyı kapa."
       ],
       exhausted: {
         text: "Üçüncü oflayışında usta makası bıraktı, doğrudan ekrandan sana baktı:\n— Sen de mi ofluyon orda? Telefondan yazmakla uzamıyor o saç. Neyse, nerede kalmıştık..."

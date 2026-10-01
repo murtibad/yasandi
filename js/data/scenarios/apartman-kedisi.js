@@ -83,7 +83,7 @@ window.Yasandi.scenarios.push({
           keywords: ["miyav", "miyavla", "bagir", "ses cikar", "miyavliyorum", "miyavlarim", "bagiririm"],
           text: [
             "» Miyav.\nBirinci katın çocuğu sevindi:\n— Anne bak, {name} bana miyavladı!\nAnnesi içeriden bağırdı:\n— Elleme onu, pirelidir o!",
-            "» Miyav!\nİkinci kattan Hayriye teyze seslendi: — Kim miyavlıyor orda? Acıkmış canım."
+            "» Miyav!\nİkinci kattan Hayriye teyze seslendi:\n— Kim miyavlıyor orda? Acıkmış canım."
           ],
           exhausted: {
             text: "Sürekli miyavlamana apartman grubundan tepki geldi. Rıza bey telefonuna bakıp \"Apartman grubundan kedi sesi şikayeti alıyorum!\" dedi ve seni kapı dışarı etti.",
@@ -197,7 +197,7 @@ window.Yasandi.scenarios.push({
       hint: "Ona sürtün, balık iste veya içeri girmeye çalış.",
       look: "Hayriye teyze elinde maşayla kapıda. Mutfaktan dumanlar tütüyor.",
       freeze: {
-        text: "Öylece yüzüne baktın. Hayriye teyze: — E ne istiyorsun dilsiz hayvan? İçeri girmeyeceksen kapıyorum, cereyan yapıyor.\nKapıyı yüzüne kapattı.",
+        text: "Öylece yüzüne baktın. Hayriye teyze:\n— E ne istiyorsun dilsiz hayvan? İçeri girmeyeceksen kapıyorum, cereyan yapıyor.\nKapıyı yüzüne kapattı.",
         goto: "staircase"
       },
       intents: [
@@ -262,7 +262,7 @@ window.Yasandi.scenarios.push({
           id: "masum",
           positive: true,
           keywords: ["masum", "sevimli", "sirin", "bak", "goz", "gozlerini", "surun", "miyav", "gozlerimi kocaman", "yavru kedi"],
-          text: "Ekmeği bırakıp kocaman gözlerle ona baktın.\n» Miyav...\nRıza beyin kalbi eridi. — Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
+          text: "Ekmeği bırakıp kocaman gözlerle ona baktın.\n» Miyav...\nRıza beyin kalbi eridi.\n— Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
           ending: "sahiplen"
         }
       ],

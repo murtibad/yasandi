@@ -59,7 +59,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
-      freeze: { text: "Bir şey demedin. Tabağa baktın.\nNebahat teyze sessizliği onay saydı: — Bak, sesi çıkmıyo, demek ki beğendi.\nTabağına bir kepçe pilav daha koydu.", goto: "more-food" },
+      freeze: { text: "Bir şey demedin. Tabağa baktın.\nNebahat teyze sessizliği onay saydı:\n— Bak, sesi çıkmıyo, demek ki beğendi.\nTabağına bir kepçe pilav daha koydu.", goto: "more-food" },
       look: "Salonun köşesinde koca bir saksı var. Masanın altında bir kedi dolaşıyor. Önünde peçete, cebin boş. Mutfağın kapısı aralık, çöp kovası orada. Kapı ise çok uzakta.",
       hint: "Tabak kendi kendine boşalmayacak. Yemek de bir yol, yememek de. Bu evde saklanacak yer de çok.",
       text:
@@ -199,7 +199,7 @@ window.Yasandi.scenarios.push({
           keywords: ["diyet", "diyetteyim", "kilo", "zayiflama", "rejim"],
           text: [
             "» Teyze ben diyetteyim, vallahi yiyemem.\n" +
-            "Nebahat teyze güldü: — Ne diyeti yavrum bayram günü! Dur sana zeytinyağlı diyet sarması getireyim.\n" +
+            "Nebahat teyze güldü:\n— Ne diyeti yavrum bayram günü! Dur sana zeytinyağlı diyet sarması getireyim.\n" +
             "Önüne yarım kilo daha sarma koydu.",
             "— Diyet mi? Hastalık o hastalık! Zayıflayacağım diye kurudun kaldın.",
             "Üçüncü kez diyet deyince Nebahat teyze doğrudan ekrana baktı:\n— Telefonu bırak da ye artık! Evet, sana diyorum, ekrana bakan."
@@ -216,7 +216,7 @@ window.Yasandi.scenarios.push({
           keywords: ["midem", "agriyor", "mide", "bulaniyor", "rahatsiz", "hastayim", "hasta", "bulanmis", "evet hasta", "atesim"],
           text:
             "» Midem biraz rahatsız teyze, yemesem iyi olacak.\n" +
-            "Nebahat teyze telaşlandı: — Vah yavrum! Üşüttün sen kesin.\n" +
+            "Nebahat teyze telaşlandı:\n— Vah yavrum! Üşüttün sen kesin.\n" +
             "Mutfaktan koca bir tencere nane limon ve üç kase şehriye çorbasıyla geldi.",
           ending: "corba",
         },
@@ -242,7 +242,7 @@ window.Yasandi.scenarios.push({
     },
 
     "more-food": {
-      freeze: { text: "Sessizce pilav tepesine baktın. Tepe de sana baktı.\nKuzen masanın öbür ucundan seslendi: — Yemiyosan ben yerim!\nNebahat teyze kuzene gururla, sana kırgın baktı.", goto: "cousin-competition" },
+      freeze: { text: "Sessizce pilav tepesine baktın. Tepe de sana baktı.\nKuzen masanın öbür ucundan seslendi:\n— Yemiyosan ben yerim!\nNebahat teyze kuzene gururla, sana kırgın baktı.", goto: "cousin-competition" },
       hint: "Pilav tepesi büyüyor. Salonda sana yardım edebilecek biri var mı?",
       intents: [
         {
@@ -253,7 +253,7 @@ window.Yasandi.scenarios.push({
             "Boğulma tehlikesi atlatarak pilavı da yemeye başladın.\n" +
             "O sırada yan koltuktaki kuzen geğirdi:\n" +
             "— Ben dördüncü tabağı bitirdim teyze!\n" +
-            "Nebahat teyze sana dönüp: — Bak elin çocuğu nasıl yiyor, sen niye mızmızlanıyorsun?",
+            "Nebahat teyze sana dönüp:\n— Bak elin çocuğu nasıl yiyor, sen niye mızmızlanıyorsun?",
           goto: "cousin-competition",
         },
         {
@@ -279,7 +279,7 @@ window.Yasandi.scenarios.push({
           keywords: ["amca", "cemil", "yardim et", "amcaya", "uyandir"],
           text:
             "» Cemil amca, bir şey desene sen de.\n" +
-            "Cemil amca tek gözünü açtı: — Yesene oğlum önündekini, nimet o nimet.\n" +
+            "Cemil amca tek gözünü açtı:\n— Yesene oğlum önündekini, nimet o nimet.\n" +
             "Geri uyudu.",
           ending: "cemil",
         }
@@ -334,7 +334,7 @@ window.Yasandi.scenarios.push({
           keywords: ["annem", "anne", "anneme", "telefon", "arama"],
           text:
             "» Annem çok iyi yediriyor merak etme!\n" +
-            "Nebahat teyze hemen telefona sarıldı: — Dur bi anneni arayayım da gör.",
+            "Nebahat teyze hemen telefona sarıldı:\n— Dur bi anneni arayayım da gör.",
           ending: "anne",
         }
       ],
@@ -346,7 +346,7 @@ window.Yasandi.scenarios.push({
     },
 
     "escalation-2": {
-      freeze: { text: "Sustun. Nebahat teyze de sustu. Bu evde teyzenin sustuğu ikinci an bu.\nMutfağa gitti, bulaşıkları yıkamaya başladı. Bulaşıkları çok sesli yıkıyor.\nCemil amca tek gözünü açtı: — Kırdın kadını oğlum.", ending: "sesli_bulasik" },
+      freeze: { text: "Sustun. Nebahat teyze de sustu. Bu evde teyzenin sustuğu ikinci an bu.\nMutfağa gitti, bulaşıkları yıkamaya başladı. Bulaşıkları çok sesli yıkıyor.\nCemil amca tek gözünü açtı:\n— Kırdın kadını oğlum.", ending: "sesli_bulasik" },
       hint: "Teyze darılmak üzere. Gönlünü almanın bir yolu olmalı.",
       intents: [
         {
@@ -363,7 +363,7 @@ window.Yasandi.scenarios.push({
           id: "mom-feeds",
           keywords: ["yediriyo", "yediriyor", "annem iyi", "annem cok", "evde yiyorum", "evde yedim", "evdede yedim", "evde de yedim", "yedim zaten", "ne anlatiyosun", "ne anlatiyorsun"],
           text: [
-            "— Yediriyosa niye böyle çöp gibisin? Dur bi soralım.\nNebahat teyze telefonu kaptı, hoparlörü açtı.\n— Ayten, bu çocuk bizde bi şey yemiyo. Evde de mi böyle?\nAnnenin sesi salonda yankılandı: — Ye oğlum! Rezil etme beni!",
+            "— Yediriyosa niye böyle çöp gibisin? Dur bi soralım.\nNebahat teyze telefonu kaptı, hoparlörü açtı.\n— Ayten, bu çocuk bizde bi şey yemiyo. Evde de mi böyle?\nAnnenin sesi salonda yankılandı:\n— Ye oğlum! Rezil etme beni!",
           ],
           ending: "anne",
         },
@@ -373,7 +373,7 @@ window.Yasandi.scenarios.push({
           keywords: ["agla", "aglamak", "gozyasi", "pes et", "teslim", "yapma", "yalvar"],
           text:
             "» Teyze ne olur yapma, gerçekten yiyemiyorum...\nGözlerin doldu.\n" +
-            "Nebahat teyze bir an durdu. — Aman iyi be, dedi, tabağı önünden aldı.\nİki dakika sonra meyve tabağıyla geri geldi.",
+            "Nebahat teyze bir an durdu.\n— Aman iyi be, dedi, tabağı önünden aldı.\nİki dakika sonra meyve tabağıyla geri geldi.",
           ending: "gozyasi",
         }
       ],
@@ -385,7 +385,7 @@ window.Yasandi.scenarios.push({
     },
 
     "cousin-competition": {
-      freeze: { text: "Hiçbir şey yapmadan izledin. Kuzen altıncı tabağı bitirdi, yedinciye başladı.\nNebahat teyze sana döndü: — Bak, onun annesi sevinir.\nO günden beri bütün bayramlarda seni kuzenle kıyaslıyorlar.", ending: "seyirci" },
+      freeze: { text: "Hiçbir şey yapmadan izledin. Kuzen altıncı tabağı bitirdi, yedinciye başladı.\nNebahat teyze sana döndü:\n— Bak, onun annesi sevinir.\nO günden beri bütün bayramlarda seni kuzenle kıyaslıyorlar.", ending: "seyirci" },
       hint: "Kuzen rekor peşinde. Rakip mi olacaksın, müttefik mi?",
       intents: [
         {
@@ -489,7 +489,7 @@ window.Yasandi.scenarios.push({
           keywords: ["istemem", "kalsin", "alma", "gerek yok", "yeter", "istemiyorum", "sag ol", "sagol", "zahmet etme", "doyduk"],
           text:
             "» Yok teyze sağ ol, elimiz kolumuz dolu.\n" +
-            "Nebahat teyzenin gözleri doldu. 'Benim yemeğimi istemiyor musunuz' diye ağlamaya başladı.\nCemil amca uyandı: — Al şunu oğlum, kırma kadını.\nPoşeti aldın. Hem de iki tane.",
+            "Nebahat teyzenin gözleri doldu. 'Benim yemeğimi istemiyor musunuz' diye ağlamaya başladı.\nCemil amca uyandı:\n— Al şunu oğlum, kırma kadını.\nPoşeti aldın. Hem de iki tane.",
           ending: "kirik_kalp",
         }
       ],
@@ -515,7 +515,7 @@ window.Yasandi.scenarios.push({
       positive: true,
       keywords: ["hepsini al", "tepsiyi al", "tabagi al", "hepsini yerim", "tamamini al", "tepsiyi kucagima"],
       text:
-        "Nebahat teyze baklava tepsisini Cemil amcaya götürürken önünde durdu: — Bi tane al güzüm.\n" +
+        "Nebahat teyze baklava tepsisini Cemil amcaya götürürken önünde durdu:\n— Bi tane al güzüm.\n" +
         "Tepsiyi elinden aldın. Dizine koydun. Hepsini yedin.\n" +
         "Salonda kimse konuşmadı. Nebahat teyze, hayatında ilk defa, sustu. Cemil amca gözünü açtı, tepsiye baktı, gözünü kapattı.\n" +
         "Bu hikâye sonraki beş bayramda bütün sülaleye anlatıldı. Her seferinde tepsi biraz daha büyüdü.",
@@ -527,7 +527,7 @@ window.Yasandi.scenarios.push({
       keywords: ["kumanda", "minderin alti", "minderin altina", "oturdugum yer", "sert bir sey", "altimdaki"],
       text:
         "Minderin altından kumanda çıktı. Bütün akşam onun üstünde oturmuşsun.\n" +
-        "Cemil amca uyandı: — Kumanda nerde lan! Bütün ev aramaya başladı.\n" +
+        "Cemil amca uyandı:\n— Kumanda nerde lan! Bütün ev aramaya başladı.\n" +
         "Çaktırmadan kumandayı sehpanın altına ittin. Beş dakika sonra eğilip 'Buldum!' dedin.\n" +
         "Cemil amca seni alnından öptü. O günden beri bütün bayramlarda kumanda sende. Tabağın da hâlâ dolu.",
       ending: "kumanda",

@@ -43,7 +43,7 @@ window.Yasandi.scenarios.push({
 
   fallbacks: [
     "{crush} sana bakıyor. Bir şey diyecek misin?",
-    "Şoför aynadan bakıyor: — Karar verin gençler, kalkıyoruz."
+    "Şoför aynadan bakıyor:\n— Karar verin gençler, kalkıyoruz."
   ],
 
   nodes: {
@@ -88,7 +88,7 @@ window.Yasandi.scenarios.push({
           id: "ignore",
           keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye", "vermiyorum", "vermem", "yardim edemem", "etmiyorum", "edemem", "etmem", "yok", "bende", "sessiz", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "bakmiyorum"],
           text: [
-                        "Arkandaki spor çantalı kaslı genç hemen öne atıldı: — Buyrun, ben basayım.\n" +
+                        "Arkandaki spor çantalı kaslı genç hemen öne atıldı:\n— Buyrun, ben basayım.\n" +
             "{crush} ona minnetle gülümsedi. Genç numarasını veriyor, sense otobüs camından dışarı bakıyorsun.",
           ],
           ending: "gymbro",
@@ -113,7 +113,7 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "{crush} bekliyor: — Kartın var mı, yok mu?",
+        "{crush} bekliyor:\n— Kartın var mı, yok mu?",
         "Arkandaki kaslı genç sabırsızlanıyor. Kartını verecek misin?",
         "Cihaz kırmızı kırmızı yanıyor. Ne yapacaksın?"
       ],
@@ -182,7 +182,7 @@ window.Yasandi.scenarios.push({
           id: "apologize",
           keywords: ["kusura", "ozur", "pardon", "yanlislik", "affedersin"],
           text:
-            "{crush} gülümsedi: — Önemli değil ya, olur öyle.\n" +
+            "{crush} gülümsedi:\n— Önemli değil ya, olur öyle.\n" +
             "Tam o sırada şoför dikiz aynasından size ters ters baktı:\n" +
             "— Para ödemiyorsunuz bari muhabbet etmeyin. Arkaya ilerle bakayım.",
           goto: "driver-interrogation",
@@ -230,7 +230,7 @@ window.Yasandi.scenarios.push({
           keywords: ["karsilik", "cevap ver", "bagir", "insanligimizi", "paramiz", "sanane", "sana ne", "sana mi soracagiz", "kizan"],
           text:
             "Şoföre döndün. Sesin titremedi.\n" +
-            "Arkadan bir teyze destek verdi: — Doğru söylüyo! Bakiye yok diye insanlık da mı yok?\n" +
+            "Arkadan bir teyze destek verdi:\n— Doğru söylüyo! Bakiye yok diye insanlık da mı yok?\n" +
             "Otobüs alkışlamaya başladı. Şoför kulaklarına kadar kızardı. O hâlâ sana bakıyor.",
           ending: "kahraman"
         },

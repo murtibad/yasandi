@@ -150,7 +150,7 @@ window.Yasandi.scenarios.push({
           keywords: ["yoruldun", "yorgunsan", "yorgunsun", "hasta misin"],
           text:
             "» Teyze çok yoruldun herhalde?\n" +
-            "Teyze dimdik durdu: — Ben her sabah pilates yapıyorum yavrum, dağ gibi ayaktayım.",
+            "Teyze dimdik durdu:\n— Ben her sabah pilates yapıyorum yavrum, dağ gibi ayaktayım.",
           goto: "gerilim",
         },
         {
@@ -161,7 +161,7 @@ window.Yasandi.scenarios.push({
             "Kulaklığını taktın. Müziğin sesini açtın.\n" +
             "Teyze eğildi, kulaklığın tekini kulağından çıkardı.\n— Ne dinliyon yavrum? Müslüm mü o?",
             "Kulaklığını biraz daha bastırdın.\n" +
-            "Teyze omzuna dokundu: — Sağır mısın çocuğum?"
+            "Teyze omzuna dokundu:\n— Sağır mısın çocuğum?"
           ],
           exhausted: {
             text: "Kulaklığa asıldın. Kablosu koptu.\nMüzik otobüse yayıldı: 'Oturmaya mı geldik?'\nTeyze dâhil herkes sana gülüyor.",
@@ -229,7 +229,7 @@ window.Yasandi.scenarios.push({
           keywords: ["engelle", "adami it", "itmek", "dur de", "onune gec", "adami durdur", "ittir", "adama hamle", "engel ol", "onu durdur", "amcayi it"],
           text:
             "Adamı omuzlayıp engelledin. Adam geriye savruldu. Teyze huzurla koltuğa oturdu.\n" +
-            "Ama teyze susmadı: — Senin boyun da posun da yerinde, bekar mısın evladım? Bizim eltinin kızına alalım seni.\n" +
+            "Ama teyze susmadı:\n— Senin boyun da posun da yerinde, bekar mısın evladım? Bizim eltinin kızına alalım seni.\n" +
             "Bütün yolculuk boyunca kendi düğün planını dinledin.",
           ending: "evlilik",
         },
@@ -469,7 +469,7 @@ window.Yasandi.scenarios.push({
           keywords: ["issiz", "calismiyorum", "is ariyorum", "bostayim", "evdeyim"],
           text:
             "— İşsiz misin? Vah yavrum, vah.\n" +
-            "Teyze bütün otobüse duyurdu: — Bu çocuk işsizmiş! Bizim kapıcı Asım'ın oğlu gibi.\n" +
+            "Teyze bütün otobüse duyurdu:\n— Bu çocuk işsizmiş! Bizim kapıcı Asım'ın oğlu gibi.\n" +
             "Otobüs sana acıyarak baktı. Bir amca cebinden 20 lira çıkardı. Hayata küstün.",
           ending: "issiz",
         },
@@ -513,7 +513,7 @@ window.Yasandi.scenarios.push({
         "Durakta inerken ayağını sürüdün. Topallayarak. Arkanda kalan bütün otobüs mahcup oldu, teyze elini ağzına kapattı.\n" +
         "Otobüs gitti. Sen topallamayı bırakamadın: ya biri görürse?\n" +
         "Markete topallayarak girdin. Bakkal çırağı kapıyı tuttu. Eve kadar topalladın.\n" +
-        "Kapıyı annen açtı: — Ne oldu ayağına? Şimdi evde de topallıyorsun. Üç gündür.",
+        "Kapıyı annen açtı:\n— Ne oldu ayağına? Şimdi evde de topallıyorsun. Üç gündür.",
       ending: "topal",
     },
     {

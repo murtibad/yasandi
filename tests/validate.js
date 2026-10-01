@@ -39,6 +39,11 @@ for (const s of scenarios) {
     warnings.push(where(`"${m}": no suffix after a saved answer (it breaks vowel harmony); rewrite the sentence so the answer stands alone`));
   }
 
+  // A character's line must start its own line, or it is drawn as narration: "Usta omuz silkti: — Olur." should be "...silkti:\n— Olur."
+  for (const m of JSON.stringify(s).match(/[.!?:…] — .{0,24}/g) || []) {
+    warnings.push(where(`"${m}": put the character's line on its own line ("\\n— ...") so it gets the dialogue style`));
+  }
+
   // `remember`: what the narrator says when the player comes back, or arrives from another scenario.
   if (s.remember) {
     const mem = s.remember;

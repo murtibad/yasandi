@@ -128,7 +128,7 @@ window.Yasandi.scenarios.push({
           text: [
             "— Buyur mu? Garson muyum lan ben? Hangi mahallesin sen?",
             "— Hâlâ buyur diyor. Dalga mı geçiyon lan benimle?",
-            "Keko tespihi sertçe sıktı. — Senin o kibar ağzını yırtarım. Kimsin sen?"
+            "Keko tespihi sertçe sıktı.\n— Senin o kibar ağzını yırtarım. Kimsin sen?"
           ],
           goto: "abi",
         },
@@ -344,7 +344,7 @@ window.Yasandi.scenarios.push({
 
     // "Kimlerdensin?" Whatever name the player gives, keko reacts to it.
     kimlerden: {
-      freeze: { text: "Söylemedin. Keko gözlerini kıstı.\n— Söylemiyosan saklayacağın bi şey var demek.\nTelefonu çıkardı, sesli mesaj attı: — Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.", ending: "hasim" },
+      freeze: { text: "Söylemedin. Keko gözlerini kıstı.\n— Söylemiyosan saklayacağın bi şey var demek.\nTelefonu çıkardı, sesli mesaj attı:\n— Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.", ending: "hasim" },
       hint: "Bir isim söyle. Uydurabilirsin de. Ya da kimsen olmadığını...",
       intents: [
         {
@@ -389,7 +389,7 @@ window.Yasandi.scenarios.push({
         {
           text:
             "— {input}...\nKeko'nun tespihi yere düştü. Eğilip almadı.\n— {input} bizim hasımdır.\n" +
-            "Telefonu çıkardı, sesli mesaj attı: — Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.",
+            "Telefonu çıkardı, sesli mesaj attı:\n— Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.",
           ending: "hasim",
         },
       ],
@@ -438,7 +438,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Terlik sesi yaklaşıyor.\n— Dur lan! Koşacak mısın, duracak mısın?",
-        "Nefesin daralıyor. Köşede bir bakkal var, durakta bir otobüs.\nArkadan: — Dur dedim!",
+        "Nefesin daralıyor. Köşede bir bakkal var, durakta bir otobüs.\nArkadan:\n— Dur dedim!",
         "Keko'nun terliğinin biri çıktı. Tek terlikle devam ediyor. Hâlâ yetişiyor. Ne yapacaksın?",
       ],
     },

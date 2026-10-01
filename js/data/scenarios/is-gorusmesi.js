@@ -32,7 +32,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "— Hangi pozisyon dediniz? CV'de tam yazmıyor da. Ne iş yapıyorsunuz?",
-        "Burcu Hanım gözlüklerinin üstünden baktı. — Lütfen söyler misiniz, hangi ilana başvurdunuz?"
+        "Burcu Hanım gözlüklerinin üstünden baktı.\n— Lütfen söyler misiniz, hangi ilana başvurdunuz?"
       ]
     },
 
@@ -48,7 +48,7 @@ window.Yasandi.scenarios.push({
         {
           id: "senin-koltugunda",
           keywords: ["koltugunuzda", "koltugunuz", "yerinizde", "masanizda", "patron", "ceo"],
-          text: "» Sizin koltuğunuzda otururken görüyorum.\nBurcu Hanım'ın gülüşü dondu. Laptop'taki Mert Bey güldü: — Özgüvenli aday, severiz. Umarım beni de kovmazsın.",
+          text: "» Sizin koltuğunuzda otururken görüyorum.\nBurcu Hanım'ın gülüşü dondu. Laptop'taki Mert Bey güldü:\n— Özgüvenli aday, severiz. Umarım beni de kovmazsın.",
           goto: "q-zayiflik"
         },
         {
@@ -67,7 +67,7 @@ window.Yasandi.scenarios.push({
           id: "baska-sirket",
           positive: true,
           keywords: ["baska", "rakip", "yurtdisinda", "avrupada", "yurt disi", "amerika", "kendi sirket", "kendi is", "isimde", "sirketimde"],
-          text: "» Kendi şirketimi kurmuş olurum ya da yurt dışında.\nBurcu Hanım kalemini bıraktı. — Biz sizi geçici mi alıyoruz yani? İş etiği nerede?\nToplantı buz gibi oldu.",
+          text: "» Kendi şirketimi kurmuş olurum ya da yurt dışında.\nBurcu Hanım kalemini bıraktı.\n— Biz sizi geçici mi alıyoruz yani? İş etiği nerede?\nToplantı buz gibi oldu.",
           goto: "q-zayiflik"
         },
         {
@@ -78,13 +78,21 @@ window.Yasandi.scenarios.push({
           ending: "zoom_sessizlik"
         }
       ],
+      // Any answer is an answer here ("çulsuz", "sokaklarda"); the specific intents above still win.
+      acceptAny: [
+        { text: [
+            "Burcu Hanım bir şey yazdı, ne yazdığını göremedin. Kalemi uzun uzun sürtünüyor.\n— İlginç bir vizyon, dedi. Not alıyorum.",
+            "Mert Bey yayından güldü, sonra ses kesildi.\n— Ben de beş yıl önce aynı şeyi söylerdim, sonra Excel'e düştüm.\nBurcu Hanım ters ters ekrana baktı."
+          ],
+          goto: "q-zayiflik" }
+      ],
       fallbacks: [
-        "Burcu Hanım kalemiyle ritim tutuyor. — Beş yıl sonra nerede görüyorsunuz kendinizi?",
-        "Mert Bey yayından: — Sesiniz gelmiyor galiba? Ne görüyorsunuz 5 yıl sonra?"
+        "Burcu Hanım kalemiyle ritim tutuyor.\n— Beş yıl sonra nerede görüyorsunuz kendinizi?",
+        "Mert Bey yayından:\n— Sesiniz gelmiyor galiba? Ne görüyorsunuz 5 yıl sonra?"
       ],
       patience: 3,
       patienceIntent: {
-        text: "Sen konuşamadan kapı pat diye açıldı. CEO'nun yeğeni Berkcan içeri girdi.\n— Burcu abla benim masa hazır mı?\nBurcu Hanım sana döndü: — Biz sizi ararız. Kapı sağda.",
+        text: "Sen konuşamadan kapı pat diye açıldı. CEO'nun yeğeni Berkcan içeri girdi.\n— Burcu abla benim masa hazır mı?\nBurcu Hanım sana döndü:\n— Biz sizi ararız. Kapı sağda.",
         ending: "yegen"
       }
     },
@@ -94,32 +102,32 @@ window.Yasandi.scenarios.push({
       look: "Berkcan (CEO'nun yeğeni) köşedeki pufa yayıldı, telefonuyla oynuyor. Burcu Hanım dosyana bakıyor.",
       text: "Tam o sırada kapı açıldı. Elinde kahvesiyle CEO'nun yeğeni Berkcan içeri girip köşedeki pufa oturdu. Seni umursamadı bile.\nBurcu Hanım boğazını temizledi:\n— Peki, en büyük zayıflığınız nedir?",
       freeze: {
-        text: "Yine sustun. Burcu Hanım gülümsedi: — Anlıyorum, iletişim zayıflığı. Notumu aldım.",
+        text: "Yine sustun. Burcu Hanım gülümsedi:\n— Anlıyorum, iletişim zayıflığı. Notumu aldım.",
         goto: "q-neden-ayrildin"
       },
       intents: [
         {
           id: "mukemmeliyetci",
           keywords: ["mukemmeliyetciyim", "mukemmel", "mukemmeliyet", "cok caliskanim", "is koligim", "detayciyim", "titizim", "cok calis", "fazla calis", "calismayi seviyorum"],
-          text: "» Mükemmeliyetçiyim, işimi bitirmeden uyuyamam.\nBerkcan pufundan güldü: — Aga bu lafı 2012'de bıraktılar ya.\nBurcu Hanım ters ters Berkcan'a baktı ama notunu aldı.",
+          text: "» Mükemmeliyetçiyim, işimi bitirmeden uyuyamam.\nBerkcan pufundan güldü:\n— Aga bu lafı 2012'de bıraktılar ya.\nBurcu Hanım ters ters Berkcan'a baktı ama notunu aldı.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "durust",
           keywords: ["tembelim", "uykucuyum", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga", "inatciyim", "yavasim"],
-          text: "» Biraz tembelim. Çok çabuk sıkılırım.\nMert Bey yayından konuştu: — Sonunda dürüst biri! Ama bizde köle gibi çalışman lazım.\nBurcu Hanım 'Fazla dürüst' diye not aldı.",
+          text: "» Biraz tembelim. Çok çabuk sıkılırım.\nMert Bey yayından konuştu:\n— Sonunda dürüst biri! Ama bizde köle gibi çalışman lazım.\nBurcu Hanım 'Fazla dürüst' diye not aldı.",
           ending: "fazla_durust"
         },
         {
           id: "hayir-diyemem",
           keywords: ["hayir diyemem", "yardimseverim", "diyemem", "iyi niyet"],
-          text: "» İnsanlara hayır diyemiyorum, herkesin işine koşarım.\nBurcu Hanım'ın gözleri parladı: — Harika. Biz de tam her işe koşacak {job} arıyorduk.",
+          text: "» İnsanlara hayır diyemiyorum, herkesin işine koşarım.\nBurcu Hanım'ın gözleri parladı:\n— Harika. Biz de tam her işe koşacak {job} arıyorduk.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "yok",
           keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim"],
-          text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı: — Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
+          text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı:\n— Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
           goto: "q-neden-ayrildin"
         },
         {
@@ -130,8 +138,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Burcu Hanım bekliyor. — Bir tane zayıflığınız olmalı?",
-        "Berkcan: — Abi bi şey salla geç işte, yok mu bir zayıflığın?"
+        "Burcu Hanım bekliyor.\n— Bir tane zayıflığınız olmalı?",
+        "Berkcan:\n— Abi bi şey salla geç işte, yok mu bir zayıflığın?"
       ]
     },
 
@@ -140,20 +148,20 @@ window.Yasandi.scenarios.push({
       look: "Burcu Hanım kağıda bir şeyler çiziktiriyor. Mert Bey'in mikrofonundan televizyon sesi gelmeye başladı.",
       text: "Burcu Hanım, özgeçmişinde bir yeri işaret etti:\n— Önceki işinizden ayrılma sebebiniz neydi?",
       freeze: {
-        text: "Gözlerini kaçırdın. Burcu Hanım başını salladı: — Özel meseleler, anlıyorum. Üstelemeyeceğim.",
+        text: "Gözlerini kaçırdın. Burcu Hanım başını salladı:\n— Özel meseleler, anlıyorum. Üstelemeyeceğim.",
         goto: "q-neden-biz"
       },
       intents: [
         {
           id: "maas-az",
           keywords: ["maas", "para", "ucret", "ekonomi", "ekonomik", "yetmiyor", "vermiyorlardi", "azdi", "parasiz", "acim", "zam"],
-          text: "» Maaş yetersizdi, zam yapmadılar.\nBurcu Hanım boğazını temizledi: — Bizde de ilk 3 yıl zam olmuyor ama içeride sıcak su var, aile şirketiyiz.",
+          text: "» Maaş yetersizdi, zam yapmadılar.\nBurcu Hanım boğazını temizledi:\n— Bizde de ilk 3 yıl zam olmuyor ama içeride sıcak su var, aile şirketiyiz.",
           goto: "q-neden-biz"
         },
         {
           id: "patron-kotu",
           keywords: ["patron", "yonetici", "mobbing", "toksik", "kavga", "dovdum", "anlasamadik", "kufur", "istifa", "anlasamadim"],
-          text: "» Yöneticim tam bir zorbadı, katlanamadım.\nMert Bey yayından atıldı: — Aynısı bizim şirkette de var! Ben de dün istifayı basacaktım, eşim durdurdu.\nBurcu Hanım Mert Bey'i yayından sessize aldı.",
+          text: "» Yöneticim tam bir zorbadı, katlanamadım.\nMert Bey yayından atıldı:\n— Aynısı bizim şirkette de var! Ben de dün istifayı basacaktım, eşim durdurdu.\nBurcu Hanım Mert Bey'i yayından sessize aldı.",
           goto: "q-neden-biz"
         },
         {
@@ -165,24 +173,24 @@ window.Yasandi.scenarios.push({
         {
           id: "ilk-is",
           keywords: ["ilk isim", "ilk is", "yeni mezun", "hic calismadim", "ayrilmadim", "tecrubem yok"],
-          text: "» Bu benim ilk iş deneyimim olacak.\nBurcu Hanım gözlerini kıstı: — Harika, o zaman asgari ücretin altından başlayabiliriz.",
+          text: "» Bu benim ilk iş deneyimim olacak.\nBurcu Hanım gözlerini kıstı:\n— Harika, o zaman asgari ücretin altından başlayabiliriz.",
           goto: "q-neden-biz"
         },
         {
           id: "sirket-batti",
           keywords: ["batti", "kapandi", "iflas", "kucul", "isten cikar"],
-          text: "» Şirket battı.\n— Ay geçmiş olsun, dedi Burcu Hanım. Bizde de geçen ay maaşlar on gün gecikti.\nSonra ağzını kapattı. Mert Bey yayından: — Burcu Hanım, o konu gizliydi.",
+          text: "» Şirket battı.\n— Ay geçmiş olsun, dedi Burcu Hanım. Bizde de geçen ay maaşlar on gün gecikti.\nSonra ağzını kapattı. Mert Bey yayından:\n— Burcu Hanım, o konu gizliydi.",
           goto: "q-neden-biz"
         },
         {
           id: "kovuldum",
           keywords: ["kovuldum", "attilar", "isten cikarildim", "cikis", "kovdular"],
-          text: "» Kovuldum. Biraz olaylı oldu.\nBurcu Hanım kalemi düşürdü. Berkcan ayağa kalktı: — Helal lan! Ben de okuldan atıldım geçen hafta.\nOrtam biraz gerildi.",
+          text: "» Kovuldum. Biraz olaylı oldu.\nBurcu Hanım kalemi düşürdü. Berkcan ayağa kalktı:\n— Helal lan! Ben de okuldan atıldım geçen hafta.\nOrtam biraz gerildi.",
           goto: "q-neden-biz"
         }
       ],
       fallbacks: [
-        "Burcu Hanım sorusunu tekrarladı: — Önceki işinizden neden ayrıldınız?",
+        "Burcu Hanım sorusunu tekrarladı:\n— Önceki işinizden neden ayrıldınız?",
         "Eski patronun geldi aklına. Ne diyeceksin?"
       ]
     },
@@ -211,7 +219,7 @@ window.Yasandi.scenarios.push({
         {
           id: "ik-itiraf",
           keywords: ["siz de", "siz memnunsunuz", "sizce", "sen neden", "sizi neden"],
-          text: "» Asıl siz neden buradasınız Burcu Hanım? Memnun musunuz?\nBurcu Hanım bir an dondu. Sonra ağlamaya başladı.\n— Hiç memnun değilim! Dört yıldır zam yapmıyorlar, Berkcan her gün masama oturuyor!\nSana CV'sini uzattı: — Acaba siz işe girseniz, ben sizin yerinize başvursam?",
+          text: "» Asıl siz neden buradasınız Burcu Hanım? Memnun musunuz?\nBurcu Hanım bir an dondu. Sonra ağlamaya başladı.\n— Hiç memnun değilim! Dört yıldır zam yapmıyorlar, Berkcan her gün masama oturuyor!\nSana CV'sini uzattı:\n— Acaba siz işe girseniz, ben sizin yerinize başvursam?",
           ending: "ik_is_ariyor"
         }
       ],
@@ -239,15 +247,15 @@ window.Yasandi.scenarios.push({
         {
           id: "makul",
           keywords: ["makul", "pazarlik", "gorusuruz", "konusuruz", "sizce", "teklifiniz", "butce", "siz ne"],
-          text: "» Sizin bütçeniz ne kadar, ona göre konuşalım.\nBurcu Hanım terledi:\n— Bütçe konusunda benim yetkim yok, o Mert Bey'de.\nMert Bey yayından: — Bende de yok, o patronda.\nKimse rakam söylemedi ama herkes rahatladı.",
+          text: "» Sizin bütçeniz ne kadar, ona göre konuşalım.\nBurcu Hanım terledi:\n— Bütçe konusunda benim yetkim yok, o Mert Bey'de.\nMert Bey yayından:\n— Bende de yok, o patronda.\nKimse rakam söylemedi ama herkes rahatladı.",
           goto: "q-soru"
         },
         {
           id: "yuksek",
           keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden"],
           text: [
-            "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü: — Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
-            "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı: — Oğlum ben o kadar almıyorum lan!"
+            "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü:\n— Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
+            "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı:\n— Oğlum ben o kadar almıyorum lan!"
           ],
           exhausted: {
             text: "Sen rakamda diretince Burcu Hanım'ın kafası karıştı, yanlışlıkla istediğin rakamı onayladı. Şirketin en yüksek maaşını alan kişi olarak işe başladın.\nCEO bile senden az alıyor. Kira meselesi çözüldü ama ofiste kimse sana selam vermiyor.",
@@ -257,7 +265,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "— Rakam olarak konuşursak? Beklentiniz nedir?",
-        "Burcu Hanım kalemini rakam yazacak yere koydu. — Kaç lira?"
+        "Burcu Hanım kalemini rakam yazacak yere koydu.\n— Kaç lira?"
       ]
     },
 
@@ -266,7 +274,7 @@ window.Yasandi.scenarios.push({
       look: "Mülakat bitmek üzere. Herkes çok yorgun.",
       text: "Burcu Hanım klasörünü kapattı.\n— Benim soracaklarım bu kadar. Sizin bize sormak istediğiniz bir soru var mı?",
       freeze: {
-        text: "Sustun ve hayır anlamında başını salladın.\nBurcu Hanım ayağa kalktı: — Peki. Biz sizi ararız.\nHiç aramadılar. Yıllar geçti, hâlâ aramadılar.",
+        text: "Sustun ve hayır anlamında başını salladın.\nBurcu Hanım ayağa kalktı:\n— Peki. Biz sizi ararız.\nHiç aramadılar. Yıllar geçti, hâlâ aramadılar.",
         ending: "sizi_arariz"
       },
       intents: [
@@ -278,30 +286,30 @@ window.Yasandi.scenarios.push({
         {
           id: "soru-yok",
           keywords: ["hayir", "yok", "tesekkurler", "sorum yok", "her sey net", "sag olun", "yeterli", "yoktur"],
-          text: "» Teşekkürler, benim için her şey net.\nBurcu Hanım tokalaşmak için elini uzattı: — Katıldığınız için teşekkürler. Biz olumlu ya da olumsuz döneriz.\nAsla dönmediler.",
+          text: "» Teşekkürler, benim için her şey net.\nBurcu Hanım tokalaşmak için elini uzattı:\n— Katıldığınız için teşekkürler. Biz olumlu ya da olumsuz döneriz.\nAsla dönmediler.",
           ending: "sizi_arariz"
         },
         {
           id: "ne-zaman",
           keywords: ["ne zaman", "donus", "haber", "ararsiniz", "belli olur", "sonuc", "basliyorum", "ise alindim mi"],
-          text: "» Sonuç ne zaman belli olur acaba?\nBurcu Hanım yalan söylerken gözünü bile kırpmadı: — Cuma gününe kadar muhakkak ararız.\nO cuma hiç gelmedi.",
+          text: "» Sonuç ne zaman belli olur acaba?\nBurcu Hanım yalan söylerken gözünü bile kırpmadı:\n— Cuma gününe kadar muhakkak ararız.\nO cuma hiç gelmedi.",
           ending: "sizi_arariz"
         },
         {
           id: "yemek",
           keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin", "calisma saat", "mesai saat", "maas ne zaman"],
-          text: "» Yemek, yol ve yan haklar nelerdir?\nBurcu Hanım: — Bizde yemekler şirketten, tabldot. Yol yok, kendin geliyorsun. Mesai de gönüllülük esasına dayanır.\nDehşet içinde masadan kalkıp kaçtın.",
+          text: "» Yemek, yol ve yan haklar nelerdir?\nBurcu Hanım:\n— Bizde yemekler şirketten, tabldot. Yol yok, kendin geliyorsun. Mesai de gönüllülük esasına dayanır.\nDehşet içinde masadan kalkıp kaçtın.",
           ending: "kacti"
         },
         {
           id: "farkli-is",
           keywords: ["cay", "kahve", "berkcan", "baska pozisyon", "temizlik"],
-          text: "» Mert Bey'in yerine geçebilir miyim?\nBurcu Hanım güldü: — Siz {job} olarak başvurdunuz ama sizi Müşteri Hizmetleri'ne alalım. Asgari ücretle.\nİtiraz edemeden kendini çağrı merkezinde buldun.",
+          text: "» Mert Bey'in yerine geçebilir miyim?\nBurcu Hanım güldü:\n— Siz {job} olarak başvurdunuz ama sizi Müşteri Hizmetleri'ne alalım. Asgari ücretle.\nİtiraz edemeden kendini çağrı merkezinde buldun.",
           ending: "baska_pozisyon"
         }
       ],
       fallbacks: [
-        "Burcu Hanım toparlanıyor. — Bir sorunuz var mıydı?",
+        "Burcu Hanım toparlanıyor.\n— Bir sorunuz var mıydı?",
         "— Biz sizi ararız demeden önce son şansınız. Soru?"
       ]
     }
@@ -319,7 +327,7 @@ window.Yasandi.scenarios.push({
 
   overrides: {
     police: {
-      text: "» Bu çalışma şartları yasadışı, polisi arıyorum!\nBerkcan uyandı: — Abi dur yapma, amcam daha geçen ay vergi cezası yedi.\nPolis gelmeden seni binadan attılar.",
+      text: "» Bu çalışma şartları yasadışı, polisi arıyorum!\nBerkcan uyandı:\n— Abi dur yapma, amcam daha geçen ay vergi cezası yedi.\nPolis gelmeden seni binadan attılar.",
       ending: "kovuldun"
     }
   },
