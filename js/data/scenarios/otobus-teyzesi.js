@@ -17,7 +17,7 @@ window.Yasandi.scenarios.push({
     sarj: { title: "Şarj Bitti", tag: "ÖLDÜN" },
     nisan: { title: "Zorla Nişan", tag: "EVLENDİN" },
     akraba: { title: "Uzak Akraba", tag: "KURTULDUN" },
-    sofor: { title: "Şoför Müdahalesi", tag: "ATILDIN" },
+    sofor: { title: "Kaptana Akıl Verme", tag: "ATILDIN" },
     fenalik: { title: "Fenalık Geçirdi", tag: "VİCDAN AZABI" },
     saygisiz: { title: "Saygısız Nesil", tag: "DIŞLANDIN" },
     cam: { title: "Manzara", tag: "KURTULDUN" },
@@ -169,7 +169,7 @@ window.Yasandi.scenarios.push({
         {
           id: "get-off",
           positive: true,
-          keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme", "basarim"],
+          keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapiya git", "kapiya yuru", "durakta in", "dugme", "basarim"],
           text:
             "Teyzenin bakışlarına dayanamayıp 'Benim durağım geldi' diyerek ilk durakta kendini dışarı attın.\n" +
             "Yağmur altında 12 durak eve kadar yürürken teyzenin otobüs camından sana zaferle baktığını gördün.",
@@ -261,7 +261,7 @@ window.Yasandi.scenarios.push({
         {
           id: "block-video",
           positive: true,
-          keywords: ["video", "kamera", "cekme", "cekim", "telefonu", "engelle", "gence", "genc", "cocuga"],
+          keywords: ["video", "kamera", "cekme", "cekim", "telefonunu", "telefonu kapat", "engelle", "gence", "cocuga"],
           text:
             "» Kapat o telefonu! Çekim yapamazsın!\nGenç telaşla telefonu indirdi ama çok geçti.\n" +
             "Akşama TikTok'ta 'Otobüste yaşlılara yer vermeyen saygısız' olarak viral oldun.",
@@ -270,7 +270,7 @@ window.Yasandi.scenarios.push({
         {
           id: "stop-music",
           positive: true,
-          keywords: ["muzik", "kapat", "sesi kis", "radyo", "sofor", "kaptan"],
+          keywords: ["muzik", "muzigi kapat", "sesi kapat", "radyoyu kapat", "sesi kis", "radyo", "sofor", "kaptan"],
           text:
             "» Kaptan şu müziği kısar mısın, başımız şişti!\n" +
             "Şoför müziği tamamen kapattı. Sessizlik olunca otobüsteki herkes teyzenin sana bakışına odaklandı. Baskı on kat arttı.",
@@ -322,7 +322,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "ignore-harder",
-          keywords: ["bakmam", "devam", "gormezden", "susmak", "susuyorum", "hicbir sey", "yine", "hala", "oturmaya", "oturuyorum", "cevap vermem", "vermiyorum", "vermem", "kalkmiyorum", "kalkmam"],
+          keywords: ["bakmam", "devam", "gormezden", "susmak", "susuyorum", "hicbir sey", "oturmaya", "oturuyorum", "cevap vermem", "vermiyorum", "vermem", "kalkmiyorum", "kalkmam"],
           text:
             "Israrla önüne bakıyorsun.\n" +
             "Şoför dikiz aynasından sana ters ters bakmaya başladı. Arka koltuktaki amca boğazını temizledi, yüksek sesle 'Tüüüh' dedi.\n" +
@@ -390,6 +390,7 @@ window.Yasandi.scenarios.push({
     },
 
     "kimin-oglusu": {
+      freeze: { text: "Cevap vermedin. Teyze bütün otobüse döndü:\n— Kimin oğlu olduğunu bile söylemiyo. Nereden bilsin büyüğe saygıyı.\nSeni otobüsten inene kadar laf sokmaya devam etti.", ending: "saygisiz" },
       hint: "Teyze sülaleni soruyor. Bir isim söyle, ya da 'tanımazsın' de.",
       intents: [
         {
@@ -438,6 +439,7 @@ window.Yasandi.scenarios.push({
     },
 
     "ne-is-yapiyorsun": {
+      freeze: { text: "Cevap vermedin. Teyze bütün otobüse duyurdu:\n— İş yok, güç yok! Bizim kapıcı Asım'ın oğlu gibi.\nOtobüs sana acıyarak baktı. Hayata küstün.", ending: "issiz" },
       hint: "Ne iş yapıyorsun? Bir meslek söyle veya 'okuyorum' de.",
       intents: [
         {

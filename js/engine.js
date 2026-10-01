@@ -46,11 +46,11 @@
   }
 
   const NEGATION_WORDS = new Set(["hayir", "yok", "asla", "olmaz", "istemem", "degilim"]);
-  // vermiyorum, kalkmıyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, yemiycem
-  const NEGATION_ENDING = /(m[ai]yor(um|uz)?|miyom|mem|mam|meyecegim|mayacagim|micem|micam|miycem|miycam|m[ai]ycag[ai]m)$/;
+  // vermiyorum, kalkmıyorum, koşmuyorum, vermem, kalkmam, vermeyeceğim, kalkmayacağım, vermicem, yemiycem
+  const NEGATION_ENDING = /(m[aiu]yor(um|uz)?|m[iu]yom|mem|mam|meyecegim|mayacagim|micem|micam|miycem|miycam|m[ai]ycag[ai]m)$/;
 
   // Words that only look negative: "tamam" ends like "kalkmam" but means yes.
-  const NOT_NEGATION = new Set(["tamam", "hamam", "imam", "madam", "sistem", "ekmem"]);
+  const NOT_NEGATION = new Set(["tamam", "hamam", "imam", "madam", "sistem", "ekmem", "umuyorum", "umuyoruz", "yumuyorum"]);
   // "diyet yapmam lazım" / "gitmem gerek" means "I need to", not "I won't".
   const NEED_WORDS = /^(lazim|gerek)/;
   function isNegated(normalized) {

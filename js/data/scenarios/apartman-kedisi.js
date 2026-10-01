@@ -21,6 +21,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Kediler isimle ilgilenmez. Ama çocuklar ilgilenir.\nBirinci katın çocuğu merdivenden sesleniyor. Sana hep aynı ismi takar. Ne diye sesleniyor?" },
       hint: "Apartmandaki çocuklar sana ne isim taktı? (örn: Duman, Pamuk, Sarı)",
       look: "Beton merdivenler. Apartman boşluğunda yankılanan sesler ve havada asılı duran o mükemmel kızarmış balık kokusu.",
       text: "Sen bu apartmanın yöneticisinden bile daha yetkili birisin: apartman kedisi.\n" +
@@ -65,21 +66,21 @@ window.Yasandi.scenarios.push({
         {
           id: "yukari",
           positive: true,
-          keywords: ["yukari", "ikinci", "kata", "balik", "hayriye", "teyze", "cikarim", "kokuya", "merdiven", "cik", "koku"],
+          keywords: ["yukari", "ikinci", "balik", "hayriye", "teyze", "cikarim", "kokuya", "merdiven", "koku"],
           text: "Balık kokusunun geldiği ikinci kata, Hayriye teyzenin kapısına tırmandın.\nKapının önündeki paspasta bekliyorsun.",
           goto: "second-floor"
         },
         {
           id: "ekmek",
           positive: true,
-          keywords: ["ekmek", "poseti", "ucuncu", "kata", "ekmege", "kemir", "yerim", "ekmekleri", "cemal", "poset"],
+          keywords: ["ekmek", "poseti", "ucuncu", "ekmege", "kemir", "yerim", "ekmekleri", "cemal", "poset"],
           text: "Üçüncü kattaki ekmek poşetine yaklaştın. Plastik poşeti biraz yırtıp taze ekmeğin ucunu kemirmeye başladın.\nKapı aniden açıldı. Rıza bey belirdi.",
           goto: "riza-bey"
         },
         {
           id: "surun",
           positive: true,
-          keywords: ["cocuga", "surun", "bacak", "yalan", "sevdir", "sirnas", "cocuk", "oyna"],
+          keywords: ["cocuga", "surun", "bacak", "sevdir", "sirnas", "cocuk", "oyna"],
           text: "Çocuğun bacaklarına sürtündün.\n— Anne, {name} beni çok sevdi! diyerek seni kucağına aldı ve eve soktu.\nSıcak bir yuvan oldu, gerçi artık dışarı çıkamıyorsun.",
           ending: "sahiplen"
         },
@@ -93,7 +94,7 @@ window.Yasandi.scenarios.push({
         {
           id: "uyu",
           positive: true,
-          keywords: ["uyu", "kestir", "yat", "uyurum", "paspasa", "paspas", "otur"],
+          keywords: ["uyu", "kestir", "yat", "uyurum", "paspasa", "paspas"],
           text: "Karnın aç ama uykun daha ağır bastı. Çocuğun kapısındaki paspasa kıvrılıp uyudun.\nBiri üzerine basmamak için zıpladı ama sen uyanmadın.",
           ending: "paspas"
         }
@@ -134,7 +135,7 @@ window.Yasandi.scenarios.push({
         {
           id: "uyu-kapi",
           positive: true,
-          keywords: ["uyu", "yat", "bekle", "otur", "paspasa", "kivril"],
+          keywords: ["uyu", "yat", "bekle", "paspasa", "kivril"],
           text: [
             "Paspasta uyumaya karar verdin. Balık kokusu rüyalarına girdi.",
             "Uyurken kapı aniden açıldı, Hayriye teyzenin ayağına takıldın.\n— Ay tövbe bismillah! dedi."
@@ -154,7 +155,7 @@ window.Yasandi.scenarios.push({
         {
           id: "asansor",
           positive: true,
-          keywords: ["asansore", "asansor", "gir", "bin", "kabin", "kapisi", "icine"],
+          keywords: ["asansore", "asansor", "kabin"],
           text: "O sırada asansörün kapısı açıldı. Merak edip içine girdin. Kapı kapandı.\n12 saat mahsur kaldın. İtfaiye çıkardı.",
           ending: "asansor"
         }
@@ -211,7 +212,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kac-riza",
           positive: true,
-          keywords: ["kac", "uzaklas", "kos", "atla", "fiy", "kacarim", "asagi", "merdivenlerden"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "uzaklas", "kos", "atla", "fiy", "kacarim", "asagi", "merdivenlerden"],
           text: "» Miyav!\nAğzındaki ekmek parçasıyla merdivenlerden aşağı fişek gibi uçtun.\nRıza bey arkandan uçan terlik fırlattı ama ıskaladı. Afiyetle yedin.",
           ending: "ekmek"
         },
@@ -226,13 +227,13 @@ window.Yasandi.scenarios.push({
           id: "masum",
           positive: true,
           keywords: ["masum", "sevimli", "sirin", "bak", "goz", "gozlerini", "surun", "miyav"],
-          text: "Ekmeği bırakıp kocaman gözlerle ona baktın ve masumca » Miyav... dedin.\nRıza beyin kalbi eridi. — Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
+          text: "Ekmeği bırakıp kocaman gözlerle ona baktın.\n» Miyav...\nRıza beyin kalbi eridi. — Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
           ending: "sahiplen"
         },
         {
           id: "araba",
           positive: true,
-          keywords: ["arabaya", "pencere", "disari", "saklan", "giyin", "kac"],
+          keywords: ["arabaya", "pencere", "disari", "saklan", "giyin"],
           text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof'undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
           ending: "yonetici"
         }
@@ -247,9 +248,9 @@ window.Yasandi.scenarios.push({
     {
       id: "yala",
       positive: true,
-      keywords: ["yala", "temizle", "kendimi", "patimi", "tuylerimi", "yalan", "yalanirim"],
+      keywords: ["yala", "temizle", "kendimi", "patimi", "tuylerimi", "yalanirim", "yalaniyorum"],
       text: [
-        "Patinle yüzünü yıkadın. Etraftakiler Ayy ne tatlı dedi.",
+        "Patinle yüzünü yıkadın. Etraftakiler 'Ayy ne tatlı' dedi.",
         "Arka bacağını havaya kaldırıp kendini yalamaya başladın. Estetik olarak mükemmel değil ama temizlik şart."
       ],
       exhausted: {
@@ -261,7 +262,7 @@ window.Yasandi.scenarios.push({
       id: "kopek-taklidi",
       positive: true,
       keywords: ["kopek", "havla", "hav", "havlarim"],
-      text: "Kedi olduğunu unutup havlamaya çalıştın.\nBoğazından garip bir Hııık sesi çıktı. Apartmandakiler hasta olduğunu düşünüp WhatsApp grubuna yazdılar."
+      text: "Kedi olduğunu unutup havlamaya çalıştın.\nBoğazından garip bir 'hııık' sesi çıktı. Apartmandakiler hasta olduğunu düşünüp WhatsApp grubuna yazdılar."
     }
   ],
 

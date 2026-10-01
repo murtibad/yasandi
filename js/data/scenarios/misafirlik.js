@@ -71,16 +71,16 @@ window.Yasandi.scenarios.push({
         {
           id: "dusur-sakla",
           positive: true,
-          keywords: ["dusur", "yere dustu", "sakla", "minderin", "koltugun", "tekmeler", "halinin altina"],
+          keywords: ["dusur", "yere dustu", "sehpanin alti", "koltugun alti", "tekmeler", "halinin altina"],
           text:
-            "Çataldan düşen ıspanaklı börek parçasını kimse görmeden çaktırmadan zigon sehpanın altına tekmelersin.\n" +
-            "Ama teyzenin kedisi bulup afiyetle yer ve seni ispitlemek için suratına pis pis bakar.",
+            "Çataldan düşen ıspanaklı börek parçasını kimse görmeden zigon sehpanın altına tekmeledin.\n" +
+            "Ama teyzenin kedisi onu buldu, afiyetle yedi ve seni ispiyonlamak için suratına pis pis baktı.",
           ending: "kedi",
         },
         {
           id: "wc",
           positive: true,
-          keywords: ["tuvalet", "lavabo", "ellerimi", "elimi", "yikayayim", "kalk"],
+          keywords: ["tuvalet", "lavabo", "ellerimi", "elimi", "yikayayim"],
           text:
             "Lavabo bahanesiyle masadan kalktın.\n" +
             "Yanlış kapıyı açtın. İçeride Nebahat teyzenin kayınpederi, 94 yaşındaki Rıza dede, televizyonla uyukluyordu. Göz göze geldiniz.\n" +
@@ -91,7 +91,7 @@ window.Yasandi.scenarios.push({
         {
           id: "wc-kacis",
           positive: true,
-          keywords: ["kac", "kacalim", "git", "evden", "kapiya", "kapi", "disari", "bahane"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kacalim", "evden", "kapiya", "kapi", "disari", "bahane"],
           text:
             "Ocakta yemek unuttuğunu söyleyip kapıya koştun.\n" +
             "Nebahat teyze peşinden elinde saklama kabıyla geldi: 'Yolda yersin evladım.'",
@@ -120,7 +120,7 @@ window.Yasandi.scenarios.push({
         {
           id: "tabagi-siyir",
           positive: true,
-          keywords: ["siyir", "siyiririm", "ekmekle", "tabagi siyir", "epsini bitir", "epsini ye", "kalanini", "gom", "hepsini"],
+          keywords: ["siyir", "siyiririm", "ekmekle", "tabagi siyir", "hepsini bitir", "hepsini ye", "kalanini", "gom", "hepsini"],
           text:
             "'Vallahi çok iyi olur' deyip yüzsüzce kalan tüm böreği gömdün, tabağı ekmekle sıyırdın.\n" +
             "Teyze 'Maşallah iştahlı çocuk' dedi ama içinden 'Evdeki erzak bitti, kocama ne vereceğim' diye ağladı.",
@@ -130,12 +130,12 @@ window.Yasandi.scenarios.push({
           id: "refuse",
           keywords: ["tokum", "yeter", "doydum", "yiyemem", "yemiyorum", "yemiycem", "yemicem", "yemem", "istemiyorum", "sag ol", "sagol", "tesekkur", "istemem", "kalsin", "yok"],
           text: [
-            "Teyze gerçekten çok tokum, ellerine sağlık.\n" +
+            "» Teyze gerçekten çok tokum, ellerine sağlık.\n" +
             "Nebahat teyze gözlerini kıstı:\n" +
             "— Hasta mısın sen? Rengin de soluk senin. Büyüme çağındasın, yemen lazım.",
-            "Vallahi yer kalmadı teyzem, patlayacağım.\n" +
+            "» Vallahi yer kalmadı teyzem, patlayacağım.\n" +
             "— Patlamazsın patlamazsın, bir tanecik daha al hadi.",
-            "Teyze cidden yiyemem artık, nefes alamıyorum.\n" +
+            "» Teyze cidden yiyemem artık, nefes alamıyorum.\n" +
             "— Aşk olsun, benim sarmamı beğenmedin mi yoksa?"
           ],
           exhausted: {
@@ -147,7 +147,7 @@ window.Yasandi.scenarios.push({
         {
           id: "terlik",
           positive: true,
-          keywords: ["terlik", "giy", "terligi", "cikart"],
+          keywords: ["terlik", "terligi", "terligimi"],
           text:
             "Teyzenin zorla giydirdiği o kalın, çiçekli misafir terliğinin içinde ayakların yanıyor.\n" +
             "Çaktırmadan birini ayağından attın. Teyze anında şahin gibi sana döndü:\n" +
@@ -159,7 +159,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["diyet", "diyetteyim", "kilo", "zayiflama", "rejim"],
           text: [
-            "Teyze ben diyetteyim, vallahi yiyemem.\n" +
+            "» Teyze ben diyetteyim, vallahi yiyemem.\n" +
             "Nebahat teyze güldü: — Ne diyeti yavrum bayram günü! Dur sana zeytinyağlı diyet sarması getireyim.\n" +
             "Önüne yarım kilo daha sarma koydu.",
             "— Diyet mi? Hastalık o hastalık! Zayıflayacağım diye kurudun kaldın.",
@@ -167,7 +167,7 @@ window.Yasandi.scenarios.push({
           ],
           exhausted: {
             text: "Daha fazla dayanamayıp yalan söyledin: 'Teyze midem bulanıyor!'\n" +
-            "Teyze elindeki sarmayla dondu. 'Ayıp denen bir şey var' diyip sana küstü.",
+            "Teyze elindeki sarmayla dondu. 'Ayıp denen bir şey var' deyip sana küstü.",
             ending: "yalan"
           },
           goto: "escalation-1",
@@ -176,7 +176,7 @@ window.Yasandi.scenarios.push({
           id: "stomach",
           keywords: ["midem", "agriyor", "mide", "bulaniyor", "rahatsiz", "hastayim", "hasta", "bulanmis", "evet hasta", "atesim"],
           text:
-            "Midem biraz rahatsız teyze, yemesem iyi olacak.\n" +
+            "» Midem biraz rahatsız teyze, yemesem iyi olacak.\n" +
             "Nebahat teyze telaşlandı: — Vah yavrum! Üşüttün sen kesin.\n" +
             "Mutfaktan koca bir tencere nane limon ve üç kase şehriye çorbasıyla geldi.",
           ending: "corba",
@@ -186,7 +186,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["kisir", "kisiri", "kisir alayim", "kisir ver"],
           text:
-            "Teyze sarma kalsın da ben biraz kısır alayım.\n" +
+            "» Teyze sarma kalsın da ben biraz kısır alayım.\n" +
             "Nebahat teyze zaferle gülümsedi:\n" +
             "— Ha şöyle! Benim kısırım meşhurdur.\nSarma tabağı gitti, yerine kocaman bir kase kısır geldi. Arkasından ikincisi.",
           ending: "kisir"
@@ -194,18 +194,18 @@ window.Yasandi.scenarios.push({
         {
           id: "more",
           positive: true,
-          keywords: ["tabak", "daha ver", "cok acim", "hepsini yerim", "koy teyze", "getir"],
+          keywords: ["bir tabak daha", "bi tabak daha", "daha ver", "cok acim", "hepsini yerim", "koy teyze", "getir"],
           text:
-            "Teyze bunlar kesmez, bana bi tabak daha koy!\n" +
+            "» Teyze bunlar kesmez, bana bi tabak daha koy!\n" +
             "Nebahat teyze sevinç çığlığı attı. O gün tartıda tam 3 kilo aldın ama gözde misafir oldun.",
           ending: "kilo",
         },
         {
           id: "leave",
           positive: true,
-          keywords: ["kalkalim", "gidelim", "gitmek", "musade", "kalk", "veda", "gitme"],
+          keywords: ["kalkalim", "gidelim", "gitmek", "musaade", "musade", "kalk", "veda", "gitme", "gidiyorum"],
           text:
-            "Bize müsaade teyze, daha gidecek yerler var.\n" +
+            "» Bize müsaade teyze, daha gidecek yerler var.\n" +
             "Nebahat teyze anında mutfağa koştu.",
           goto: "escape-attempt",
         }
@@ -239,7 +239,7 @@ window.Yasandi.scenarios.push({
           id: "refuse-angry",
           keywords: ["tokum", "yeter", "doydum", "yiyemem", "bitti", "patladim", "catladim", "begenmedim", "istemiyorum"],
           text:
-            "Teyze yeter cidden, patlayacağım şimdi!\n" +
+            "» Teyze yeter cidden, patlayacağım şimdi!\n" +
             "Nebahat teyze bozuldu:\n" +
             "— Beğenmedin herhalde yemeklerimi. Benim kısırım meşhurdur oysa...",
           goto: "escalation-2",
@@ -249,7 +249,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["amca", "cemil", "yardim et", "amcaya", "uyandir"],
           text:
-            "Cemil amca, bir şey desene sen de.\n" +
+            "» Cemil amca, bir şey desene sen de.\n" +
             "Cemil amca tek gözünü açtı: — Yesene oğlum önündekini, nimet o nimet.\n" +
             "Geri uyudu.",
           ending: "cemil",
@@ -277,7 +277,7 @@ window.Yasandi.scenarios.push({
           id: "not-sick",
           keywords: ["hastasi", "hasta degilim", "iyiyim", "saglamim", "sorun yok"],
           text:
-            "Hasta falan değilim teyze, sadece tokum!\n" +
+            "» Hasta falan değilim teyze, sadece tokum!\n" +
             "Nebahat teyze cık cık yaptı:\n" +
             "— Annen yedirmiyo mu sana evde? Çöp gibi kalmışsın.",
           goto: "escalation-2",
@@ -295,16 +295,16 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["evet", "tamam", "olabilir", "galiba", "haklisin", "hasta"],
           text:
-            "Haklısın teyze, galiba biraz üşütmüşüm.\n" +
+            "» Haklısın teyze, galiba biraz üşütmüşüm.\n" +
             "— Ben demedim mi! Çocuk yanıyor!\nNebahat teyze mutfağa koştu. Nane limon, üç kase çorba, alnına sirkeli bez.",
           ending: "corba",
         },
         {
           id: "call-mom-threat",
           positive: true,
-          keywords: ["annem", "anne", "anneme", "ara", "telefon", "arama"],
+          keywords: ["annem", "anne", "anneme", "telefon", "arama"],
           text:
-            "Annem çok iyi yediriyor merak etme!\n" +
+            "» Annem çok iyi yediriyor merak etme!\n" +
             "Nebahat teyze hemen telefona sarıldı: — Dur bi anneni arayayım da gör.",
           ending: "anne",
         }
@@ -325,7 +325,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["begen", "cok guzel", "eline saglik", "enfes", "harika", "lezzetli", "bayildim", "sevdim"],
           text:
-            "Yok teyzecim, hepsi harika olmuş ellerine sağlık.\n" +
+            "» Yok teyzecim, hepsi harika olmuş ellerine sağlık.\n" +
             "Nebahat teyze hemen yumuşadı, gözleri parladı:\n" +
             "— Madem öyle söyle bakalım, en çok hangi yemeğimi seviyon sen?",
           goto: "favorite-food",
@@ -343,7 +343,7 @@ window.Yasandi.scenarios.push({
           positive: true,
           keywords: ["agla", "aglamak", "gozyasi", "pes et", "teslim", "yapma", "yalvar"],
           text:
-            "Teyze ne olur yapma, gerçekten yiyemiyorum...\nGözlerin doldu.\n" +
+            "» Teyze ne olur yapma, gerçekten yiyemiyorum...\nGözlerin doldu.\n" +
             "Nebahat teyze bir an durdu. — Aman iyi be, dedi, tabağı önünden aldı.\nİki dakika sonra meyve tabağıyla geri geldi.",
           ending: "gozyasi",
         }
@@ -360,23 +360,23 @@ window.Yasandi.scenarios.push({
       hint: "Kuzen rekor peşinde. Rakip mi olacaksın, müttefik mi?",
       intents: [
         {
-          id: "race",
-          positive: true,
-          keywords: ["yaris", "kapis", "ben de", "daha cok", "hizli ye", "yarisalim", "kuzen", "gecerim"],
-          text:
-            "Ver teyze ver, ben onu geçerim!\n" +
-            "Nebahat teyze gaza geldi, tencereleri masaya indirdi.\n" +
-            "3 saat süren yeme yarışı sonucunda ikiniz de mide fesadı geçirdiniz.",
-          ending: "kuzen",
-        },
-        {
           id: "praise-cousin",
           positive: true,
           keywords: ["masallah", "helal", "afiyet olsun", "yarasin", "kuzen yesin", "ona ver"],
           text:
-            "Maşallah, yarasın kuzenime. Kalanı da o yesin teyze.\n" +
-            "Teyze 'Haklısın büyüme çağında' diyip senin tabağı da ona boşalttı.\nKuzen sana minnetle baktı. Sen ona daha minnetle baktın.",
+            "» Maşallah, yarasın kuzenime. Kalanı da o yesin teyze.\n" +
+            "Teyze 'Haklısın büyüme çağında' deyip senin tabağını da ona boşalttı.\nKuzen sana minnetle baktı. Sen ona daha minnetle baktın.",
           ending: "kuzenin_payi",
+        },
+        {
+          id: "race",
+          positive: true,
+          keywords: ["yaris", "kapis", "ben de", "daha cok", "hizli ye", "yarisalim", "kuzen", "gecerim"],
+          text:
+            "» Ver teyze ver, ben onu geçerim!\n" +
+            "Nebahat teyze gaza geldi, tencereleri masaya indirdi.\n" +
+            "3 saat süren yeme yarışı sonucunda ikiniz de mide fesadı geçirdiniz.",
+          ending: "kuzen",
         }
       ],
       inherits: "start",
@@ -387,6 +387,7 @@ window.Yasandi.scenarios.push({
     },
 
     "favorite-food": {
+      freeze: { text: "— Utanma güzüm, ben bilirim senin sevdiğini.\nNebahat teyze önlük takıp mutfağa daldı. Sen salonda tabağınla baş başa kaldın.", goto: "waiting-food" },
       hint: "En sevdiğin yemeği söyle (örn: mantı, köfte, makarna).",
       acceptAny: [
         {
@@ -419,7 +420,7 @@ window.Yasandi.scenarios.push({
         {
           id: "run-fast",
           positive: true,
-          keywords: ["kac", "firlat", "git", "kapiya", "ayakkabi", "tuy", "kaciyorum"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "firlat", "git", "kapiya", "ayakkabi", "tuy", "kaciyorum"],
           text:
             "Teyze içerideyken usulca kapıya süzüldün.\n" +
             "Ayakkabılarını bile giymeden çoraplarla merdivenlerden aşağı koşarak uzaklaştın.",
@@ -429,7 +430,7 @@ window.Yasandi.scenarios.push({
       inherits: "start",
       fallbacks: [
         "Mutfaktan soğan kavurma sesleri geliyor. Bir hamle yap.",
-        "Cemil amca horlamaya başladı. Tabağın hala dolu. Karar ver.",
+        "Cemil amca horlamaya başladı. Tabağın hâlâ dolu. Karar ver.",
       ],
       patience: 3,
       patienceIntent: {
@@ -458,7 +459,7 @@ window.Yasandi.scenarios.push({
           id: "refuse-package",
           keywords: ["istemem", "kalsin", "alma", "gerek yok", "yeter", "istemiyorum"],
           text:
-            "Yok teyze sağ ol, elimiz kolumuz dolu.\n" +
+            "» Yok teyze sağ ol, elimiz kolumuz dolu.\n" +
             "Nebahat teyzenin gözleri doldu. 'Benim yemeğimi istemiyor musunuz' diye ağlamaya başladı.\nCemil amca uyandı: — Al şunu oğlum, kırma kadını.\nPoşeti aldın. Hem de iki tane.",
           ending: "kirik_kalp",
         }
@@ -507,7 +508,7 @@ window.Yasandi.scenarios.push({
       positive: true,
       keywords: ["tatli", "tatliya", "baklava", "cay", "cay var mi", "meyve", "karpuz"],
       text:
-        "Teyze tatlı falan yok mu, tuzludan içimiz bayıldı.\n" +
+        "» Teyze tatlı falan yok mu, tuzludan içimiz bayıldı.\n" +
         "Teyzenin gözleri parladı:\n" +
         "— Olmaz olur mu güzüm, tatlıya hep yer vardır!\n" +
         "Önüne bir tepsi baklava koydu.",
@@ -522,13 +523,13 @@ window.Yasandi.scenarios.push({
     },
     police: {
       text:
-        "Polisi aradın.\n— 155, buyrun.\nMemur bey, teyzem beni zorla besliyor!\n" +
+        "Polisi aradın.\n— 155, buyrun.\n» Memur bey, teyzem beni zorla besliyor!\n" +
         "— Teyzenin ellerinden öperiz kardeşim, afiyet olsun.",
       goto: "more-food",
     },
     mom: {
       text:
-        "Anneni aradın.\nAnne beni kurtar, patlayacağım.\n" +
+        "Anneni aradın.\n» Anne beni kurtar, patlayacağım.\n" +
         "— Ayıp yavrum, ye teyzenin yaptıklarını, mahcup etme bizi!\n" +
         "Telefon suratına kapandı.",
       ending: "anne",
@@ -552,7 +553,7 @@ window.Yasandi.scenarios.push({
   patienceIntent: {
     text:
       "Sen hiçbir şey yapmadan öylece oturdun, kafayı eğip salondaki halının göbek desenlerini saymaya başladın.\n" +
-      "Nebahat teyze 'Kıyamam, çocuğun uykusu geldi' deyip seni zorla misafir odasında yatırdı.",
+      "Nebahat teyze 'Kıyamam, çocuğun uykusu geldi' deyip seni zorla misafir odasına yatırdı.",
     ending: "pes_ettin",
   },
 });

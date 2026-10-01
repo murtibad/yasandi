@@ -21,6 +21,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: ["— Bilmiyor musunuz? dedi Burcu Hanım. CV'yi çevirdi, ters tutuyormuş.\n— Hangi ilana başvurdunuz, onu söyleyin yeter. Pozisyon ne?", "Burcu Hanım derin bir nefes aldı.\n— Pozisyonu söylemezseniz başlayamıyoruz. Ne iş için geldiniz?"] },
       hint: "Hangi pozisyon için başvurduğunu söyle (örn: yazılımcı, çaycı, müdür).",
       look: "Beyaz florasanlı dar bir İK odası. Masanın karşısında İK uzmanı Burcu Hanım var.",
       text: "Cam plazanın dördüncü katı. Dar bir toplantı odasında sandalyenin ucunda oturuyorsun. Kira üç aydır gecikmiş, annen sabah \"Hayırlısı olsun evladım, ev sahibine ben bakarım\" diye mesaj atmış. Bu iş lazım.\n" +
@@ -67,7 +68,7 @@ window.Yasandi.scenarios.push({
         {
           id: "baska-sirket",
           positive: true,
-          keywords: ["baska", "rakip", "yurtdisinda", "avrupada", "yurt disi", "amerika", "kendi", "isimde", "sirketimde"],
+          keywords: ["baska", "rakip", "yurtdisinda", "avrupada", "yurt disi", "amerika", "kendi sirket", "kendi is", "isimde", "sirketimde"],
           text: "» Kendi şirketimi kurmuş olurum ya da yurt dışında.\nBurcu Hanım kalemini bıraktı. — Biz sizi geçici mi alıyoruz yani? İş etiği nerede?\nToplantı buz gibi oldu.",
           goto: "q-zayiflik"
         },
@@ -261,7 +262,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "— Rakam olarak konuşursak? Beklentiniz nedir?",
-        "Burcu Hanım bir sayı duymak istiyor."
+        "Burcu Hanım kalemini rakam yazacak yere koydu. — Kaç lira?"
       ]
     },
 

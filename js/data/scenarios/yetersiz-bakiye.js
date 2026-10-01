@@ -29,6 +29,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: "Bakmadın bile. Ama o sana baktı. Kulağındaki şarkı bir anlığına sustu.\nKapıdaki kişi, hani şu hep hayal ettiğin. Kim o?" },
       hint: "Kim bindi? Hayalindeki kişiyi bir iki kelimeyle tarif et (örn: kız, yakışıklı çocuk, siyah saçlı kız).",
       look: "Otobüs hıncahınç dolu. Herkes yorgun, yüzler asık. Kapıda duran kişi ise buraya hiç ait değilmiş gibi parlak.",
       text:
@@ -85,7 +86,7 @@ window.Yasandi.scenarios.push({
         {
           id: "get-off",
           positive: true,
-          keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "kapi", "durak", "dugme", "basarim", "musait", "kaptan"],
+          keywords: ["inecek", "inmek", "iniyorum", "inecegim", "inerim", "inicem", "durakta in", "dugme", "musait"],
           text:
             "Panikle 'İnecek var!' diye bağırdın ve ilk açılan kapıdan kendini dışarı attın.\n" +
             "{crush} otobüste kaldı. Gideceğin yere daha yedi durak var.",
@@ -125,14 +126,6 @@ window.Yasandi.scenarios.push({
           }
         },
         {
-          id: "cash-try",
-          positive: true,
-          keywords: ["nakit", "para vereyim", "cuzdan", "bozukluk", "param", "parayla", "bende para"],
-          text:
-            "Hemen cüzdana davrandın. Şoför bağırdı:\n— Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
-          ending: "atildin",
-        },
-        {
           id: "dusur",
           positive: true,
           keywords: ["dusur", "yuvarlan", "bozuk para", "para dustu", "bozukluk dustu", "kacir", "kaydi"],
@@ -140,6 +133,14 @@ window.Yasandi.scenarios.push({
             "Şoföre uzatmak için bozuk para çıkardın ama elinden kayıp tıngır tıngır yuvarlandı.\n" +
             "Otobüsteki 40 kişi ve {crush} nefesini tutup o 1 liranın yuvarlanışını izledi.",
           ending: "rezil",
+        },
+        {
+          id: "cash-try",
+          positive: true,
+          keywords: ["nakit", "para vereyim", "cuzdan", "bozukluk", "param", "parayla", "bende para"],
+          text:
+            "Hemen cüzdana davrandın. Şoför bağırdı:\n— Nakit geçmiyor kardeşim, kaç kere söyleyeceğim!\nSizi ikinizi de indirdi.",
+          ending: "atildin",
         },
         {
           id: "hug",
@@ -153,7 +154,7 @@ window.Yasandi.scenarios.push({
         {
           id: "run-away",
           positive: true,
-          keywords: ["inmek", "inecek", "kac", "kapi", "disari", "iniyorum", "uzaklas", "yuru"],
+          keywords: ["inmek", "inecek", "kaci", "kaca", "kacm", "kact", "kac lan", "kapi", "disari", "iniyorum", "uzaklas", "yuru"],
           text:
             "Utançtan yerin dibine girdin. İlk açılan kapıdan fırlayıp kendini sokağa attın.\n{crush} da peşinden indi. 'Benim yüzümden oldu' dedi. Beraber yürüyorsunuz.",
           ending: "yuruyus",

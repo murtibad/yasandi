@@ -98,14 +98,14 @@ window.Yasandi.scenarios.push({
             "— Hâlâ ne diyon diyor. Kaşınma istersen. Kimsin sen?"
           ],
           exhausted: {
-            text: "Dördüncü kez sorduğunda keko bıkkınlıkla:\n— İyi misin gardaş sen? diyip alnına dokundu. Ateşini ölçtü.",
+            text: "Dördüncü kez sorduğunda keko bıkkınlıkla:\n— İyi misin gardaş sen? deyip alnına dokundu. Ateşini ölçtü.",
             ending: "rezil"
           }
         },
         {
           id: "bagir",
           positive: true,
-          keywords: ["bagir", "sesini yukselt", "sen kimsin", "lan"],
+          keywords: ["bagir", "sesini yukselt", "sen kimsin"],
           text:
             "Göğsünü kabartıp 'Sen kime bakıyorsun lan!' diye kükreyecekken sesin bülbül gibi incelip çatladı.\n" +
             "Keko bir an duraksadı, sonra sokağın ortasında kahkaha krizine girdi. Utançtan yüzün kızardı ve oradan hızla kaçtın.",
@@ -128,7 +128,7 @@ window.Yasandi.scenarios.push({
           id: "apologize",
           keywords: ["pardon", "kusura bakma", "ozur", "affedersin", "yanlis anladin", "kusura", "sorry", "ozur dilerim"],
           text: [
-            "— Abi mi? Ben senin abin miyim lan? Hangi mahallesin sen?",
+            "— Kusura bakmak mı? Bakarım ben, bakarım. Hangi mahallesin sen?",
             "— Yemezler o özürü. Bana kim olduğunu söyle sen.",
             "— Çok pardonmuş. Benim sinirlerimi bozma, nerelisin?"
           ],
@@ -137,7 +137,7 @@ window.Yasandi.scenarios.push({
         {
           id: "run",
           positive: true,
-          keywords: ["kac", "kos", "arkami don", "arkani don", "uzaklas", "hizlan", "tabana kuvvet", "geri don"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kos", "arkami don", "arkani don", "uzaklas", "hizlan", "tabana kuvvet", "geri don"],
           text:
             "Arkanı döndün, adımlarını hızlandırdın.\n" +
             "Arkadan terlik sesi geliyor. Terlikle koşuyor ama yetişiyor.\n— Dur lan!",
@@ -187,7 +187,7 @@ window.Yasandi.scenarios.push({
         {
           id: "run",
           positive: true,
-          keywords: ["kac", "kos", "arkami don", "tabana kuvvet", "hizlan"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kos", "arkami don", "tabana kuvvet", "hizlan"],
           text:
             "Arkanı dönüp koşmaya başladın.\nKeko'nun eli cebinden çıktı: tespih. Tespihi sallayarak peşine düştü.\n— Dur lan!",
           goto: "chase",
@@ -215,8 +215,8 @@ window.Yasandi.scenarios.push({
         },
       ],
       fallbacks: [
-        "Keko'nun eli hâlâ cebinde. Bir şeyi kavradı.",
-        "Kedi esnedi. Keko esnemedi.",
+        "Keko'nun eli hâlâ cebinde. Bir şeyi kavradı. Hızlı ol.",
+        "Kedi esnedi. Keko esnemedi. Elini cebinden çıkarmak üzere.",
       ],
       patience: 2,
       patienceIntent: {
@@ -229,6 +229,7 @@ window.Yasandi.scenarios.push({
     },
 
     abi: {
+      freeze: { text: "Cevap vermedin. Keko kendi kendine karar verdi:\n— Buralı değilsin sen. Buralı olsan bilirdim.\nTespihini iki kez çevirdi.\n— Kimlerdensin o zaman?", goto: "kimlerden" },
       hint: "Buralı mısın, misafir misin? Yalan da söyleyebilirsin. Ya da ona abi dememenin bir yolunu bul.",
       intents: [
         {
@@ -261,7 +262,7 @@ window.Yasandi.scenarios.push({
           id: "stranger",
           keywords: ["misafir", "disaridan", "uzaktan", "yolumu kaybettim", "kayboldum", "gecerken", "buralı degilim", "burali degilim", "baska mahalle"],
           text:
-            "» Misafirim abi, geçiyordum.\nKekonun yüzü bir anda yumuşadı.\n— Misafir başımızın tacıdır gardaş. Nereye gidiyon?\n" +
+            "» Misafirim abi, geçiyordum.\nKeko'nun yüzü bir anda yumuşadı.\n— Misafir başımızın tacıdır gardaş. Nereye gidiyon?\n" +
             "Seni durağa kadar götürdü. Otobüse bindirdi. Kartı da o bastı.",
           ending: "rehber",
         },
@@ -289,6 +290,7 @@ window.Yasandi.scenarios.push({
 
     // "Kimlerdensin?" Whatever name the player gives, keko reacts to it.
     kimlerden: {
+      freeze: { text: "Söylemedin. Keko gözlerini kıstı.\n— Söylemiyosan saklayacağın bi şey var demek.\nTelefonu çıkardı, sesli mesaj attı: — Gençler, gelin.\nUzaktan motor sesleri yaklaşıyor. Üç motor. Belki dört.", ending: "hasim" },
       hint: "Bir isim söyle. Uydurabilirsin de. Ya da kimsen olmadığını...",
       intents: [
         {
@@ -347,7 +349,7 @@ window.Yasandi.scenarios.push({
         {
           id: "run-faster",
           positive: true,
-          keywords: ["kos", "hizlan", "kac", "daha hizli", "depar"],
+          keywords: ["kos", "hizlan", "kaci", "kaca", "kacm", "kact", "kac lan", "daha hizli", "depar"],
           text:
             "Daha hızlı koştun. Terlik sesi de hızlandı.\nBir terlik yanından uçup geçti. İkincisi geçmedi.\n" +
             "Uyandığında keko gitmişti. Terliğini bırakmıştı.",
@@ -355,6 +357,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "stop",
+          positive: true,
           keywords: ["dur", "teslim", "bekle", "arkami don", "yuzles", "ne istiyorsun", "ne istiyon"],
           text:
             "Durdun. Keko nefes nefese yanına geldi.\n— Niye kaçıyon lan? Saat kaç diye soracaktım.\n" +
@@ -363,6 +366,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "hide",
+          positive: true,
           keywords: ["bakkal", "market", "dukkan", "saklan", "gir", "kafe", "kahve", "apartmana"],
           text:
             "Köşedeki bakkala daldın. Bakkal Remzi abi sana baktı, sonra kapıya.\n" +
@@ -371,6 +375,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "vehicle",
+          positive: true,
           keywords: ["otobus", "dolmus", "taksi", "minibus", "binmek", "bin"],
           text:
             "Durağa yanaşan otobüse atladın. Kartı bastın.\n— Bakiye yetersiz.\nŞoför bir sana baktı, bir kapıya. Kapı açıldı.\nKeko dışarıda bekliyordu.",
@@ -380,7 +385,7 @@ window.Yasandi.scenarios.push({
       fallbacks: [
         "Terlik sesi yaklaşıyor.\n— Dur lan! Koşacak mısın, duracak mısın?",
         "Nefesin daralıyor. Köşede bir bakkal var, durakta bir otobüs.\nArkadan: — Dur dedim!",
-        "Keko'nun terliğinin biri çıktı. Tek terlikle devam ediyor. Hâlâ yetişiyor.",
+        "Keko'nun terliğinin biri çıktı. Tek terlikle devam ediyor. Hâlâ yetişiyor. Ne yapacaksın?",
       ],
     },
 
@@ -430,7 +435,7 @@ window.Yasandi.scenarios.push({
     },
     {
       id: "benim-babam",
-      keywords: ["babam", "babamin", "sen benim", "kim oldugumu", "kiminle", "baba"],
+      keywords: ["babam", "babamin", "kim oldugumu", "kiminle"],
       text:
         "» Sen benim babamın kim olduğunu biliyor musun lan!\n" +
         "Keko bir an duraksadı.\n— Kimmiş lan baban?\n" +
@@ -449,7 +454,7 @@ window.Yasandi.scenarios.push({
     {
       id: "hediye",
       positive: true,
-      keywords: ["hediye", "tespihi", "tespihini", "ver", "istiyorum", "alayim", "versene"],
+      keywords: ["hediye", "tespih"],
       text:
         "» O tespih çok güzelmiş, bana versene.\n" +
         "Keko şaşırdı. Kendi tespihine baktı.\n— Harbiden güzel ha, al senin olsun.\n" +

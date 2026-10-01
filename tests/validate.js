@@ -79,6 +79,28 @@ for (const s of scenarios) {
 
   for (const e of Object.keys(s.endings)) if (!usedEndings.has(e)) warnings.push(where(`ending "${e}" is never reached`));
 
+  // Every step must be reachable from start through some goto (intents, acceptAny, freeze, patience, exhausted).
+  const edges = {};
+  const link = (from, i) => {
+    if (!i) return;
+    if (i.goto) (edges[from] = edges[from] || []).push(i.goto);
+    if (i.exhausted) link(from, i.exhausted);
+  };
+  for (const [nodeId, node] of Object.entries(s.nodes)) {
+    const inherited = node.inherits && s.nodes[node.inherits] ? s.nodes[node.inherits].intents || [] : [];
+    [...(node.intents || []), ...inherited, ...(node.acceptAny || []), node.freeze, node.patienceIntent, s.patienceIntent, ...(s.common || []), ...Object.values(s.overrides || {})]
+      .forEach((i) => link(nodeId, i));
+  }
+  const reached = new Set(["start"]);
+  const queue = ["start"];
+  while (queue.length) for (const next of edges[queue.shift()] || []) if (!reached.has(next)) { reached.add(next); queue.push(next); }
+  for (const nodeId of Object.keys(s.nodes)) if (!reached.has(nodeId)) err(where(`${nodeId}: no step leads here`));
+
+  // An open question (acceptAny) without a freeze takes "hayır" or "bilmiyorum" as the answer ("Hayır mı? Orayı bilirim.").
+  for (const [nodeId, node] of Object.entries(s.nodes)) {
+    if (node.acceptAny && !node.freeze) warnings.push(where(`${nodeId}: open question without a freeze; "hayır" and "bilmiyorum" become the answer`));
+  }
+
   // Role-pass check: in every step, a refusal or "doing nothing" is a real choice and must move the scene,
   // not bounce off a fallback.
   if (window.Yasandi.Game) {
