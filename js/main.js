@@ -219,8 +219,17 @@
     requestAnimationFrame(() => input.setSelectionRange(input.value.length, input.value.length));
   });
 
+  // Until the player sends a first line, the empty input shows the kinds of things they can type.
+  const EXAMPLES = ["ne yapıyorsun?", "örn: konuş, cevap ver", "örn: kaçıyorum", "örn: etrafıma bakıyorum", "örn: ne yapabilirim?"];
+  let exampleIndex = 0;
+  const exampleTimer = setInterval(() => {
+    exampleIndex = (exampleIndex + 1) % EXAMPLES.length;
+    input.placeholder = EXAMPLES[exampleIndex];
+  }, 2600);
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (input.value.trim()) { clearInterval(exampleTimer); input.placeholder = EXAMPLES[0]; }
     const command = input.value.trim();
     if (command && history[history.length - 1] !== command) history.push(command);
     historyIndex = history.length;

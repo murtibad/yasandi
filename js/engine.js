@@ -135,6 +135,14 @@
 
       const normalized = normalize(input);
       const here = this.scenario.nodes[this.nodeId];
+      // "?" asks for a push in this moment, not the general rules: the step's hint first, then its look.
+      if (["?", "ipucu", "ipucu ver", "yardim"].includes(normalized.trim())) {
+        const asked = this.helpAsked === this.nodeId ? here.look : here.hint || here.look;
+        this.helpAsked = this.nodeId;
+        if (asked) return { narrator: this.fill(asked) };
+      } else {
+        this.helpAsked = null;
+      }
       if (isNarratorQuestion(normalized)) {
         const look = here.look || this.scenario.nodes.start.look || here.hint;
         if (look) return { narrator: this.fill(look) };
