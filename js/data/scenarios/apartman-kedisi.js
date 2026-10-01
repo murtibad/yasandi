@@ -46,11 +46,19 @@ window.Yasandi.scenarios.push({
       text: "Sen bu apartmanın yöneticisinden bile daha yetkili birisin: apartman kedisi.\n" +
             "Karnın çok aç. İkinci kattaki Hayriye teyze balık kızartıyor, kokusu apartman boşluğunu doldurmuş. Ayrıca kapıcı Cemal efendi az önce sabah ekmeklerini kapı önlerine bıraktı.\n" +
             "Tek derdin karnını doyurmak. Çocuklar sana genelde bir isim takar. Hani şu hep söyledikleri...",
+      intents: [
+        {
+          id: "anlamaz",
+          keywords: ["napim", "ne diyor", "ne bileyim", "sanane", "sana ne", "isim yok", "ne ismi", "abi ne", "bilmiyorum", "beni sevmezler"],
+          text: "Çocuğun ne dediğiyle ilgilenmiyorsun. Ama elindeki oyuncak arabayı sallayıp sana hep aynı isimle sesleniyor. Ne diyor sana?"
+        }
+      ],
       acceptAny: [
         { text: "» Miyav.\n— {input} {mi}? Güzel isimmiş, dedi kendi kendine birinci katın çocuğu.", save: "name", goto: "staircase" }
       ],
       fallbacks: [
         "Sana ne sesleniyorlar?",
+        "Çocuk ısrarla sana bakıyor. Hangi ismi söylüyor?"
       ]
     },
 
@@ -196,7 +204,7 @@ window.Yasandi.scenarios.push({
         {
           id: "surun-teyze",
           positive: true,
-          keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yala", "yaltaklan", "surtun", "mirla", "mirildan", "mir mir", "kuyrugumu"],
+          keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yaltaklan", "surtun", "mirla", "mirildan", "mir mir", "kuyrugumu"],
           text: "» Miyav.\nBacaklarına dolandın, kendini sevdirdin.\n— Dur kıyamam sana, deyip mutfağa gitti. Döndüğünde elinde koca bir hamsi kuyruğu vardı.",
           ending: "balik"
         },
@@ -217,6 +225,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Hayriye teyze sana, sen ona bakıyorsun. Balık için ne yapıyorsun, sürtünüyor musun?",
+        "Taze hamsi kokusu başını döndürüyor. Hayriye teyze kapıda bekliyor. İçeri mi dalacaksın?"
       ]
     },
 
@@ -245,7 +254,7 @@ window.Yasandi.scenarios.push({
         {
           id: "tisla",
           positive: true,
-          keywords: ["tisla", "saldir", "isir", "tirmala", "cirmala", "kabar", "kabaririm", "pati"],
+          keywords: ["tisla", "saldir", "isir", "tirmala", "cirmala", "kabar", "kabaririm", "pati at", "pati vur"],
           text: "Kamburunu çıkarıp tısladın. Rıza beyin paçasına yapışıp ısırdın.\n— Ay! Kuduz bu kuduz! Yetişin komşular!\nBelediye gelip sana aşı yaptı.",
           ending: "isirdi"
         },
@@ -259,6 +268,7 @@ window.Yasandi.scenarios.push({
       ],
       fallbacks: [
         "Rıza bey şemsiyesini havaya kaldırdı. Kaçıyor musun, yoksa yalvarıyor musun?",
+        "Ekmek ağzında, adam tepende. Tıslayacak mısın, kaçacak mısın?"
       ]
     }
   },
