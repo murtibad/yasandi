@@ -34,6 +34,28 @@ for (const s of scenarios) {
   if (!s.nodes.start.text) err(where("nodes.start has no text"));
   if (!s.endings || !Object.keys(s.endings).length) err(where("no endings"));
 
+  // `remember`: what the narrator says when the player comes back, or arrives from another scenario.
+  if (s.remember) {
+    const mem = s.remember;
+    const lines = [...Object.values(mem.endings || {}), mem.default, mem.often, ...(mem.cameos || []).map((c) => c.text)].flat().filter(Boolean);
+    for (const id of Object.keys(mem.endings || {})) if (!s.endings[id]) err(where(`remember.endings.${id}: no such ending`));
+    for (const c of mem.cameos || []) {
+      if (!c.text) err(where("remember.cameos: an item has no text"));
+      for (const ref of [].concat(c.after || [])) {
+        const [sid, eid] = ref.split(":");
+        const other = scenarios.find((x) => x.id === sid);
+        if (!other) err(where(`remember.cameos: "${ref}" names no scenario`));
+        else if (eid && !other.endings[eid]) err(where(`remember.cameos: "${ref}" names no ending of ${sid}`));
+        if (sid === s.id) err(where(`remember.cameos: "${ref}" points at itself; use remember.endings`));
+      }
+    }
+    // Shown before the first move: saved answers ({crush}, {name}) do not exist yet.
+    for (const t of lines) {
+      const bad = (String(t).match(/\{(\w+)\}/g) || []).filter((m) => m !== "{last}" && m !== "{runs}");
+      if (bad.length) err(where(`remember: ${bad.join(", ")} is empty at the start; only {last} and {runs} work here`));
+    }
+  }
+
   const usedEndings = new Set();
   const checkIntent = (intent, label, needsKeywords) => {
     if (needsKeywords && (!Array.isArray(intent.keywords) || !intent.keywords.length)) err(where(`${label}: no keywords`));

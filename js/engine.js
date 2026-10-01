@@ -4,6 +4,17 @@
 
   const STORAGE_ENDINGS = "yasandi.endings.";
   const STORAGE_UNMATCHED = "yasandi.unmatched";
+  // How the last finished run of each scenario ended, and how many runs were finished: { ending, runs }.
+  const STORAGE_LAST = "yasandi.last.";
+
+  // What the narrator says when a scenario has no `remember` line of its own.
+  // {last} is the title of the ending the player got last time, {runs} which attempt this is.
+  const RECALL_BACK = [
+    "Yine sen. Geçen sefer '{last}' diye bitmişti. Herkes hatırlıyor, kimse bir şey demiyor.",
+    "Tekrar hoş geldin. Geçen seferki '{last}' olayı hâlâ konuşuluyor.",
+  ];
+  const RECALL_DIED = ["Geçen sefer burada öldün. Kimse bir şey olmamış gibi davranıyor. Sen de öyle yap."];
+  const RECALL_OFTEN = ["{runs}. kez buradasın. Artık seni tanıyorlar ama belli etmiyorlar."];
 
   const texts = (t) => (Array.isArray(t) ? t : [t]);
 
@@ -106,6 +117,27 @@
 
     intro() {
       return this.scenario.nodes.start.text;
+    }
+
+    // The narrator remembers the player. Coming back: a line about how the last run here ended.
+    // First time here: a cameo from another scenario the player already finished ("the keko is on this bus").
+    // Returns one line or null. Call it before the first move: an ending overwrites what it reads.
+    recall() {
+      const mem = this.scenario.remember || {};
+      const last = readJson(STORAGE_LAST + this.scenario.id, null);
+      const meta = last && this.scenario.endings[last.ending];
+      if (meta) {
+        const own = (mem.endings || {})[last.ending];
+        const line = own || (last.runs >= 3 && (mem.often || RECALL_OFTEN)) || mem.default || (meta.tag === "ÖLDÜN" ? RECALL_DIED : RECALL_BACK);
+        return pick(texts(line)).replace(/\{last\}/g, meta.title).replace(/\{runs\}/g, String(last.runs + 1));
+      }
+      const finished = (ref) => {
+        const [sid, eid] = ref.split(":");
+        const found = readJson(STORAGE_ENDINGS + sid, []);
+        return eid ? found.includes(eid) : found.length > 0;
+      };
+      const cameo = (mem.cameos || []).find((c) => texts(c.after).some(finished));
+      return cameo ? pick(texts(cameo.text)) : null;
     }
 
     foundEndings() {
@@ -238,6 +270,8 @@
         const found = this.foundEndings();
         const isNew = !found.includes(intent.ending);
         if (isNew) writeJson(STORAGE_ENDINGS + this.scenario.id, [...found, intent.ending]);
+        const before = readJson(STORAGE_LAST + this.scenario.id, null);
+        writeJson(STORAGE_LAST + this.scenario.id, { ending: intent.ending, runs: ((before && before.runs) || 0) + 1 });
         this.ended = intent.ending;
         result.ending = { id: intent.ending, title: meta.title, tag: meta.tag, isNew };
       }
