@@ -462,7 +462,7 @@ window.Yasandi.scenarios.push({
       text: [
         "Kendini tutamayıp kıkırdadın.\n— Abi gülme, ambiyansı bozuyorsun! dedi Tuncay.",
         "Kahkaha attın. Tuncay kameraya döndü: — Cinler arkadaşımın aklıyla oynuyor sayın seyirciler!",
-        "Sen kıkırdayınca karanlıktan Hüsnü'nün sesi geldi:\n— Tuncay beni göremiyor. Sen görüyorsun ama, değil mi? Telefondan bakan."
+        "Üçüncü kıkırdayışında Tuncay kamerayı indirip doğrudan ekrana, sana baktı:\n— Sen de mi gülüyon? Hayır, sen. Telefondan. Bak, ben ciddiyim, kayıttayız. Hadi, ne yapıyoruz?"
       ],
     },
   ],

@@ -117,7 +117,7 @@ window.Yasandi.scenarios.push({
           text: [
             "Makineye sert bir tokat attın.\nCihaz 'LÜTFEN KARTI YENİDEN OKUTUNUZ' dedi.",
             "Bu sefer yumruk attın.\nCihazın ekranı biraz daha karardı. Şoför 'Hooop!' dedi.",
-            "Üçüncü kez vurmak için elini kaldırdığında şoför dikiz aynasından doğrudan sana, dışarıya baktı:\n— Ekrana baka baka cihaza vurması kolay. Kıracaksın makineyi. Oyna da bitsin şu oyun."
+            "Üçüncü kez vurmak için elini kaldırdığında şoför dikiz aynasından doğrudan ekrana, sana baktı:\n— Sen de mi izliyon, telefondan? Şunu tut diyorum, makine kırılırsa faturayı sana keserim. Hadi, kartta kaç lira var?"
           ],
           exhausted: {
             text: "Cihaza son bir Osmanlı tokadı patlattın.\nCihaz bir an sustu. Sonra neşeyle şakıdı: 'TAM BİLET'.\n{crush} sana hayranlıkla baktı. Şoför ise polisi aradı.",

@@ -506,7 +506,7 @@ window.Yasandi.scenarios.push({
       text: [
         "» Teyze otobüste bir sürü genç var, niye tepeme dikildin?\n— Senin yüzünde nur var yavrum, dedi. Sana kanım ısındı.\nKaçış yok.",
         "» Teyze arka koltukta gencecik adam var, ondan istesene!\n— Onlar saygısız evladım, sen iyi birine benziyorsun.\nKaçış yok.",
-        "» Teyze yemin ederim yanımda oturan benden daha genç!\nTeyze birden durdu. Kafasını kaldırıp doğrudan ekrana, sana doğru baktı:\n— Ekrana bakanı diyorum. Evet sen, telefonu tutan. Çocuğu darlama da yer versin artık. Neyse, yavrum kalkacak mısın?"
+        "» Teyze yemin ederim yanımdaki benden genç!\nTeyze bir an durdu, yüzünü yarım çevirip doğrudan ekrana baktı:\n— Sen de bi şey de be, telefondan bakıp duruyorsun! Bana yardım yok mu? Neyse yavrum, kalkıyon mu şimdi?"
       ]
     },
   ],
