@@ -20,6 +20,10 @@ For the scenario you took:
 
 Report: how many of the inputs missed before and after, per step.
 
+### 9b. `remember` lines for `is-gorusmesi` (`content/remember-interview`)
+
+After `fix/play-is-gorusmesi` is merged. `is-gorusmesi` is the only scenario without `remember` (see AGENTS.md "Scenario format"). Copy the shape from `berber.js`: 6-8 own lines for the funniest endings, `default`, `often`, and 1-2 `cameos` (e.g. after `saglik-raporu:rapor_tamam`: the report is finally done). Test by setting `localStorage` in the browser console, as in the remember block of `tests/engine.js`.
+
 ### 10. Same playtest pass for the older scenarios
 
 After 9 is done, same steps for `goz-temasi`, `otobus-teyzesi`, `misafirlik`, `berber`, `terk-edilmis-koy`, `yetersiz-bakiye`. These were played by friends already, so check `FEEDBACK.md` lines for them first.
@@ -35,6 +39,7 @@ After 9 is done, same steps for `goz-temasi`, `otobus-teyzesi`, `misafirlik`, `b
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- The game remembers the player: last ending on a return, cameos from other scenarios on a first visit; `remember` in 11 scenarios (Claude, `feature/remember`)
 - New scenario: 2010 nostalgia (`content/nostalgia-2010`; Claude fixed keywords, freezes and endings before merge)
 - Barber loop at the last steps fixed (Gemini found the cause, Claude fixed it; branch `fix/barber-short`)
 - New scenario: picked for the board (`content/classroom`)
