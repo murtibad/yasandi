@@ -1,17 +1,32 @@
 # TASKS
 
-**Owner decision (2026-10-01): new scenarios are allowed again, one per task, only the ones listed under Ready.** Read `FEEDBACK.md` first: friends' main complaint is "the game answered something unrelated to what I wrote". Every task below is judged on that.
+**Owner decision (2026-10-01, later): no new scenarios for now. Make the existing ones better.** Read `FEEDBACK.md` first: friends' main complaint is "the game answered something unrelated to what I wrote". Every task below is judged on that.
 
 Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (read "Turkish voice", "Rol pası" and Workflow step 3a twice). Never push to `main`; push a branch. One task per branch. Do not touch `js/engine.js`, `js/main.js`, `css/` or `index.html` unless the task says so (a new scenario still gets its `<script>` tag and the `?v=N` bump from "Adding a scenario" in `AGENTS.md`).
 
 ## Ready
 
+### 9. Playtest pass, one scenario per branch (`fix/play-<id>`)
 
+Do these one at a time, in this order (newest and least tested first): `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`, `2010-bir-gun`. One scenario = one branch = one review. Do not start the next one until Claude merged the previous one.
 
+For the scenario you took:
 
-- Also later (owner's idea, notes not collected yet): "1 günlüğüne 2010'a dön" nostalgia (MSN titreşimi, internet kafe, tuşlu telefon), and a cockroach scenario (the immortal enemy of the terlik).
+1. For **every step**, write down 10 inputs a real person would type on a phone: short answers ("evet", "olur", "napim", "abi ne"), slang and typos ("bakıyom", "tmm", "slm"), a question back to the character, a refusal ("istemiyorum", "yapmam"), a sentence that only *contains* a keyword ("annem de böyle derdi"), and one swear. Put them in your branch as `tests/play/<id>.txt` (one line per input, `# step` headers).
+2. Run each input in that step (in the browser or with a small node script). For every input where the reply does not fit what was typed: add the missing stem to the right intent, add a small new intent that answers it, or make it a `freeze` case. Never fix it by making a keyword shorter or broader.
+3. Every step gets 2-3 of its **own** `fallbacks` that mention what is happening right now and end with a question. The scenario-level `fallbacks` are the last resort.
+4. Add at least 5 lines for this scenario to `PLAY` in `tests/engine.js` (inputs that failed before your fix).
+5. Do not add steps, endings or new mechanics. Do not rewrite texts that already work. A scene that answers what the player wrote is the goal, not a longer scene.
+
+Report: how many of the inputs missed before and after, per step.
+
+### 10. Same playtest pass for the older scenarios
+
+After 9 is done, same steps for `goz-temasi`, `otobus-teyzesi`, `misafirlik`, `berber`, `terk-edilmis-koy`, `yetersiz-bakiye`. These were played by friends already, so check `FEEDBACK.md` lines for them first.
 
 ## Later (owner's ideas, not for agents yet)
+
+- More scenarios (paused by owner): cockroach (the immortal enemy of the terlik).
 
 - Friends' playtest notes are in `FEEDBACK.md` (read it before content work). Open: tappable suggestions when stuck; collecting unmatched inputs is the most useful next step.
 
@@ -20,7 +35,7 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
-- New scenario: 2010 nostalgia (`content/nostalgia-2010`)
+- New scenario: 2010 nostalgia (`content/nostalgia-2010`; Claude fixed keywords, freezes and endings before merge)
 - Barber loop at the last steps fixed (Gemini found the cause, Claude fixed it; branch `fix/barber-short`)
 - New scenario: picked for the board (`content/classroom`)
 - New scenario: health report at the devlet hastanesi (`content/hospital-report`)
