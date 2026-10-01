@@ -34,7 +34,7 @@ Bitince Gemini'nin cevabını Claude'a götür, "incele ve yayına al" de.
 ## Sırada ne var
 
 - `TASKS.md` → 9. görev (sırayla: `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`, `2010-bir-gun`), sonra 10. görev (eski senaryolar).
-- **Boyut sınırı:** `js` + `css` 300 KB sınırını biraz aştı (315 KB; telefona sıkıştırılmış ~93 KB iniyor). Sınırı yükseltmek mi, kısaltmak mı, karar senin.
+- **Boyut sınırı:** `js` + `css` sınırı 300 KB'tan 600 KB'a çıkarıldı (şu an ~360 KB; GitHub Pages sıkıştırarak sunuyor, telefona ~100 KB iniyor). Sınır artık sorun değil, içerik rahatça büyüyebilir.
 - **Hikâye önerme formu:** Bir Google Formu aç, linkini `js/main.js` içindeki `STORY_FORM_URL` satırına yaz (ya da Claude'a ver). Sayfadaki "Hikâyeni anlat" bağlantısı kendiliğinden görünür olur.
 - **İleride:** oyuncuların anlaşılmayan komutlarını bir veritabanına kaydetmek (senin backend projen), takılınca dokunulabilir öneriler.
 

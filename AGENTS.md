@@ -129,4 +129,4 @@ Build scenarios around moments and memes Turkish internet already knows, not aro
 
 - Ideas may come from real-life anecdotes and from sites like Ekşi Sözlük, but **only as inspiration**: never copy sentences, never use usernames, retell everything in your own words with invented, generic characters. Do not mention real people, real brands or real teams.
 - Naming a song or artist as background detail is fine ("kulağında Manifest çalıyor", "Müslüm Gürses açtı"). Never quote lyrics, never make an artist say or do something, never mock them.
-- Keep the whole site light: plain text only, no images, fonts or audio files. Total size of `js/` + `css/` should stay under 300 KB.
+- Keep the whole site light: plain text only, no images, fonts or audio files. Total size of `js/` + `css/` should stay under 600 KB (the site is static on GitHub Pages, which serves it gzipped, so the real download is about a third of that). Size is not a reason to cut jokes; keep it plain text and keep an eye on phones with slow data.
