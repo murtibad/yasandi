@@ -120,6 +120,11 @@ const PLAY = [
   ["tahtaya-kalk", "kantin", "napcam simdi", "panik"],
   ["tahtaya-kalk", "defter", "kafami siraya koyarim", "uyu"],
   ["tahtaya-kalk", "defter", "hoca kime bakiyo", "soru_sor"],
+  ["apartman-kedisi", "start", "napim", "anlamaz"],
+  ["apartman-kedisi", "start", "ismimi bilmiyorum", "anlamaz"],
+  ["apartman-kedisi", "hayriye-teyze", "yalanirim", "yala"],
+  ["apartman-kedisi", "riza-bey", "patimi yalarim", "yala"],
+  ["apartman-kedisi", "start", "sana ne", "anlamaz"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
