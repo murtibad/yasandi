@@ -22,7 +22,7 @@ For the scenario you took:
 
 Report: the inputs whose reply did not fit before your fix, per step, and what each one gets now (paste the lines from `node tests/play.js`). Also check `positive`: an intent that means *doing* something keeps `positive: true`; for a negative form that still means doing it ("bakamam" = I can't look = I faint), add a separate intent without `positive` instead of removing it.
 
-9b-9c are small; do them between the playtest branches when the owner asks.
+9b is small; do it between two playtest branches when the owner asks.
 
 ### 9b. `remember` lines for `is-gorusmesi` (`content/remember-interview`)
 
