@@ -2,9 +2,11 @@
 
 Sürüm numarası: `büyük.orta.küçük` ve bir etiket (alpha / beta). Kurallar `AGENTS.md` içinde "Sürümleme".
 
-## Yayımlanmamış
+## 0.5.1 beta (2026-10-01)
 
-- Konuşma satırları artık hep kendi satırında (94 yer düzeltildi); açık sorularda (is-gorusmesi, "beş yıl sonra") her cevap kabul ediliyor.
+- Konuşma satırları artık hep kendi satırında (94 yer düzeltildi).
+- Mülakatta "beş yıl sonra" gibi açık sorularda her cevap kabul ediliyor.
+- Oynatma turu: tahtaya-kalk, apartman-kedisi, piknik-karincasi ("geç", "vur", "bin" gibi yalın fiiller artık anlaşılıyor).
 
 ## 0.5.0 beta (2026-10-01)
 

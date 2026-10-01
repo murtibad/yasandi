@@ -8,7 +8,7 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ### 9. Playtest pass, one scenario per branch (`fix/play-<id>`)
 
-Done: `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`. Next: `piknik-karincasi`. Only touch the scenario file of your branch, `tests/engine.js` and `tests/play/<id>.txt`. Write the txt file with an editor or node, not PowerShell `echo` (that writes UTF-16).
+Done: `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`. Next: `2010-bir-gun`. Only touch the scenario file of your branch, `tests/engine.js` and `tests/play/<id>.txt`. Write the txt file with an editor or node, not PowerShell `echo` (that writes UTF-16).
 
 Do these one at a time, in this order (newest and least tested first): `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`, `2010-bir-gun`. One scenario = one branch = one review. Do not start the next one until Claude merged the previous one.
 
@@ -19,6 +19,7 @@ For the scenario you took:
 3. Every step gets 2-3 of its **own** `fallbacks` that mention what is happening right now and end with a question. The scenario-level `fallbacks` are the last resort.
 4. Add at least 5 lines for this scenario to `PLAY` in `tests/engine.js` (inputs that failed before your fix).
 4b. **Bare verbs and present tense.** For every intent that means *doing* something, also type the bare imperative ("geç", "koş", "atla", "bak"), the present ("geçiyorum", "koşuyorum") and a short refusal ("geçmiyorum"). Players type these far more than "gecerim". (The matcher now turns a keyword like `gecerim` into the stem `gec`, so these usually work; if one does not, add the stem as its own keyword. Keywords written only as `...arim/...erim` are a smell: add the plain stem too.) Put these inputs in your txt file.
+4c. **Open questions take any answer.** In a step that asks something open ("beş yıl sonra nerede?", "neden biz?"), also type a joke or an odd answer ("çulsuz", "sokaklarda"). If it hits a fallback, add `acceptAny` after the specific intents. Do not shorten or widen keywords for this; and never add a keyword of 3 letters or fewer that an existing `...arim/...erim` keyword already covers.
 5. Do not add steps, endings or new mechanics. Do not rewrite texts that already work. A scene that answers what the player wrote is the goal, not a longer scene.
 
 Report: the inputs whose reply did not fit before your fix, per step, and what each one gets now (paste the lines from `node tests/play.js`). Also check `positive`: an intent that means *doing* something keeps `positive: true`; for a negative form that still means doing it ("bakamam" = I can't look = I faint), add a separate intent without `positive` instead of removing it.

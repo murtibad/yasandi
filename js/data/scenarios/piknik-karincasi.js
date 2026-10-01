@@ -155,7 +155,7 @@ window.Yasandi.scenarios.push({
         {
           id: "bocege-bin",
           positive: true,
-          keywords: ["bocek", "bocege", "binerim", "taksi", "surtun", "atlarim", "ustune", "bin", "atla"],
+          keywords: ["bocek", "bocege", "binerim", "taksi", "surtun", "atlarim", "ustune", "atla"],
           text: "» Yuvaya çek usta!\nBöceğin sırtına atladın. Böcek:\n— Ben taksi değilim birader, dedi ve seni anteniyle yuvanın kapısına kadar fırlattı.",
           ending: "taksi_bocek"
         },
@@ -184,7 +184,7 @@ window.Yasandi.scenarios.push({
         {
           id: "ustunden-atla",
           positive: true,
-          keywords: ["atla", "ustunden", "ziplarim", "gecerim", "kosarim", "basarim", "tirmandim", "gec", "asarim", "tirman"],
+          keywords: ["atla", "ustunden", "ziplarim", "gecerim", "kosarim", "basarim", "tirmandim", "asarim", "tirman"],
           text: "Koşarak tebeşirin üstünden atladın. Gözlerin yandı ama başardın! Şekerle yuvaya girdin. Kraliçe, {food} getirmedin ama dev bir şeker getirdin diye seni general yaptı.",
           ending: "kralice_mutlu"
         },
@@ -198,7 +198,7 @@ window.Yasandi.scenarios.push({
         {
           id: "yala",
           positive: true,
-          keywords: ["yala", "yalarim", "yerim", "isir", "tat"],
+          keywords: ["yala", "yalarim", "yerim"],
           text: "Tebeşiri yaladın. Ağzın zehir doldu. Yere yığıldın. Diğer karıncalar üzerinden geçip yola devam etti.",
           ending: "ezildin_terlik"
         }
@@ -221,14 +221,14 @@ window.Yasandi.scenarios.push({
         {
           id: "kac",
           positive: true,
-          keywords: ["kac", "kaciyorum", "kosarim", "tabanlari", "saga", "sola", "kurtul", "kos"],
+          keywords: ["kac", "kaciyorum", "kosarim", "tabanlari", "saga", "sola", "kurtul"],
           text: "Koşmaya başladın ama çocuk merceği peşinden takip ettiriyor. En sonunda elindeki merceği bırakıp seni iki parmağıyla yakaladı. Cam bir kavanozun içine attı.",
           ending: "esir_kavanoz"
         },
         {
           id: "olu-taklidi",
           positive: true,
-          keywords: ["olu", "taklidi", "olmus", "yatarim", "hareketsiz", "dururum", "beklerim", "yat"],
+          keywords: ["olu", "taklidi", "olmus", "yatarim", "hareketsiz", "dururum", "beklerim"],
           text: "Olduğun yere yığılıp ölü taklidi yaptın. Çocuk \"Ölmüş bu ya\" deyip seni bir peçeteyle çöp poşetine attı. Çöp kamyonu seni şehre taşıdı, artık şehir karıncasısın.",
           ending: "cop_kamyonu"
         }
@@ -251,7 +251,7 @@ window.Yasandi.scenarios.push({
         {
           id: "cemberden-cik",
           positive: true,
-          keywords: ["cikarim", "kalkarim", "ayrilirim", "bozarim", "terk", "disina", "sirayi", "yoldan", "kosarim", "sap", "saparim", "cik"],
+          keywords: ["cikarim", "kalkarim", "ayrilirim", "bozarim", "terk", "disina", "sirayi", "yoldan", "kosarim", "sap", "saparim"],
           text: "Aniden sıradan çıktın. Diğerleri şaşkınlıkla sana bakarken, sen kendi yolunu çizdin ve tesadüfen devasa piknik örtüsünün ortasına düştün.",
           goto: "ortu"
         },
@@ -287,7 +287,7 @@ window.Yasandi.scenarios.push({
         {
           id: "tut",
           positive: true,
-          keywords: ["tutarim", "havada", "durdururum", "kaldirmaya", "engellerim", "gucumu", "kollarimi", "tut", "engelle"],
+          keywords: ["tutarim", "havada", "durdururum", "kaldirmaya", "engellerim", "gucumu", "kollarimi", "engelle"],
           text: "Kollarını havaya kaldırıp 50 kat ağırlık kaldırma gücünü kullandın! Terliği havada durdurdun! \nAma teyze sinirlenip daha sert bastı.\nŞLAAAP!",
           ending: "ezildin_terlik"
         }
@@ -310,14 +310,14 @@ window.Yasandi.scenarios.push({
         {
           id: "cekirdege-bin",
           positive: true,
-          keywords: ["cekirdege", "kabuguna", "binerim", "kullanim", "kayik", "sandal", "kano", "gemi", "icinde", "siginirim", "bin"],
+          keywords: ["cekirdege", "kabuguna", "binerim", "kullanim", "kayik", "sandal", "kano", "gemi", "icinde", "siginirim"],
           text: "Hemen çekirdek kabuğuna atlayıp kano gibi kullandın! Çay nehrinde sörf yaparak şans eseri yuvanın ağzına kadar geldin.\nKraliçeye {food} getirmedin ama efsanevi bir giriş yaptın.",
           ending: "kralice_mutlu"
         },
         {
           id: "yuz",
           positive: true,
-          keywords: ["yuzerim", "yuzmeye", "dalarim", "cirpinirim", "karaya", "kula", "atarim", "kacarim", "yuz"],
+          keywords: ["yuzerim", "yuzmeye", "dalarim", "cirpinirim", "karaya", "kula", "atarim", "kacarim"],
           text: "Çayın içinde yüzmeye çalıştın ama sıcaklık antenlerini eritti. Çok çabaladın ama akıntıya karşı koyamadın.",
           ending: "boguldun_cay"
         }
@@ -333,7 +333,7 @@ window.Yasandi.scenarios.push({
     {
       id: "ev-don",
       positive: true,
-      keywords: ["eve don", "yuvaya don", "yuvaya git", "geri don", "yuvama", "kraliceye don", "eve git", "eve gidiyorum", "yuvaya kac", "eve donerim", "eve", "yuva"],
+      keywords: ["eve don", "yuvaya don", "yuvaya git", "geri don", "yuvama", "kraliceye don", "eve git", "eve gidiyorum", "yuvaya kac", "eve donerim"],
       text: "Korkup yuvaya, kraliçenin yanına geri döndün. Ellerinde ne bir küp şeker var ne de {food}. Kraliçe seni koloniden kovdu.",
       ending: "kralice_kizdi"
     }
