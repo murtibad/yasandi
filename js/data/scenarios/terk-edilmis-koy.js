@@ -53,6 +53,23 @@ window.Yasandi.scenarios.push({
           goto: "dark-room",
         },
         {
+          id: "knock",
+          keywords: ["kapiyi cal", "kapiya vur", "tiklat", "tik tik", "kapiyi tik", "zile bas", "ses ver"],
+          text:
+            "Kapıyı iki kere tıklattın.\n" +
+            "İçeriden tok bir ses geldi: — Açık, açık. Ayakkabıları çıkarın, halı yeni.\n" +
+            "Tuncay kameraya döndü: — Rüzgâr, sayın seyirciler. Rüzgâr.",
+          goto: "dark-room",
+        },
+        {
+          id: "shoes",
+          keywords: ["ayakkabi", "terlikleri giy", "terlik giy", "ayakkabilarimizi"],
+          text:
+            "Ayakkabılarını çıkarıp eşiğe dizdin. Tuncay da çıkardı, çorabı delik.\n" +
+            "Karanlıktan memnun bir ses geldi: — Hah, şöyle. Terbiyeli çocuklarmış. Girin.",
+          goto: "dark-room",
+        },
+        {
           id: "gir-direkt",
           positive: true,
           keywords: ["gir", "girelim", "iceri", "kapiyi ac", "hadi gir", "ilerle", "daliyorum"],
@@ -126,8 +143,16 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "kim-var",
-          keywords: ["kim var", "kim o", "kimse var", "ses ver", "cik ortaya", "kimsin", "orada kim", "hey"],
+          keywords: ["kim var", "kim o", "kimse var", "ses ver", "cik ortaya", "kimsin", "orada kim", "hey", "selam", "merhaba", "aleykum", "iyi aksamlar", "kimse yok mu"],
           text: "Çekirdek sesi durdu.\n— Benim, dedi karanlık. Hüsnü.",
+          goto: "cin",
+        },
+        {
+          id: "shoes-dark",
+          keywords: ["ayakkabi", "terlik", "ayakkabilarimizi"],
+          text:
+            "Ayakkabılarını çıkardın. Karanlıkta biri onları hizaya dizdi.\n" +
+            "— Hah, şöyle, dedi karanlık. Ben Hüsnü. Hoş geldiniz.",
           goto: "cin",
         },
         {
@@ -229,6 +254,11 @@ window.Yasandi.scenarios.push({
           ]
         },
         {
+          id: "shoes-cin",
+          keywords: ["ayakkabi", "ayakkabilarimizi"],
+          text: "Ayakkabılarını çıkarıp kapının yanına koydun.\n— Allah razı olsun, dedi Hüsnü. Üç yüz yıldır ilk defa biri çıkardı. Otur bakalım, anlat.",
+        },
+        {
           id: "terlik",
           keywords: ["terlik", "kapidaki", "terlikler"],
           text:
@@ -257,7 +287,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "abone",
-          keywords: ["abone", "kanal", "takip", "begen", "izle"],
+          keywords: ["abone", "kanal", "takip", "begen", "izleyici"],
           text:
             "— Abone miyim? dedi Hüsnü, alınmış gibi. 312 abonenin 311'i biziz zaten.\n" +
             "Duvardaki kapı açıldı. İçeri 310 cin daha doldu. Hepsi Tuncay'dan imza istedi.\n" +
@@ -294,7 +324,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "tapu",
-          keywords: ["tapu", "kira", "ev kimin", "burasi kimin", "evin sahibi", "senin mi", "satilik"],
+          keywords: ["tapu", "kirasi", "kiraya", "kira ne", "kirada", "ev kimin", "burasi kimin", "evin sahibi", "senin mi", "satilik"],
           text:
             "— Burası benim ev, dedi Hüsnü. Tapusu e-Devlet'te. Şifremi unuttum ama.\n" +
             "— Kalacaksanız kira ayda iki paket çekirdek. Depozito üç.\n" +
@@ -363,7 +393,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "selam-cin",
-          keywords: ["selam", "aleykum", "selamun", "merhaba"],
+          keywords: ["selam", "aleykum", "selamun", "merhaba", "naber", "nasilsin", "memnun oldum", "tanistigima", "hos bulduk"],
           text: [
             "— Aleykümselam, dedi Hüsnü. Ayakkabıları çıkarmadınız ama. Neyse.",
             "— Aldım selamını evladım, aldım. Üçüncü kere oluyor.",

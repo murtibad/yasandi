@@ -30,6 +30,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- Keyword coverage: chat spelling, verb bends, synonyms players type; `tests/engine.js` (branch `fix/keyword-coverage`)
 - New scenario: job interview (`content/job-interview`, commit `b6a9065`)
 - New scenario: you are the apartment cat (`content/apartment-cat`, commit `53ee044`)
 - One fourth-wall moment per scenario (`content/fourth-wall`, commit `10a316c`)

@@ -56,7 +56,7 @@ window.Yasandi.scenarios.push({
         {
           id: "offer-card",
           positive: true,
-          keywords: ["kartimi", "kartim var", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "basayim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan", "evet", "var"],
+          keywords: ["kartimi", "kartim var", "karti uzat", "bende var", "benimkini", "okut", "kart var", "basarim", "basayim", "vereyim", "veririm", "buyrun", "ben basarim", "kullan", "evet", "var", "tabi", "tabii", "=olur", "=tamam", "tamam abi", "benimkini kullan", "ben oderim", "ben ode"],
           text: [
             "Havalı bir şekilde kartını uzattın. Teşekkür edip kartını cihaza okuttu.\n" +
             "Cihaz yankılandı: 'YETERSİZ BAKİYE'.\n" +
@@ -66,7 +66,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "ignore",
-          keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye", "vermiyorum", "vermem", "yardim edemem", "etmiyorum", "edemem", "etmem", "yok", "bende", "sessiz", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam"],
+          keywords: ["gormezden", "duymamazliktan", "kulaklik", "muzigi", "kafami", "bakmam", "umursama", "ilgilenmiyorum", "ses cikarmiyorum", "dinlemeye", "vermiyorum", "vermem", "yardim edemem", "etmiyorum", "edemem", "etmem", "yok", "bende", "sessiz", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam", "bakmiyorum"],
           text: [
                         "Arkandaki spor çantalı kaslı genç hemen öne atıldı: — Buyrun, ben basayım.\n" +
             "{crush} ona minnetle gülümsedi. Genç numarasını veriyor, sense otobüs camından dışarı bakıyorsun.",
@@ -198,7 +198,7 @@ window.Yasandi.scenarios.push({
         {
           id: "ilerle",
           positive: true,
-          keywords: ["ilerle", "arkaya", "gec", "yuru", "kabul", "tamam"],
+          keywords: ["ilerle", "arkaya", "gec", "yuru", "kabul", "tamam", "ozur", "kusura", "pardon", "haklisin", "peki"],
           text:
             "Kafanızı eğip arkaya ilerlediniz. Sıkışık bir köşede yan yana durdunuz.\n" +
             "— Çok utandım ya. Benim adım bu arada...\nAdını söyledi ama cihaz yine 'YETERSİZ BAKİYE' diye bağırdı. Duyamadın.\n— Senin adın ne?",

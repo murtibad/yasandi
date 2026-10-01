@@ -38,9 +38,10 @@ for (const s of scenarios) {
   const checkIntent = (intent, label, needsKeywords) => {
     if (needsKeywords && (!Array.isArray(intent.keywords) || !intent.keywords.length)) err(where(`${label}: no keywords`));
     // Keywords match at the start of any word, so very short ones fire by accident ("in" matches "insan", "inat").
+    // "=al" (whole input only) and "#" (any number) cannot.
     for (const k of intent.keywords || []) {
       const n = window.Yasandi.text.normalize(k).trim();
-      if (n !== "?" && n.length < 3) warnings.push(where(`${label}: keyword "${k}" is shorter than 3 letters and will match by accident`));
+      if (n !== "?" && k !== "#" && !k.startsWith("=") && n.length < 3) warnings.push(where(`${label}: keyword "${k}" is shorter than 3 letters and will match by accident`));
     }
     if (!intent.text) err(where(`${label}: no text`));
     if (intent.goto && !s.nodes[intent.goto]) err(where(`${label}: goto "${intent.goto}" does not exist`));

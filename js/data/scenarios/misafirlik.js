@@ -108,9 +108,27 @@ window.Yasandi.scenarios.push({
           ending: "cep",
         },
         {
+          id: "kisir",
+          positive: true,
+          keywords: ["kisir", "kisiri", "kisir alayim", "kisir ver"],
+          text:
+            "Teyze sarma kalsın da ben biraz kısır alayım.\n" +
+            "Nebahat teyze zaferle gülümsedi:\n" +
+            "— Ha şöyle! Benim kısırım meşhurdur.\nSarma tabağı gitti, yerine kocaman bir kase kısır geldi. Arkasından ikincisi.",
+          ending: "kisir"
+        },
+        {
+          id: "praise-food",
+          keywords: ["eline saglik", "ellerine saglik", "elinize saglik", "cok guzel", "guzel olmus", "lezzetli", "harika", "enfes", "nefis", "super olmus", "efsane olmus"],
+          text: [
+            "— Afiyet olsun güzüm! Beğendin mi? Dur o zaman, bi tabak daha koyayım.\nNebahat teyze kepçeyi kaptı bile.",
+          ],
+          goto: "more-food",
+        },
+        {
           id: "eat",
           positive: true,
-          keywords: ["yemek", "yiyorum", "yerim", "yicem", "yiyecem", "yiyicem", "tamam yiyorum", "basla", "atistir", "yiyecegim", "catal", "kasik", "agzima", "isir", "bi sarma", "bir sarma"],
+          keywords: ["yemek", "yiyorum", "yerim", "yicem", "yiyecem", "yiyicem", "tamam yiyorum", "basla", "atistir", "yiyecegim", "catal", "kasik", "agzima", "isir", "bi sarma", "bir sarma", "bir tane", "biraz", "az koy", "borek", "sarma yi", "sarmadan", "tadina bak", "afiyetle", "=tamam", "tamam teyze", "peki teyze"],
           text:
             "Çatalı alıp zorla bir sarma attın ağzına.\n" +
             "Sen yutkunmaya çalışırken Nebahat teyze sevinçle mutfaktan döndü:\n" +
@@ -182,16 +200,6 @@ window.Yasandi.scenarios.push({
           ending: "corba",
         },
         {
-          id: "kisir",
-          positive: true,
-          keywords: ["kisir", "kisiri", "kisir alayim", "kisir ver"],
-          text:
-            "Teyze sarma kalsın da ben biraz kısır alayım.\n" +
-            "Nebahat teyze zaferle gülümsedi:\n" +
-            "— Ha şöyle! Benim kısırım meşhurdur.\nSarma tabağı gitti, yerine kocaman bir kase kısır geldi. Arkasından ikincisi.",
-          ending: "kisir"
-        },
-        {
           id: "more",
           positive: true,
           keywords: ["tabak", "daha ver", "cok acim", "hepsini yerim", "koy teyze", "getir"],
@@ -203,7 +211,7 @@ window.Yasandi.scenarios.push({
         {
           id: "leave",
           positive: true,
-          keywords: ["kalkalim", "gidelim", "gitmek", "musade", "kalk", "veda", "gitme"],
+          keywords: ["kalkalim", "gidelim", "gitmek", "musade", "kalk", "veda", "gitme", "musaade", "izninizle", "gec oldu", "biz kalkalim", "gitmemiz lazim"],
           text:
             "Bize müsaade teyze, daha gidecek yerler var.\n" +
             "Nebahat teyze anında mutfağa koştu.",
@@ -275,7 +283,7 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "not-sick",
-          keywords: ["hastasi", "hasta degilim", "iyiyim", "saglamim", "sorun yok"],
+          keywords: ["hastasi", "hasta degilim", "iyiyim", "saglamim", "sorun yok", "=hayir", "=yok", "hayir teyze", "yok teyze", "atesim yok", "hasta degil", "degilim"],
           text:
             "Hasta falan değilim teyze, sadece tokum!\n" +
             "Nebahat teyze cık cık yaptı:\n" +
@@ -285,7 +293,7 @@ window.Yasandi.scenarios.push({
         {
           id: "check-temp",
           positive: true,
-          keywords: ["ates olc", "atesime bak", "atesim", "alnima", "derece", "baksin", "baksana", "bak teyze", "bakabilirsin", "tabi bak"],
+          keywords: ["ates olc", "atesime bak", "atesim", "alnima", "derece", "baksin", "baksana", "bak teyze", "bakabilirsin", "tabi bak", "=bak", "bak bakalim", "bakabilir"],
           text:
             "Teyze elini alnına koydu.\n— Ateşin de var senin, yanıyorsun!\nAslında ateşin yoktu ama teyzenin elleri çok soğuktu.",
           ending: "corba",
@@ -323,7 +331,7 @@ window.Yasandi.scenarios.push({
         {
           id: "praise",
           positive: true,
-          keywords: ["begen", "cok guzel", "eline saglik", "enfes", "harika", "lezzetli", "bayildim", "sevdim"],
+          keywords: ["begen", "cok guzel", "eline saglik", "enfes", "harika", "lezzetli", "bayildim", "sevdim", "ellerine saglik", "elinize saglik", "guzel olmus", "guzeldi", "nefis", "ozur", "kusura", "kirilma", "darilma", "pardon", "gonlunu"],
           text:
             "Yok teyzecim, hepsi harika olmuş ellerine sağlık.\n" +
             "Nebahat teyze hemen yumuşadı, gözleri parladı:\n" +
@@ -447,7 +455,7 @@ window.Yasandi.scenarios.push({
         {
           id: "take-package",
           positive: true,
-          keywords: ["alirim", "kabul et", "paket", "tesekkur", "ver teyze", "gotur", "aliyorum"],
+          keywords: ["alirim", "kabul et", "paket", "tesekkur", "ver teyze", "gotur", "aliyorum", "=tamam", "=olur", "tamam teyze", "olur teyze", "peki", "sag olasin"],
           text:
             "Nebahat teyze elinde üç kat sarılmış naylon poşetle kapıda belirdi.\n" +
             "— Bunları da yolluk yaptım, yolda acıkırsınız.\n" +
@@ -456,7 +464,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "refuse-package",
-          keywords: ["istemem", "kalsin", "alma", "gerek yok", "yeter", "istemiyorum"],
+          keywords: ["istemem", "kalsin", "alma", "gerek yok", "yeter", "istemiyorum", "sag ol", "sagol", "zahmet etme", "doyduk"],
           text:
             "Yok teyze sağ ol, elimiz kolumuz dolu.\n" +
             "Nebahat teyzenin gözleri doldu. 'Benim yemeğimi istemiyor musunuz' diye ağlamaya başladı.\nCemil amca uyandı: — Al şunu oğlum, kırma kadını.\nPoşeti aldın. Hem de iki tane.",

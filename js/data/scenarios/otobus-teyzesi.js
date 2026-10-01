@@ -52,7 +52,7 @@ window.Yasandi.scenarios.push({
         {
           id: "give-seat",
           positive: true,
-          keywords: ["kalk", "buyur teyze", "otur teyze", "teyze otur", "sen otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk", "buyur"],
+          keywords: ["kalk", "buyur teyze", "otur teyze", "teyze otur", "sen otur", "otur buraya", "yer ver", "yerimi", "gec teyze", "gec otur", "otursana", "ayaga kalk", "buyur", "buyrun", "oturun", "=otur", "otur hadi", "ister misin", "ister misiniz", "oturmak ister", "yer vereyim"],
           text: [
             "Ayağa kalktın. Teyze tam oturacakken arka taraftan orta yaşlı, kel bir adam fırladı ve koltuğa doğru hamle yaptı.\nAdam koltuğa oturmak üzere.",
             "Zar zor doğruldun. Sen kalkar kalkmaz o kel adam yine belirdi, koltuğa nişan aldı.",
@@ -204,7 +204,7 @@ window.Yasandi.scenarios.push({
         {
           id: "block-man",
           positive: true,
-          keywords: ["engelle", "adami it", "itmek", "dur de", "onune gec", "adami durdur", "ittir", "adama hamle"],
+          keywords: ["engelle", "adami it", "itmek", "dur de", "onune gec", "adami durdur", "ittir", "adama hamle", "engel ol", "onu durdur", "amcayi it"],
           text:
             "Adamı omuzlayıp engelledin. Adam geriye savruldu. Teyze huzurla koltuğa oturdu.\n" +
             "Ama teyze susmadı: — Senin boyun da posun da yerinde, bekar mısın evladım? Bizim eltinin kızına alalım seni.\n" +
@@ -232,7 +232,7 @@ window.Yasandi.scenarios.push({
         {
           id: "say-for-aunt",
           positive: true,
-          keywords: ["teyzenin", "bu koltuk teyzenin", "teyzenin yeri", "teyze icin", "adama laf"],
+          keywords: ["teyzenin", "bu koltuk teyzenin", "teyzenin yeri", "teyze icin", "adama laf", "=hey", "hey amca", "amca dur", "dur amca", "beyefendi", "ayip oluyor", "amca oturma"],
           text:
             "Adam oralı olmadı, oturdu.\n" +
             "Teyze adama döndü ve bastonuyla adamın kafasına vurmaya başladı. Sen aradan sıyrıldın.",
@@ -314,7 +314,7 @@ window.Yasandi.scenarios.push({
         {
           id: "explain-job",
           positive: true,
-          keywords: ["anlat", "durumum", "yorulduk", "meslegim", "isim gucum", "calisiyorum", "isten", "anlatirim", "aciklama"],
+          keywords: ["anlat", "durumum", "yorulduk", "meslegim", "isim gucum", "calisiyorum", "isten", "anlatirim", "aciklama", "yorgunum", "yoruldum", "yorgunuz"],
           text:
             "» Teyze biz de akşama kadar yoruluyoruz, iş güç işte...\nTeyze seni dinlemedi bile. Sözünü kesip:\n" +
             "— Peki sen ne iş yapıyorsun bakayım yavrum? dedi.",
@@ -358,7 +358,7 @@ window.Yasandi.scenarios.push({
         {
           id: "sleep-again",
           positive: true,
-          keywords: ["uyku", "gozumu kapat", "uyumaya", "kestir", "horla", "uyumak", "uyurum"],
+          keywords: ["uyku", "gozumu kapat", "uyumaya", "kestir", "horla", "uyumak", "uyurum", "uyuyor", "uyudum", "uyuma numarasi"],
           text:
             "Tekrar gözlerini kapattın ve bu sefer gerçekten uykuya daldın.\n" +
             "Uyandığında son duraktasın. Teyze yok. Otobüs boş. Şoför seni dürtüyor:\n— Kalk hadi geldik.",
@@ -441,6 +441,15 @@ window.Yasandi.scenarios.push({
       hint: "Ne iş yapıyorsun? Bir meslek söyle veya 'okuyorum' de.",
       intents: [
         {
+          id: "jobless",
+          keywords: ["issiz", "calismiyorum", "is ariyorum", "bostayim", "evdeyim"],
+          text:
+            "— İşsiz misin? Vah yavrum, vah.\n" +
+            "Teyze bütün otobüse duyurdu: — Bu çocuk işsizmiş! Bizim kapıcı Asım'ın oğlu gibi.\n" +
+            "Otobüs sana acıyarak baktı. Bir amca cebinden 20 lira çıkardı. Hayata küstün.",
+          ending: "issiz",
+        },
+        {
           id: "student",
           keywords: ["okuyorum", "ogrenciyim", "universite", "lise", "okul"],
           text:
@@ -496,7 +505,7 @@ window.Yasandi.scenarios.push({
     {
       id: "smile",
       positive: true,
-      keywords: ["gulumse", "siritiyor", "sirittim", "gulmek", "siritmak", "tebessum", "gulumsedim", "gulerek"],
+      keywords: ["gulumse", "siritiyor", "sirittim", "gulmek", "siritmak", "tebessum", "gulumsedim", "gulerek", "gulumsu", "gulumsey", "guluyorum"],
       text: "» Yüzüne karşı gülümsedin.\nTeyze gülümsemedi. Bakışları bir kat daha sertleşti.",
     },
     {
