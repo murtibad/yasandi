@@ -24,12 +24,12 @@ window.Yasandi.scenarios.push({
     start: {
       hint: "Hangi işe gireceğini yaz (örn: muhasebeci, mühendis, bekçi).",
       look: "Danışmadaki bilgisayarın arkasında esneyen, bıkkın bir memur var.",
-      text: "Saat 15:00. Devlet hastanesi danışmasındasın. Yarın yeni işine başlayacaksın ama 'İşe Giriş Raporu' eksik. Memur eline boş bir form tutuşturdu.\n— Hangi işe giriyordun sen, dedi esneyerek.",
+      text: "Saat 15:00. Devlet hastanesi danışmasındasın. İK sabah arayıp \"Rapor yoksa yarın başlayamazsın, kontenjan başkasına gider\" dedi. Annen de komşulara çoktan söyledi.\nMemur eline boş bir form tutuşturdu.\n— Hangi işe giriyordun sen, dedi esneyerek.",
       acceptAny: [
         { text: "» {input}.\n— Tamam, bütün bölümleri gez, imzaları topla. Saat 16:00'da mesai biter, acele et.\nİlk durak Göz Polikliniği.", save: "job", goto: "goz" }
       ],
       fallbacks: [
-        "Memur ekrana boş boş bakıyor. Hangi iş?"
+        "Memur ekrana boş boş bakıyor. Hangi işe giriyorsun, söyleyecek misin?"
       ]
     },
 
@@ -45,28 +45,28 @@ window.Yasandi.scenarios.push({
         {
           id: "ben_de_gireyim",
           positive: true,
-          keywords: ["birlikte", "arkasindan", "pesinden", "daldim", "girdim", "takip", "ettim"],
-          text: "» Arkasından sen de daldın. Doktor 'Sen kimsin?' dedi. 'Ben de {job} olacağım, onun selamı var' dedin. Doktor güldü, imzanı attı.",
+          keywords: ["birlikte", "arkasindan", "pesinden", "ben de gir", "daliyorum", "dalarim"],
+          text: "» Arkasından sen de daldın. Doktor başını kaldırdı:\n— Sen kimsin?\n» Ben de {job} olacağım, onun selamı var.\nDoktor güldü, imzanı attı.",
           goto: "kan"
         },
         {
           id: "itiraz",
           positive: true,
-          keywords: ["sirami", "benim", "siraydi", "kavga", "bagiririm", "itiraz", "hop", "dur"],
+          keywords: ["sirami", "siraydi", "siram", "bagiririm", "itiraz", "hop", "yahu", "pardon"],
           text: "» Hop, o sıra benimdi!\nAdam dönüp 'Kardeşim acil vaka' dedi. Gözünde güneş gözlüğü var. Güvenlik gelip seni yatıştırdı, biraz vakit kaybetsen de imzanı aldın.",
           goto: "kan"
         },
         {
           id: "sira_sat",
           positive: true,
-          keywords: ["satarim", "sat", "baskasina", "veririm", "verdim", "numarami"],
+          keywords: ["satarim", "satiyorum", "satayim", "numarami sat", "baskasina ver", "50 lira"],
           text: "Arkandaki teyzeye 'A127 benim, 50 liraya bırakırım' dedin. Teyze kabul etti. {job} olmaktan vazgeçip karaborsa sıra numarası satıcısı oldun.",
           ending: "sira_satti"
         },
         {
           id: "goz_muayenesi",
           positive: true,
-          keywords: ["harfleri", "okurum", "gozumu", "muayene", "olurum"],
+          keywords: ["harf", "okurum", "okuyorum", "muayene", "gozumu"],
           text: "Adam çıkınca içeri girdin. Doktor duvardaki harfleri okumanı istedi. Heyecandan en üstteki kocaman E harfine 'Ş' dedin. Raporuna 'Görme Kaybı' yazıldı, elendin.",
           ending: "kor_oldun"
         }
@@ -88,28 +88,28 @@ window.Yasandi.scenarios.push({
         {
           id: "yarisa_katil",
           positive: true,
-          keywords: ["benim", "daha", "bende", "kanser", "kist", "tumor", "hastayim", "abartirim", "yarisirim"],
+          keywords: ["daha beter", "bende", "benimki", "kanser", "kist", "tumor", "hastaligim", "abartirim", "yarisirim"],
           text: "» Seninki de laf mı dayı, bende öyle bir hastalık var ki internette bile adı yok!\nBekleme salonu buz kesti. Amca ayağa kalkıp sana yer verdi. Bekleme salonunun yeni efsanesi sensin.",
           ending: "yarisma_kazandi"
         },
         {
           id: "refakatci_ol",
           positive: true,
-          keywords: ["gecmis olsun", "amcaya", "yardim", "teselli", "acirim", "moral", "veririm"],
+          keywords: ["gecmis olsun", "amcaya", "teselli", "moral", "acirim"],
           text: "» Çok geçmiş olsun amca, diyerek koluna girdin. Amca seni o kadar sevdi ki 'Beni bırakma yavrum' diye ağladı. İşe giremedin, ömür boyu hastane koridorlarında refakatçi oldun.",
           ending: "refakatci"
         },
         {
           id: "hemen_ver",
           positive: true,
-          keywords: ["kanimi", "veririm", "hemsire", "hemen", "kolumu", "uzatirim", "igneyi", "sira"],
+          keywords: ["kanimi", "hemsire", "hemen", "kolumu", "uzatirim", "kan veriyorum"],
           text: "Hızla hemşirenin yanına geçtin. 'Aç kolunu' dedi, iğneyi sapladı. Kan tüpünü sepete attı. KBB polikliniğine doğru koşmaya başladın.",
           goto: "kbb"
         },
         {
           id: "kandan_kork",
           positive: true,
-          keywords: ["korkarim", "bayilirim", "igne", "bakamam", "korktum", "igleden"],
+          keywords: ["korkarim", "bayilirim", "igne", "bakamam", "korktum"],
           text: "Hemşire elinde iğneyle yaklaşınca tansiyonun düştü, olduğun yere bayıldın. Gözünü açtığında saat 17:00 olmuştu bile.",
           ending: "bayildin"
         }
@@ -132,21 +132,21 @@ window.Yasandi.scenarios.push({
           id: "dr_google",
           positive: true,
           keywords: ["internetten", "google", "baktim", "arastirdim", "nadir", "hastalik", "okudum", "sendrom"],
-          text: "» İnternetten baktım hocam, bende kesin nadir bir sendrom var.\nDoktor kalemi masaya fırlattı. 'Madem Google'dan baktın, git reçeteni de o yazsın!' diyerek seni kovdu.",
+          text: "» İnternetten baktım hocam, bende kesin nadir bir sendrom var.\nDoktor kalemi masaya fırlattı:\n— Madem Google'dan baktın, git reçeteni de o yazsın!\nSeni kovdu.",
           ending: "doktor_google_kizdi"
         },
         {
           id: "rapor_icin",
           positive: true,
-          keywords: ["rapor", "ise", "isim", "saglamim", "bir seyim yok", "turp", "giris", "icin", "geldim"],
+          keywords: ["rapor", "ise giris", "saglamim", "bir seyim yok", "sikayetim yok", "kontrol"],
           text: "» İşe giriş raporu için geldim hocam.\nDoktor derin bir 'oh' çekti, uzaktan ağzına ışık tutup kağıdını hızla imzaladı.",
           goto: "rontgen"
         },
         {
           id: "yalan_soyle",
           positive: true,
-          keywords: ["agriyor", "bogazim", "sis", "kulagim", "duymuyorum", "hasta", "burnum", "tikali"],
-          text: "» Boğazım çok ağrıyor hocam.\nDoktor bademciklerine bakıp hemen yatışını verdi. 'Yarın sabah ameliyata alıyoruz' dedi. {job} işi yalan oldu.",
+          keywords: ["agriyor", "bogazim", "sisme", "kulagim", "duymuyorum", "burnum", "tikali"],
+          text: "» Boğazım çok ağrıyor hocam.\nDoktor bademciklerine bakıp hemen yatışını verdi:\n— Yarın sabah ameliyata alıyoruz.\n{job} işi bu sene yok.",
           ending: "ameliyat"
         }
       ],
@@ -167,21 +167,21 @@ window.Yasandi.scenarios.push({
         {
           id: "it_ci",
           positive: true,
-          keywords: ["sistemi", "cozerim", "bilgisayari", "reset", "kapatip", "acarim", "onaririm", "bakarim", "kablolari", "mudahale"],
+          keywords: ["sistemi", "cozerim", "bilgisayari", "reset", "kapatip", "onaririm", "kablolari"],
           text: "» Ben anlarım bilgisayardan, diyerek içeri girdin. Fişin çekik olduğunu fark edip taktın. Başhekim olayı duyup koşarak geldi, 'Seni {job} yapamayız, bizim bilgi işlemde başla' dedi.",
           ending: "sekreter_oldun"
         },
         {
           id: "kantin",
           positive: true,
-          keywords: ["kantin", "beklerim", "cay", "kahve", "tost", "icmeye", "gidiyorum", "gezinirim"],
+          keywords: ["kantin", "cay icerim", "cay icmeye", "kahve", "tost"],
           text: "» Ben bir kantine gidip çay içeyim o zaman.\nKantinden bir karton çay ve kaşarlı tost aldın. Kasada fiyatı duyunca cebindeki tüm parayı vermek zorunda kaldın.",
           ending: "kantin_iflas"
         },
         {
           id: "isyan",
           positive: true,
-          keywords: ["nasil", "gitti", "boyle", "sacmalik", "bagiririm", "sikayet", "ederim", "cimere", "kizarim"],
+          keywords: ["sacmalik", "bagiririm", "sikayet", "cimer", "nasil sistem", "kizarim"],
           text: "» Nasıl sistem gider ya, yarın işe başlayacağım!\nTeknisyen hiç istifini bozmadı. 'Bana bağırma, hastane ağında sorun var' derken şans eseri sistem geldi. Filmi alıp Başhekimliğe geçtin.",
           goto: "bashekim"
         }
@@ -203,21 +203,21 @@ window.Yasandi.scenarios.push({
         {
           id: "yalvar",
           positive: true,
-          keywords: ["hocam", "lutfen", "yarin", "basliyorum", "gitti", "yalvaririm", "mesai", "bitti", "imzala", "yanlis", "kisiyle", "karistirdiniz"],
+          keywords: ["lutfen", "yalvaririm", "gozunuzu seveyim", "karistirdiniz", "yarin basliyorum", "mesai bitiyor", "imzala", "kisiyle"],
           text: "» Hocam gözünüzü seveyim beni karıştırdınız, yarın işe giriyorum, mesai bitiyor!\nBaşhekim yardımcısı ekrana bakıp 'Ha sen o musun' dedi. Mührü kaşesine vurup raporu sana verdi.",
           goto: "eczane"
         },
         {
           id: "kavga",
           positive: true,
-          keywords: ["hepsi", "tamam", "kor", "musun", "bak", "isaretli", "imzali", "bagiririm", "kavga"],
+          keywords: ["hepsi tamam", "imzali", "baksana", "isimi ogretme"],
           text: "» Hepsi tamam hocam, baksana imzalı!\nBaşhekim kaşlarını çattı. 'Bana işimi mi öğretiyorsun?' Mührü basmadı, saat 16:00 oldu.",
           ending: "saat_gecti"
         },
         {
           id: "selami_var",
           positive: true,
-          keywords: ["selami", "var", "dayimin", "amcamin", "bakanin", "mudurun", "vali", "belediye"],
+          keywords: ["selami", "dayimin", "amcamin", "bakanin", "mudurun", "vali", "belediye"],
           text: "» Eyyüp amcanın selamı var hocam.\nBaşhekim hemen ayağa kalktı. 'Aaa Eyyüp abinin yeğeni misin? Keşke başta söyleseydin!' Mührü havada bastı.",
           goto: "eczane"
         },
@@ -230,7 +230,7 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Başhekim mührü basmıyor, sana ters ters bakıyor."
+        "Başhekim mührü basmıyor, sana ters ters bakıyor. Saat 15:58. Ne diyorsun?"
       ]
     },
 
@@ -245,22 +245,21 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "baska_alma",
-          positive: true,
-          keywords: ["almiyorum", "istemiyorum", "gerek yok", "rapor", "yeter", "vitamin", "kalsin", "almam", "hayir", "cikiyorum"],
+          keywords: ["almiyorum", "istemiyorum", "gerek yok", "yeter", "kalsin", "almam", "cikiyorum"],
           text: "» Aman vitamini de eksik kalsın, raporum elimde ya yeter.\nRaporu alıp şirkete koştun. Ertesi gün {job} olarak işbaşı yaptın. Tebrikler!",
           ending: "rapor_tamam"
         },
         {
           id: "karsiya_git",
           positive: true,
-          keywords: ["karsiya", "sorarim", "diger", "eczaneye", "giderim", "yan", "tarafa", "gecerim"],
+          keywords: ["karsiya", "sorarim", "diger eczane", "eczaneye", "yandaki", "koseye"],
           text: "Karşı eczaneye gittin. 'Bizde yok, yandakine sor.' Yandakine gittin, 'Bizde yok, köşedekine sor.' Bitmeyen bir döngüye girdin, o sokağı hiç terk edemedin.",
           ending: "ilac_yok"
         },
         {
           id: "muadil",
           positive: true,
-          keywords: ["muadili", "baskasi", "benzeri", "farketmez", "baska", "marka", "esdeger", "farkli"],
+          keywords: ["muadil", "benzeri", "esdeger", "baska marka", "jenerik"],
           text: "» Muadili yok mu usta?\nEczacı gülümsedi. 'Olmaz mı...' dedi. Sana içi muadil ilaç dolu kocaman bir poşet sattı, eve mutlu döndün. {job} olarak işe hazırsın.",
           ending: "rapor_tamam"
         }
@@ -272,7 +271,7 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Saat daralıyor. Böyle tuhaf hareketler yaparsan imzaları yetiştiremezsin.",
-    "Hastane kurallarına uy, mantıklı bir şey yap."
+    "Saat daralıyor. Böyle tuhaf hareketler yaparsan imzaları yetiştiremezsin. Ne yapıyorsun?",
+    "Etraftaki herkes sıra bekliyor, kimse seni anlamadı. Sıranı mı kolluyorsun, yoksa bir şey mi söylüyorsun?"
   ]
 });
