@@ -17,15 +17,15 @@ window.Yasandi.scenarios.push({
     mercek_kurtuldu: { title: "Güneş Tutulması", tag: "KURTULUŞ" },
     taksi_bocek: { title: "Bedava Yolculuk", tag: "TAKSİ" },
     cop_kamyonu: { title: "Şehir Hayatı", tag: "ÇÖP KAMYONU" },
-    trafik: { title: "Trafik Canavarı", tag: "İZDJİHAM" },
+    trafik: { title: "Trafik Canavarı", tag: "İZDİHAM" },
     kralice_kizdi: { title: "Elleri Boş", tag: "KOVULDUN" }
   },
 
   nodes: {
     start: {
-      hint: "Yuvaya ne getireceğini yaz (örn: ekmek, seker, meyve).",
+      hint: "Yuvaya ne getireceğini yaz (örn: ekmek, şeker, meyve).",
       look: "Yuvanın loş tünelleri. Karşında antenlerini sabırsızca sallayan komutan karınca var.",
-      text: "— İşçi Karınca 714! Koloni aç, kraliçe bekliyor. Bugün yuvaya ne getireceksin?\nBirazdan devasa bir pazar pikniğine çıkacaksın. Kraliçeye ne söz veriyorsun?",
+      text: "Yuvanın girişinde, nöbetçi komutan karıncanın karşısındasın. Antenleri sinirden titriyor. Koloni üç gündür aç, kraliçe de akşama kadar bir şey bekliyor.\n— İşçi Karınca 714! Dışarıda dev bir pazar pikniği var. Yuvaya ne getireceksin, söyle de kraliçeye haber vereyim?",
       acceptAny: [
         { text: "» {input} getireceğim komutanım!\n— Aferin 714. Güneş batmadan o {input} yuvada olacak. Çık!\nYuvadan toprağın üstüne çıktın.", save: "food", goto: "mangal-alti" }
       ],
@@ -39,7 +39,7 @@ window.Yasandi.scenarios.push({
       look: "Her şey devasa. İnsanlar dağ gibi, otlar ağaç gibi.",
       text: "Devasa bir pazar pikniği. Gökyüzünü mangal dumanı kaplamış. İleride kocaman bir piknik örtüsü dağları andırıyor. Yanında bir semaver, ve dev bir küp şeker parçası var.",
       freeze: {
-        text: "Durakladın. Yanından Karınca 715 koşarak geçti. 'Hadi yürü be, kraliçe bekliyor!' dedi. Zaman geçiyor. Karar veremeyince şekere doğru sürüklendin.",
+        text: "Durakladın. Yanından Karınca 715 koşarak geçti. \"Hadi yürü be, kraliçe bekliyor!\" diye bağırdı. Zaman geçiyor. Karar veremeyince şekere doğru sürüklendin.",
         goto: "seker"
       },
       intents: [
@@ -60,7 +60,7 @@ window.Yasandi.scenarios.push({
         {
           id: "bekle-chat",
           positive: true,
-          keywords: ["selam", "anten", "muhabbet", "karincayla", "diger", "konusurum", "beklerim", "sohbet"],
+          keywords: ["selam", "anten", "muhabbet", "karincayla", "diger", "konusurum", "sohbet"],
           text: "» Diğer karıncalara selam veriyorum.\nKarşıdan gelen karıncayla anten antene tokuştunuz. Muhabbete daldınız.\nArkanızdan gelen binlerce karınca durmak zorunda kaldı. Koku izi trafiği felç oldu, herkes antenleriyle kornaya basmaya başladı.",
           ending: "trafik"
         }
@@ -75,7 +75,7 @@ window.Yasandi.scenarios.push({
       look: "Küp şeker Everest dağı gibi parlıyor. Bembeyaz ve tatlı.",
       text: "Küp şekere yaklaştın. Everest dağı gibi parlıyor. Üstüne tırmanabilir, bir parça ısırabilir veya kucaklayıp götürmeye çalışabilirsin.",
       freeze: {
-        text: "Şekere öylece bakarken, dev bir insan eli gökyüzünden inip şekeri kaptığı gibi çay bardağına attı. Sen de rüzgarıyla uçtun, örtüye düştün.",
+        text: "Şekere öylece bakarken, dev bir insan eli gökyüzünden inip şekeri kaptığı gibi çay bardağına attı. Şekerden kopan bir kırıntıyla birlikte savrulup örtüye düştün.",
         goto: "ortu"
       },
       intents: [
@@ -109,7 +109,7 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Şeker dağının önündesin. Karar ver."
+        "Şeker dağının önündesin. Tırmanıyor musun, ısırıyor musun, kucaklıyor musun?"
       ]
     },
 
@@ -118,7 +118,7 @@ window.Yasandi.scenarios.push({
       look: "Pamuklu dev iplikler, lekeler, ekmek kırıntıları. Vahşi doğa.",
       text: "Piknik örtüsündesin. Yerde yarım bir çekirdek kabuğu ve biraz simit kırıntısı var. İleride kocaman, yeşil bir böcek güneşleniyor.",
       freeze: {
-        text: "Örtüde beklerken, bir teyze 'Ayy böcek!' diye bağırdı. Havadan devasa bir terlik inmeye başladı.",
+        text: "Örtüde beklerken, bir teyze \"Ayy böcek!\" diye bağırdı. Havadan devasa bir terlik inmeye başladı.",
         goto: "terlik-saldirisi"
       },
       intents: [
@@ -133,7 +133,7 @@ window.Yasandi.scenarios.push({
           id: "bocege-bin",
           positive: true,
           keywords: ["bocek", "bocege", "binerim", "taksi", "surtun", "atlarim", "ustune"],
-          text: "» Yuvaya çek usta!\nBöceğin sırtına atladın. Böcek: 'Ben taksi değilim birader' dedi ve seni anteniyle yuvanın kapısına kadar fırlattı.",
+          text: "» Yuvaya çek usta!\nBöceğin sırtına atladın. Böcek:\n— Ben taksi değilim birader, dedi ve seni anteniyle yuvanın kapısına kadar fırlattı.",
           ending: "taksi_bocek"
         },
         {
@@ -198,7 +198,7 @@ window.Yasandi.scenarios.push({
           id: "olu-taklidi",
           positive: true,
           keywords: ["olu", "taklidi", "olmus", "yatarim", "hareketsiz", "dururum", "beklerim"],
-          text: "Olduğun yere yığılıp ölü taklidi yaptın. Çocuk 'Ölmüş bu ya' deyip seni bir peçeteyle çöp poşetine attı. Çöp kamyonu seni şehre taşıdı, artık şehir karıncasısın.",
+          text: "Olduğun yere yığılıp ölü taklidi yaptın. Çocuk \"Ölmüş bu ya\" deyip seni bir peçeteyle çöp poşetine attı. Çöp kamyonu seni şehre taşıdı, artık şehir karıncasısın.",
           ending: "cop_kamyonu"
         }
       ],
@@ -283,7 +283,7 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Sıcak çay seli geliyor!"
+        "Sıcak çay seli geliyor! Kabuğa mı biniyorsun, yüzüyor musun?"
       ]
     }
   },
@@ -292,15 +292,15 @@ window.Yasandi.scenarios.push({
     {
       id: "ev-don",
       positive: true,
-      keywords: ["eve", "donerim", "yuvaya", "git", "geri", "kacarim"],
+      keywords: ["eve don", "yuvaya don", "yuvaya git", "geri don", "yuvama", "kraliceye don"],
       text: "Korkup yuvaya, kraliçenin yanına geri döndün. Ellerinde ne bir küp şeker var ne de {food}. Kraliçe seni koloniden kovdu.",
       ending: "kralice_kizdi"
     }
   ],
 
   fallbacks: [
-    "Karıncasın sen, garip garip işler yapma.",
-    "Antenlerin titreşti ama ne yapacağına karar veremedin."
+    "Karıncasın sen, garip garip işler yapma. Şimdi ne yapıyorsun?",
+    "Antenlerin titreşti ama ne yapacağına karar veremedin. Yürüyor musun, tırmanıyor musun?"
   ]
 });
 
