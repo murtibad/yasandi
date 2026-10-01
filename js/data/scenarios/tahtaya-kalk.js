@@ -49,7 +49,8 @@ window.Yasandi.scenarios.push({
         { text: "» {input}.\n{input} hemen önünde oturuyor, başını bile çevirmedi. Celal bey yoklamaya başladı, bir ismin üstünde durdu:\n— Berkecan yok mu bugün? Yanında oturuyordu bu, sen biliyorsun. Nerede?\nBerkecan senin en yakın arkadaşın ve ilk dersten sonra okuldan sıvıştı.", save: "crush", goto: "yoklama" }
       ],
       fallbacks: [
-        "Celal bey defteri açmaya başladı. Ön sıradaki kişinin adı neydi, yazıyor musun?"
+        "Celal bey defteri açmaya başladı. Ön sıradaki kişinin adı neydi, yazıyor musun?",
+        "Eğer bir isim yazmazsan hoca kendisi seçecek. O kişinin adı neydi?"
       ]
     },
 
@@ -85,13 +86,14 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "bilmiyorum",
-          keywords: ["bilmiyorum", "gormedim", "haberim yok", "hasta", "evde", "bilmem"],
+          keywords: ["bilmiyorum", "gormedim", "haberim yok", "hasta", "evde", "bilmem", "napim", "ne yapayim"],
           text: "» Bilmiyorum hocam.\n— Senin neyden haberin var ki zaten, dedi Celal bey. Berkecan'ı yok yazıp önüne döndü.",
           goto: "defter"
         }
       ],
       fallbacks: [
-        "— Cevap ver oğlum, nerede bu çocuk? Biliyorsun sen. Söyleyecek misin?"
+        "— Cevap ver oğlum, nerede bu çocuk? Söyleyecek misin?",
+        "Hoca sabırsızlanıyor. Arkadaşını ele verecek misin, yoksa koruyacak mısın?"
       ]
     },
 
@@ -131,10 +133,24 @@ window.Yasandi.scenarios.push({
           keywords: ["sinifa don", "geri don", "sinifa git", "sinifa kos", "yerime otur"],
           text: "Koşarak sınıfa döndün. Kapıyı sessizce açıp yerine oturdun.",
           goto: "defter"
+        },
+        {
+          id: "aciklama",
+          positive: true,
+          keywords: ["kantine ineyim", "ineyim dedim", "geldim", "tost al"],
+          text: "» Kantine iniyordum hocam.\n— Ne kantini oğlum dersteyiz! Geç sınıfına!\nZorla sınıfa döndün.",
+          goto: "tahta"
+        },
+        {
+          id: "panik",
+          keywords: ["napcam", "napicam", "ne yapcam", "ne yapayim"],
+          text: "Ne yapacağını şaşırdın. Hoca ensenden tutup seni sınıfa geri yolladı.",
+          goto: "tahta"
         }
       ],
       fallbacks: [
-        "Nöbetçi hızla yaklaşıyor, bir yere girmezsen yakalanacaksın! Saklanıyor musun, kaçıyor musun, sınıfa mı dönüyorsun?"
+        "Nöbetçi hızla yaklaşıyor, bir yere girmezsen yakalanacaksın! Saklanıyor musun, kaçıyor musun?",
+        "Koridorda boş boş durursan hoca seni görecek. Nereye gidiyorsun?"
       ]
     },
 
@@ -171,13 +187,20 @@ window.Yasandi.scenarios.push({
         {
           id: "uyu",
           positive: true,
-          keywords: ["uyuma", "uyu", "uyurum", "siraya yat", "uyuklarim"],
+          keywords: ["uyuma", "uyu", "uyurum", "siraya yat", "uyuklarim", "kafami", "masaya", "koyarim", "siraya koy", "kafa koy"],
           text: "Kafayı sıraya koyup uyuma numarası yaptın. Hoca hedef şaşmaz tebeşir fırlatma yeteneğiyle kafana tebeşiri yapıştırdı!",
           ending: "uyku"
+        },
+        {
+          id: "soru_sor",
+          keywords: ["kime bakiyor", "kime bakiyo", "kim", "hangimiz"],
+          text: "» Hoca kime bakıyor?\nHoca senin mırıldandığını duydu.\n— Konuşan kim orada? Kalk bakalım tahtaya!",
+          goto: "tahta"
         }
       ],
       fallbacks: [
-        "Hoca isim arıyor. Görünmez olmaya mı çalışacaksın, yoksa bir şey mi yapacaksın?"
+        "Hoca isim arıyor. Görünmez olmaya mı çalışacaksın, yoksa bir şey mi yapacaksın?",
+        "Sessizlik uzuyor, isim her an okunabilir. İzin mi isteyeceksin, uyuyor numarası mı yapacaksın?"
       ]
     },
 
@@ -213,7 +236,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Zaman geçiyor. Su akmıyor. Ne yapacaksın?"
+        "Zaman geçiyor. Su akmıyor. Ne yapacaksın?",
+        "Aynadaki aksinle bakışıyorsun. Sınıfa dönecek misin, yoksa kaçacak mısın?"
       ]
     },
 
@@ -253,10 +277,18 @@ window.Yasandi.scenarios.push({
           keywords: ["cantama", "gizle", "burustur", "yirt", "sakla", "cebime"],
           text: "Kağıdı hızla buruşturup çantana attın ama hoca gördü:\n— Ne saklıyorsun orada? Çık tahtaya bakalım!",
           goto: "tahta"
+        },
+        {
+          id: "hocaya_sor",
+          positive: true,
+          keywords: ["bu ne", "ne ucmuyor", "hoca", "sorarim"],
+          text: "» Hocam bu ne?\nCelal bey uçağı elinden aldı. 'Sen bana mı soruyorsun? Geç tahtaya!'",
+          goto: "tahta"
         }
       ],
       fallbacks: [
-        "Hoca cevap bekliyor, bütün sınıf sana bakıyor. Kağıt uçağı açıyor musun, geri mi atıyorsun?"
+        "Hoca cevap bekliyor, bütün sınıf sana bakıyor. Kağıt uçağı açıyor musun, geri mi atıyorsun?",
+        "Hoca fena sinirlendi. Uçağı saklayacak mısın, içini mi açacaksın?"
       ]
     },
 
@@ -277,6 +309,13 @@ window.Yasandi.scenarios.push({
           ending: "oscarlik"
         },
         {
+          id: "kopya",
+          positive: true,
+          keywords: ["kopya", "yardim", "fisilda", "sinifa bak", "arkaya don", "nasil coz", "nasil yap"],
+          text: "» Gençler neydi bu?\nArka sıradan '52 yaz' diye fısıldadılar. Kocaman 52 yazdın. Hoca 'Yarıçap nasıl 52 santim olsun?' dedi.",
+          ending: "kopya_kurbani"
+        },
+        {
           id: "salla",
           positive: true,
           keywords: ["rastgele", "karala", "salla", "yazarim", "yaziyorum", "yazmaya", "coz"],
@@ -291,13 +330,6 @@ window.Yasandi.scenarios.push({
           ending: "temizlik_kolu"
         },
         {
-          id: "kopya",
-          positive: true,
-          keywords: ["kopya", "yardim", "fisilda", "sinifa bak", "arkaya don"],
-          text: "» Gençler neydi bu?\nArka sıradan '52 yaz' diye fısıldadılar. Kocaman 52 yazdın. Hoca 'Yarıçap nasıl 52 santim olsun?' dedi.",
-          ending: "kopya_kurbani"
-        },
-        {
           id: "itiraf",
           positive: true,
           keywords: ["itiraf", "kalp", "seviyorum", "ilan", "ask"],
@@ -306,7 +338,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Elindeki tebeşirle öylece bekleyemezsin. Yazacak mısın, silecek misin?"
+        "Elindeki tebeşirle öylece bekleyemezsin. Yazacak mısın, silecek misin?",
+        "Tahtada anlamsız sayılar, arkanda sınıfın gözleri. Bir şey yapacak mısın?"
       ]
     }
   },

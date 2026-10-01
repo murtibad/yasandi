@@ -103,8 +103,14 @@ const PLAY = [
   ["2010-bir-gun", "kafe_masa", "sana ne", "kov"],
   ["2010-bir-gun", "kamera_acik", "güzel olmamış", "kotu"],
   ["2010-bir-gun", "kamera_acik", "çok güzel olmuş", "guzel"],
+  ["2010-bir-gun", "kamera_acik", "çok güzel olmuş", "guzel"],
   ["2010-bir-gun", "facebook_final", "eklemem", "ekleme_red"],
   ["2010-bir-gun", "facebook_final", "ekliyorum", "ekle"],
+  ["tahtaya-kalk", "yoklama", "hoca ben napim", "bilmiyorum"],
+  ["tahtaya-kalk", "kantin", "kantine ineyim dedim", "aciklama"],
+  ["tahtaya-kalk", "kantin", "napcam simdi", "panik"],
+  ["tahtaya-kalk", "defter", "kafami siraya koyarim", "uyu"],
+  ["tahtaya-kalk", "defter", "hoca kime bakiyo", "soru_sor"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
