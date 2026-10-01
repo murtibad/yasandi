@@ -105,7 +105,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "durust",
-          keywords: ["tembelim", "uykucu", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga"],
+          keywords: ["tembelim", "uykucu", "gec kalirim", "sinirli", "cabuk", "sikilirim", "tahammulsuz", "kavga", "uyku", "inatci", "hizli", "yavas"],
           text: "» Biraz tembelim. Çok çabuk sıkılırım.\nMert Bey yayından konuştu: — Sonunda dürüst biri! Ama bizde köle gibi çalışman lazım.\nBurcu Hanım 'Fazla dürüst' diye not aldı.",
           ending: "fazla_durust"
         },
@@ -117,7 +117,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "yok",
-          keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim"],
+          keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim", "hic", "bilmiyorum", "yok"],
           text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı: — Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
           goto: "q-neden-ayrildin"
         },
@@ -151,14 +151,20 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "patron-kotu",
-          keywords: ["patron", "yonetici", "mobbing", "toksik", "kavga", "dovdum", "anlasamadik", "kufur"],
+          keywords: ["patron", "yonetici", "mobbing", "toksik", "kavga", "dovdum", "anlasamadik", "kufur", "istifa", "anlasamadim"],
           text: "» Yöneticim tam bir zorbadı, katlanamadım.\nMert Bey yayından atıldı: — Aynısı bizim şirkette de var! Ben de dün istifayı basacaktım, eşim durdurdu.\nBurcu Hanım Mert Bey'i yayından sessize aldı.",
           goto: "q-neden-biz"
         },
         {
           id: "kariyer",
-          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek", "sikildim", "monoton", "rutin"],
+          keywords: ["kariyer", "gelisim", "vizyon", "hedef", "buyumek", "yeni", "heyecan", "ogrenmek", "sikildim", "monoton", "rutin", "gelistir", "istiyorum"],
           text: "» Kendimi geliştirmek ve yeni vizyonlar edinmek için ayrıldım.\nBurcu Hanım bu klasik cevabı çok beğendi, kağıdına gülen yüz çizdi.",
+          goto: "q-neden-biz"
+        },
+        {
+          id: "ilk-is",
+          keywords: ["ilk", "mezun", "ogrenci", "calismadim", "ayrilmadim", "tecrube"],
+          text: "» Bu benim ilk iş deneyimim olacak.\nBurcu Hanım gözlerini kıstı: — Harika, o zaman asgari ücretin altından başlayabiliriz.",
           goto: "q-neden-biz"
         },
         {
@@ -191,13 +197,13 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "para-icin",
-          keywords: ["para", "maas", "paraya", "issizim", "mecbur", "ilan", "gordum", "basvurdum", "is ariyordum", "ihtiyac", "kira", "borc", "evime yakin"],
+          keywords: ["para", "maas", "paraya", "issizim", "mecbur", "ilan", "gordum", "basvurdum", "is ariyordum", "ihtiyac", "kira", "borc", "evime yakin", "cagirdiniz"],
           text: "» İş arıyordum, ilanınızı gördüm başvurdum. Ekstra bir anlamı yok.\nBurcu Hanım'ın kurumsal ruhu sarsıldı. Mert Bey (sessizde olmasına rağmen) kamerayı açıp alkışlıyor gibi yaptı.",
           goto: "q-maas"
         },
         {
           id: "prestij",
-          keywords: ["vizyon", "prestij", "lider", "buyuk", "kalite", "kurumsal", "sizi", "seviyorum", "kariyerli", "deger"],
+          keywords: ["vizyon", "prestij", "lider", "buyuk", "kalite", "kurumsal", "sizi", "seviyorum", "kariyerli", "deger", "iyi", "guzel", "deneyim", "kariyer"],
           text: "» Sektörün lider firması olduğunuz için, vizyonunuz beni etkiledi.\nBurcu Hanım gururla kabardı. Şirketin aslında merdiven altı bir pazar yeri olduğunu ikiniz de biliyorsunuz ama oyun böyle oynanıyor.",
           goto: "q-maas"
         },
@@ -231,13 +237,13 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "makul",
-          keywords: ["makul", "pazarlik", "gorusuruz", "konusuruz", "sizce", "teklifiniz", "butce", "siz ne"],
+          keywords: ["makul", "pazarlik", "gorusuruz", "konusuruz", "sizce", "teklifiniz", "butce", "siz ne", "beklentim"],
           text: "» Sizin bütçeniz ne kadar, ona göre konuşalım.\nBurcu Hanım terledi:\n— Bütçe konusunda benim yetkim yok, o Mert Bey'de.\nMert Bey yayından: — Bende de yok, o patronda.\nKimse rakam söylemedi ama herkes rahatladı.",
           goto: "q-soru"
         },
         {
           id: "yuksek",
-          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden"],
+          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli", "#", "bin", "binden", "zengin"],
           text: [
             "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü: — Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
             "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı: — Oğlum ben o kadar almıyorum lan!"
@@ -282,7 +288,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "yemek",
-          keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin"],
+          keywords: ["yemek", "yol", "ticket", "sodexo", "sigorta", "yan haklar", "servis", "mesai", "izin", "maas", "saat", "calisma"],
           text: "» Yemek, yol ve yan haklar nelerdir?\nBurcu Hanım: — Bizde yemekler şirketten, tabldot. Yol yok, kendin geliyorsun. Mesai de gönüllülük esasına dayanır.\nDehşet içinde masadan kalkıp kaçtın.",
           ending: "kacti"
         },
