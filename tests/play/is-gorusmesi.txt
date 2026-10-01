@@ -1,0 +1,20 @@
+# Inputs a real player types, per step. Each one must get a reply that fits what was typed.
+# q-zayiflik
+bilmiyorum
+hızlı öğrenirim
+biraz inatçıyım
+# q-neden-ayrildin
+kovuldum
+istifa ettim
+ilk işim olacak
+# q-neden-biz
+kurumsal bir şirketsiniz
+siz çağırdınız
+# q-maas
+50 bin
+50 bin beklentim var
+# q-soru
+saat kaç bitiyor görüşme
+çalışma ortamı nasıl
+maaş ne zaman yatıyor
+mesai saatleri nasıl

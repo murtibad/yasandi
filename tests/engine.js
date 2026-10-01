@@ -77,6 +77,14 @@ const PLAY = [
   ["is-gorusmesi", "q-maas", "50 bin", "yuksek"],
   // swearing is caught everywhere
   ["berber", "cutting-1", "oç", "swear"],
+  // is-gorusmesi playtest (fix/play-is-gorusmesi): strengths are not weaknesses, time questions do not end the game
+  ["is-gorusmesi", "q-zayiflik", "bilmiyorum", "freeze"],
+  ["is-gorusmesi", "q-zayiflik", "hızlı öğrenirim", "fallback"],
+  ["is-gorusmesi", "q-neden-ayrildin", "ilk işim olacak", "ilk-is"],
+  ["is-gorusmesi", "q-maas", "50 bin beklentim var", "yuksek"],
+  ["is-gorusmesi", "q-soru", "saat kaç bitiyor görüşme", "fallback"],
+  ["is-gorusmesi", "q-soru", "çalışma ortamı nasıl", "fallback"],
+  ["is-gorusmesi", "q-soru", "maaş ne zaman yatıyor", "ne-zaman"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
