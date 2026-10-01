@@ -7,9 +7,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 ## Ready
 
 
-### 6. New scenario: picked for the board (`content/classroom`)
-
-Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework not done. The teacher opens the sınıf defteri (or says "Kağıtları çıkarın"). Early on the player fills in who they like in this class (`acceptAny` + `save: "crush"`), and that person sees everything that follows. Use the yoklama lie, the paper plane, "su içmeye gidebilir miyim", the bell cutting the teacher off. The teacher is tired, not cruel. 6+ steps, 12+ endings. 0 validator warnings.
 
 - Also later (owner's idea, notes not collected yet): "1 günlüğüne 2010'a dön" nostalgia (MSN titreşimi, internet kafe, tuşlu telefon), and a cockroach scenario (the immortal enemy of the terlik).
 
@@ -22,6 +19,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- New scenario: picked for the board (`content/classroom`)
 - New scenario: health report at the devlet hastanesi (`content/hospital-report`)
 - New scenario: you are an ant at a family picnic (`content/ant-picnic`, commit `5704da7`)
 - New scenario: job interview (`content/job-interview`, commit `b6a9065`)
