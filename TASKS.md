@@ -34,6 +34,10 @@ Esra's idea. A comedy of the interview everyone has lived, not real career advic
 - Endings must follow the answers: hired for a different job, hired at minimum wage with "aile şirketiyiz", "sizi ararız" (they never call), salary negotiation won by accident, the interviewer ends up applying to your company...
 - 6+ steps, 12+ endings, 0 validator warnings.
 
+### 4. New scenario: you are an ant at a family picnic (`content/ant-picnic`)
+
+Id `piknik-karincasi`. Read `ideas/karinca-notes.md` first; it has the setting, the stake, the real ant facts and the moves to use. Same rules as the cat task: stake in the first lines (the queen expects food before dark), the player fills one gap with `acceptAny` + `save` (what the ant brings home, or the ant's own name), humans talk about you without knowing it ("Her yer karınca olmuş!"), cartoonish deaths only. 5+ steps, 12+ endings including the ant mill, the sugar cube flag and the tebeşir wall. 0 validator warnings.
+
 ## Later (owner's ideas, not for agents yet)
 
 - Friends' playtest notes are in `FEEDBACK.md` (read it before content work). Open: tappable suggestions when stuck; collecting unmatched inputs is the most useful next step.
