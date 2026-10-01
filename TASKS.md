@@ -7,10 +7,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 ## Ready
 
 
-### 5. New scenario: the health report at the devlet hastanesi (`content/hospital-report`)
-
-Id `saglik-raporu`. Read `ideas/hastane-notes.md` first. You start a new job tomorrow and need an işe giriş raporu today; the hospital closes at 16:00. One step per department (danışma, göz, KBB, kan, final signature), each with its own small disaster and a clock line ("Saat 15:12. İki imza eksik."). The waiting-room illness contest, the queue screen, "selamı var", Dr. Google and the pharmacy must all appear. Doctors and nurses are tired, not evil. Freeze = the clock moves on. 6+ steps, 12+ endings (got the report with a wrong name on it, the job starts without it, ended up admitted, became the waiting room's champion...). 0 validator warnings.
-
 ### 6. New scenario: picked for the board (`content/classroom`)
 
 Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework not done. The teacher opens the sınıf defteri (or says "Kağıtları çıkarın"). Early on the player fills in who they like in this class (`acceptAny` + `save: "crush"`), and that person sees everything that follows. Use the yoklama lie, the paper plane, "su içmeye gidebilir miyim", the bell cutting the teacher off. The teacher is tired, not cruel. 6+ steps, 12+ endings. 0 validator warnings.
@@ -26,6 +22,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- New scenario: health report at the devlet hastanesi (`content/hospital-report`)
 - New scenario: you are an ant at a family picnic (`content/ant-picnic`, commit `5704da7`)
 - New scenario: job interview (`content/job-interview`, commit `b6a9065`)
 - New scenario: you are the apartment cat (`content/apartment-cat`, commit `53ee044`)
