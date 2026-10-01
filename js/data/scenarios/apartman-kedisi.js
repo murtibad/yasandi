@@ -3,6 +3,25 @@ window.Yasandi.scenarios = window.Yasandi.scenarios || [];
 window.Yasandi.scenarios.push({
   id: "apartman-kedisi",
   title: "Apartmanın Sahibi",
+
+  remember: {
+    endings: {
+      asansor: "Asansörün kapısı açık. Bakmıyorsun. Bakmıyorsun. Bakıyorsun.",
+      isirdi: "Rıza bey seni görünce paçalarını çoraplarının içine soktu.",
+      whatsapp: "Apartman grubunda sabitlenmiş bir mesaj var: 'KEDİ YİNE GİRMİŞ.' Fotoğrafın da var.",
+      sahiplen: "Bir gece pencere açık kaldı, kaçtın. Çocuk hâlâ ağlıyor. Sen merdivendesin.",
+      ekmek: "Rıza bey ekmeği bu sefer poşetin en dibine koymuş. Sen de bunu biliyorsun.",
+      korktu: "Sokaktaki köpek hâlâ orada. Sana bakmıyor. Ama orada.",
+      yonetici: "Rıza bey'in arabasının sunroof'u kapalı. Yine de üstünde senin pati izin var.",
+      kovuldun: "Süpürge kapının arkasında duruyor. Seni bekliyor.",
+    },
+    default: "Aynı apartman, aynı merdiven. Geçen sefer '{last}' diye bitmişti. Hayriye teyze hatırlıyor, Rıza bey de.",
+    often: "{runs}. kez bu merdivendesin. Apartman grubunda senin için ayrı bir başlık açıldı.",
+    cameos: [
+      { after: ["goz-temasi:kedi"], text: "Kapının önünde bir poşet mama var. Üstünde bir tespih. Kimin bıraktığını biliyorsun." },
+      { after: ["goz-temasi:komsu"], text: "4. kattan tespih sesi geliyor. Yeni komşu. Sana mama getirir mi, bilinmez." },
+    ],
+  },
   
   endings: {
     mama: { title: "Diyet Mama", tag: "DOYDUN" },

@@ -4,6 +4,25 @@ window.Yasandi.scenarios.push({
   id: "yetersiz-bakiye",
   title: "Yetersiz Bakiye",
 
+  remember: {
+    endings: {
+      rezil: "Cebinde yine bozuk para var. Geçen sefer bütün otobüs o 1 liranın yuvarlanışını izlemişti. Sıkı tut.",
+      gymbro: "Spor çantalı genç yine otobüste. Kolları geçen seferden de kalın.",
+      makine: "Kart okuyucunun üstüne bir kâğıt yapıştırılmış: 'LÜTFEN VURMAYINIZ.' Şoförün el yazısı.",
+      cihaz_yorum: "Kart okuyucunun üstüne bir kâğıt yapıştırılmış: 'LÜTFEN VURMAYINIZ.' Cihaz yine de sana göz kırpıyor gibi.",
+      atildin: "Şoför seni görünce 'NAKİT GEÇMEZ' yazısını camın tam ortasına yapıştırdı. Senin için.",
+      kahraman: "Şoför seni tanıdı. Bir şey demedi ama radyonun sesini kıstı. Dinliyor.",
+      ask: "Otobüstekiler seni tanıdı. Geçen seferki aşk filmini izleyenler. Bugün devam bölümü bekliyorlar.",
+      indin: "Bu sefer yedi durak yürümeyeceksin. Kart dolu. Herhalde.",
+    },
+    default: "Aynı otobüs, aynı kart. Geçen sefer '{last}' diye bitmişti. Bakiye hâlâ belirsiz.",
+    often: "{runs}. kez bu kartı basıyorsun. Kart okuyucu bile seni tanıyor. Bakiye tanımıyor.",
+    cameos: [
+      { after: ["goz-temasi:istanbulkart", "goz-temasi:bakiye"], text: "Cebindeki İstanbulkart'a baktın. Bu kart seni bir kere keko'nun önüne attı zaten." },
+      { after: ["otobus-teyzesi"], text: "Arka tarafta tanıdık bir teyze oturuyor. Bu sefer yer istemiyor. İzliyor." },
+    ],
+  },
+
   endings: {
     atildin: { title: "Nakit Geçmiyor", tag: "ATILDIN" },
     yuruyus: { title: "Beraber Yürüdük", tag: "YÜRÜYÜŞ" },

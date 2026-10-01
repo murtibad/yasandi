@@ -4,6 +4,25 @@ window.Yasandi.scenarios.push({
   id: "2010-bir-gun",
   title: "Bir Günlüğüne 2010",
 
+  remember: {
+    endings: {
+      engellendi: "Listede bir isim gri duruyor. Engel. Belki bu sefer kaldırmıştır.",
+      elektrik_kesintisi: "Masanın altında yepyeni bir kesintisiz güç kaynağı var. Babana iki gün yalvardın.",
+      virus: "Bilgisayar formatlandı. Masaüstünde sadece Geri Dönüşüm Kutusu kaldı. Fan yine uçak kaldırıyor.",
+      mavi_ekran: "Bilgisayar formatlandı. Masaüstünde sadece Geri Dönüşüm Kutusu kaldı. Fan yine uçak kaldırıyor.",
+      bakkal_kontor: "Numarayı bu sefer üç kere kontrol edip kaydettin. Kontör yine yok.",
+      dayak_yedin: "Ensende hâlâ hafif bir sızı var. İnternet kafeden uzak dur diyor.",
+      "2010_aski": "İlişki durumu hâlâ 'Karmaşık'. Kimse ne demek olduğunu bilmiyor.",
+      farmville: "Domatesler hasada hazır. Ama bugün başka işin var.",
+      gta_sifresi: "Klavyede L, E, A, V tuşları silinmiş. Sebebini biliyorsun.",
+    },
+    default: "Yine 2010. Geçen sefer '{last}' diye bitmişti. MSN açılış sesi hâlâ aynı.",
+    often: "{runs}. kez 2010'dasın. Galiba geri dönmek istemiyorsun.",
+    cameos: [
+      { after: ["tahtaya-kalk:itiraf_etti"], text: "Lise defterinin arka sayfasında bir kalp var. İçindeki isim silinmiş, izi duruyor." },
+    ],
+  },
+
   endings: {
     cevrimdisi: { title: "Fırsat Kaçtı", tag: "ÇEVRİMDIŞI" },
     engellendi: { title: "Küstürdün", tag: "ENGELLENDİN" },

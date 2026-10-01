@@ -4,6 +4,25 @@ window.Yasandi.scenarios.push({
   id: "tahtaya-kalk",
   title: "Lisede Bir Ders",
 
+  remember: {
+    endings: {
+      itiraf_etti: "Sınıf hâlâ tahtadaki kalbi konuşuyor. Kimse silemedi. Temizlik kolu bile.",
+      oscarlik: "Hoca derse girer girmez sırana bir bardak su bıraktı. Önlem.",
+      uyku: "Alnında hâlâ hafif bir tebeşir izi var.",
+      temizlik_kolu: "Tahtanın silgisi hocanın çantasında. Güvenlik önlemi.",
+      firar: "Devamsızlığın sınırda. Bugün kaçarsan biter.",
+      kopya_kurbani: "Arka sıradaki fısıldayıcı sana göz kırptı. Bu sefer 52 değil, der gibi.",
+      ispiyoncu: "Sıra arkadaşın seninle konuşmuyor. Arka sıra da. Sınıf da.",
+      ucak_savasi: "Sıranın içinde katlanmış bir uçak var. Üstünde 'RÖVANŞ' yazıyor.",
+    },
+    default: "Aynı ders, aynı hoca. Geçen sefer '{last}' diye bitmişti. Hoca yoklamada adının yanına bir yıldız koymuş.",
+    often: "{runs}. kez bu dersi yaşıyorsun. Sınıfta kalmak böyle bir şey.",
+    cameos: [
+      { after: ["otobus-teyzesi:video"], text: "Sınıfta herkes telefonuna bakıyor. Bir video dönüyor. Otobüs. Teyze. Sen." },
+      { after: ["berber:kel", "berber:yalan_sifir", "berber:kacis", "berber:yarim"], text: "Arka sıradan biri saçını gösterdi. Bütün sınıf güldü. Berberin izi hâlâ belli." },
+    ],
+  },
+
   endings: {
     ispiyoncu: { title: "Muhbir", tag: "İSPİYONCU" },
     kantin_baskini: { title: "Kantin Baskını", tag: "YAKALANDIN" },

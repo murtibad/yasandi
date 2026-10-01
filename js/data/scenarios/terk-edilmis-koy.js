@@ -6,6 +6,25 @@ window.Yasandi.scenarios.push({
   id: "terk-edilmis-koy",
   title: "Niyetimiz Çalıp Çırpmak Değil",
 
+  remember: {
+    endings: {
+      cekirdek: "Bu sefer cebinde iki paket çekirdek var. Hüsnü'ye söz vermiştin.",
+      kabuk: "Kapıdan girmeden ayakkabılarını çıkardın. Halıya bakmıyorsun bile.",
+      kangal: "Köyün girişinde çoban köpeği bekliyor. Seni tanıdı, kuyruk salladı. Tuncay tanımadı.",
+      tapu: "Kira günü geldi. İki paket çekirdek borcun var.",
+      "views-47": "Tuncay'ın kanalı hâlâ 47 izlenmede. 'Bu sefer olacak' diyor. Her sefer diyor.",
+      yildiz: "Hüsnü sol profilini hazırlamış, bıyığını taramış. Seni bekliyordu.",
+      saril: "Hüsnü seni görünce duvardan yarım çıktı, el salladı. Tuncay yine boşluğa bakıyor.",
+      dov: "Alnında hâlâ duvarın izi var. İçeriden bir ses: 'Geçti mi evladım?'",
+      sarj: "Bu sefer şarj aletini çantanın en dibine sakladın. Duvarın içinden biri iç çekti.",
+    },
+    default: "Aynı köy, aynı kapı. Geçen sefer '{last}' diye bitmişti. Hüsnü duvarın içinden izliyor.",
+    often: "{runs}. kez buradasın. Hüsnü seni abone sanıyor. 312'nci.",
+    cameos: [
+      { after: ["berber:hikaye", "berber:yarin_bitiririz"], text: "Karanlıktan bir ses kulağına eğildi:\n— Sizin berber askerlik anısını bitirdi mi? Bitirmez. Ben 1802'den beri dinliyorum." },
+    ],
+  },
+
   endings: {
     not: { title: "Konuşmasanız da Olur", tag: "HÜSNÜ KÜSTÜ" },
     kangal: { title: "Kangal Kurtarışı", tag: "KAYBOLDUN" },

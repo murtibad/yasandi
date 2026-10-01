@@ -14,6 +14,25 @@ window.Yasandi.scenarios.push({
   id: "goz-temasi",
   title: "Göz Teması",
 
+  remember: {
+    endings: {
+      sallama: "Keko yine köşede. Sen de yine buradasın. Kıçın bunu hatırlıyor.",
+      istanbulkart: "Arka cebinde İstanbulkart var. Bakiye hâlâ 3,50. Bu sefer çekme.",
+      terlik: "Uzaktan terlik sesi geliyor. Belki de kulağına öyle geliyor. Geçen seferden beri hep öyle.",
+      komsu: "4. kattaki komşun. Her sabah selamlaşıyorsunuz. Bugün selam vermedi. Bir terslik var.",
+      kuzen: "Hüseyin'in düğününden beri ilk kez karşılaşıyorsunuz. Keko seni hatırlamıyor. Sen Hüseyin'i hâlâ tanımıyorsun.",
+      kedi: "Paşa kaldırımda yatıyor, karnı tok. Mamayı keko vermişti. Sen biliyorsun, o da biliyor.",
+      bakiye: "Otobüs durağına bakmıyorsun bile. Geçen seferden ders aldın.",
+      omuz: "Keko sağ omzunu hafifçe öne çıkarmış. Unutmamış.",
+    },
+    default: "Aynı sokak, aynı keko. Geçen sefer '{last}' diye bitmişti. Keko unutmuş gibi yapıyor.",
+    often: "{runs}. kez bu sokaktasın. Keko artık seni sokağın bir parçası sanıyor. Yine de bakıyor.",
+    cameos: [
+      { after: ["apartman-kedisi"], text: "Kaldırımdaki kedi sana baktı. Apartmandan tanıyor seni. Bir şey demedi, demez de." },
+      { after: ["otobus-teyzesi:nisan", "otobus-teyzesi:evlilik"], text: "Telefonun titredi. Otobüsteki teyzenin görümcesinin kızı: 'Akşam geliyo musun?' Cevap vermedin. Şimdi önünde başka bir dert var." },
+    ],
+  },
+
   endings: {
     sessiz_yuruyus: { title: "Sessiz Yürüyüş", tag: "KANKA OLDUNUZ" },
     cay_ocagi: { title: "Çay Ocağında Mola", tag: "KURTULDUN" },
