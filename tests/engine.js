@@ -131,6 +131,8 @@ let rememberCases = 0;
   finish("goz-temasi", "cay_ocagi");
   finish("goz-temasi", "cay_ocagi");
   expect(/^5\. kez/.test(fresh("goz-temasi").recall()), "after four finished runs the often line counts the fifth");
+  store.set("yasandi.endings.misafirlik", JSON.stringify(["corba", "kedi"]));
+  expect(/Kedi seni görünce/.test(fresh("misafirlik").recall()), "a player from before this feature: the newest found ending stands in for the last one");
   finish("is-gorusmesi", Object.keys(byId("is-gorusmesi").endings)[0]);
   expect(/Geçen sefer|Tekrar hoş geldin/.test(fresh("is-gorusmesi").recall()), "a scenario without `remember` falls back to the engine's lines");
 

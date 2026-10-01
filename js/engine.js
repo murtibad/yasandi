@@ -124,7 +124,9 @@
     // Returns one line or null. Call it before the first move: an ending overwrites what it reads.
     recall() {
       const mem = this.scenario.remember || {};
-      const last = readJson(STORAGE_LAST + this.scenario.id, null);
+      // Players from before this was added have found endings but no record of the last one: the newest found ending stands in.
+      const found = this.foundEndings();
+      const last = readJson(STORAGE_LAST + this.scenario.id, null) || (found.length ? { ending: found[found.length - 1], runs: found.length } : null);
       const meta = last && this.scenario.endings[last.ending];
       if (meta) {
         const own = (mem.endings || {})[last.ending];
