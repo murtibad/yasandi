@@ -8,6 +8,8 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 
 ### 9. Playtest pass, one scenario per branch (`fix/play-<id>`)
 
+Done: `is-gorusmesi`. Next: `saglik-raporu`. Only touch the scenario file of your branch, `tests/engine.js` and `tests/play/<id>.txt`. Write the txt file with an editor or node, not PowerShell `echo` (that writes UTF-16).
+
 Do these one at a time, in this order (newest and least tested first): `is-gorusmesi`, `saglik-raporu`, `tahtaya-kalk`, `apartman-kedisi`, `piknik-karincasi`, `2010-bir-gun`. One scenario = one branch = one review. Do not start the next one until Claude merged the previous one.
 
 For the scenario you took:
