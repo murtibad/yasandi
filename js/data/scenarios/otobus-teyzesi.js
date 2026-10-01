@@ -503,7 +503,11 @@ window.Yasandi.scenarios.push({
       id: "ask-seat",
       positive: true,
       keywords: ["baskasi", "baskasindan", "neden ben", "niye ben", "genc", "gencler"],
-      text: "» Teyze otobüste bir sürü genç var, niye tepeme dikildin?\n— Senin yüzünde nur var yavrum, dedi. Sana kanım ısındı.\nKaçış yok.",
+      text: [
+        "» Teyze otobüste bir sürü genç var, niye tepeme dikildin?\n— Senin yüzünde nur var yavrum, dedi. Sana kanım ısındı.\nKaçış yok.",
+        "» Teyze arka koltukta gencecik adam var, ondan istesene!\n— Onlar saygısız evladım, sen iyi birine benziyorsun.\nKaçış yok.",
+        "» Teyze yemin ederim yanımdaki benden genç!\nTeyze bir an durdu, yüzünü yarım çevirip doğrudan ekrana baktı:\n— Sen de bi şey de be, telefondan bakıp duruyorsun! Bana yardım yok mu? Neyse yavrum, kalkıyon mu şimdi?"
+      ]
     },
   ],
 
