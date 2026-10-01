@@ -22,6 +22,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: ["Celal bey defterin sayfalarını çevirirken burnundan soludu.\n— Hayırdır, kimseye bakmıyoruz mu? Önünde kim oturuyorsa onun adını yaz bakalım, kimin yüzünden dağılıyorsun?", "Hoca başını kaldırdı, tebeşiri parmaklarında çevirdi.\n— Ön sıradakinin adı neydi? Sen söylemezsen ben okurum defterden."] },
       hint: "Sınıftaki o kişinin adını yaz.",
       look: "Matematik öğretmeni Celal bey sınıf defteriyle tahtanın önünde dikiliyor.",
       text: "Lisede son ders, matematik. Celal bey elinde sınıf defteriyle girdi.\n— Ödevleri göreyim bakalım.\nSen ödevi yapmadın. Bir de ön sırada, tam senin görebileceğin yerde, hep gözünün ucuyla baktığın o kişi oturuyor. Her şeyi görecek.\nKimdi o, adı neydi?",
