@@ -7,15 +7,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 ## Ready
 
 
-### 2. New scenario: you are the apartment cat (`content/apartment-cat`)
-
-The player is not human. Same rules, same voice, seen from below. Id `apartman-kedisi`, title of your choice (short, Turkish).
-- Stake in the first three lines: you are hungry, and the kapıcı Cemal efendi just put the bread bags on the stairs. Or Hayriye teyze on the 2nd floor is frying fish. You choose; it must be food or territory.
-- The cat cannot speak Turkish. When the player "says" something, narrate it as a meow and show how humans misread it ("» Miyav.\n— Aaa acıkmış, dedi Hayriye teyze, ve sana diyet mama verdi."). Keep that joke alive in several replies.
-- Humans talk about the cat in front of it: the WhatsApp apartman grubu, "kim besliyo bunu", the child who wants to adopt it, the yönetici who wants it gone.
-- An open question the player fills: the cat's name the kids gave it, or what the cat thinks it really is. Use `acceptAny` + `save`.
-- 5+ steps, 12+ endings (mix: fed, chased with a terlik, adopted, became the apartment's boss, locked in the asansör, ended up in the yönetici's car...). 0 validator warnings.
-
 ### 3. New scenario: job interview (`content/job-interview`)
 
 Esra's idea. A comedy of the interview everyone has lived, not real career advice. Id `is-gorusmesi`.
@@ -48,6 +39,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- New scenario: you are the apartment cat (`content/apartment-cat`, commit `53ee044`)
 - One fourth-wall moment per scenario (`content/fourth-wall`, commit `10a316c`)
 - Scenario-specific "?" (hint, then look) and rotating example moves in the empty input (Claude, main)
 - Friends' feedback batch, see `FEEDBACK.md` (Claude, main)
