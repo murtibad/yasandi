@@ -84,6 +84,15 @@ body {
 
 .log p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 
+.say {
+  color: color-mix(in srgb, var(--fg) 85%, var(--bg));
+}
+
+.say.speech {
+  color: var(--fg);
+  padding-left: 14px;
+  border-left: 2px solid var(--you);
+}
 .say.is-typing::after {
   content: "";
   display: inline-block;

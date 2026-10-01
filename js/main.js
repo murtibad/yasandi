@@ -67,15 +67,24 @@
     });
   }
 
-  // Lines starting with "»" are the player's own words: shown dim with ›› like typed commands.
   function splitSpeakers(text) {
     const groups = [];
     for (const line of text.split("\n")) {
-      const player = line.startsWith("»");
-      const content = player ? line.replace(/^»\s*/, "") : line;
+      let type = "narration";
+      let content = line;
+      if (line.startsWith("»")) {
+        type = "player";
+        content = line.replace(/^»\s*/, "");
+      } else if (line.startsWith("— ")) {
+        type = "speech";
+      }
+      
       const last = groups[groups.length - 1];
-      if (last && last.player === player && !player) last.lines.push(content);
-      else groups.push({ player, lines: [content] });
+      if (last && last.type === type && type !== "player") {
+        last.lines.push(content);
+      } else {
+        groups.push({ type, lines: [content] });
+      }
     }
     return groups;
   }
@@ -88,7 +97,13 @@
         if (gen !== generation) return;
         skip = false;
         const p = document.createElement("p");
-        p.className = group.player ? "said" : className || "say";
+        if (group.type === "player") {
+          p.className = "said";
+        } else if (group.type === "speech") {
+          p.className = (className || "say") + " speech";
+        } else {
+          p.className = className || "say";
+        }
         log.appendChild(p);
         return typeInto(p, group.lines.join("\n"));
       });
