@@ -7,15 +7,6 @@ Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (re
 ## Ready
 
 
-### 3. New scenario: job interview (`content/job-interview`)
-
-Esra's idea. A comedy of the interview everyone has lived, not real career advice. Id `is-gorusmesi`.
-- Opening: the HR person reads your CV upside down. "— Hangi pozisyon için başvurmuştunuz?" `acceptAny` with `save: "job"`; every later question uses `{job}` so it feels personal ("— {job} olarak beş yıl sonra kendinizi nerede görüyorsunuz?").
-- The classic questions, each its own step with a `freeze` and a `look`: beş yıl sonra nerede, en büyük zayıflığınız, neden ayrıldınız, maaş beklentiniz, "bizi neden seçmeliyiz", "sorunuz var mı?".
-- Characters: the HR person, the team lead who joins on a laptop with the camera off, the CEO's nephew who walks in. Generic invented names, no real companies.
-- Endings must follow the answers: hired for a different job, hired at minimum wage with "aile şirketiyiz", "sizi ararız" (they never call), salary negotiation won by accident, the interviewer ends up applying to your company...
-- 6+ steps, 12+ endings, 0 validator warnings.
-
 ### 4. New scenario: you are an ant at a family picnic (`content/ant-picnic`)
 
 Id `piknik-karincasi`. Read `ideas/karinca-notes.md` first; it has the setting, the stake, the real ant facts and the moves to use. Same rules as the cat task: stake in the first lines (the queen expects food before dark), the player fills one gap with `acceptAny` + `save` (what the ant brings home, or the ant's own name), humans talk about you without knowing it ("Her yer karınca olmuş!"), cartoonish deaths only. 5+ steps, 12+ endings including the ant mill, the sugar cube flag and the tebeşir wall. 0 validator warnings.
@@ -39,6 +30,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - Endings gallery: a page listing found/missing endings per scenario (titles of missing ones hidden).
 
 ## Done
+- New scenario: job interview (`content/job-interview`, commit `b6a9065`)
 - New scenario: you are the apartment cat (`content/apartment-cat`, commit `53ee044`)
 - One fourth-wall moment per scenario (`content/fourth-wall`, commit `10a316c`)
 - Scenario-specific "?" (hint, then look) and rotating example moves in the empty input (Claude, main)
