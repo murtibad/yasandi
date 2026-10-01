@@ -19,7 +19,7 @@ Kurulum, derleme ya da paket yok. Üç yoldan biri yeter:
 2. **Dosyadan:** Depoyu indir (`git clone https://github.com/murtibad/yasandi.git`) ve `index.html` dosyasını tarayıcıda aç.
 3. **Yerel sunucuyla (isteğe bağlı):** Proje klasöründe `python3 -m http.server 8000` çalıştır, tarayıcıda `http://localhost:8000` adresine git.
 
-Yazı tipleri Google Fonts'tan gelir; internet yoksa oyun yine çalışır, sadece sistem yazı tipiyle görünür.
+Yazı tipi, görsel ya da ses dosyası yok; oyun internet olmadan da açılır.
 
 ## Nasıl oynanır
 
@@ -45,7 +45,7 @@ assets/                            favicon ve paylaşım görseli
 ideas/                             senaryo fikirleri ve notlar
 ```
 
-Şu anki senaryolar: Göz Teması, Yer Ver, Yetersiz Bakiye, Bi Tabak Daha, Kısa Olmasın, Niyetimiz Çalıp Çırpmak Değil, Apartmanın Sahibi.
+Şu anki senaryolar: Göz Teması, Yer Ver, Yetersiz Bakiye, Bi Tabak Daha, Kısa Olmasın, Niyetimiz Çalıp Çırpmak Değil, Apartmanın Sahibi, Biz Sizi Ararız.
 
 ## Yeni senaryo eklemek
 
