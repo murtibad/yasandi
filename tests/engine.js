@@ -94,6 +94,17 @@ const PLAY = [
   ["saglik-raporu", "kbb", "valla biseyim yok", "rapor_icin"],
   ["saglik-raporu", "kan", "bakamam igneye", "igneye_bakamam"],
   ["saglik-raporu", "bashekim", "yarin isbasi yapcam", "yalvar"],
+  // 2010: the obvious answers to each question
+  ["2010-bir-gun", "msn", "kameram yok", "kamera_once"],
+  ["2010-bir-gun", "kafe_masa", "yok", "hile_yok"],
+  ["2010-bir-gun", "kafe_masa", "yok abi bende hile falan yok", "hile_yok"],
+  ["2010-bir-gun", "kafe_masa", "evet var", "hile_ver"],
+  ["2010-bir-gun", "kafe_masa", "işim var abi", "oyala"],
+  ["2010-bir-gun", "kafe_masa", "sana ne", "kov"],
+  ["2010-bir-gun", "kamera_acik", "güzel olmamış", "kotu"],
+  ["2010-bir-gun", "kamera_acik", "çok güzel olmuş", "guzel"],
+  ["2010-bir-gun", "facebook_final", "eklemem", "ekleme_red"],
+  ["2010-bir-gun", "facebook_final", "ekliyorum", "ekle"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;
@@ -129,6 +140,8 @@ let rememberCases = 0;
   finish("goz-temasi", "cay_ocagi");
   finish("goz-temasi", "cay_ocagi");
   expect(/^5\. kez/.test(fresh("goz-temasi").recall()), "after four finished runs the often line counts the fifth");
+  store.set("yasandi.endings.misafirlik", JSON.stringify(["corba", "kedi"]));
+  expect(/Kedi seni görünce/.test(fresh("misafirlik").recall()), "a player from before this feature: the newest found ending stands in for the last one");
   finish("is-gorusmesi", Object.keys(byId("is-gorusmesi").endings)[0]);
   expect(/Geçen sefer|Tekrar hoş geldin/.test(fresh("is-gorusmesi").recall()), "a scenario without `remember` falls back to the engine's lines");
 
