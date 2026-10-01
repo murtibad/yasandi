@@ -27,6 +27,7 @@ Yazı tipleri Google Fonts'tan gelir; internet yoksa oyun yine çalışır, sade
 - Takılırsan `?` (ya da `ipucu`, `yardım`) yaz; anlatıcı o ana uygun bir ipucu verir.
 - `tekrar` yazarsan aynı senaryo baştan başlar, `başka` yazarsan başka bir senaryoya geçersin. Bir son gördüğünde aynı işler için **Tekrar oyna**, **Başka senaryo** ve **Paylaş** düğmeleri çıkar.
 - Üst çubuktaki sayaç bu senaryoda kaç son bulduğunu gösterir; tıklarsan bulduğun sonların listesi açılır.
+- Oyun seni hatırlar: bir senaryoya döndüğünde anlatıcı geçen seferki sonunu anar, ilk kez geldiğin bir senaryoda başka bir senaryoda başına gelenlere gönderme yapar.
 - Ses ve açık/koyu tema üst sağdaki düğmelerden değişir. Seçimlerin ve bulduğun sonlar tarayıcıda (`localStorage`) saklanır.
 
 ## Proje yapısı
@@ -41,11 +42,14 @@ js/sound.js                        yazma sesleri ve son müzikleri (Web Audio, d
 js/data/global-intents.js          her senaryoda geçerli komutlar (polis, anne, dans...)
 js/data/scenarios/<id>.js          her senaryo ayrı bir dosya, sadece içerik
 tests/validate.js                  senaryolarda kırık bağlantı ve eksik kontrolü
+tests/engine.js                    eşleştirme ve olumsuzluk testleri (oyuncuların gerçekten yazdıkları)
+tests/play.js                      girdileri oynatıp oyunun cevabını yazdırır: node tests/play.js <id>
+tests/play/<id>.txt                her senaryo için gerçek oyuncu girdileri, adım adım
 assets/                            favicon ve paylaşım görseli
 ideas/                             senaryo fikirleri ve notlar
 ```
 
-Şu anki senaryolar: Göz Teması, Yer Ver, Yetersiz Bakiye, Bi Tabak Daha, Kısa Olmasın, Niyetimiz Çalıp Çırpmak Değil, Apartmanın Sahibi, Biz Sizi Ararız.
+Şu anki senaryolar (12): Göz Teması, Yer Ver, Yetersiz Bakiye, Bi Tabak Daha, Kısa Olmasın, Niyetimiz Çalıp Çırpmak Değil, Apartmanın Sahibi, Biz Sizi Ararız, Karınca 714, İşe Giriş Raporu, Lisede Bir Ders, Bir Günlüğüne 2010.
 
 ## Yeni senaryo eklemek
 
