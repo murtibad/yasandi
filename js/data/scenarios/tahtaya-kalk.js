@@ -5,7 +5,7 @@ window.Yasandi.scenarios.push({
   title: "Lisede Bir Ders",
 
   endings: {
-    ispiyoncu: { title: "Yakın Arkadaş", tag: "SATICI" },
+    ispiyoncu: { title: "Muhbir", tag: "İSPİYONCU" },
     kantin_baskini: { title: "Kantin Baskını", tag: "YAKALANDIN" },
     firar: { title: "Okuldan Firar", tag: "KAÇTIN" },
     disiplin: { title: "Müdürün Odası", tag: "DİSİPLİN" },
@@ -17,19 +17,19 @@ window.Yasandi.scenarios.push({
     temizlik_kolu: { title: "Temizlik Kolu", tag: "SİLDİN" },
     zil_kurtardi: { title: "Zil Sesi", tag: "KURTULDUN" },
     itiraf_etti: { title: "İlan-ı Aşk", tag: "AŞIK" },
-    kopya_kurbani: { title: "Yanlış Fısıltı", tag: "SAYISALCI" }
+    kopya_kurbani: { title: "Yarıçap 52 Santim", tag: "YANLIŞ FISILTI" }
   },
 
   nodes: {
     start: {
       hint: "Sınıftaki o kişinin adını yaz.",
       look: "Matematik öğretmeni Celal bey sınıf defteriyle tahtanın önünde dikiliyor.",
-      text: "Lisede son derstesin. Matematik hocası Celal bey elinde sınıf defteriyle girdi. 'Ödevleri göreyim' dedi. Sen ödevi yapmadın! O an ön sıraya kaydı gözün. Sınıfta hep hayal ettiğin, dikkati dağılmasın diye çok sessiz durduğun o kişi oturuyor...\n— Kim oturuyor ön sırada?",
+      text: "Lisede son ders, matematik. Celal bey elinde sınıf defteriyle girdi.\n— Ödevleri göreyim bakalım.\nSen ödevi yapmadın. Bir de ön sırada, tam senin görebileceğin yerde, hep gözünün ucuyla baktığın o kişi oturuyor. Her şeyi görecek.\nKimdi o, adı neydi?",
       acceptAny: [
-        { text: "» {input}.\nEvet, {input} hemen önünde. Hoca sınıf defterini açtı. Sınıfa sertçe bakıp sordu:\n— Arka sıradan Berkecan yok mu bugün?\nBerkecan senin en yakın arkadaşın ve okuldan kaçtı.", save: "crush", goto: "yoklama" }
+        { text: "» {input}.\n{input} hemen önünde oturuyor, başını bile çevirmedi. Celal bey yoklamaya başladı, bir ismin üstünde durdu:\n— Berkecan yok mu bugün? Yanında oturuyordu bu, sen biliyorsun. Nerede?\nBerkecan senin en yakın arkadaşın ve ilk dersten sonra okuldan sıvıştı.", save: "crush", goto: "yoklama" }
       ],
       fallbacks: [
-        "Hayalindeki o kişinin adını yaz, uydur bir şeyler."
+        "Celal bey defteri açmaya başladı. Ön sıradaki kişinin adı neydi, yazıyor musun?"
       ]
     },
 
@@ -38,40 +38,40 @@ window.Yasandi.scenarios.push({
       look: "Celal bey elinde kalemiyle bekliyor. {crush} dönüp ne diyeceğini dinliyor.",
       text: "",
       freeze: {
-        text: "Sustun, hocayla göz teması kurmamaya çalıştın. Hoca 'Neyse, yok yazarız' deyip önüne döndü.",
+        text: "Sustun, hocayla göz teması kurmamaya çalıştın.\n— Neyse, yok yazıyorum, dedi Celal bey ve önüne döndü.",
         goto: "defter"
       },
       intents: [
         {
           id: "tuvalette",
           positive: true,
-          keywords: ["tuvalette", "lavaboda", "buradaydi", "icerdeydi"],
-          text: "» Tuvalette hocam, az önce buradaydı.\nHoca inanmadı. 'Tuvalet fizanda mı, yirmi dakikadır yok ortada.'",
+          keywords: ["tuvalet", "lavabo", "buradaydi", "icerde", "disarda", "su ice"],
+          text: "» Tuvaletteydi hocam, az önce buradaydı.\n— Tuvalet Fizan'da mı oğlum, yirmi dakikadır yok ortada!\nHoca yine de yazmadı, sınıf defterine bakmaya devam etti.",
           goto: "defter"
         },
         {
           id: "kacti",
           positive: true,
-          keywords: ["okuldan kacti", "okuldan gitti", "kacti", "kacmis"],
+          keywords: ["okuldan kac", "okuldan git", "okuldan cik", "kacti", "kacmis", "sivisti", "ispiyon"],
           text: "» Okuldan kaçtı hocam.\nSınıf buz kesti. Yakın arkadaşını ispiyonladın. Sınıfta adın muhbire çıktı, {crush} bile sana ters ters baktı.",
           ending: "ispiyoncu"
         },
         {
           id: "kantinde",
           positive: true,
-          keywords: ["kantin", "kantinde", "kantine indi"],
-          text: "» Kantinde hocam.\nHoca sinirlendi: 'O zaman git onu bul getir bana!' dedi.",
+          keywords: ["kantin", "yemekhane", "bufe"],
+          text: "» Kantinde hocam.\n— O zaman git, bul getir şu çocuğu bana! Beş dakikan var!",
           goto: "kantin"
         },
         {
           id: "bilmiyorum",
-          keywords: ["bilmiyorum", "gormedim", "haberim yok"],
-          text: "» Bilmiyorum hocam.\nHoca 'Senin neyden haberin var ki zaten' dedi.",
+          keywords: ["bilmiyorum", "gormedim", "haberim yok", "hasta", "evde", "bilmem"],
+          text: "» Bilmiyorum hocam.\n— Senin neyden haberin var ki zaten, dedi Celal bey. Berkecan'ı yok yazıp önüne döndü.",
           goto: "defter"
         }
       ],
       fallbacks: [
-        "Hoca 'Cevap ver oğlum, nerede bu çocuk?' diyor."
+        "— Cevap ver oğlum, nerede bu çocuk? Biliyorsun sen. Söyleyecek misin?"
       ]
     },
 
@@ -80,78 +80,78 @@ window.Yasandi.scenarios.push({
       look: "Kantin koridoru sessiz. Tost makinesinin kokusu geliyor.",
       text: "Sınıftan çıktın. Tam kantine inecekken koridorda nöbetçi müdür yardımcısını gördün. Adımları sana doğru yaklaşıyor!",
       freeze: {
-        text: "Donakaldın. Nöbetçi hoca seni yakaladı. 'Ne geziyorsun derste?' deyip ensenden tutarak sınıfa geri bıraktı. Tam da Celal bey tahtaya kaldıracak birini ararken!",
+        text: "Donakaldın. Nöbetçi hoca seni ensenden yakaladı:\n— Ne geziyorsun derste lan?\nSınıfa geri bıraktı. Tam da Celal bey tahtaya kaldıracak birini ararken!",
         goto: "tahta"
       },
       intents: [
         {
           id: "kacis",
           positive: true,
-          keywords: ["bahceye", "okuldan kacarim", "kapiya kosarim", "okuldan cikarim"],
+          keywords: ["bahce", "okuldan kac", "kapiya kos", "okuldan cik", "firar", "kacarim", "kaciyorum", "eve git"],
           text: "Hemen merdivenlerden atlayıp okul kapısından firar ettin! Özgürsün ama devamsızlığın sınırda.",
           ending: "firar"
         },
         {
           id: "tuvalet",
           positive: true,
-          keywords: ["tuvalet", "lavabo", "cesme"],
+          keywords: ["tuvalet", "lavabo", "cesme", "su ic"],
           text: "Hızla yön değiştirip tuvaletlere daldın.",
           goto: "cesme"
         },
         {
           id: "saklan",
           positive: true,
-          keywords: ["saklanirim", "kapi arkasi", "mermer", "yangin tupu"],
+          keywords: ["saklan", "kapi arkas", "yangin", "gizlen"],
           text: "Yangın tüpünün arkasına saklandın ama bacağın sığmadı. Müdür yardımcısı seni bulup doğrudan disiplin kuruluna sevk etti.",
           ending: "disiplin"
         },
         {
           id: "geri_don",
           positive: true,
-          keywords: ["sinifa donerim", "geri donerim", "sinifa kacarim"],
+          keywords: ["sinifa don", "geri don", "sinifa git", "sinifa kos", "yerime otur"],
           text: "Koşarak sınıfa döndün. Kapıyı sessizce açıp yerine oturdun.",
           goto: "defter"
         }
       ],
       fallbacks: [
-        "Nöbetçi hızla yaklaşıyor, bir yere girmezsen yakalanacaksın!"
+        "Nöbetçi hızla yaklaşıyor, bir yere girmezsen yakalanacaksın! Saklanıyor musun, kaçıyor musun, sınıfa mı dönüyorsun?"
       ]
     },
 
     "defter": {
       hint: "Su içmeye izin isteyebilir, sıranın altına eğilebilir veya uyuyabilirsin.",
       look: "Tahtada inanılmaz uzun bir integral sorusu var.",
-      text: "Celal bey sınıf defterinde parmağını gezdiriyor. 'Bakalım tahtadaki o zor integrali kim çözecek...'\n{crush} arkasına dönmüş, korkuyla sana bakıyor. Ödev yok, soru zor!",
+      text: "Celal bey sınıf defterinde parmağını gezdiriyor:\n— Bakalım tahtadaki şu integrali kim çözecek...\n{crush} arkasına dönmüş, sana bakıyor. Ödev yok, soru zor, hoca parmağını isimlerde gezdiriyor. Ne yapıyorsun?",
       freeze: {
-        text: "Nefesini tuttun. Hoca parmağını isminde durdurdu. Tam adını söyleyecekken...",
+        text: "Nefesini tuttun. Hoca parmağını senin ismine getirdi. Tam adını söyleyecekken arka sıradan bir hışırtı geldi, kafana sivri bir şey çarptı.",
         goto: "ucak"
       },
       intents: [
         {
           id: "su_icme",
           positive: true,
-          keywords: ["su icmeye", "izin isterim", "lavaboya gitmek"],
-          text: "» Hocam su içebilir miyim?\nHoca 'Git, ama gelince tahtaya sen kalkıyorsun' dedi.",
+          keywords: ["su icme", "su icebil", "izin iste", "lavabo", "tuvalet", "disari cik"],
+          text: "» Hocam su içmeye gidebilir miyim?\n— Git, ama gelince tahtaya sen kalkıyorsun.",
           goto: "cesme"
         },
         {
           id: "saklan",
           positive: true,
-          keywords: ["saklanirim", "sira altina", "egilirim", "kafa gomerim"],
+          keywords: ["saklan", "sira alt", "egil", "kafa gom", "gorunmez"],
           text: "Sıranın altına iyice eğildin. Hoca tam 'O sıranın altında kim var?' diyecekken...",
           goto: "ucak"
         },
         {
           id: "cesaret",
           positive: true,
-          keywords: ["ben kalkarim", "parmak kaldiririm", "ben cozerim", "tahtaya cikarim"],
+          keywords: ["ben kalk", "parmak kald", "ben coz", "tahtaya cik", "gonullu"],
           text: "» Ben çözerim hocam!\nBüyük cesaretle parmak kaldırdın. Tahtaya çıkıp kalemi aldın ama tek yaptığın boş boş bakmaktı. Herkes sana güldü.",
           ending: "rezil_oldun"
         },
         {
           id: "uyu",
           positive: true,
-          keywords: ["uyuma numarasi", "uyurum", "siraya yatarim"],
+          keywords: ["uyuma", "uyu", "uyurum", "siraya yat", "uyuklarim"],
           text: "Kafayı sıraya koyup uyuma numarası yaptın. Hoca hedef şaşmaz tebeşir fırlatma yeteneğiyle kafana tebeşiri yapıştırdı!",
           ending: "uyku"
         }
@@ -173,21 +173,21 @@ window.Yasandi.scenarios.push({
         {
           id: "suyu_ic",
           positive: true,
-          keywords: ["cesmeden ic", "sise", "beklerim", "sinifa donerim"],
+          keywords: ["su ic", "cesmeden", "sise", "sinifa don", "geri don", "sinifa git"],
           text: "Mecburen sınıfa döndün. Kapıdan girer girmez hoca kalemi uzattı.",
           goto: "tahta"
         },
         {
           id: "kacis",
           positive: true,
-          keywords: ["kacarim", "eve giderim", "okuldan kacis"],
+          keywords: ["kac", "eve git", "okuldan cik", "firar", "okuldan sivis"],
           text: "Çantanı bile almadan okuldan firar ettin. Yok yazılmak rezil olmaktan iyidir.",
           ending: "firar"
         },
         {
           id: "kantin_in",
           positive: true,
-          keywords: ["kantin", "kantine giderim"],
+          keywords: ["kantin", "bufe", "tost"],
           text: "Kantine indin. Tam çayını yudumlarken müdür yardımcısı ensende bitti.",
           ending: "kantin_baskini"
         }
@@ -200,43 +200,43 @@ window.Yasandi.scenarios.push({
     "ucak": {
       hint: "Uçağı açıp okuyabilir, geri fırlatabilir veya çantana atabilirsin.",
       look: "Yerde beyaz bir kağıt uçak duruyor. Celal beyin kaşları çatık.",
-      text: "Arka sıradan kafana sivri bir kağıt uçak çarptı. Sınıf kıkırdadı. Hoca anında döndü:\n— Kim attı o uçağı?",
+      text: "Arka sıradan kafana sivri bir kağıt uçak çarptı. Sınıf kıkırdadı. Celal bey anında döndü:\n— Kim attı o uçağı? {crush} da gülüyor, sana bakıyor. Ne yapıyorsun?",
       freeze: {
-        text: "Ses çıkarmadın. Hoca 'Madem atan yok, uçağın indiği yer kalkar tahtaya. Gel yavrum' diyerek seni seçti.",
+        text: "Ses çıkarmadın. Celal bey kaşlarını çattı:\n— Madem atan yok, uçağın indiği yer kalkar tahtaya. Gel bakalım yavrum.",
         goto: "tahta"
       },
       intents: [
         {
           id: "oku",
           positive: true,
-          keywords: ["kagidi okurum", "ucagi acarim", "ne yaziyor"],
+          keywords: ["kagidi oku", "ucagi ac", "kagidi ac", "ne yaziyor", "icine bak"],
           text: "Uçağı açtın. İçinde hocanın komik bir karikatürü çizilmişti! Celal bey elinden alıp baktı ve rengi değişti.",
           ending: "disiplin"
         },
         {
           id: "geri_at",
           positive: true,
-          keywords: ["geri firlatirim", "arkaya atarim", "ucagi atarim"],
+          keywords: ["geri firlat", "arkaya at", "ucagi at", "geri at"],
           text: "Uçağı alıp arka sıraya var gücünle fırlattın. Hoca delirdi. Derste havada uçak savaşı başlattığın için uzaklaştırma aldın.",
           ending: "ucak_savasi"
         },
         {
           id: "ispiyon",
           positive: true,
-          keywords: ["ispiyonlarim", "arkadan attilar", "okan atti", "soylerim"],
-          text: "» Arkadan Okan attı hocam!\nHoca 'Sana sormadım! Hem uçak uçuruyor hem ispiyonluyor, geç tahtaya!' diyerek seni kaldırdı.",
+          keywords: ["ispiyon", "arkadan attilar", "atan", "soylerim", "gosteririm"],
+          text: "» Arkadan attılar hocam!\n— Sana sormadım! Hem uçak karşılıyor hem ispiyonluyor, geç tahtaya!",
           goto: "tahta"
         },
         {
           id: "gizle",
           positive: true,
-          keywords: ["cantama", "gizlerim", "burustururum", "yirtarim", "saklarim"],
-          text: "Kağıdı hızla buruşturup çantana attın ama hoca o hareketi gördü. 'Ne saklıyorsun sen orada? Çık tahtaya!'",
+          keywords: ["cantama", "gizle", "burustur", "yirt", "sakla", "cebime"],
+          text: "Kağıdı hızla buruşturup çantana attın ama hoca gördü:\n— Ne saklıyorsun orada? Çık tahtaya bakalım!",
           goto: "tahta"
         }
       ],
       fallbacks: [
-        "Hoca cevap bekliyor. Kağıt uçağa ne yapacaksın?"
+        "Hoca cevap bekliyor, bütün sınıf sana bakıyor. Kağıt uçağı açıyor musun, geri mi atıyorsun?"
       ]
     },
 
@@ -252,35 +252,35 @@ window.Yasandi.scenarios.push({
         {
           id: "bayil",
           positive: true,
-          keywords: ["bayilma numarasi", "bayilirim", "kendimi atarim"],
+          keywords: ["bayil", "kendimi at", "yere yat", "fenalas"],
           text: "Gözlerini devirip kendini yere attın. Sınıf paniğe kapıldı, ambulans geldi. Hoca o günden sonra sana hep acıyarak baktı.",
           ending: "oscarlik"
         },
         {
           id: "salla",
           positive: true,
-          keywords: ["rastgele", "karalarim", "sallarim", "formulu yazarim", "bir seyler yazarim"],
+          keywords: ["rastgele", "karala", "salla", "yazarim", "yaziyorum", "yazmaya", "coz"],
           text: "Tahtaya rastgele x'ler y'ler yazdın. Hoca 'Bu ne oğlum, Çince mi?' dedi, herkes güldü. Sözlü notun koca bir sıfır.",
           ending: "sifir"
         },
         {
           id: "sil",
           positive: true,
-          keywords: ["tahtayi silerim", "temizlerim", "silgiyle"],
+          keywords: ["tahtayi sil", "sil", "temizle", "silgi"],
           text: "Nöbetçi öğrenci refleksinle silgiyi alıp tahtadaki tüm soruyu tertemiz sildin. Hoca küplere bindi.",
           ending: "temizlik_kolu"
         },
         {
           id: "kopya",
           positive: true,
-          keywords: ["kopya cekerim", "yardim isterim", "fisildayin", "sinifa bakarim"],
+          keywords: ["kopya", "yardim", "fisilda", "sinifa bak", "arkaya don"],
           text: "» Gençler neydi bu?\nArka sıradan '52 yaz' diye fısıldadılar. Kocaman 52 yazdın. Hoca 'Yarıçap nasıl 52 santim olsun?' dedi.",
           ending: "kopya_kurbani"
         },
         {
           id: "itiraf",
           positive: true,
-          keywords: ["itiraf ederim", "kalp cizerim", "seni seviyorum", "ilan"],
+          keywords: ["itiraf", "kalp", "seviyorum", "ilan", "ask"],
           text: "Matematik sorusu yerine tahtaya koca bir kalp çizip içine {crush} yazdın. Hoca şokta, sınıf yıkılıyor!",
           ending: "itiraf_etti"
         }
@@ -292,7 +292,7 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Okul kurallarına pek uymuyor. Mantıklı bir şey yap.",
-    "Bütün sınıf seni bekliyor, daha net bir şey söyle."
+    "Celal bey kaşını kaldırdı, anlamadı. Ne yapıyorsun, açık söyle?",
+    "Bütün sınıf seni bekliyor. Ne yapacaksın?"
   ]
 });
