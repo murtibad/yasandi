@@ -25,6 +25,7 @@ Id `tahtaya-kalk`. Read `ideas/okul-notes.md` first. Lise, a lesson, homework no
 - New scenario: health report at the devlet hastanesi (`content/hospital-report`)
 - New scenario: you are an ant at a family picnic (`content/ant-picnic`, commit `5704da7`)
 - Keyword coverage: chat spelling, verb bends, synonyms players type; `tests/engine.js` (branch `fix/keyword-coverage`)
+- Scenario audit: misfiring keywords, open questions without a freeze, echoed player lines, typos; validator checks reachability (branch `fix/scenario-audit`)
 - New scenario: job interview (`content/job-interview`, commit `b6a9065`)
 - New scenario: you are the apartment cat (`content/apartment-cat`, commit `53ee044`)
 - One fourth-wall moment per scenario (`content/fourth-wall`, commit `10a316c`)

@@ -22,6 +22,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: ["Memur gözlüğünün üstünden baktı.\n— Hangi işe giriyorsun diyorum? Forma yazmam lazım.", "Memur kalemi bıraktı, arkandaki sıraya baktı.\n— Hocam kuyruk uzuyor, işin ne? Muhasebeci mi, bekçi mi?"] },
       hint: "Hangi işe gireceğini yaz (örn: muhasebeci, mühendis, bekçi).",
       look: "Danışmadaki bilgisayarın arkasında esneyen, bıkkın bir memur var.",
       text: "Saat 15:00. Devlet hastanesi danışmasındasın. İK sabah arayıp \"Rapor yoksa yarın başlayamazsın, kontenjan başkasına gider\" dedi. Annen de komşulara çoktan söyledi.\nMemur eline boş bir form tutuşturdu.\n— Hangi işe giriyordun sen, dedi esneyerek.",

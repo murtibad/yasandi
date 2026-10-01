@@ -23,6 +23,7 @@ window.Yasandi.scenarios.push({
 
   nodes: {
     start: {
+      freeze: { text: ["Komutan karınca antenlerini sinirle salladı.\n— Bilmiyor musun? Koloni aç, kraliçe bekliyor. Ne getireceksin yuvaya?", "Komutan karınca bir adım yaklaştı.\n— 714, bak sırada kırk bin karınca var. Çabuk söyle, ne getireceksin?"] },
       hint: "Yuvaya ne getireceğini yaz (örn: ekmek, şeker, meyve).",
       look: "Yuvanın loş tünelleri. Karşında antenlerini sabırsızca sallayan komutan karınca var.",
       text: "Yuvanın girişinde, nöbetçi komutan karıncanın karşısındasın. Antenleri sinirden titriyor. Koloni üç gündür aç, kraliçe de akşama kadar bir şey bekliyor.\n— İşçi Karınca 714! Dışarıda dev bir pazar pikniği var. Yuvaya ne getireceksin, söyle de kraliçeye haber vereyim?",

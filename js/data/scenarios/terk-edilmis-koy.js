@@ -82,7 +82,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kac",
           positive: true,
-          keywords: ["kac", "kacalim", "gidelim", "donelim", "korktum", "vazgec"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kacalim", "gidelim", "donelim", "korktum", "vazgec"],
           text:
             "Arkanı dönüp karanlığa doğru koştun.\n" +
             "Tuncay arkandan 'Abi nereye, kayıttayız!' diye bağırdı. Sen çoktan ormandaydın.\n" +
@@ -91,6 +91,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "dua",
+          positive: true,
           keywords: ["dua", "besmele", "bismillah", "ayetel"],
           text:
             "Besmele çekip eşikten adım attın.\n" +
@@ -181,7 +182,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kac-dark",
           positive: true,
-          keywords: ["kac", "kacalim", "gidelim", "cik", "kapiya", "disari"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kacalim", "gidelim", "cik", "kapiya", "disari"],
           text:
             "Kapıya koştun. Kapı açılmadı. Kolu içeriden biri tutuyordu.\n" +
             "— Nereye? dedi bir ses, kulağının dibinden. Çay koydum.",
@@ -305,6 +306,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "cay",
+          positive: true,
           keywords: ["cay", "caydanlik", "cay var", "cay koy", "icelim"],
           text:
             "Hüsnü ince belli bardaklara çay koydu. Çaydanlığın altında ateş yok ama çay tavşan kanı.\n" +
@@ -332,9 +334,9 @@ window.Yasandi.scenarios.push({
           ending: "tapu",
         },
         {
-          id: "kac-cin",
+          id: "sell-tuncay",
           positive: true,
-          keywords: ["kac", "kacalim", "kos", "sat", "birak", "arkadasini birak", "tuncayi sat", "tuncayi kilitle", "kapiya", "disari"],
+          keywords: ["arkadasini birak", "tuncayi sat", "tuncayi birak", "tuncayi kilitle", "kilitle", "onu ye", "etlidir", "tuncayi feda"],
           text:
             "Tuncay 'Abi kamerada bir şey var!' dediği an 'O etlidir onu ye!' diyerek odadan fırladın.\n" +
             "Kapıyı dışarıdan kilitleyip arkana bakmadan kaçtın.\n" +
@@ -367,7 +369,7 @@ window.Yasandi.scenarios.push({
         {
           id: "dov",
           positive: true,
-          keywords: ["dov", "kavga", "vur", "kafa at", "yumruk", "dal"],
+          keywords: ["dov", "kavga", "vur", "kafa at", "yumruk"],
           text:
             "Korkunu yenmek için Hüsnü'ye uçan kafa attın.\n" +
             "Kafa dumanın içinden geçti, arkadaki duvara tosladın.\n" +
@@ -396,7 +398,7 @@ window.Yasandi.scenarios.push({
           keywords: ["selam", "aleykum", "selamun", "merhaba", "naber", "nasilsin", "memnun oldum", "tanistigima", "hos bulduk"],
           text: [
             "— Aleykümselam, dedi Hüsnü. Ayakkabıları çıkarmadınız ama. Neyse.",
-            "— Aldım selamını evladım, aldım. Üçüncü kere oluyor.",
+            "— Aldım selamını evladım, aldım. Bir daha mı?",
           ],
         },
         {
@@ -407,7 +409,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kac-cin",
           positive: true,
-          keywords: ["kac", "kacalim", "gidelim", "kaciyorum", "kos", "kapiya kos", "tabana kuvvet", "korktum"],
+          keywords: ["kaci", "kaca", "kacm", "kact", "kac lan", "kacalim", "gidelim", "kos", "kapiya", "disari", "tabana kuvvet", "korktum"],
           text:
             "Kapıya koştun. Bu sefer açıldı. Tuncay da arkandan.\n" +
             "Hüsnü kapıdan seslendi: — Çekirdek alsaydın bari!\n" +
@@ -431,6 +433,13 @@ window.Yasandi.scenarios.push({
 
     // The other side is a government office.
     daire: {
+      freeze: {
+        text: "Bir şey diyemedin. Memur 'Sıradaki!' diye bağırdı. Numaran yandı.\nYeni numara aldın: 348. Ekranda 13 yazıyor. Memur yine sordu: — Hangi işlem?",
+        exhausted: {
+          text: "Yine bir şey diyemedin. Yeni numara aldın, plastik sandalyeye oturdun, uyuyakaldın.\nCinler âleminde bir öğleden sonra, bizim tarafta kırk yıl sürüyor. Döndüğünde Tuncay'ın kanalı hâlâ 312 aboneydi.",
+          ending: "kirkyil",
+        },
+      },
       text:
         "Kapıdan geçtin. Loş bir koridor, floresan lamba cızırdıyor. Duvarda 'Cinler Âlemi Nüfus Müdürlüğü' yazıyor.\n" +
         "Sıramatikten numara aldın: 347. Ekranda 12 yazıyor.\n" +
@@ -451,7 +460,7 @@ window.Yasandi.scenarios.push({
         {
           id: "geri",
           positive: true,
-          keywords: ["geri don", "geri gidelim", "cikalim", "kac", "donelim", "burada kalmam", "gidelim"],
+          keywords: ["geri don", "geri gidelim", "cikalim", "kaci", "kaca", "kacm", "kact", "kac lan", "donelim", "burada kalmam", "gidelim"],
           text:
             "Kapıdan geri çıktın. Beş dakika geçmişti.\n" +
             "Köy kalabalıktı. Köyün ortasında bir AVM vardı. Bir çocuk sana baktı: — Amca, sen Tuncay'ın arkadaşı mısın? Ondan beri kırk yıl geçti.\n" +
