@@ -22,6 +22,8 @@ js/data/global-intents.js           intents valid in every scenario (police, mom
 js/data/scenarios/<id>.js           one file per scenario, content only
 tests/validate.js                   checks scenarios for broken links
 tests/engine.js                     matcher and negation cases (how real players type)
+tests/play.js                       prints the game's reply to each input: node tests/play.js <id> [step "input" ...]
+tests/play/<id>.txt                 the inputs a real player types, per step ("# <step>" headers)
 ```
 
 ## Scenario format
@@ -73,6 +75,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 4. Run `node tests/validate.js` and `node tests/engine.js`. They must print `All scenarios OK` and `All ... engine cases OK`. Fix every ERROR; read every WARN.
 5. Play it in a browser: try the obvious answers a real person would type first ("efendim", "pardon", "ne var") and make sure each one is understood.
    Also try refusals ("yer vermiyorum", "kaçmıyorum") and sentences that merely contain your keywords ("insanlar bana bakıyor"). None of them may trigger an ending by accident.
+   Without a browser: `node tests/play.js <id> <step> "efendim" "yer vermiyorum"` prints each reply, `node tests/play.js <id> --run "..." "..."` plays one game from the start.
 
 ## Rol pası: the game plays with the player (as important as the Turkish voice)
 

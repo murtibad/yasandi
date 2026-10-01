@@ -1,0 +1,34 @@
+# Inputs a real player types, per step. Run: node tests/play.js 2010-bir-gun
+# start
+Esra
+bilmiyorum
+# msn
+selam
+napıyon
+kameram yok
+titreşim atıyorum
+hayır
+# kamera_sorunu
+kameram yok
+numaranı versene
+telefonum var ama kontörüm yok
+hayır
+# kafe_yolu
+1 saat aç
+süresiz
+saat kaç abi
+# kafe_masa
+yok
+evet var
+işim var abi
+sana ne
+bilmiyorum
+# kamera_acik
+çok güzel olmuş
+güzel olmamış
+hayır
+# facebook_final
+ekliyorum
+tamam
+eklemem
+hmm
