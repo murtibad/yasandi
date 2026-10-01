@@ -34,6 +34,11 @@ for (const s of scenarios) {
   if (!s.nodes.start.text) err(where("nodes.start has no text"));
   if (!s.endings || !Object.keys(s.endings).length) err(where("no endings"));
 
+  // A suffix glued to a saved answer breaks vowel harmony: "{crush}'e" prints "Esra'e", "{input}'ların" prints "Demir'ların".
+  for (const m of JSON.stringify(s).match(/\{\w+\}['’]?[a-zçğıöşü]+/g) || []) {
+    warnings.push(where(`"${m}": no suffix after a saved answer (it breaks vowel harmony); rewrite the sentence so the answer stands alone`));
+  }
+
   // `remember`: what the narrator says when the player comes back, or arrives from another scenario.
   if (s.remember) {
     const mem = s.remember;

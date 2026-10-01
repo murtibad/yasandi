@@ -336,7 +336,7 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Sene 2010, o daha icat edilmedi. Ne yazıyorsun {crush}'e?",
+    "Sene 2010, o daha icat edilmedi. {crush} bekliyor, ne yazıyorsun?",
     "{crush} üç nokta yazıp siliyor, yazıp siliyor. Sen ne diyeceksin?"
   ]
 });

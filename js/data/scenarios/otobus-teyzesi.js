@@ -440,7 +440,7 @@ window.Yasandi.scenarios.push({
         {
           text:
             "— {input} {mi}?\nTeyze durakladı. Gözleri parladı.\n" +
-            "— Aaaa, sen {input}'ların torunusun! Sizin köyün sulak yerinden tarla almıştık biz.\n" +
+            "— Aaaa! Ben senin dedeni tanırım! Sizin köyün sulak yerinden tarla almıştık biz.\n" +
             "Bir anda akraba çıktınız. Teyze seni zorla çaya davet etti.",
           ending: "akraba",
         },
