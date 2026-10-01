@@ -1,0 +1,260 @@
+window.Yasandi = window.Yasandi || {};
+window.Yasandi.scenarios = window.Yasandi.scenarios || [];
+window.Yasandi.scenarios.push({
+  id: "apartman-kedisi",
+  title: "Apartmanın Sahibi",
+  
+  endings: {
+    mama: { title: "Diyet Mama", tag: "DOYDUN" },
+    asansor: { title: "Asansörde Kaldın", tag: "MAHSUR" },
+    ekmek: { title: "Ekmek Hırsızı", tag: "DOYDUN" },
+    yonetici: { title: "Yöneticinin Arabası", tag: "GÖÇ ETTİN" },
+    sahiplen: { title: "Sıcak Yuva", tag: "EV KEDİSİ" },
+    kedi_kavgasi: { title: "Mahalle Kavgası", tag: "YARALI" },
+    kovuldun: { title: "Dışarı Atıldın", tag: "SOKAK" },
+    balik: { title: "Balık Ziyafeti", tag: "KRAL SEN" },
+    paspas: { title: "Paspas Uykusu", tag: "UYUDUN" },
+    whatsapp: { title: "Grup Karıştı", tag: "KRİZ" },
+    isirdi: { title: "Isıran Kedi", tag: "AŞI" },
+    korktu: { title: "Köpek Geldi", tag: "KAÇIŞ" }
+  },
+
+  nodes: {
+    start: {
+      hint: "Apartmandaki çocuklar sana ne isim taktı? (örn: Duman, Pamuk, Sarı)",
+      look: "Beton merdivenler. Apartman boşluğunda yankılanan sesler ve havada asılı duran o mükemmel kızarmış balık kokusu.",
+      text: "Sen bu apartmanın yöneticisinden bile daha yetkili kişisisin: Apartman kedisi.\n" +
+            "Karnın çok aç. İkinci kattaki Hayriye teyze balık kızartıyor, kokusu apartman boşluğunu doldurmuş. Ayrıca kapıcı Cemal efendi az önce sabah ekmeklerini kapı önlerine bıraktı.\n" +
+            "Tek derdin karnını doyurmak. Çocuklar sana genelde bir isim takar. Hani şu hep söyledikleri...",
+      acceptAny: [
+        { text: "» Miyav.\n— {input} {mi}? Güzel isimmiş, dedi kendi kendine birinci katın çocuğu.", save: "name", goto: "staircase" }
+      ],
+      fallbacks: [
+        "Sana ne sesleniyorlar?",
+      ]
+    },
+
+    staircase: {
+      text: "Merdivenlerin ortasında dikiliyorsun. Karnın zil çalıyor.",
+      hint: "Yukarı çıkıp balık isteyebilir, ekmekleri kemirebilir veya çocukla oynayabilirsin.",
+      look: "Birinci katın çocuğu elinde oyuncak arabasıyla sana bakıyor. İkinci kattan balık kokusu geliyor. Üçüncü katta kapı önünde ekmek poşeti duruyor. Sokak kapısından mahallenin belalı kedisi Sarman kafasını uzatmış.",
+      freeze: {
+        text: "Sen olduğun yerde patilerini yalarken yönetici Rıza bey apartmana girdi. Seni görünce yüzü düştü:\n— Yine mi girmiş bu! Şişt! Pist!\nSeni süpürgeyle kovaladı.",
+        ending: "kovuldun"
+      },
+      intents: [
+        {
+          id: "miyav",
+          positive: true,
+          keywords: ["miyav", "miyavla", "bagir", "ses cikar", "miyavliyorum", "miyavlarim", "bagiririm"],
+          text: [
+            "» Miyav.\nBirinci katın çocuğu sevindi: — Anne bak, {name} bana miyavladı!\nAnnesi içeriden bağırdı: — Elleme onu, pirelidir o!",
+            "» Miyav!\nİkinci kattan Hayriye teyze seslendi: — Kim miyavlıyor orda? Acıkmış canım."
+          ],
+          exhausted: {
+            text: "Sürekli miyavlamana apartman grubundan tepki geldi. Rıza bey WhatsApp tan kedi sesi şikayeti alıyorum diyip seni kapı dışarı etti.",
+            ending: "whatsapp"
+          }
+        },
+        {
+          id: "yukari",
+          positive: true,
+          keywords: ["yukari", "ikinci", "kata", "balik", "hayriye", "teyze", "cikarim", "kokuya", "merdiven", "cik", "koku"],
+          text: "Balık kokusunun geldiği ikinci kata, Hayriye teyzenin kapısına tırmandın.\nKapının önündeki paspasta bekliyorsun.",
+          goto: "second-floor"
+        },
+        {
+          id: "ekmek",
+          positive: true,
+          keywords: ["ekmek", "poseti", "ucuncu", "kata", "ekmege", "kemir", "yerim", "ekmekleri", "cemal", "poset"],
+          text: "Üçüncü kattaki ekmek poşetine yaklaştın. Plastik poşeti biraz yırtıp taze ekmeğin ucunu kemirmeye başladın.\nKapı aniden açıldı. Rıza bey belirdi.",
+          goto: "riza-bey"
+        },
+        {
+          id: "surun",
+          positive: true,
+          keywords: ["cocuga", "surun", "bacak", "yalan", "sevdir", "sirnas", "cocuk", "oyna"],
+          text: "Çocuğun bacaklarına sürtündün.\nÇocuk Anne {name} beni çok sevdi! deyip seni kucağına aldı ve eve soktu.\nSıcak bir yuvan oldu, gerçi artık dışarı çıkamıyorsun.",
+          ending: "sahiplen"
+        },
+        {
+          id: "diger-kedi",
+          positive: true,
+          keywords: ["sarman", "tekir", "kavga", "dovus", "pati", "diger", "kediye", "saldir"],
+          text: "» Miyav!\nSarman a tıslayıp üzerine atladın. İkiniz merdivenlerden yuvarlana yuvarlana kavga ettiniz.\nApartman ayağa kalktı.",
+          ending: "kedi_kavgasi"
+        },
+        {
+          id: "uyu",
+          positive: true,
+          keywords: ["uyu", "kestir", "yat", "uyurum", "paspasa", "paspas", "otur"],
+          text: "Karnın aç ama uykun daha ağır bastı. Çocuğun kapısındaki paspasa kıvrılıp uyudun.\nBiri üzerine basmamak için zıpladı ama sen uyanmadın.",
+          ending: "paspas"
+        }
+      ],
+      fallbacks: [
+        "» Miyav? Ne yapacaksın?",
+        "Balık kokusu burnuna buram buram geliyor. Ekmekler de orada."
+      ],
+      patience: 3,
+      patienceIntent: {
+        text: "Sen karar verene kadar sokaktan bir köpek apartmana daldı. Arkanıza bile bakmadan en üst kata kaçtın.",
+        ending: "korktu"
+      }
+    },
+
+    "second-floor": {
+      hint: "Kapıyı tırmalayabilir, miyavlayabilir veya bekleyebilirsin.",
+      look: "Hayriye teyzenin kapısı kapalı. İçeriden televizyon sesi ve çıtır çıtır kızaran hamsi sesi geliyor.",
+      freeze: {
+        text: "Kapıda uslu uslu oturup bekledin. Yarım saat geçti. Hayriye teyze kapıyı açmadı. Açlıktan miden gurulduyor, gurultuyu apartmanda herkes duydu.",
+        goto: "staircase"
+      },
+      intents: [
+        {
+          id: "miyav-kapi",
+          positive: true,
+          keywords: ["miyav", "miyavla", "bagir", "ses", "miyavliyorum", "miyavlarim", "bagiririm"],
+          text: "» Miyav!\nİçeriden terlik sesleri geldi. Kapı açıldı. Hayriye teyze sana şefkatle baktı:\n— Aaa, {name} gelmiş! Acıktın mı sen?",
+          goto: "hayriye-teyze"
+        },
+        {
+          id: "tirmala",
+          positive: true,
+          keywords: ["tirmala", "kapiyi", "esele", "vur", "vururum", "patile", "tirnak"],
+          text: "Kapıyı tırmaladın. Cırt. Cırt.\nHayriye teyze kapıyı hışımla açtı: — Boyasını yeni yaptırdım be hayvan! Pist!\nSana elindeki bezle vurdu, aşağı kaçtın.",
+          goto: "staircase"
+        },
+        {
+          id: "uyu-kapi",
+          positive: true,
+          keywords: ["uyu", "yat", "bekle", "otur", "paspasa", "kivril"],
+          text: [
+            "Paspasta uyumaya karar verdin. Balık kokusu rüyalarına girdi.",
+            "Uyurken kapı aniden açıldı, Hayriye teyzenin ayağına takıldın.\n— Ay tövbe bismillah! dedi."
+          ],
+          exhausted: {
+            text: "Hayriye teyze düşmemek için kapı pervazına tutundu. Kalp krizi geçiriyordum senin yüzünden! diyip içeri kaçtı.",
+            ending: "kovuldun"
+          }
+        },
+        {
+          id: "asansor",
+          positive: true,
+          keywords: ["asansore", "asansor", "gir", "bin", "kabin", "kapisi", "icine"],
+          text: "O sırada asansörün kapısı açıldı. Merak edip içine girdin. Kapı kapandı.\n12 saat mahsur kaldın. İtfaiye çıkardı.",
+          ending: "asansor"
+        }
+      ],
+      fallbacks: [
+        "İçeriden hamsi kokusu geliyor. » Miyav?",
+        "Kapalı bir kapı ve sen. Klasik kedi problemi."
+      ]
+    },
+
+    "hayriye-teyze": {
+      hint: "Ona sürtün, balık iste veya içeri girmeye çalış.",
+      look: "Hayriye teyze elinde maşayla kapıda. Mutfaktan dumanlar tütüyor.",
+      freeze: {
+        text: "Öylece yüzüne baktın. Hayriye teyze: — E ne istiyorsun dilsiz hayvan? İçeri girmeyeceksen kapıyorum, cereyan yapıyor.\nKapıyı yüzüne kapattı.",
+        goto: "staircase"
+      },
+      intents: [
+        {
+          id: "surun-teyze",
+          positive: true,
+          keywords: ["surun", "bacak", "sirnas", "sirnasirim", "sevdir", "yala", "yaltaklan"],
+          text: "» Miyav.\nBacaklarına dolandın, kendini sevdirdin.\n— Dur kıyamam sana, diyip mutfağa gitti. Döndüğünde elinde koca bir hamsi kuyruğu vardı.",
+          ending: "balik"
+        },
+        {
+          id: "iceri-gir",
+          positive: true,
+          keywords: ["iceri", "dal", "gir", "koc", "kosa", "firlar", "girerim", "mutfaga", "zipla"],
+          text: "Hayriye teyzenin bacaklarının arasından mutfağa daldın.\n— Ayh! Çık dışarı arsız! diye bağırdı. Seni süpürgeyle apartman boşluğuna geri kovaladı.",
+          goto: "staircase"
+        },
+        {
+          id: "yemek-iste",
+          positive: true,
+          keywords: ["balik", "yemek", "mama", "ver", "vermesini", "iste", "miyavla", "acim", "miyav"],
+          text: "» Miyav!\n— Aaa acıkmış, dedi Hayriye teyze. İçeri gitti. Döndüğünde sana diyet kuru mama verdi. Hamsi kokusu eşliğinde tatsız tuzsuz mama yedin.",
+          ending: "mama"
+        }
+      ],
+      fallbacks: [
+        "Hayriye teyze sana, sen ona bakıyorsun. » Miyav?",
+      ]
+    },
+
+    "riza-bey": {
+      hint: "Kaç, tıslayarak saldır veya masum rolü yap.",
+      look: "Rıza bey takım elbiseli, sinirli bir yönetici. Elinde poşetin yarısı senin ağzında.",
+      freeze: {
+        text: "Ekmek ağzında, donakaldın. Rıza bey Yine mi sen! Aidatları kedilere yediriyoruz resmen! dedi ve elindeki şemsiyeyle seni kovaladı.",
+        ending: "kovuldun"
+      },
+      intents: [
+        {
+          id: "kac-riza",
+          positive: true,
+          keywords: ["kac", "uzaklas", "kos", "atla", "fiy", "kacarim", "asagi", "merdivenlerden"],
+          text: "» Miyav!\nAğzındaki ekmek parçasıyla merdivenlerden aşağı fişek gibi uçtun.\nRıza bey arkandan uçan terlik fırlattı ama ıskaladı. Afiyetle yedin.",
+          ending: "ekmek"
+        },
+        {
+          id: "tisla",
+          positive: true,
+          keywords: ["tisla", "saldir", "isir", "tirmala", "cirmala", "kabar", "kabaririm", "pati"],
+          text: "Kamburunu çıkarıp tısladın. Rıza beyin paçasına yapışıp ısırdın.\n— Ay! Kuduz bu kuduz! Yetişin komşular!\nBelediye gelip sana aşı yaptı.",
+          ending: "isirdi"
+        },
+        {
+          id: "masum",
+          positive: true,
+          keywords: ["masum", "sevimli", "sirin", "bak", "goz", "gozlerini", "surun", "miyav"],
+          text: "Ekmeği bırakıp kocaman gözlerle ona baktın ve masumca » Miyav... dedin.\nRıza beyin kalbi eridi. — Lanet olası tatlı yaratık, dedi ve kalan ekmeği de sana verdi.",
+          ending: "sahiplen"
+        },
+        {
+          id: "araba",
+          positive: true,
+          keywords: ["arabaya", "pencere", "disari", "saklan", "giyin", "kac"],
+          text: "Panikle Rıza beyin açık duran penceresinden dışarı atladın ve tam onun park halindeki arabasının sunroof undan içeri düştün.\nRıza bey işe giderken seni de ilçenin öbür ucuna götürdü.",
+          ending: "yonetici"
+        }
+      ],
+      fallbacks: [
+        "Rıza bey şemsiyesini havaya kaldırdı. » Miyav?!",
+      ]
+    }
+  },
+
+  common: [
+    {
+      id: "yala",
+      positive: true,
+      keywords: ["yala", "temizle", "kendimi", "patimi", "tuylerimi", "yalan", "yalanirim"],
+      text: [
+        "Patinle yüzünü yıkadın. Etraftakiler Ayy ne tatlı dedi.",
+        "Arka bacağını havaya kaldırıp kendini yalamaya başladın. Estetik olarak mükemmel değil ama temizlik şart."
+      ],
+      exhausted: {
+        text: "O kadar çok yalandın ki tüy yumağı kusasın geldi. Öhö öhö. İnsanlar iğrenerek uzaklaştı.",
+        goto: "staircase"
+      }
+    },
+    {
+      id: "kopek-taklidi",
+      positive: true,
+      keywords: ["kopek", "havla", "hav", "havlarim"],
+      text: "Kedi olduğunu unutup havlamaya çalıştın.\nBoğazından garip bir Hııık sesi çıktı. Apartmandakiler hasta olduğunu düşünüp WhatsApp grubuna yazdılar."
+    }
+  ],
+
+  fallbacks: [
+    "İnsanlar seni anlamıyor. » Miyav?",
+    "Kedilerin yapabileceği şeyler sınırlı. Bir şeyleri devirmek, miyavlamak, uyumak... Ne yapacaksın?"
+  ]
+});
+
