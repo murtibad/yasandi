@@ -1,5 +1,7 @@
 # TASKS
 
+**Maintenance mode (owner decision, 2026-10-01 evening): the 12 scenarios are the finished set.** No new scenarios and no new story branches; only playtest passes (task 9, 10), fixes from `FEEDBACK.md`, bugs and small polish. This keeps the hobby sustainable: polishing is cheap, inventing endlessly is what wears people out. Revisit when every scenario had its playtest pass.
+
 **Owner decision (2026-10-01, later): no new scenarios for now. Make the existing ones better.** Read `FEEDBACK.md` first: friends' main complaint is "the game answered something unrelated to what I wrote". Every task below is judged on that.
 
 Queue for AI agents. Take the first item under **Ready**. Follow `AGENTS.md` (read "Turkish voice", "Rol pası" and Workflow step 3a twice). Never push to `main`; push a branch. One task per branch. Do not touch `js/engine.js`, `js/main.js`, `css/` or `index.html` unless the task says so (a new scenario still gets its `<script>` tag and the `?v=N` bump from "Adding a scenario" in `AGENTS.md`).
@@ -35,6 +37,8 @@ After `fix/play-is-gorusmesi` is merged. `is-gorusmesi` is the only scenario wit
 After 9 is done, same steps for `goz-temasi`, `otobus-teyzesi`, `misafirlik`, `berber`, `terk-edilmis-koy`, `yetersiz-bakiye`. These were played by friends already, so check `FEEDBACK.md` lines for them first.
 
 ## Later (owner's ideas, not for agents yet)
+
+- **Parked idea: AI only for what the engine does not understand.** After the playtest passes, if "the game does not understand me" is still the main complaint, try a tiny experiment: when a step falls back, ask a small cheap model "which of these intent ids is closest to this sentence, or none?" and play the answer; the stories stay hand-written. Needs a small serverless bridge (e.g. Cloudflare Workers) so no API key sits in the browser, because GitHub Pages is static. Candidates for a free tier: Groq, Gemini Flash, Cloudflare Workers AI. **Check the current limits before deciding**, they change. Not now.
 
 - More scenarios (paused by owner): cockroach (the immortal enemy of the terlik).
 

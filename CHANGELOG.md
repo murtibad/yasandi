@@ -2,6 +2,10 @@
 
 Sürüm numarası: `büyük.orta.küçük` ve bir etiket (alpha / beta). Kurallar `AGENTS.md` içinde "Sürümleme".
 
+## Yayımlanmamış
+
+- 12 senaryo "tamamlandı" sayıldı. Bakım modu: yeni senaryo yok, sadece oynatma turları, geri bildirim düzeltmeleri ve hatalar.
+
 ## 0.5.1 beta (2026-10-01)
 
 - Konuşma satırları artık hep kendi satırında (94 yer düzeltildi).
