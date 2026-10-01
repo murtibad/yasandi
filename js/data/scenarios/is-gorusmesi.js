@@ -11,8 +11,8 @@ window.Yasandi.scenarios.push({
     yegen: { title: "Yeğen Kazandı", tag: "TORPİL" },
     ik_is_ariyor: { title: "İK Da İş Arıyor", tag: "TERSİNE GÖRÜŞME" },
     maas_zaferi: { title: "Yanlışlıkla Zam", tag: "KAZANDIN" },
-    kacti: { title: "Camdan Atladın", tag: "KAÇIŞ" },
-    kovuldun: { title: "Girmeden Kovuldun", tag: "GÜVENLİK" },
+    kacti: { title: "Tabldot Dehşeti", tag: "KAÇTIN" },
+    kovuldun: { title: "Binadan Atıldın", tag: "ATILDIN" },
     patron: { title: "Gözdağı", tag: "YENİ CEO" },
     zoom_sessizlik: { title: "Bağlantı Koptu", tag: "DÜŞTÜN" },
     cay_doktu: { title: "Sakar Aday", tag: "LEKELİ CV" },
@@ -23,7 +23,7 @@ window.Yasandi.scenarios.push({
     start: {
       hint: "Hangi pozisyon için başvurduğunu söyle (örn: yazılımcı, çaycı, müdür).",
       look: "Beyaz florasanlı dar bir İK odası. Masanın karşısında İK uzmanı Burcu Hanım var.",
-      text: "Cam plazanın dördüncü katı. Dar bir toplantı odasında sandalyenin ucunda oturuyorsun.\n" +
+      text: "Cam plazanın dördüncü katı. Dar bir toplantı odasında sandalyenin ucunda oturuyorsun. Kira üç aydır gecikmiş, annen sabah \"Hayırlısı olsun evladım, ev sahibine ben bakarım\" diye mesaj atmış. Bu iş lazım.\n" +
             "İnsan Kaynakları'ndan Burcu Hanım, CV'ne ters tutarak bakıyor. Kaşlarını çattı.\n" +
             "— Evet, CV'nizi inceledim. Hangi pozisyon için başvurmuştunuz tam olarak?",
       acceptAny: [
@@ -46,7 +46,7 @@ window.Yasandi.scenarios.push({
         {
           id: "senin-koltugunda",
           positive: true,
-          keywords: ["sizin", "senin", "koltugunuzda", "yerinizde", "masanizda", "patron", "ceo"],
+          keywords: ["koltugunuzda", "koltugunuz", "yerinizde", "masanizda", "patron", "ceo"],
           text: "» Sizin koltuğunuzda otururken görüyorum.\nBurcu Hanım'ın gülüşü dondu. Laptop'taki Mert Bey güldü: — Özgüvenli aday, severiz. Umarım beni de kovmazsın.",
           goto: "q-zayiflik"
         },
@@ -116,14 +116,14 @@ window.Yasandi.scenarios.push({
         {
           id: "hayir-diyemem",
           positive: true,
-          keywords: ["hayir diyemem", "yardimseverim", "hayir", "diyemem", "iyi niyet"],
+          keywords: ["hayir diyemem", "yardimseverim", "diyemem", "iyi niyet"],
           text: "» İnsanlara hayır diyemiyorum, herkesin işine koşarım.\nBurcu Hanım'ın gözleri parladı: — Harika. Biz de tam her işe koşacak {job} arıyorduk.",
           goto: "q-neden-ayrildin"
         },
         {
           id: "yok",
           positive: true,
-          keywords: ["yok", "zayifligim", "zayiflik", "kusursuzum", "mukemmelim", "hicbir"],
+          keywords: ["zayifligim", "zayiflik", "kusursuzum", "mukemmelim"],
           text: "» Zayıflığım yok, kusursuzum.\nBerkcan kafasını kaldırdı: — Kral özgüvene bak! Ben bunu sevdim Burcu abla, alalım bunu.\nBurcu Hanım derin bir nefes aldı.",
           goto: "q-neden-ayrildin"
         },
@@ -153,7 +153,7 @@ window.Yasandi.scenarios.push({
         {
           id: "maas-az",
           positive: true,
-          keywords: ["maas", "para", "ucret", "vermiyorlardi", "azdi", "parasiz", "acim", "zam"],
+          keywords: ["maas", "para", "ucret", "ekonomi", "ekonomik", "yetmiyor", "vermiyorlardi", "azdi", "parasiz", "acim", "zam"],
           text: "» Maaş yetersizdi, zam yapmadılar.\nBurcu Hanım boğazını temizledi: — Bizde de ilk 3 yıl zam olmuyor ama içeride sıcak su var, aile şirketiyiz.",
           goto: "q-neden-biz"
         },
@@ -227,8 +227,8 @@ window.Yasandi.scenarios.push({
       look: "Berkcan uyumaya başladı. Burcu Hanım elindeki son kağıda bakıyor.",
       text: "Sıra o gergin soruya geldi. Burcu Hanım kalemini masaya tıkladı:\n— Peki {job} olarak, net maaş beklentiniz nedir?",
       freeze: {
-        text: "Sustun. Rakam söylemeye çekindin. Burcu Hanım: — Sanırım asgari ücret artı yol artı ticket sizin için uygundur. O zaman anlaştık.",
-        ending: "asgari_ucret"
+        text: "Sustun. Rakam söylemeye çekindin. Burcu Hanım kendi kendine karar verdi:\n— Asgari ücret artı ticket yazıyorum, uygundur. İmza sonra.",
+        goto: "q-soru"
       },
       intents: [
         {
@@ -239,15 +239,22 @@ window.Yasandi.scenarios.push({
           ending: "asgari_ucret"
         },
         {
+          id: "makul",
+          positive: true,
+          keywords: ["makul", "pazarlik", "gorusuruz", "konusuruz", "sizce", "teklifiniz", "butce", "siz ne"],
+          text: "» Sizin bütçeniz ne kadar, ona göre konuşalım.\nBurcu Hanım terledi:\n— Bütçe konusunda benim yetkim yok, o Mert Bey'de.\nMert Bey yayından: — Bende de yok, o patronda.\nKimse rakam söylemedi ama herkes rahatladı.",
+          goto: "q-soru"
+        },
+        {
           id: "yuksek",
           positive: true,
-          keywords: ["on bin", "yuz bin", "milyon", "dolar", "euro", "cok", "yuksek", "standart", "piyasa", "yirmi", "otuz", "kirk", "elli"],
+          keywords: ["on bin", "yuz bin", "bin lira", "bin tl", "milyon", "dolar", "euro", "yuksek", "piyasa", "yirmi", "otuz", "kirk", "elli"],
           text: [
             "» Piyasa standartlarının üstünde, tatmin edici bir rakam bekliyorum.\nBurcu Hanım güldü: — Biz aile şirketiyiz. Burada para değil sevgi konuşur.",
             "» 100 bin aşağısı kurtarmaz.\nLaptop'tan Mert Bey'in sesi açıldı: — Oğlum ben o kadar almıyorum lan!"
           ],
           exhausted: {
-            text: "Sen rakamda diretince Burcu Hanım'ın kafası karıştı. Yanlışlıkla istediğin yüksek rakamı onayladı. Şirketteki en yüksek maaşı alan kişi olarak işe başladın. CEO'dan bile fazla alıyorsun.",
+            text: "Sen rakamda diretince Burcu Hanım'ın kafası karıştı, yanlışlıkla istediğin rakamı onayladı. Şirketin en yüksek maaşını alan kişi olarak işe başladın.\nCEO bile senden az alıyor. Kira meselesi çözüldü ama ofiste kimse sana selam vermiyor.",
             ending: "maas_zaferi"
           }
         }
