@@ -85,6 +85,11 @@ const PLAY = [
   ["is-gorusmesi", "q-soru", "saat kaç bitiyor görüşme", "fallback"],
   ["is-gorusmesi", "q-soru", "çalışma ortamı nasıl", "fallback"],
   ["is-gorusmesi", "q-soru", "maaş ne zaman yatıyor", "ne-zaman"],
+  ["saglik-raporu", "goz", "ben de beraber giriyorum", "ben_de_gireyim"],
+  ["saglik-raporu", "goz", "sirami satayim bari", "sira_sat"],
+  ["saglik-raporu", "kbb", "valla biseyim yok", "rapor_icin"],
+  ["saglik-raporu", "kan", "bakamam igneye", "kandan_kork"],
+  ["saglik-raporu", "bashekim", "yarin isbasi yapcam", "yalvar"],
 ];
 const Game = window.Yasandi.Game;
 const P = Game.prototype;

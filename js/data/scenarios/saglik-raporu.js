@@ -48,7 +48,8 @@ window.Yasandi.scenarios.push({
         { text: "» {input}.\n— Tamam, bütün bölümleri gez, imzaları topla. Saat 16:00'da mesai biter, acele et.\nİlk durak Göz Polikliniği.", save: "job", goto: "goz" }
       ],
       fallbacks: [
-        "Memur ekrana boş boş bakıyor. Hangi işe giriyorsun, söyleyecek misin?"
+        "Memur ekrana boş boş bakıyor. Hangi işe giriyorsun, söyleyecek misin?",
+        "Mesai bitmek üzere ve memur senden bir meslek ismi bekliyor. Ne diyorsun?"
       ]
     },
 
@@ -64,15 +65,8 @@ window.Yasandi.scenarios.push({
         {
           id: "ben_de_gireyim",
           positive: true,
-          keywords: ["birlikte", "arkasindan", "pesinden", "ben de gir", "daliyorum", "dalarim"],
+          keywords: ["birlikte", "beraber", "arkasindan", "pesinden", "ben de gir", "daliyorum", "dalarim"],
           text: "» Arkasından sen de daldın. Doktor başını kaldırdı:\n— Sen kimsin?\n» Ben de {job} olacağım, onun selamı var.\nDoktor güldü, imzanı attı.",
-          goto: "kan"
-        },
-        {
-          id: "itiraz",
-          positive: true,
-          keywords: ["sirami", "siraydi", "siram", "bagiririm", "itiraz", "hop", "yahu", "pardon"],
-          text: "» Hop, o sıra benimdi!\nAdam dönüp 'Kardeşim acil vaka' dedi. Gözünde güneş gözlüğü var. Güvenlik gelip seni yatıştırdı, biraz vakit kaybetsen de imzanı aldın.",
           goto: "kan"
         },
         {
@@ -83,6 +77,13 @@ window.Yasandi.scenarios.push({
           ending: "sira_satti"
         },
         {
+          id: "itiraz",
+          positive: true,
+          keywords: ["sirami", "siraydi", "siram", "bagiririm", "itiraz", "hop", "yahu", "pardon", "niye", "neden", "sebep"],
+          text: "» Hop, o sıra benimdi!\nAdam dönüp 'Kardeşim acil vaka' dedi. Gözünde güneş gözlüğü var. Güvenlik gelip seni yatıştırdı, biraz vakit kaybetsen de imzanı aldın.",
+          goto: "kan"
+        },
+        {
           id: "goz_muayenesi",
           positive: true,
           keywords: ["harf", "okurum", "okuyorum", "muayene", "gozumu"],
@@ -91,7 +92,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Adam kapıyı kapattı kapatacak! Ne yapacaksın?"
+        "Adam kapıyı kapattı kapatacak! Ne yapacaksın?",
+        "Ekranda A127 yanıyor ama adam içeri girdi. Sesini çıkaracak mısın?"
       ]
     },
 
@@ -114,7 +116,7 @@ window.Yasandi.scenarios.push({
         {
           id: "refakatci_ol",
           positive: true,
-          keywords: ["gecmis olsun", "amcaya", "teselli", "moral", "acirim"],
+          keywords: ["gecmis olsun", "amcaya", "teselli", "moral", "acirim", "haklisin", "dogru diyorsun", "uzulmedim degil"],
           text: "» Çok geçmiş olsun amca, diyerek koluna girdin. Amca seni o kadar sevdi ki 'Beni bırakma yavrum' diye ağladı. İşe giremedin, ömür boyu hastane koridorlarında refakatçi oldun.",
           ending: "refakatci"
         },
@@ -127,14 +129,14 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "kandan_kork",
-          positive: true,
           keywords: ["korkarim", "bayilirim", "igne", "bakamam", "korktum"],
           text: "Hemşire elinde iğneyle yaklaşınca tansiyonun düştü, olduğun yere bayıldın. Gözünü açtığında saat 17:00 olmuştu bile.",
           ending: "bayildin"
         }
       ],
       fallbacks: [
-        "Sıra sana geliyor. Kolunu mu sıvayacaksın, amcaya mı laf atacaksın?"
+        "Sıra sana geliyor. Kolunu mu sıvayacaksın, amcaya mı laf atacaksın?",
+        "Hemşire seni bekliyor. Amcanın taşıyla mı ilgileneceksin, kan mı vereceksin?"
       ]
     },
 
@@ -156,8 +158,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "rapor_icin",
-          positive: true,
-          keywords: ["rapor", "ise giris", "saglamim", "bir seyim yok", "sikayetim yok", "kontrol"],
+          keywords: ["rapor", "ise giris", "saglamim", "bir seyim yok", "sikayetim yok", "kontrol", "biseyim yok", "hicbir seyim yok", "bisey yok"],
           text: "» İşe giriş raporu için geldim hocam.\nDoktor derin bir 'oh' çekti, uzaktan ağzına ışık tutup kağıdını hızla imzaladı.",
           goto: "rontgen"
         },
@@ -170,7 +171,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Doktor sabırsızca 'Evet dinliyorum' dedi. Şikayetin ne?"
+        "Doktor sabırsızca 'Evet dinliyorum' dedi. Şikayetin ne?",
+        "Doktor gözlerini devirdi. Şikayetin var mı?"
       ]
     },
 
@@ -193,7 +195,7 @@ window.Yasandi.scenarios.push({
         {
           id: "kantin",
           positive: true,
-          keywords: ["kantin", "cay icerim", "cay icmeye", "kahve", "tost"],
+          keywords: ["kantin", "cay icerim", "cay icmeye", "kahve", "tost", "caya", "kahveye", "cay"],
           text: "» Ben bir kantine gidip çay içeyim o zaman.\nKantinden bir karton çay ve kaşarlı tost aldın. Kasada fiyatı duyunca cebindeki tüm parayı vermek zorunda kaldın.",
           ending: "kantin_iflas"
         },
@@ -206,7 +208,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Sistem yok diyor. Ne yapacaksın, bekleyecek misin?"
+        "Sistem yok diyor. Ne yapacaksın, bekleyecek misin?",
+        "Teknisyen telefona dönüp video izlemeye devam etti. Sistemi onarmayı mı deneyeceksin, bir şeyler mi içeceksin?"
       ]
     },
 
@@ -222,14 +225,14 @@ window.Yasandi.scenarios.push({
         {
           id: "yalvar",
           positive: true,
-          keywords: ["lutfen", "yalvaririm", "gozunuzu seveyim", "karistirdiniz", "yarin basliyorum", "mesai bitiyor", "imzala", "kisiyle"],
+          keywords: ["lutfen", "yalvaririm", "gozunuzu seveyim", "karistirdiniz", "yarin basliyorum", "mesai bitiyor", "imzala", "kisiyle", "isbasi", "ise basliyorum"],
           text: "» Hocam gözünüzü seveyim beni karıştırdınız, yarın işe giriyorum, mesai bitiyor!\nBaşhekim yardımcısı ekrana bakıp 'Ha sen o musun' dedi. Mührü kaşesine vurup raporu sana verdi.",
           goto: "eczane"
         },
         {
           id: "kavga",
           positive: true,
-          keywords: ["hepsi tamam", "imzali", "baksana", "isimi ogretme"],
+          keywords: ["hepsi tamam", "imzali", "baksana", "isimi ogretme", "ne demek"],
           text: "» Hepsi tamam hocam, baksana imzalı!\nBaşhekim kaşlarını çattı. 'Bana işimi mi öğretiyorsun?' Mührü basmadı, saat 16:00 oldu.",
           ending: "saat_gecti"
         },
@@ -249,7 +252,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Başhekim mührü basmıyor, sana ters ters bakıyor. Saat 15:58. Ne diyorsun?"
+        "Başhekim mührü basmıyor, sana ters ters bakıyor. Saat 15:58. Ne diyorsun?",
+        "Tahlilleri soruyor ama senin tahlilin yok. İtiraz mı edeceksin, durumunu mu açıklayacaksın?"
       ]
     },
 
@@ -264,7 +268,7 @@ window.Yasandi.scenarios.push({
       intents: [
         {
           id: "baska_alma",
-          keywords: ["almiyorum", "istemiyorum", "gerek yok", "yeter", "kalsin", "almam", "cikiyorum"],
+          keywords: ["almiyorum", "istemiyorum", "gerek yok", "yeter", "kalsin", "almam", "cikiyorum", "cikarim", "giderim"],
           text: "» Aman vitamini de eksik kalsın, raporum elimde ya yeter.\nRaporu alıp şirkete koştun. Ertesi gün {job} olarak işbaşı yaptın. Tebrikler!",
           ending: "rapor_tamam"
         },
@@ -284,7 +288,8 @@ window.Yasandi.scenarios.push({
         }
       ],
       fallbacks: [
-        "Eczacı bekliyor. Karşıya geçecek misin?"
+        "Eczacı bekliyor. Karşıya geçecek misin?",
+        "İlaç bizde yok dedi. Raporu alıp çıkacak mısın, muadilini mi soracaksın?"
       ]
     }
   },
