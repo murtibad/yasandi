@@ -326,7 +326,7 @@ window.Yasandi.scenarios.push({
         {
           id: "interrupt",
           positive: true,
-          keywords: ["sus", "kes", "yeter", "abi yeter", "anisi", "askerlik", "banane", "uzatma", "bosver"],
+          keywords: ["sus", "kes", "yeter", "abi yeter", "anisi", "askerlik", "banane", "uzatma", "bosver", "boluyorum", "lutfen sus"],
           text:
             "Abi bırak şimdi komutanı, ön taraf yamuk mu oldu biraz?\n" +
             "Usta dikkatini kaybetti, makas kaydı. Saçının bir tarafı tamamen sıfırlandı.",

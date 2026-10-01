@@ -129,3 +129,15 @@
   - Maça yetişemediniz, radyodan dinlediniz.
   - Rakip takımın tesislerinde mola verdiniz, meydan muharebesi çıktı.
 - **Open question:** "Kardeş senin en sevdiğin futbolcu kim?" -> "— {input} mi? O adam yüzünden geçen sene şampiyonluk gitti be!"
+
+# 13. Kasanın Altına Kaçan 1 Lira (Market)
+- **Situation:** Akşam market sırası. Kasiyer para üstünü verirken 1 lira elinden kaydı, kasanın altındaki o dar, pis boşluğa yuvarlandı. Arkanda dondurması eriyen bir teyze ve uzun bir kuyruk var.
+- **Stake:** Senin paran. 1 lira ama prensip meselesi. Bütün kuyruk sana bakıyor.
+- **Comic device:** Paraya parmak ucun değiyor ama gelmiyor; her denemede kuyruk biraz daha söyleniyor.
+- **Endings:**
+  - "Kalsın abla" dedin, kasiyer minnetle baktı.
+  - Omzuna kadar girip lirayı çıkardın; tişörtündeki toz lekesi hiç çıkmadı.
+  - Arkadaki amca "Senin liranı ben vereyim de git" diye cebinden para çıkardı.
+  - Tüketici haklarından nutuk attın, müdür geldi, müdür de eğildi.
+- **Open question:** "— Başka bir şey var mı abim, poşet ister misin?"
+- Idea came from Gemini's autopilot run (Oct 2026); only the moment is kept, the text must be rewritten.

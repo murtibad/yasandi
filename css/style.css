@@ -160,6 +160,24 @@ body {
 
 .prompt { display: flex; align-items: center; gap: 12px; }
 .prompt-mark { color: var(--faint); }
+.send-btn {
+  background: transparent;
+  border: 1px solid var(--faint);
+  color: var(--faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+  padding: 0;
+}
+.send-btn:hover, .send-btn:focus-visible { 
+  border-color: var(--fg);
+  color: var(--fg);
+}
 
 .field {
   flex: 1;

@@ -173,12 +173,22 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "stomach",
-          keywords: ["midem", "agriyor", "mide", "bulaniyor", "rahatsiz", "hastayim", "hasta", "bulanmis"],
+          keywords: ["midem", "agriyor", "mide", "bulaniyor", "rahatsiz", "hastayim", "hasta", "bulanmis", "evet hasta", "atesim"],
           text:
             "Midem biraz rahatsız teyze, yemesem iyi olacak.\n" +
             "Nebahat teyze telaşlandı: — Vah yavrum! Üşüttün sen kesin.\n" +
             "Mutfaktan koca bir tencere nane limon ve üç kase şehriye çorbasıyla geldi.",
           ending: "corba",
+        },
+        {
+          id: "kisir",
+          positive: true,
+          keywords: ["kisir", "kisiri", "kisir alayim", "kisir ver"],
+          text:
+            "Teyze sarma kalsın da ben biraz kısır alayım.\n" +
+            "Nebahat teyze zaferle gülümsedi:\n" +
+            "— Ha şöyle! Benim kısırım meşhurdur.\nSarma tabağı gitti, yerine kocaman bir kase kısır geldi. Arkasından ikincisi.",
+          ending: "kisir"
         },
         {
           id: "more",
@@ -262,6 +272,23 @@ window.Yasandi.scenarios.push({
             "Nebahat teyze cık cık yaptı:\n" +
             "— Annen yedirmiyo mu sana evde? Çöp gibi kalmışsın.",
           goto: "escalation-2",
+        },
+        {
+          id: "check-temp",
+          positive: true,
+          keywords: ["ates olc", "atesime bak", "atesim", "alnima", "derece"],
+          text:
+            "Teyze elini alnına koydu.\n— Ateşin de var senin, yanıyorsun!\nAslında ateşin yoktu ama teyzenin elleri çok soğuktu.",
+          ending: "corba",
+        },
+        {
+          id: "evet-hasta",
+          positive: true,
+          keywords: ["evet", "tamam", "olabilir", "galiba", "haklisin", "hasta"],
+          text:
+            "Haklısın teyze, galiba biraz üşütmüşüm.\n" +
+            "— Ben demedim mi! Çocuk yanıyor!\nNebahat teyze mutfağa koştu. Nane limon, üç kase çorba, alnına sirkeli bez.",
+          ending: "corba",
         },
         {
           id: "call-mom-threat",

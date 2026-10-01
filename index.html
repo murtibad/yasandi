@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
   <script>try { var t = localStorage.getItem("yasandi.theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=34">
 </head>
 <body>
   <div class="app">
@@ -88,21 +88,27 @@
         <label for="command" class="visually-hidden" hidden>Ne yapıyorsun?</label>
         <input class="field" id="command" name="command" type="text" placeholder="ne yapıyorsun?"
                autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" maxlength="200">
+        <button class="send-btn" type="submit" aria-label="Gönder" title="Gönder">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
       </form>
       <p class="hint">Yaz, Enter'a bas. Takılırsan "?" yaz. <a class="link" id="story-link" href="#" target="_blank" rel="noopener" hidden>Senin de başına geldi mi? Hikâyeni anlat.</a></p>
     </footer>
   </div>
 
-  <script src="js/text.js?v=30"></script>
-  <script src="js/data/global-intents.js?v=30"></script>
-  <script src="js/data/scenarios/goz-temasi.js?v=30"></script>
-  <script src="js/data/scenarios/otobus-teyzesi.js?v=30"></script>
-  <script src="js/data/scenarios/yetersiz-bakiye.js?v=30"></script>
-  <script src="js/data/scenarios/misafirlik.js?v=30"></script>
-  <script src="js/data/scenarios/berber.js?v=30"></script>
-  <script src="js/data/scenarios/terk-edilmis-koy.js?v=30"></script>
-  <script src="js/sound.js?v=30"></script>
-  <script src="js/engine.js?v=30"></script>
-  <script src="js/main.js?v=30"></script>
+  <script src="js/text.js?v=34"></script>
+  <script src="js/data/global-intents.js?v=34"></script>
+  <script src="js/data/scenarios/goz-temasi.js?v=34"></script>
+  <script src="js/data/scenarios/otobus-teyzesi.js?v=34"></script>
+  <script src="js/data/scenarios/yetersiz-bakiye.js?v=34"></script>
+  <script src="js/data/scenarios/misafirlik.js?v=34"></script>
+  <script src="js/data/scenarios/berber.js?v=34"></script>
+  <script src="js/data/scenarios/terk-edilmis-koy.js?v=34"></script>
+  <script src="js/sound.js?v=34"></script>
+  <script src="js/engine.js?v=34"></script>
+  <script src="js/main.js?v=34"></script>
 </body>
 </html>

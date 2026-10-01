@@ -16,7 +16,10 @@ window.Yasandi.scenarios.push({
     makine: { title: "Makine Kırıldı", tag: "KARAKOL" },
     ask: { title: "Büyük Aşk", tag: "ROMANTİK" },
     reddedildi: { title: "Terslendin", tag: "ÜZÜCÜ" },
-    yalanci: { title: "Yakalandın", tag: "YALANCI" }
+    yalanci: { title: "Yakalandın", tag: "YALANCI" },
+    sofor_isyan: { title: "Şoför İsyanı", tag: "KOVULDUN" },
+    kahraman: { title: "Otobüs Kahramanı", tag: "ALKIŞ" },
+    cihaz_yorum: { title: "Cihaz Aşkı Buldu", tag: "CİHAZ" }
   },
 
   fallbacks: [
@@ -158,10 +161,10 @@ window.Yasandi.scenarios.push({
           id: "apologize",
           keywords: ["kusura", "ozur", "pardon", "yanlislik", "affedersin"],
           text:
-            "{crush} gülümsedi: — Önemli değil ya, olur öyle. Bu arada ben...\n" +
-            "Adını söyledi ama tam o an cihaz yine 'YETERSİZ BAKİYE' diye bağırdı. Duyamadın.\n" +
-            "— Senin adın ne?",
-          goto: "name-exchange",
+            "{crush} gülümsedi: — Önemli değil ya, olur öyle.\n" +
+            "Tam o sırada şoför dikiz aynasından size ters ters baktı:\n" +
+            "— Para ödemiyorsunuz bari muhabbet etmeyin. Arkaya ilerle bakayım.",
+          goto: "driver-interrogation",
         },
         {
           id: "ignore",
@@ -187,17 +190,52 @@ window.Yasandi.scenarios.push({
       }
     },
 
+    "driver-interrogation": {
+      hint: "Şoför sana bakıyor. {crush} de.",
+      look: "Şoför dikiz aynasından sizi kesiyor. {crush} mahcup. Arkadakiler 'Hadi ilerleyin' diye mırıldanıyor.",
+      intents: [
+        {
+          id: "ilerle",
+          positive: true,
+          keywords: ["ilerle", "arkaya", "gec", "yuru", "kabul", "tamam"],
+          text:
+            "Kafanızı eğip arkaya ilerlediniz. Sıkışık bir köşede yan yana durdunuz.\n" +
+            "— Çok utandım ya. Benim adım bu arada...\nAdını söyledi ama cihaz yine 'YETERSİZ BAKİYE' diye bağırdı. Duyamadın.\n— Senin adın ne?",
+          goto: "name-exchange"
+        },
+        {
+          id: "karsilik_ver",
+          positive: true,
+          keywords: ["karsilik", "cevap ver", "bagir", "insanligimizi", "paramiz", "sanane", "sana ne", "sana mi soracagiz", "kizan"],
+          text:
+            "Şoföre döndün. Sesin titremedi.\n" +
+            "Arkadan bir teyze destek verdi: — Doğru söylüyo! Bakiye yok diye insanlık da mı yok?\n" +
+            "Otobüs alkışlamaya başladı. Şoför kulaklarına kadar kızardı. O hâlâ sana bakıyor.",
+          ending: "kahraman"
+        },
+        {
+          id: "cihaz",
+          positive: true,
+          keywords: ["cihaza", "makineye", "tekme", "yumruk", "cihaza vur"],
+          text:
+            "Cihaza bir tane patlattın. Cihaz bir an karardı, sonra ekranda yazı belirdi: 'İKİ KALP BİR OLUNCA BAKİYE GEREKMEZ'.\nŞoför bile bir şey diyemedi.",
+          ending: "cihaz_yorum"
+        }
+      ],
+      freeze: {
+        text: "Öylece durup şoföre baktın. Şoför arka kapıyı açtı.\n— İnin lan arabamdan! İkiniz de!",
+        ending: "sofor_isyan"
+      },
+      fallbacks: [
+        "Şoför 'İlerlesene kardeşim' diye bağırdı. Ne yapacaksın?",
+        "{crush} sana bakıyor. Bir şey diyecek misin?"
+      ]
+    },
+
     "name-exchange": {
       hint: "Adını söyle. Dürüst olabilir veya havalı bir isim uydurabilirsin.",
       look: "Otobüs ilerliyor. {crush} ilgiyle senin cevabını bekliyor.",
-      intents: [
-        {
-          id: "sessiz",
-          keywords: ["sus", "konusma", "sessiz", "soylemem", "hayir", "hicbir", "bilmiyorum", "yapmiyorum", "yapmam"],
-          text: "Sessiz kaldın. {crush} garipseyip önüne döndü. Bir daha hiç konuşmadınız.",
-          ending: "reddedildi"
-        }
-      ],
+      freeze: { text: "Sessiz kaldın. {crush} garipseyip önüne döndü. Bir daha hiç konuşmadınız.", ending: "reddedildi" },
       acceptAny: [
         { text: "— {input} {mi}? Ne güzel. Ben son durağa gidiyorum, sen nerede iniyorsun?", save: "name", goto: "stop-exchange" }
       ],
@@ -209,14 +247,7 @@ window.Yasandi.scenarios.push({
     "stop-exchange": {
       hint: "Nerede indiğini söyle. (Örn: merkezde, son durakta, şurada)",
       look: "{crush} gülümsüyor. Artık her şey senin elinde.",
-      intents: [
-        {
-          id: "sessiz",
-          keywords: ["sus", "sessiz", "bilmiyorum", "soylemem", "hayir", "hicbir", "yapmiyorum", "yapmam"],
-          text: "Yine sessiz kaldın. {crush} senden sıkılıp kulaklığını taktı.",
-          ending: "reddedildi"
-        }
-      ],
+      freeze: { text: "Yine sessiz kaldın. {crush} senden sıkılıp kulaklığını taktı.", ending: "reddedildi" },
       acceptAny: [
         { text: "— {input} {mi}? Oradan bu otobüs geçmiyor ki {name}.\nŞüpheyle baktı. Yalanın ortaya çıktı. Cihaz bile sustu.", ending: "yalanci" },
         { text: "— {input} {mi}? Tesadüfe bak, ben de oraya kadar gidiyorum!\nBütün otobüs bedava aşk filmi izliyor. Cihaz bu sefer 'İYİ YOLCULUKLAR' dedi.", ending: "ask" }

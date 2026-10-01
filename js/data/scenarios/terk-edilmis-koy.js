@@ -139,6 +139,12 @@ window.Yasandi.scenarios.push({
           goto: "cin",
         },
         {
+          id: "cekirdek",
+          keywords: ["cekirdek", "citle", "ne yiyor", "kim yiyor", "sesi", "kabuk"],
+          text: "— He, ben yiyorum, dedi karanlıktaki ses.\nÇekirdek sesi durdu.",
+          goto: "cin",
+        },
+        {
           id: "fener",
           positive: true,
           keywords: ["fener", "isik", "isigi", "aydinlat", "oraya tut", "koseye tut", "flas", "tut"],
@@ -183,7 +189,7 @@ window.Yasandi.scenarios.push({
       ],
       patience: 3,
       patienceIntent: {
-        text: "Sen bir şey demeyince karanlık dayanamadı:\n— Tamam ben başlıyorum. Merhaba. Ben Hüsnü.",
+        text: "Sen bir şey demeyince karanlık dayanamadı:\n— Ya siz soracaksınız ya ben konuşacağım. Tamam ben başlıyorum.",
         goto: "cin",
       },
     },
@@ -205,6 +211,34 @@ window.Yasandi.scenarios.push({
             "— Cinim ya, belli değil mi? Ama köyde fırıncı Hüsnü diye bilinirim.\n1742'de fırın açtım, sonra öldüm, sonra cin oldum. Kariyer değişikliği.",
             "— Anlattım ya. Fırıncıydım. Simidim meşhurdu. Şimdi kimse simit yemiyor, herkes İstanbul'da poğaça yiyor.\nHüsnü içini çekti. Duman biraz koyulaştı.",
           ],
+        },
+        {
+          id: "neden",
+          keywords: ["neden", "niye", "nicin", "sebep", "neden git", "niye kal"],
+          text: [
+            "— Niye mi gitmedim? İstanbul'un kirası cinleri bile yorar, dedi Hüsnü. Benim burda üç artı bir mezarım var.",
+            "— Köyüm burası benim. 300 yıldır aynı çınarın altında çay içiyorum. Niye bozayım düzeni?"
+          ]
+        },
+        {
+          id: "koyluler",
+          keywords: ["koyluler", "insanlar", "koylu", "halk", "nerede", "nereye"],
+          text: [
+            "— Köylüler mi? Çoğu Almanya'ya işçi gitti 70'lerde. Kalanlar da şehre göçtü. Ben gurbeti sevmiyorum.",
+            "— Gittiler. Arkalarına bile bakmadan. Gerçi birkaçı çarpıldığını sandı ama ben sadece simit ikram ediyordum."
+          ]
+        },
+        {
+          id: "terlik",
+          keywords: ["terlik", "kapidaki", "terlikler"],
+          text:
+            "— Haa, o terlikler mi? Dün kargoyla geldi, internetten sipariş ettim.\nKargocu köyün girişine bırakıp kaçtı. 'Evde bulunamadınız' diye de mesaj attı."
+        },
+        {
+          id: "ates",
+          keywords: ["ates", "atesten", "ates degil", "nasil duman"],
+          text:
+            "— Ateşten yaratıldık da dumansız ateşten evladım, dedi Hüsnü. Ben biraz fazla piştiğim için dumanlı kaldım."
         },
         {
           id: "tuncay-look",

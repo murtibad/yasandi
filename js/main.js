@@ -239,8 +239,22 @@
   // Share: copy a one-line brag to the clipboard.
   shareBtn.addEventListener("click", async () => {
     if (!lastEnding) return;
-    const line = "Yaşandı · " + game.scenario.title + " → " + lastEnding.title + " (" + lastEnding.tag + ") · " + game.foundEndings().length + "/" + game.totalEndings() + " son\n" + location.href.split("#")[0];
+    const title = "Yaşandı · " + game.scenario.title;
+    const text = "Yaşandı · " + game.scenario.title + " → " + lastEnding.title + " (" + lastEnding.tag + ") · " + game.foundEndings().length + "/" + game.totalEndings() + " son";
+    const url = location.href.split("#")[0];
+    
     try {
+      if (navigator.share) {
+        await navigator.share({ title, text, url });
+        return; // Success, don't change button text
+      }
+    } catch (e) {
+      if (e.name !== 'AbortError') console.error("Share failed", e);
+      // Fall through to clipboard logic
+    }
+    
+    try {
+      const line = text + "\n" + url;
       await navigator.clipboard.writeText(line);
       shareBtn.textContent = "Kopyalandı";
     } catch (e) {

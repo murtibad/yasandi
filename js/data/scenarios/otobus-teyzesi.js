@@ -105,7 +105,7 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "tired",
-          keywords: ["yorgunum", "hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben de yorgunum"],
+          keywords: ["ben yorgunum", "ben hastayim", "belim", "agrim", "calisiyorum", "isten ciktim", "mesai", "ayaklarim", "ben cok yorgunum", "cok yorgunum", "cok yoruldum"],
           text: [
             "Teyzenin yüzü bir anda şefkatle doldu.\n" +
             "— Oy kıyamam, dedi. Çantasından tuhaf kokulu bir merhem çıkardı.\n" +
@@ -113,6 +113,14 @@ window.Yasandi.scenarios.push({
             "Teyze acıyarak baktı sana.\n— Vah vah, gençlik de kalmamış sizde, dedi. Otur yavrum otur."
           ],
           ending: "krem",
+        },
+        {
+          id: "ask-tired",
+          keywords: ["yoruldun", "yorgunsan", "yorgunsun", "hasta misin"],
+          text:
+            "» Teyze çok yoruldun herhalde?\n" +
+            "Teyze dimdik durdu: — Ben her sabah pilates yapıyorum yavrum, dağ gibi ayaktayım.",
+          goto: "gerilim",
         },
         {
           id: "headphone",
