@@ -3,6 +3,24 @@ window.Yasandi.scenarios = window.Yasandi.scenarios || [];
 window.Yasandi.scenarios.push({
   id: "saglik-raporu",
   title: "İşe Giriş Raporu",
+
+  remember: {
+    endings: {
+      bayildin: "Hemşire seni görünce iğneyi arkasına sakladı. İyilik olsun diye.",
+      kor_oldun: "Duvardaki göz tablosuna baktın. E. Bu bir E. E.",
+      ilac_yok: "Karşı eczaneye bakmıyorsun bile. Ne diyeceklerini biliyorsun.",
+      kantin_iflas: "Cebinde evden yapılmış tost var. Kantinciye inat.",
+      sira_satti: "Arkandaki teyze seni görünce sıra numarasını göğsüne sakladı.",
+      rapor_tamam: "Geçen sefer bütün imzaları toplamıştın. İş yeri raporu yine istedi. Altı ay geçmiş.",
+      doktor_google_kizdi: "Telefonunda arama geçmişini sildin. Doktor yine de sana şüpheyle bakıyor.",
+    },
+    default: "Aynı koridor, aynı sıra makinesi. Geçen sefer '{last}' diye bitmişti. Makine seni tanıdı, numara vermedi.",
+    often: "{runs}. kez bu koridordasın. Danışmadaki abla 'Yine mi?' demedi. Gözleri dedi.",
+    cameos: [
+      { after: ["berber:yangin", "berber:beyin-sarsintisi", "berber:kolonya"], text: "Bekleme salonundaki amca sana baktı:\n— Seni berberde görmüştüm. Toparlamışsın." },
+      { after: ["otobus-teyzesi:krem"], text: "Bekleme salonunda biberiye kokusu var. Bir teyze çantasını açmış. Sana göz kırptı." },
+    ],
+  },
   
   endings: {
     saat_gecti: { title: "Mesai Bitti", tag: "GEÇ KALDIN" },

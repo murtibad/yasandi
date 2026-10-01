@@ -4,6 +4,27 @@ window.Yasandi.scenarios.push({
   id: "misafirlik",
   title: "Bi Tabak Daha",
 
+  remember: {
+    endings: {
+      saksi: "Salonun köşesinde yeni bir saksı var. Eskisinin yerine. Nebahat teyze ona da sarma bırakmış.",
+      kedi: "Kedi seni görünce masanın altına kaçmadı. Bekliyor. Şikayet edecek bir şey arıyor.",
+      cep: "Annen kapıdan çıkarken ceplerini yokladı. Sarma kontrolü.",
+      kacis: "Ayakkabılarını kapının önüne değil, çantana koydun. Bu sefer hazırlıklısın.",
+      kilo: "Pantolonun hâlâ geçen seferden dar. Nebahat teyze bunu iltifat sayıyor.",
+      uc_kisilik: "Pantolonun hâlâ geçen seferden dar. Nebahat teyze bunu iltifat sayıyor.",
+      dede: "Koridordaki kapıya bakmamaya çalışıyorsun. Rıza dede hâlâ seni Hasan sanıyor.",
+      anne: "Annen mesaj atmış: 'Teyzenin yanında az ye, ayıp. Ama ayıp olmasın diye de ye.'",
+      paket: "Elinde geçen seferki tencere var. Geri getirdin. Boş getirmek de ayıp, içine kurabiye koydun. Döngü devam ediyor.",
+      kirik_kalp: "Nebahat teyze kapıyı açtı. Gözleri hâlâ biraz kırgın. Ama tencere ocakta.",
+    },
+    default: "Nebahat teyze kapıda.\n— Geçen sefer hiç yemedin güzüm!\nYediğini biliyorsun. Teyze de biliyor. Mesele o değil.",
+    often: "{runs}. ziyaret. Nebahat teyze artık senin için ayrı tencere koyuyor.",
+    cameos: [
+      { after: ["otobus-teyzesi:nisan", "otobus-teyzesi:evlilik"], text: "Nebahat teyze kapıyı açar açmaz sarıldı:\n— Duydum otobüste nişanlanmışsın!\nKimden duyduğunu söylemedi. Teyzeler arasında bir ağ var." },
+      { after: ["piknik-karincasi"], text: "Masanın altında tek bir karınca dolaşıyor. Sana baktı. Sarmaya baktı. Kararını vermiş." },
+    ],
+  },
+
   endings: {
     sesli_bulasik: { title: "Sesli Bulaşık", tag: "KÜSTÜ" },
     seyirci: { title: "Kuzenle Kıyaslanan", tag: "SEYİRCİ" },

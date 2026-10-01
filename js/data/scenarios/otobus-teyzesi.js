@@ -4,6 +4,28 @@ window.Yasandi.scenarios.push({
   id: "otobus-teyzesi",
   title: "Yer Ver",
 
+  remember: {
+    endings: {
+      yastik: "Teyze yine bindi. Önce omzuna baktı, sonra sana. Yastık hizmeti devam ediyor mu, soruyor gibi.",
+      kucak: "Kel adam da otobüste. Teyzeyi görünce kalkıp en arkaya geçti. Bu sefer ihtiyatlı.",
+      nisan: "Teyze seni görünce el salladı.\n— Damat! Görümcemin kızı seni soruyo!\nBütün otobüs döndü.",
+      evlilik: "Teyze seni görünce el salladı.\n— Damat! Eltinin kızı seni soruyo!\nBütün otobüs döndü.",
+      video: "Otobüsteki genç seni tanıdı. Telefonu kaldırdı. Kayıt tuşuna basmadı. Henüz.",
+      sarj: "Şarjın yüzde yüz. Geçen seferden ders aldın. Teyze yine de ekranına bakıyor.",
+      uyku: "Bu sefer uyumayacaksın. Gözlerin şimdiden kapanıyor.",
+      topal: "Hâlâ biraz topallıyorsun. Geçen seferden beri bırakamadın. Ya biri görürse.",
+      pilates: "Teyze bindi, tek ayak üstünde duruyor. Pilates. Bu sefer kanma.",
+      laptop: "Çantanı kucağına aldın. İçindeki laptop hâlâ çatlak.",
+    },
+    default: "Aynı hat, aynı teyze. Geçen sefer '{last}' olmuştu. Teyze unutmadı. Teyzeler unutmaz.",
+    often: "{runs}. kez bu otobüstesin. Şoför seni aynada görünce iç çekti.",
+    cameos: [
+      { after: ["goz-temasi:sallama", "goz-temasi:omuz", "goz-temasi:hitap", "goz-temasi:kelime"], text: "Arka koltukta tespih sallayan bir keko oturuyor. Seni görünce arka cebini yokladı. Kıçın sızladı." },
+      { after: ["goz-temasi"], text: "Arka koltukta tespihli bir keko var. Seni görünce başıyla selam verdi. Bu iyiye mi işaret, kötüye mi, bilmiyorsun." },
+      { after: ["yetersiz-bakiye:atildin", "yetersiz-bakiye:sofor_isyan"], text: "Bu şoförü tanıyorsun. Seni otobüsünden indiren şoför. Kartını iki kere bastın, emin olmak için." },
+    ],
+  },
+
   endings: {
     yastik: { title: "Teyzenin Yastığı", tag: "YASTIK OLDUN" },
     topal: { title: "Rol Kesilmez", tag: "EVE KADAR TOPALLADIN" },

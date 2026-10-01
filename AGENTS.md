@@ -51,6 +51,7 @@ Copy `js/data/scenarios/goz-temasi.js` as the reference. It is the best example 
 - After `{input}` always use `{mi}`, never a fixed "mi" (the validator warns).
 - `patience` / `patienceIntent`: after N misses in a row, this fires (usually an ending).
 - `endings`: `{ id: { title, tag } }`. Tags: `ÖLDÜN`, `KURTULDUN`, `SOYULDUN`, `BAYILDIN`, or a new short uppercase word if it fits. Aim for 12+ endings per scenario, mixed good and bad.
+- `remember` (the game remembers the player): `{ endings: { <endingId>: text }, default, often, cameos: [{ after, text }] }`. Shown by the narrator before the opening. Coming back after an ending: that ending's own line, else `often` from the 4th run on (`{runs}` = this attempt), else `default` (`{last}` = last ending's title). First visit: the first `cameos` item whose `after` the player already finished elsewhere (`"goz-temasi"` = any ending there, `"goz-temasi:sallama"` = that one). One deadpan line, a callback, never a summary. Saved answers like `{crush}` do not exist yet here. Write own lines only for the memorable endings, 6-10 per scenario.
 
 ## Writing rules (important)
 

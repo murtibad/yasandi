@@ -4,6 +4,27 @@ window.Yasandi.scenarios.push({
   id: "berber",
   title: "Kısa Olmasın",
 
+  remember: {
+    endings: {
+      kel: "Saçın daha tam uzamadı. Usta sırıttı:\n— Geçen seferki model tuttu mu abim?",
+      yalan_sifir: "Saçın daha tam uzamadı. Usta sırıttı:\n— Bu sefer dürüst olacan mı abim?",
+      yangin: "Usta pamuğu yaktı. Sonra sana baktı, söndürdü. Kulakların bu sefer kalıyor.",
+      kacis: "Mahallede hâlâ 'yarım saçlı çocuk' diye anılıyorsun. Usta seni görünce makineyi hazırladı. Bitirecek.",
+      hikaye: "Usta seni görünce gözleri parladı.\n— Nerde kalmıştık abim? Komutan, kar, katır...",
+      yarin_bitiririz: "— Geldin mi abim! Dün bitirememiştik. Anıyı da bitirememiştik.",
+      gazete: "Bekleyen amca yine burada. Gazetesi yine rulo. Sana bakmıyor ama gazeteyi de bırakmıyor.",
+      sir: "Kolonyayı kokladın. Çay. Artık sırrı bilenlerdensin. Usta sana göz kırptı.",
+      borc: "Çırak seni görünce kapının önüne çıktı. On lira. Unutmamış.",
+      cay: "Çırak elinde çayla yaklaşırken iki adım geri çekildin. Çırak da çekildi.",
+    },
+    default: "Usta seni görünce makineyi yağladı. Geçen sefer '{last}' diye bitmişti. O da hatırlıyor.",
+    often: "{runs}. kez bu koltuktasın. Çırak senin adını önlüğe yazmış.",
+    cameos: [
+      { after: ["terk-edilmis-koy:evlat"], text: "Dükkanın köşesinde süpürge yapan çırak yarı saydam. Sana el salladı. Hüsnü. Hayatından çok memnun görünüyor." },
+      { after: ["otobus-teyzesi:nisan", "otobus-teyzesi:evlilik"], text: "— Damat tıraşı mı abim? diye sordu usta. Nereden duyduğunu sorma." },
+    ],
+  },
+
   endings: {
     yarin_bitiririz: { title: "Yarın Bitiririz", tag: "YARIM KALDI" },
     lavabo: { title: "Ya Sıcak Ya Soğuk", tag: "YIKANDIN" },

@@ -93,5 +93,30 @@ for (const [sid, node, input, want] of PLAY) {
   check(got === want, `[${sid}] ${node}: "${input}" -> ${got}, expected ${want}`);
 }
 
-console.log(failed ? `\n${failed} failed` : `All ${MATCH.length + PLAY.length} engine cases OK`);
+// The narrator remembers: last ending of this scenario on a return, a cameo from another scenario on a first visit.
+let rememberCases = 0;
+{
+  const store = new Map();
+  global.localStorage = { getItem: (k) => (store.has(k) ? store.get(k) : null), setItem: (k, v) => store.set(k, String(v)) };
+  const byId = (id) => window.Yasandi.scenarios.find((x) => x.id === id);
+  const fresh = (id) => new Game(byId(id), window.Yasandi.globalIntents);
+  const finish = (id, ending) => { const g = fresh(id); g.resolve({ id: "t", text: "x", ending }); };
+  const expect = (ok, label) => { rememberCases += 1; check(ok, "remember: " + label); };
+
+  expect(fresh("berber").recall() === null, "first visit with nothing finished says nothing");
+  finish("goz-temasi", "sallama");
+  expect(/Kıçın/.test(fresh("goz-temasi").recall()), "coming back after an ending gets that ending's own line");
+  expect(/tespih sallayan/.test(fresh("otobus-teyzesi").recall()), "first bus ride after the keko stab gets the keko cameo");
+  finish("goz-temasi", "cay_ocagi");
+  expect(/Çay Ocağında Mola/.test(fresh("goz-temasi").recall()), "an ending without its own line uses the default with {last}");
+  finish("goz-temasi", "cay_ocagi");
+  finish("goz-temasi", "cay_ocagi");
+  expect(/^5\. kez/.test(fresh("goz-temasi").recall()), "after four finished runs the often line counts the fifth");
+  finish("is-gorusmesi", Object.keys(byId("is-gorusmesi").endings)[0]);
+  expect(/Geçen sefer|Tekrar hoş geldin/.test(fresh("is-gorusmesi").recall()), "a scenario without `remember` falls back to the engine's lines");
+
+  global.localStorage = { getItem: () => null, setItem: () => {} };
+}
+
+console.log(failed ? `\n${failed} failed` : `All ${MATCH.length + PLAY.length + rememberCases} engine cases OK`);
 process.exit(failed ? 1 : 0);

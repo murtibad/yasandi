@@ -189,6 +189,9 @@
     updateCounter();
     typing = Promise.resolve();
     titleCard(scenario, !!opts.firstLoad);
+    // The narrator remembers: how the last run here ended, or someone from another scenario.
+    const recall = game.recall();
+    if (recall) say(recall, "say narrator");
     say(game.intro()).then(() => {
       try {
         if (!localStorage.getItem("yasandi.pulsed")) {

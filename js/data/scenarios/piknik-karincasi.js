@@ -3,6 +3,25 @@ window.Yasandi.scenarios = window.Yasandi.scenarios || [];
 window.Yasandi.scenarios.push({
   id: "piknik-karincasi",
   title: "Karınca 714",
+
+  remember: {
+    endings: {
+      ezildin_terlik: "Gökyüzünde 43 numara bir gölge var. Bu sefer nerede olduğunu biliyorsun.",
+      boguldun_cay: "Semaverin buharı antenlerine geliyor. Geçen sefer demlendin. Uzak dur.",
+      seker_krali: "Şekere bakıyorsun. Şeker de sana. Geçen sefer çaya beraber düşmüştünüz.",
+      olum_cemberi: "Önündeki karınca daire çizmeye başladı. Bu sefer takip etme.",
+      esir_kavanoz: "Çocuğun elinde yine kavanoz var. Kapağı açık. Sana bakıyor.",
+      cop_kamyonu: "Şehirden geri döndün. Koloni seni tanımadı. Biraz şehirli kokuyorsun.",
+      kralice_mutlu: "General oldun ama kraliçe yine şeker istiyor. Rütbe karın doyurmuyor.",
+      kralice_kizdi: "Kraliçe seni affetti. Şartlı. Bu sefer eli boş dönme.",
+    },
+    default: "Aynı piknik, aynı örtü. Geçen sefer '{last}' diye bitmişti. Karıncalar unutmaz, kokudan hatırlar.",
+    often: "{runs}. kez Karınca 714'sün. Koloni seni yeni gelenlere gösteriyor: 'Bu bizim 714.'",
+    cameos: [
+      { after: ["goz-temasi:terlik", "misafirlik:terlik2"], text: "Örtünün kenarında bir terlik duruyor. İçinden bir şey kıpırdadı. Başka bir hayattan kalma bir korku." },
+      { after: ["misafirlik"], text: "Örtünün kenarında bir tabak sarma var. Tanıdık bir teyze eli. Fazla yapmış, her zamanki gibi." },
+    ],
+  },
   
   endings: {
     kralice_mutlu: { title: "Koloni Kahramanı", tag: "TERFİ" },
