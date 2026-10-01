@@ -8,6 +8,7 @@ window.Yasandi.scenarios.push({
     cevrimdisi: { title: "Fırsat Kaçtı", tag: "ÇEVRİMDIŞI" },
     engellendi: { title: "Küstürdün", tag: "ENGELLENDİN" },
     virus: { title: "Truva Atı", tag: "FORMATLIK" },
+    mavi_ekran: { title: "Hile Yüklendi", tag: "MAVİ EKRAN" },
     bakkal_kontor: { title: "Kontör Krizi", tag: "KONTÖR YOK" },
     mikrofon_yankisi: { title: "Odayı Bastılar", tag: "YANKI" },
     gta_sifresi: { title: "Oyun Sevdası", tag: "LEAVETOOLS" },
@@ -29,8 +30,11 @@ window.Yasandi.scenarios.push({
         { text: "» {input}.\nEvet, {input}. Kalbin güm güm atıyor.", save: "crush", goto: "msn" }
       ],
       freeze: {
-        text: "Cevap vermedin. Kendi kendine 'Boşver, kimseyle konuşasım yok' dedin. Sonra MSN'den çıkış yapıp Winamp'ı açtın.",
-        ending: "cevrimdisi"
+        text: "— Utanma ya, kimseye söylemiyoruz. Listede en üstte kim var? Bi isim yaz.",
+        exhausted: {
+          text: "Söylemedin. Kendi kendine 'Boşver, kimseyle konuşasım yok' dedin, MSN'den çıkış yapıp Winamp'ı açtın.",
+          ending: "cevrimdisi"
+        }
       },
       fallbacks: [
         "Aklına bir isim gelmedi mi? Uydur bir şeyler."
@@ -42,10 +46,19 @@ window.Yasandi.scenarios.push({
       look: "Ekranda {crush} yazıyor. Yanında ufak bir müzik notası var.",
       text: "Durumunda 'Ne dinliyorum' özelliği açık. Emre Aydın - Afili Yalnızlık dinliyor. Ekrana öylece bakıyorsun, o da sana yazmıyor. İlk adımı atmalısın.",
       freeze: {
-        text: "Sustun. On dakika sonra sağ altta bir pencere daha belirdi: '{crush} Çevrimdışı'. Geçmiş olsun, büyük fırsatı kaçırdın.",
-        ending: "cevrimdisi"
+        text: "Beş dakika geçti. {crush} durumunu 'Meşgul' yaptı. Kırmızı. Bu iyiye işaret değil. Yazacak mısın, titreşim mi atacaksın?",
+        exhausted: {
+          text: "Sustun. Sağ altta bir pencere belirdi: '{crush} Çevrimdışı'. Geçmiş olsun.",
+          ending: "cevrimdisi"
+        }
       },
       intents: [
+        {
+          id: "kamera_once",
+          keywords: ["kamera", "cam ac", "webcam"],
+          text: "Kameradan bahsettin. Cevap şimşek gibi geldi: 'Cam mı? Aç o zaman, göreyim seni.'",
+          goto: "kamera_sorunu"
+        },
         {
           id: "titresim",
           positive: true,
@@ -63,21 +76,21 @@ window.Yasandi.scenarios.push({
         {
           id: "selam",
           positive: true,
-          keywords: ["selam", "naber", "nasil", "mesaj at", "merhaba"],
-          text: "» Selam :)\nAnında cevap geldi: 'Naber, cam açsana.'",
+          keywords: ["selam", "naber", "nasil", "mesaj at", "merhaba", "yaziyorum", "yazarim", "napiyorsun", "ne yapiyorsun"],
+          text: "Yazdın, gönderdin, iki kere okudun. Anında cevap geldi: 'Naberr :) cam açsana.'",
           goto: "kamera_sorunu"
         },
         {
           id: "sarki",
           positive: true,
-          keywords: ["durum", "sarki sozu", "dinliyorum", "afili", "ben de"],
-          text: "MSN kişisel iletini 'Gidiyorum bütün aşklar yüreğimde' yaptın. Bunu görüp etkilendi ve 'Cam açsana' yazdı.",
+          keywords: ["sarki", "dinliyorum", "afili", "kisisel ileti", "emre aydin"],
+          text: "MSN kişisel iletini '•°• Yaln!z •°•' yaptın. Üç dakika sonra çalıştı: 'Noldu ya, cam açsana.'",
           goto: "kamera_sorunu"
         },
         {
           id: "link",
           positive: true,
-          keywords: ["link at", "resim at", "virus"],
+          keywords: ["link", "resim at", "video at", "bunu gordun"],
           text: "Rastgele 'Bunu gördün mü' diye bir link attın. Bilgisayarına truva atı bulaştı, fare kendi kendine hareket etmeye başladı.",
           ending: "virus"
         }
@@ -92,21 +105,24 @@ window.Yasandi.scenarios.push({
       look: "Bilgisayarın üstünde kamera yok, sadece kocaman tüplü bir monitör var.",
       text: "Büyük bir kriz var: Senin masaüstü bilgisayarın kamerası yok!",
       freeze: {
-        text: "'Ee, şey...' diye gevelerken {crush} 'Açmıyorsan ben çıkıyorum' yazdı ve çevrimdışı oldu.",
-        ending: "cevrimdisi"
+        text: "— Açmıyo musun? Bi sorun mu var? diye yazdı. Altında 'yazıyor...' yanıp sönüyor. Kameran yok mu diyeceksin, başka yol mu bulacaksın?",
+        exhausted: {
+          text: "'Ee, şey...' diye gevelerken {crush} 'Açmıyorsan ben çıkıyorum' yazdı ve çevrimdışı oldu.",
+          ending: "cevrimdisi"
+        }
       },
       intents: [
         {
           id: "yok_de",
-          keywords: ["kameram yok", "kamera bozuk", "kamera yok", "bende yok", "yok"],
-          text: "» Kameram bozuk ya.\n'O zaman net kafeye git oradan aç, bekliyorum' yazdı.",
+          keywords: ["kameram yok", "kamera yok", "kamerasi yok", "kamera bozuk", "kameram bozuk", "net kafe", "internet kafe", "kafeye"],
+          text: "Kameranın olmadığını itiraf ettin. Bir süre 'yazıyor...' çıktı, sonra: 'O zaman net kafeye git oradan aç, bekliyorum.'",
           goto: "kafe_yolu"
         },
         {
           id: "telefon",
           positive: true,
-          keywords: ["telefon", "kontor", "mesajlasalim", "arayayim", "numarani"],
-          text: "» Kameram yok, numarani ver mesajlaşalım.\nNumarasını verdi. Ama senin kontörün yok. Bakkala gidip 20 kontör kartı kazıman lazım.",
+          keywords: ["telefon", "mesajlasalim", "arayayim", "numara", "sms"],
+          text: "Numarasını istedin, verdi. Kontörün sıfır. Bakkala koştun, 20 kontörlük kartı kazırken tırnağın kırıldı. Eve dönüp ilk mesajı attın: 'naber'. Cevap: 'Mesajınız iletilemedi.' Numarayı bir hane eksik kaydetmişsin.",
           ending: "bakkal_kontor"
         },
         {
@@ -118,8 +134,8 @@ window.Yasandi.scenarios.push({
         },
         {
           id: "bahane",
-          keywords: ["kapatmam", "annem kiziyor", "misafir", "gitmem lazim", "isim var", "baska zaman"],
-          text: "» Annem çağırıyor çıkmam lazım.\n'Yalan söyleme, durumun hala çevrimiçi' dedi ve sana küsüp engelledi.",
+          keywords: ["annem cagiriyor", "annem kiziyor", "misafir", "gitmem lazim", "baska zaman", "cikmam lazim"],
+          text: "Çıkman gerektiğini yazdın ama MSN'i kapatmayı unuttun.\n— Yalan söyleme, hâlâ çevrimiçisin.\nEngellendin.",
           ending: "engellendi"
         }
       ],
@@ -133,29 +149,32 @@ window.Yasandi.scenarios.push({
       look: "Kafenin içi yoğun bir ter, toz ve Counter Strike sesi kokuyor.",
       text: "Evden fırlayıp mahalledeki internet kafeye, 'Matrix Net'e geldin. Kasadaki saçları jöleli abi 'Masa 5'i açıyorum, ne kadar atacaksın?' dedi.",
       freeze: {
-        text: "Sen cebindeki bozuklukları sayarken masa 5'i başkası kaptı. Kafeci 'Başka masa yok koçum' diyip seni yolladı.",
-        ending: "sure_bitti"
+        text: "— Koçum arkada sıra var. Saatlik mi açıyorum, süresiz mi?",
+        exhausted: {
+          text: "Sen cebindeki bozuklukları sayarken masa 5'i başkası kaptı.\n— Başka masa yok koçum, akşam gel.",
+          ending: "sure_bitti"
+        }
       },
       intents: [
         {
           id: "saatlik",
           positive: true,
-          keywords: ["yarim saat", "bir saat", "iki saat", "sureli", "saatlik", "1 saat"],
-          text: "» Bir saat aç abi.\nGeçip oturdun. Kulaklık yapış yapış ama umrunda değil.",
+          keywords: ["saat", "sureli", "#"],
+          text: "Kafeci bozukluklarını saymadan cebe attı. Geçip oturdun. Kulaklık yapış yapış ama umrunda değil.",
           goto: "kafe_masa"
         },
         {
           id: "suresiz",
           positive: true,
-          keywords: ["suresiz", "hesabi acik", "ne kadar oturursam", "acik", "limitsiz"],
-          text: "» Süresiz aç abi.\nKafeci başını salladı. Geçip 5 numaraya kuruldun.",
+          keywords: ["suresiz", "hesabi acik", "ne kadar oturursam", "limitsiz"],
+          text: "Kafeci başını salladı.\n— Süresiz dediğin akşam ezanına kadar ha.\nGeçip 5 numaraya kuruldun.",
           goto: "kafe_masa"
         },
         {
           id: "masa_sec",
           positive: true,
-          keywords: ["baska masa", "kamera calismiyor", "degistir", "5 numara"],
-          text: "» Abi 5'in kamerası bozuk, 8'i aç.\n8 numaralı masaya geçtin.",
+          keywords: ["baska masa", "masa degis", "kamerali masa", "kamerasi olan"],
+          text: "— Kameralı tek masa 5 koçum. O da yarım çalışıyor.\nMecbur 5'e oturdun.",
           goto: "kafe_masa"
         },
         {
@@ -191,8 +210,8 @@ window.Yasandi.scenarios.push({
           id: "hile_ver",
           positive: true,
           keywords: ["hile", "kurayim", "goster", "yardim et"],
-          text: "Çocuğa hile indirmeye çalışırken bilgisayara virüs girdi. Mavi ekran verdi! Kafeci 'Format atıcam kalk!' diye bağırdı.",
-          ending: "virus"
+          text: "Çocuğa hile indirmeye çalışırken bilgisayar mavi ekran verdi.\n— Format atıcam, kalk! diye bağırdı kafeci. Çocuk çoktan kaçmıştı.",
+          ending: "mavi_ekran"
         },
         {
           id: "oyala",
@@ -219,15 +238,15 @@ window.Yasandi.scenarios.push({
       look: "Kamerada 144p, piksel piksel bir görüntü. {crush} gülümsüyor.",
       text: "Kamerayı açtın. {crush} gülümsedi. 'Saçımı kestirdim nasıl olmuş?' diye sordu. Fakat o an arkanda dikilen kafeci ekrana yansıdı.",
       freeze: {
-        text: "Cevap vermedin. {crush} 'Arkadaki kel abi kim? Sana çok benziyor' yazdı.",
+        text: "Cevap vermedin. {crush} 'Arkadaki jöleli abi kim? Abin mi?' yazdı.",
         goto: "facebook_final"
       },
       intents: [
         {
           id: "guzel",
           positive: true,
-          keywords: ["guzel", "cok iyi", "begendim", "yakismis", "harika"],
-          text: "» Çok yakışmış :)\nArkadaki kafeci de kameraya baş parmağını kaldırıp 'Güzel olmuş yenge' diye bağırdı.",
+          keywords: ["guzel", "cok iyi", "begendim", "yakis", "harika", "olmus"],
+          text: "{crush} kızardı, 144p'de bile belli oldu. Arkadaki kafeci kameraya baş parmağını kaldırdı:\n— Güzel olmuş yenge!",
           goto: "facebook_final"
         },
         {
@@ -241,7 +260,7 @@ window.Yasandi.scenarios.push({
           id: "kafeci",
           positive: true,
           keywords: ["kafeciyi", "abi git", "kadraj", "arkama bak", "cekil"],
-          text: "» Abi kadraja girme ya!\nKafeci 'Masanın süresi bitti koçum, kalk' diyerek hesabı kesti.",
+          text: "Kafeciye kadrajdan çıkmasını söyledin.\n— Masanın süresi bitti koçum, kalk.\nHesabı kesti, kamerayla beraber sen de kapandın.",
           ending: "sure_bitti"
         }
       ],
@@ -255,15 +274,25 @@ window.Yasandi.scenarios.push({
       look: "MSN bazen donuyor, yazılar geç gidiyor.",
       text: "Kafeci olayını atlattın. {crush} 'MSN kasıyor ya, Facebook'tan eklesene beni' yazdı.",
       freeze: {
-        text: "Tam adını yazacakken kafede elektrikler kesildi! Herkes 'Abi masa 5'i kaydet!' diye bağırmaya başladı. Karanlıkta kaldın.",
-        ending: "elektrik_kesintisi"
+        text: "— Ee? Ekliyor musun? Beni 'prensesss' diye arat, üç s'li.",
+        exhausted: {
+          text: "Sen düşünürken kafede elektrikler kesildi. Karanlıkta yirmi kişi aynı anda bağırdı: 'Abi kaydet!' Kaydetmedi.",
+          ending: "elektrik_kesintisi"
+        }
       },
       intents: [
         {
           id: "ekle",
           positive: true,
-          keywords: ["eklerim", "istek yolla", "kabul et", "ararim", "tamam"],
+          keywords: ["ekle", "istek", "arkadas ol", "facebook"],
           text: "Facebook'a girdin. Profil fotoğrafında güneş gözlüklü havalı bir pozun var. İstek gönderdin, hemen kabul etti. Birkaç gün sonra ilişki durumunuz 'Karmaşık' oldu.",
+          ending: "2010_aski"
+        },
+        {
+          id: "evet_ekle",
+          whole: true,
+          keywords: ["tamam", "olur", "tabi", "evet", "ok"],
+          text: "Facebook'a girdin. Profil fotoğrafında güneş gözlüklü, yukarıdan çekilmiş bir pozun var. İstek gönderdin, anında kabul etti. Birkaç gün sonra ilişki durumunuz 'Karmaşık' oldu.",
           ending: "2010_aski"
         },
         {
@@ -288,7 +317,7 @@ window.Yasandi.scenarios.push({
   },
 
   fallbacks: [
-    "Sene 2010. O zamanlar bunlar yoktu, 2010'a uygun davran.",
-    "Böyle yaparak kızın/çocuğun kalbini kazanamazsın."
+    "Sene 2010, o daha icat edilmedi. Ne yazıyorsun {crush}'e?",
+    "{crush} üç nokta yazıp siliyor, yazıp siliyor. Sen ne diyeceksin?"
   ]
 });
